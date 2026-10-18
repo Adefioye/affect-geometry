@@ -1,9 +1,10 @@
-from affect_geometry.cli_args import config_from_argv
+from affect_geometry.cli_args import run_command
 from affect_geometry.pipeline import compute_rdms
 
 
 def main() -> None:
-    compute_rdms(config_from_argv("Compute representational dissimilarity matrices"))
+    run_command("Compute representational dissimilarity matrices", compute_rdms)
+
 
 if __name__ == "__main__":
     main()

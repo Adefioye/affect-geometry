@@ -100,6 +100,7 @@ class AnalysisConfig:
 class ExperimentConfig:
     run_id: str = AUTO_RUN_ID
     output_root: str = "outputs"
+    log_root: str = "logs"
     seed: int = 17
     dataset: DatasetConfig = field(default_factory=DatasetConfig)
     model: ModelConfig = field(default_factory=ModelConfig)
@@ -111,6 +112,14 @@ class ExperimentConfig:
     @property
     def run_dir(self) -> Path:
         return Path(self.output_root) / safe_slug(self.model.name) / validate_run_id(self.run_id)
+
+    @property
+    def log_identifier(self) -> str:
+        return f"{safe_slug(self.model.name)}__{validate_run_id(self.run_id)}"
+
+    @property
+    def log_dir(self) -> Path:
+        return Path(self.log_root) / self.log_identifier
 
     def to_dict(self) -> dict[str, Any]:
         return asdict(self)
@@ -136,6 +145,7 @@ def load_config(
     return ExperimentConfig(
         run_id=requested_run_id,
         output_root=raw.get("output_root", "outputs"),
+        log_root=raw.get("log_root", "logs"),
         seed=raw.get("seed", 17),
         dataset=DatasetConfig(**raw.get("dataset", {})),
         model=ModelConfig(**raw.get("model", {})),

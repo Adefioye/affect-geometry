@@ -1,6 +1,7 @@
 {
   "run_id": "auto",
   "output_root": "outputs",
+  "log_root": "logs",
   "seed": 17,
   "dataset": {
     "name": "google-research-datasets/go_emotions",

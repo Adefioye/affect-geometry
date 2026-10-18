@@ -30,6 +30,7 @@ from affect_geometry.data.goemotions import load_samples, prepare_goemotions
 from affect_geometry.distances.rdm import RDMResult, compute_rdm, load_rdm, save_rdm
 from affect_geometry.embeddings.isomap import geodesic_distances, isomap
 from affect_geometry.embeddings.mds import classical_mds
+from affect_geometry.logging import get_logger, progress
 from affect_geometry.persistence.layout import RunLayout
 
 
@@ -75,11 +76,16 @@ def initialize_run(config: ExperimentConfig) -> RunLayout:
 
 
 def prepare(config: ExperimentConfig) -> None:
+    logger = get_logger()
+    logger.info("stage.start stage=prepare")
     layout = initialize_run(config)
     prepare_goemotions(config.dataset, layout.dataset)
+    logger.info("stage.complete stage=prepare")
 
 
 def extract(config: ExperimentConfig) -> None:
+    logger = get_logger()
+    logger.info("stage.start stage=extract")
     layout = initialize_run(config)
     samples_path = layout.dataset / "samples.csv"
     if not samples_path.exists():
@@ -87,6 +93,7 @@ def extract(config: ExperimentConfig) -> None:
     samples = load_samples(samples_path)
     metadata = extract_activations(samples, layout.activations, config.model, config.activations)
     layout.write_json("activations/metadata.json", metadata)
+    logger.info("stage.complete stage=extract")
 
 
 def _group_indices(emotions: np.ndarray, labels: list[str]) -> list[np.ndarray]:
@@ -102,6 +109,8 @@ def _cap_indices(indices: list[np.ndarray], maximum: int, seed: int) -> list[np.
 
 
 def compute_rdms(config: ExperimentConfig) -> None:
+    logger = get_logger()
+    logger.info("stage.start stage=rdm")
     layout = initialize_run(config)
     all_samples = load_samples(layout.dataset / "samples.csv")
     selected_rows = np.arange(len(all_samples))
@@ -112,7 +121,13 @@ def compute_rdms(config: ExperimentConfig) -> None:
     local_indices = _group_indices(samples["emotion"].to_numpy(), labels)
     capped_local = _cap_indices(local_indices, config.rdm.max_samples_per_emotion, config.seed)
     sampling_rows = []
-    for label, rows in zip(labels, capped_local, strict=True):
+    for label, rows in progress(
+        zip(labels, capped_local, strict=True),
+        description="Recording distribution samples",
+        total=len(labels),
+        unit="emotion",
+        leave=False,
+    ):
         for row in rows:
             sampling_rows.append(
                 {
@@ -126,8 +141,18 @@ def compute_rdms(config: ExperimentConfig) -> None:
     layer_files = sorted((layout.activations / config.activations.poolings[0]).glob("layer_*.npy"))
     if not layer_files:
         raise FileNotFoundError("No activations found; run the extract stage first")
-    for pooling in config.activations.poolings:
-        for layer, _ in enumerate(layer_files):
+    for pooling in progress(
+        config.activations.poolings,
+        description="Computing RDM pooling modes",
+        unit="pooling",
+    ):
+        for layer, _ in progress(
+            enumerate(layer_files),
+            description=f"Processing {pooling} layers",
+            total=len(layer_files),
+            unit="layer",
+            leave=False,
+        ):
             activations = np.asarray(
                 load_layer(layout.activations, pooling, layer)[selected_rows], dtype=np.float32
             )
@@ -153,7 +178,12 @@ def compute_rdms(config: ExperimentConfig) -> None:
                 reduced = activations
             full_groups = [reduced[rows] for rows in local_indices]
             capped_groups = [reduced[rows] for rows in capped_local]
-            for distance_name in config.rdm.distances:
+            for distance_name in progress(
+                config.rdm.distances,
+                description=f"Layer {layer}: constructing RDMs",
+                unit="distance",
+                leave=False,
+            ):
                 groups = (
                     capped_groups
                     if distance_name in {"rbf_mmd", "energy", "sliced_wasserstein"}
@@ -182,6 +212,7 @@ def compute_rdms(config: ExperimentConfig) -> None:
                         "distribution_cap": config.rdm.max_samples_per_emotion,
                     },
                 )
+    logger.info("stage.complete stage=rdm")
 
 
 def _embedding_context(path: Path, layout: RunLayout) -> tuple[str, int, str]:
@@ -190,9 +221,16 @@ def _embedding_context(path: Path, layout: RunLayout) -> tuple[str, int, str]:
 
 
 def embed(config: ExperimentConfig) -> None:
+    logger = get_logger()
+    logger.info("stage.start stage=embed")
     layout = initialize_run(config)
     requested_dimensions = sorted(set(config.embedding.dimensions))
-    for rdm_path in sorted(layout.rdms.glob("*/layer_*/*.npz")):
+    rdm_paths = sorted(layout.rdms.glob("*/layer_*/*.npz"))
+    for rdm_path in progress(
+        rdm_paths,
+        description="Embedding layerwise RDMs",
+        unit="RDM",
+    ):
         pooling, layer, distance_name = _embedding_context(rdm_path, layout)
         rdm = load_rdm(rdm_path)
         max_dimension = min(
@@ -265,7 +303,12 @@ def embed(config: ExperimentConfig) -> None:
             destination / "isomap_residual_variance.csv", index=False
         )
         sweep_rows = []
-        for requested_k in config.embedding.isomap_neighbor_grid:
+        for requested_k in progress(
+            config.embedding.isomap_neighbor_grid,
+            description=f"Layer {layer}: sweeping Isomap neighbors",
+            unit="setting",
+            leave=False,
+        ):
             geodesic, used_k = geodesic_distances(rdm.distance, requested_k)
             sweep_embedding = classical_mds(geodesic, min(2, max_dimension)).coordinates
             sweep_rows.append(
@@ -279,6 +322,7 @@ def embed(config: ExperimentConfig) -> None:
                 }
             )
         pd.DataFrame(sweep_rows).to_csv(destination / "isomap_neighbor_sweep.csv", index=False)
+    logger.info("stage.complete stage=embed")
 
 
 def _coordinates(frame: pd.DataFrame, method: str, dimensions: int) -> tuple[list[str], np.ndarray]:
@@ -288,6 +332,8 @@ def _coordinates(frame: pd.DataFrame, method: str, dimensions: int) -> tuple[lis
 
 
 def analyze(config: ExperimentConfig) -> None:
+    logger = get_logger()
+    logger.info("stage.start stage=analyze")
     layout = initialize_run(config)
     reference = pd.read_csv(config.analysis.va_reference)
     quality_rows: list[dict[str, object]] = []
@@ -302,7 +348,12 @@ def analyze(config: ExperimentConfig) -> None:
     coordinates_cache: dict[tuple[str, int, str, str, int], tuple[list[str], np.ndarray]] = {}
     rdm_cache: dict[tuple[str, int, str], RDMResult] = {}
 
-    for coordinate_path in sorted(layout.embeddings.glob("*/layer_*/*/coordinates.csv")):
+    coordinate_paths = sorted(layout.embeddings.glob("*/layer_*/*/coordinates.csv"))
+    for coordinate_path in progress(
+        coordinate_paths,
+        description="Analyzing embedded RDMs",
+        unit="embedding",
+    ):
         relative = coordinate_path.relative_to(layout.embeddings)
         pooling, layer_part, distance_name = relative.parts[:3]
         layer = int(layer_part.split("_")[-1])
@@ -379,7 +430,11 @@ def analyze(config: ExperimentConfig) -> None:
     embedding_agreement_rows = []
     neighborhood_rows = []
     group_keys = sorted({(key[0], key[1]) for key in rdm_cache})
-    for pooling, layer in group_keys:
+    for pooling, layer in progress(
+        group_keys,
+        description="Comparing distance notions",
+        unit="layer",
+    ):
         names = sorted(key[2] for key in rdm_cache if key[:2] == (pooling, layer))
         for left, right in combinations(names, 2):
             first, second = rdm_cache[(pooling, layer, left)], rdm_cache[(pooling, layer, right)]
@@ -430,30 +485,35 @@ def analyze(config: ExperimentConfig) -> None:
                     )
 
     cross_layer_rows = []
-    for pooling in config.activations.poolings:
-        for distance_name in config.rdm.distances:
-            for method in ("mds", "isomap"):
-                keys = sorted(
-                    key
-                    for key in coordinates_cache
-                    if key[0] == pooling
-                    and key[2] == distance_name
-                    and key[3] == method
-                    and key[4] == 2
-                )
-                for left_key, right_key in combinations(keys, 2):
-                    cross_layer_rows.append(
-                        {
-                            "pooling": pooling,
-                            "distance": distance_name,
-                            "method": method,
-                            "layer_i": left_key[1],
-                            "layer_j": right_key[1],
-                            "procrustes_r2": embedding_procrustes_r2(
-                                coordinates_cache[left_key][1], coordinates_cache[right_key][1]
-                            ),
-                        }
-                    )
+    layerwise_contexts = [
+        (pooling, distance_name, method)
+        for pooling in config.activations.poolings
+        for distance_name in config.rdm.distances
+        for method in ("mds", "isomap")
+    ]
+    for pooling, distance_name, method in progress(
+        layerwise_contexts,
+        description="Comparing representations across layers",
+        unit="geometry",
+    ):
+        keys = sorted(
+            key
+            for key in coordinates_cache
+            if key[0] == pooling and key[2] == distance_name and key[3] == method and key[4] == 2
+        )
+        for left_key, right_key in combinations(keys, 2):
+            cross_layer_rows.append(
+                {
+                    "pooling": pooling,
+                    "distance": distance_name,
+                    "method": method,
+                    "layer_i": left_key[1],
+                    "layer_j": right_key[1],
+                    "procrustes_r2": embedding_procrustes_r2(
+                        coordinates_cache[left_key][1], coordinates_cache[right_key][1]
+                    ),
+                }
+            )
 
     comparison = quality.pivot_table(
         index=["pooling", "layer", "distance", "dimensions"],
@@ -499,19 +559,26 @@ def analyze(config: ExperimentConfig) -> None:
     }
     for name, frame in plot_tables.items():
         frame.to_csv(layout.plot_data / name, index=False)
+    logger.info("stage.complete stage=analyze")
 
 
 def plot(config: ExperimentConfig) -> None:
     from affect_geometry.reporting.plots import create_all_plots
 
+    logger = get_logger()
+    logger.info("stage.start stage=plot")
     layout = initialize_run(config)
     create_all_plots(layout.plot_data, layout.plots)
+    logger.info("stage.complete stage=plot")
 
 
 def run(config: ExperimentConfig) -> None:
+    logger = get_logger()
+    logger.info("pipeline.start")
     prepare(config)
     extract(config)
     compute_rdms(config)
     embed(config)
     analyze(config)
     plot(config)
+    logger.info("pipeline.complete")

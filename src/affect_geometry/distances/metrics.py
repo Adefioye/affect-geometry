@@ -1,22 +1,32 @@
 from __future__ import annotations
 
 from collections.abc import Callable
+from itertools import combinations
 
 import numpy as np
 from scipy.spatial.distance import cdist
 from scipy.stats import wasserstein_distance
 from sklearn.covariance import LedoitWolf
 
+from affect_geometry.logging import progress
+
 ArrayGroups = list[np.ndarray]
 
 
 def _pairwise(
-    groups: ArrayGroups, function: Callable[[np.ndarray, np.ndarray], float]
+    groups: ArrayGroups,
+    function: Callable[[np.ndarray, np.ndarray], float],
+    description: str,
 ) -> np.ndarray:
     result = np.zeros((len(groups), len(groups)), dtype=np.float64)
-    for i in range(len(groups)):
-        for j in range(i + 1, len(groups)):
-            result[i, j] = result[j, i] = function(groups[i], groups[j])
+    pairs = list(combinations(range(len(groups)), 2))
+    for i, j in progress(
+        pairs,
+        description=description,
+        unit="pair",
+        leave=False,
+    ):
+        result[i, j] = result[j, i] = function(groups[i], groups[j])
     return result
 
 
@@ -43,7 +53,7 @@ def energy_distance(groups: ArrayGroups, **_: object) -> tuple[np.ndarray, np.nd
         within_y = yy.sum() / max(len(y) * (len(y) - 1), 1)
         return float(2 * cross - within_x - within_y)
 
-    raw = _pairwise(groups, statistic)
+    raw = _pairwise(groups, statistic, "Computing Energy emotion pairs")
     return raw, np.sqrt(np.maximum(raw, 0.0))
 
 
@@ -83,7 +93,7 @@ def rbf_mmd(
         yy = (kyy.sum() - np.trace(kyy)) / max(len(y) * (len(y) - 1), 1)
         return float(xx + yy - 2.0 * kxy.mean())
 
-    raw = _pairwise(groups, statistic)
+    raw = _pairwise(groups, statistic, "Computing RBF-MMD emotion pairs")
     return raw, np.sqrt(np.maximum(raw, 0.0))
 
 
@@ -102,7 +112,7 @@ def sliced_wasserstein(
     def statistic(x: np.ndarray, y: np.ndarray) -> float:
         return float(np.mean([wasserstein_distance(x[:, k], y[:, k]) for k in range(projections)]))
 
-    matrix = _pairwise(projected, statistic)
+    matrix = _pairwise(projected, statistic, "Computing Sliced-Wasserstein pairs")
     return matrix, matrix.copy()
 
 
@@ -126,27 +136,37 @@ def crossnobis(
         assignment[order] = np.arange(len(group)) % n_folds
         assignments.append(assignment)
     precisions = []
-    for fold in range(n_folds):
+    for fold in progress(
+        range(n_folds),
+        description="Estimating Crossnobis precision",
+        unit="fold",
+        leave=False,
+    ):
         residuals = []
         for group, assignment in zip(groups, assignments, strict=True):
             training = group[assignment != fold]
             residuals.append(training - training.mean(axis=0))
         precisions.append(LedoitWolf().fit(np.concatenate(residuals)).precision_)
     raw = np.zeros((len(groups), len(groups)), dtype=np.float64)
-    for i in range(len(groups)):
-        for j in range(i + 1, len(groups)):
-            estimates = []
-            for fold in range(n_folds):
-                delta_test = groups[i][assignments[i] == fold].mean(0) - groups[j][
-                    assignments[j] == fold
-                ].mean(0)
-                delta_train = groups[i][assignments[i] != fold].mean(0) - groups[j][
-                    assignments[j] != fold
-                ].mean(0)
-                estimates.append(
-                    float(delta_test @ precisions[fold] @ delta_train) / groups[i].shape[1]
-                )
-            raw[i, j] = raw[j, i] = float(np.mean(estimates))
+    pairs = list(combinations(range(len(groups)), 2))
+    for i, j in progress(
+        pairs,
+        description="Computing Crossnobis emotion pairs",
+        unit="pair",
+        leave=False,
+    ):
+        estimates = []
+        for fold in range(n_folds):
+            delta_test = groups[i][assignments[i] == fold].mean(0) - groups[j][
+                assignments[j] == fold
+            ].mean(0)
+            delta_train = groups[i][assignments[i] != fold].mean(0) - groups[j][
+                assignments[j] != fold
+            ].mean(0)
+            estimates.append(
+                float(delta_test @ precisions[fold] @ delta_train) / groups[i].shape[1]
+            )
+        raw[i, j] = raw[j, i] = float(np.mean(estimates))
     return raw, np.sqrt(np.maximum(raw, 0.0))
 
 

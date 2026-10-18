@@ -4,6 +4,8 @@ from pathlib import Path
 
 import numpy as np
 
+from affect_geometry.logging import progress
+
 
 class ActivationStore:
     """One memory-mapped matrix per pooling and layer."""
@@ -20,10 +22,20 @@ class ActivationStore:
         self.root = root
         self.root.mkdir(parents=True, exist_ok=True)
         self.arrays: dict[tuple[str, int], np.memmap] = {}
-        for pooling in poolings:
+        for pooling in progress(
+            poolings,
+            description="Creating activation stores",
+            unit="pooling",
+            leave=False,
+        ):
             directory = root / pooling
             directory.mkdir(parents=True, exist_ok=True)
-            for layer in range(n_layers):
+            for layer in progress(
+                range(n_layers),
+                description=f"Allocating {pooling} layers",
+                unit="layer",
+                leave=False,
+            ):
                 path = directory / f"layer_{layer:03d}.npy"
                 self.arrays[(pooling, layer)] = np.lib.format.open_memmap(
                     path,
@@ -36,7 +48,13 @@ class ActivationStore:
         self.arrays[(pooling, layer)][start : start + len(values)] = values
 
     def flush(self) -> None:
-        for array in self.arrays.values():
+        for array in progress(
+            self.arrays.values(),
+            description="Flushing activation stores",
+            total=len(self.arrays),
+            unit="layer",
+            leave=False,
+        ):
             array.flush()
 
 

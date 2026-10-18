@@ -9,6 +9,7 @@ import torch
 
 from affect_geometry.activations.store import ActivationStore
 from affect_geometry.config import ActivationConfig, ModelConfig
+from affect_geometry.logging import get_logger, progress
 from affect_geometry.models.huggingface import decoder_layers, load_causal_lm
 
 
@@ -48,6 +49,8 @@ def extract_activations(
     activation_config: ActivationConfig,
 ) -> dict[str, int | str]:
     """Capture the post-block residual stream from every decoder layer."""
+    logger = get_logger()
+    logger.info("activations.model_loading model=%s", model_config.name)
     model, tokenizer, device = load_causal_lm(model_config)
     layers = decoder_layers(model)
     hidden_size = int(model.config.hidden_size)
@@ -58,6 +61,14 @@ def extract_activations(
         hidden_size,
         activation_config.poolings,
         activation_config.storage_dtype,
+    )
+    logger.info(
+        "activations.start samples=%d layers=%d hidden_size=%d device=%s poolings=%s",
+        len(samples),
+        len(layers),
+        hidden_size,
+        device,
+        ",".join(activation_config.poolings),
     )
     captured: list[torch.Tensor | None] = [None] * len(layers)
     handles = []
@@ -71,7 +82,14 @@ def extract_activations(
         offset = 0
         backbone = model.get_decoder() if hasattr(model, "get_decoder") else model
         with torch.inference_mode():
-            for batch in _batches(samples, model_config.batch_size):
+            batches = _batches(samples, model_config.batch_size)
+            total_batches = (len(samples) + model_config.batch_size - 1) // model_config.batch_size
+            for batch in progress(
+                batches,
+                description=f"Extracting {len(layers)} Qwen layers",
+                total=total_batches,
+                unit="batch",
+            ):
                 encoded = tokenizer(
                     batch["text"].astype(str).tolist(),
                     padding=True,
@@ -94,6 +112,7 @@ def extract_activations(
                     captured[layer_index] = None
                 offset += len(batch)
         store.flush()
+        logger.info("activations.complete samples=%d destination=%s", len(samples), destination)
     finally:
         for handle in handles:
             handle.remove()

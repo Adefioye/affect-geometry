@@ -7,12 +7,20 @@ from pathlib import Path
 import pandas as pd
 
 from affect_geometry.config import DatasetConfig
+from affect_geometry.logging import get_logger, progress
 
 
 def prepare_goemotions(config: DatasetConfig, destination: Path) -> pd.DataFrame:
     """Download GoEmotions and persist only examples with exactly one label."""
     from datasets import load_dataset
 
+    logger = get_logger()
+    logger.info(
+        "dataset.download name=%s subset=%s revision=%s",
+        config.name,
+        config.subset,
+        config.revision,
+    )
     dataset = load_dataset(
         config.name,
         config.subset,
@@ -20,12 +28,22 @@ def prepare_goemotions(config: DatasetConfig, destination: Path) -> pd.DataFrame
     )
     frames: list[pd.DataFrame] = []
     label_names: list[str] | None = None
-    for split in config.splits:
+    for split in progress(
+        config.splits,
+        description="Preparing GoEmotions splits",
+        unit="split",
+    ):
         part = dataset[split]
         names = list(part.features["labels"].feature.names)
         label_names = label_names or names
         records = []
-        for row_index, row in enumerate(part):
+        for row_index, row in progress(
+            enumerate(part),
+            description=f"Filtering single-label {split}",
+            total=len(part),
+            unit="sample",
+            leave=False,
+        ):
             labels = row["labels"]
             if len(labels) != 1:
                 continue
@@ -48,6 +66,9 @@ def prepare_goemotions(config: DatasetConfig, destination: Path) -> pd.DataFrame
                 }
             )
         frames.append(pd.DataFrame.from_records(records))
+        logger.info(
+            "dataset.split_complete split=%s retained=%d source=%d", split, len(records), len(part)
+        )
     result = pd.concat(frames, ignore_index=True)
     destination.mkdir(parents=True, exist_ok=True)
     result.to_csv(destination / "samples.csv", index=False)
@@ -64,6 +85,7 @@ def prepare_goemotions(config: DatasetConfig, destination: Path) -> pd.DataFrame
         "single_label_samples": len(result),
     }
     (destination / "dataset_metadata.json").write_text(json.dumps(metadata, indent=2) + "\n")
+    logger.info("dataset.complete retained=%d destination=%s", len(result), destination)
     return result
 
 

@@ -5,6 +5,8 @@ import pandas as pd
 from scipy.linalg import orthogonal_procrustes
 from scipy.stats import pearsonr
 
+from affect_geometry.logging import progress
+
 
 def align_similarity(source: np.ndarray, target: np.ndarray) -> tuple[np.ndarray, float]:
     source_centered = source - source.mean(axis=0)
@@ -39,7 +41,12 @@ def va_recovery(
     if permutations:
         rng = np.random.default_rng(seed)
         null = []
-        for _ in range(permutations):
+        for _ in progress(
+            range(permutations),
+            description="Testing V-A alignment",
+            unit="permutation",
+            leave=False,
+        ):
             _, score = align_similarity(coordinates, target[rng.permutation(len(target))])
             null.append(score)
         p_value = float((1 + np.sum(np.asarray(null) >= r_squared)) / (permutations + 1))

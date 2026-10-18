@@ -9,6 +9,8 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 
+from affect_geometry.logging import progress
+
 
 def _save(fig: plt.Figure, path: Path) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
@@ -20,7 +22,13 @@ def _save(fig: plt.Figure, path: Path) -> None:
 def _coordinate_plots(plot_data: Path, destination: Path) -> None:
     coordinates = pd.read_csv(plot_data / "coordinates.csv")
     grouping = ["pooling", "layer", "distance", "method", "dimensions"]
-    for key, frame in coordinates.groupby(grouping, sort=True):
+    grouped = coordinates.groupby(grouping, sort=True)
+    for key, frame in progress(
+        grouped,
+        description="Rendering manifold plots",
+        total=grouped.ngroups,
+        unit="plot",
+    ):
         pooling, layer, distance_name, method, dimensions = key
         dimensions = int(dimensions)
         figure = plt.figure(figsize=(8, 6))
@@ -79,8 +87,19 @@ def _layerwise_plots(plot_data: Path, destination: Path) -> None:
         "participation_ratio",
         "dimensions_90",
     ]
-    for pooling, pooling_frame in frame.groupby("pooling"):
-        for metric in metrics:
+    pooling_groups = frame.groupby("pooling")
+    for pooling, pooling_frame in progress(
+        pooling_groups,
+        description="Rendering layerwise summaries",
+        total=pooling_groups.ngroups,
+        unit="pooling",
+    ):
+        for metric in progress(
+            metrics,
+            description=f"{pooling}: layerwise metrics",
+            unit="metric",
+            leave=False,
+        ):
             if metric not in pooling_frame or pooling_frame[metric].isna().all():
                 continue
             figure, axis = plt.subplots(figsize=(10, 6))
@@ -107,7 +126,13 @@ def _layerwise_plots(plot_data: Path, destination: Path) -> None:
 
 def _intrinsic_plots(plot_data: Path, destination: Path) -> None:
     residuals = pd.read_csv(plot_data / "isomap_residual_variance.csv")
-    for (pooling, distance_name), frame in residuals.groupby(["pooling", "distance"]):
+    grouped = residuals.groupby(["pooling", "distance"])
+    for (pooling, distance_name), frame in progress(
+        grouped,
+        description="Rendering intrinsic-dimension plots",
+        total=grouped.ngroups,
+        unit="plot",
+    ):
         figure, axis = plt.subplots(figsize=(9, 5))
         for layer, group in frame.groupby("layer"):
             axis.plot(
@@ -127,7 +152,13 @@ def _intrinsic_plots(plot_data: Path, destination: Path) -> None:
 
 def _agreement_plots(plot_data: Path, destination: Path) -> None:
     frame = pd.read_csv(plot_data / "distance_agreement.csv")
-    for (pooling, layer), group in frame.groupby(["pooling", "layer"]):
+    grouped = frame.groupby(["pooling", "layer"])
+    for (pooling, layer), group in progress(
+        grouped,
+        description="Rendering distance-agreement plots",
+        total=grouped.ngroups,
+        unit="plot",
+    ):
         names = sorted(set(group["distance_i"]) | set(group["distance_j"]))
         matrix = np.eye(len(names))
         lookup = {name: index for index, name in enumerate(names)}

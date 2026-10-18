@@ -4,7 +4,7 @@ A reproducible pipeline for extracting every-layer Qwen residual-stream activati
 single-label GoEmotions examples, constructing representational dissimilarity matrices (RDMs),
 and comparing MDS and Isomap affect manifolds.
 
-See [`doc/implementation.md`](doc/implementation.md) for installation, commands, outputs, and
+See [`doc/rq1-implementation.md`](doc/rq1-implementation.md) for installation, commands, outputs, and
 the mathematical conventions used by the implementation.
 
 ```bash
@@ -35,3 +35,10 @@ python -m plot --config configs/default.json --run-id "$RUN_ID"
 
 You can also replace `"auto"` in the config with one explicit run ID. A shared explicit ID is
 required for separate-stage commands so they all read and write the same run.
+
+Every command shows descriptive `tqdm` progress and appends structured events to one centralized
+file identified by model and run ID, for example:
+
+```text
+logs/qwen--qwen3-0.6b__20261018T153045Z/run.log
+```
