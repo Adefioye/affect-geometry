@@ -1,12 +1,20 @@
 # Hugging Face upload scripts
 
-These scripts archive completed `outputs/<run-id>/` artifacts in Hugging Face dataset
-repositories. Remote directories are organized by the model recorded in `manifest.json` and by
-run ID:
+These scripts archive completed `outputs/<model-slug>/<run-id>/` artifacts in Hugging Face dataset
+repositories. The model is a required argument because it is part of the local path. The default
+remote directory mirrors the same model/run hierarchy:
 
 ```text
-models/<model-slug>/runs/<run-id>/
+<model-slug>/<run-id>/
 ```
+
+The canonical run ID is a compact UTC datetime, `YYYYMMDDTHHMMSSZ`; for example,
+`20261018T153045Z`. This form sorts chronologically, is unambiguous across RunPod machines, and is
+safe in both local and Hub paths.
+
+`python -m run --config configs/default.json` generates this ID once and records the resolved ID in
+`manifest.json`. If you run stages separately, create one ID and pass the same `--run-id` to every
+stage. The value passed to the upload script must be that resolved ID, not `auto`.
 
 The scripts create missing repositories as **private** by default. An existing repository keeps
 its current visibility. Use `--public` only when the artifacts and source data are appropriate for
@@ -26,7 +34,8 @@ hf auth login
 machine with fast local storage and networking.
 
 Always run `--dry-run` first. It performs local validation and reports the selected file count and
-total size without contacting Hugging Face.
+total size without contacting Hugging Face. Both scripts also require the supplied model and run ID
+to match `manifest.json`, preventing a mislabeled upload.
 
 ## Upload compact run results
 
@@ -44,12 +53,14 @@ It excludes `activations/` and the regenerable `plots/` directory by default.
 
 ```bash
 python script/upload_run_outputs.py \
-  --run-id qwen3_0.6b_goemotions \
+  --model Qwen/Qwen3-0.6B \
+  --run-id 20261018T153045Z \
   --repo-id YOUR_USER/affect-geometry-runs \
   --dry-run
 
 python script/upload_run_outputs.py \
-  --run-id qwen3_0.6b_goemotions \
+  --model Qwen/Qwen3-0.6B \
+  --run-id 20261018T153045Z \
   --repo-id YOUR_USER/affect-geometry-runs
 ```
 
@@ -63,12 +74,14 @@ dedicated dataset repository:
 
 ```bash
 python script/upload_model_activations.py \
-  --run-id qwen3_0.6b_goemotions \
+  --model Qwen/Qwen3-0.6B \
+  --run-id 20261018T153045Z \
   --repo-id YOUR_USER/affect-geometry-activations \
   --dry-run
 
 python script/upload_model_activations.py \
-  --run-id qwen3_0.6b_goemotions \
+  --model Qwen/Qwen3-0.6B \
+  --run-id 20261018T153045Z \
   --repo-id YOUR_USER/affect-geometry-activations
 ```
 
@@ -83,7 +96,7 @@ mapping for every activation matrix.
 
 ```text
 --output-root PATH     Local output root; defaults to outputs
---model NAME           Verify the model recorded in manifest.json
+--model NAME           Required model name; locates and verifies the run
 --path-in-repo PATH    Override the generated model/run directory
 --private              Create a missing repository as private (default)
 --public               Create a missing repository as public

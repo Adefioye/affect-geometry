@@ -12,4 +12,26 @@ python -m pip install -e ".[dev]"
 python -m run --config configs/default.json
 ```
 
-All generated artifacts are written below `outputs/<run_id>/`.
+The complete-pipeline command generates one compact UTC run ID, such as
+`20261018T153045Z`. All generated artifacts are written below:
+
+```text
+outputs/<model-slug>/<run-id>/
+```
+
+For example, the default model writes to
+`outputs/qwen--qwen3-0.6b/20261018T153045Z/`. To execute stages separately, generate one run ID
+and pass that same value to every stage:
+
+```bash
+RUN_ID="$(date -u +%Y%m%dT%H%M%SZ)"
+python -m prepare --config configs/default.json --run-id "$RUN_ID"
+python -m extract --config configs/default.json --run-id "$RUN_ID"
+python -m rdm --config configs/default.json --run-id "$RUN_ID"
+python -m embed --config configs/default.json --run-id "$RUN_ID"
+python -m analyze --config configs/default.json --run-id "$RUN_ID"
+python -m plot --config configs/default.json --run-id "$RUN_ID"
+```
+
+You can also replace `"auto"` in the config with one explicit run ID. A shared explicit ID is
+required for separate-stage commands so they all read and write the same run.

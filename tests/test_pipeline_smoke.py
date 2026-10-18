@@ -33,7 +33,7 @@ def test_synthetic_pipeline_writes_reusable_tables(tmp_path: Path) -> None:
                 }
             )
             activation_rows.append(rng.normal(label_index, 0.5, 8))
-    root = tmp_path / "outputs" / "smoke"
+    root = tmp_path / "outputs" / "synthetic" / "smoke"
     (root / "dataset").mkdir(parents=True)
     (root / "activations" / "last_token").mkdir(parents=True)
     pd.DataFrame(samples).to_csv(root / "dataset" / "samples.csv", index=False)

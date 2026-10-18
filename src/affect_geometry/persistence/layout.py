@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import re
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
@@ -66,4 +67,7 @@ class RunLayout:
 
 
 def safe_slug(value: str) -> str:
-    return value.lower().replace("/", "--").replace(" ", "_")
+    slug = re.sub(r"[^a-zA-Z0-9._-]+", "--", value.strip()).strip("-.")
+    if not slug:
+        raise ValueError(f"Cannot construct an output path from {value!r}")
+    return slug.lower()

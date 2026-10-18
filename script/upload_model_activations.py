@@ -13,6 +13,7 @@ from _upload_common import (
     safe_slug,
     selected_files,
     upload_selection,
+    verify_run_id,
 )
 
 
@@ -20,15 +21,19 @@ def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
         description="Upload a validated model activation store to a Hugging Face dataset"
     )
-    parser.add_argument("--run-id", required=True, help="Directory name below --output-root")
-    parser.add_argument("--model", help="Expected model name; defaults to the run manifest")
+    parser.add_argument(
+        "--run-id",
+        required=True,
+        help="Run directory name, normally a UTC timestamp such as 20261018T153045Z",
+    )
+    parser.add_argument("--model", required=True, help="Model name used in the local path")
     parser.add_argument(
         "--repo-id", required=True, help="Hugging Face dataset repo, e.g. user/activations"
     )
     parser.add_argument("--output-root", default="outputs", help="Local output root")
     parser.add_argument(
         "--path-in-repo",
-        help="Remote directory; defaults to models/<model>/runs/<run-id>",
+        help="Remote directory; defaults to <model-slug>/<run-id>",
     )
     visibility = parser.add_mutually_exclusive_group()
     visibility.add_argument("--private", dest="private", action="store_true")
@@ -71,16 +76,15 @@ def validate_activations(run_directory, manifest: dict) -> None:
 
 def main() -> None:
     args = parse_args()
-    run_directory = resolve_run_directory(args.output_root, args.run_id)
+    run_directory = resolve_run_directory(args.output_root, args.model, args.run_id)
     manifest = load_manifest(run_directory)
     model = resolve_model(manifest, args.model)
+    verify_run_id(manifest, args.run_id)
     validate_activations(run_directory, manifest)
 
     directories = ["dataset", "activations"]
     files = selected_files(run_directory, directories)
-    path_in_repo = args.path_in_repo or (
-        f"models/{safe_slug(model)}/runs/{safe_slug(args.run_id)}"
-    )
+    path_in_repo = args.path_in_repo or f"{safe_slug(model)}/{args.run_id}"
     print_plan(
         run_directory=run_directory,
         repo_id=args.repo_id,

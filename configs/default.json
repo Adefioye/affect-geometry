@@ -1,5 +1,5 @@
 {
-  "run_id": "qwen3_0.6b_goemotions",
+  "run_id": "auto",
   "output_root": "outputs",
   "seed": 17,
   "dataset": {

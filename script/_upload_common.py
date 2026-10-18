@@ -24,6 +24,16 @@ def manifest_model(manifest: dict[str, Any]) -> str:
     return model
 
 
+def manifest_run_id(manifest: dict[str, Any]) -> str:
+    try:
+        run_id = manifest["config"]["run_id"]
+    except (KeyError, TypeError) as error:
+        raise ValueError("manifest.json does not contain config.run_id") from error
+    if not isinstance(run_id, str) or not run_id.strip():
+        raise ValueError("manifest config.run_id must be a non-empty string")
+    return run_id
+
+
 def resolve_model(manifest: dict[str, Any], requested_model: str | None) -> str:
     recorded_model = manifest_model(manifest)
     if requested_model is not None and requested_model != recorded_model:
@@ -34,6 +44,15 @@ def resolve_model(manifest: dict[str, Any], requested_model: str | None) -> str:
     return recorded_model
 
 
+def verify_run_id(manifest: dict[str, Any], requested_run_id: str) -> None:
+    recorded_run_id = manifest_run_id(manifest)
+    if requested_run_id != recorded_run_id:
+        raise ValueError(
+            f"Requested run ID {requested_run_id!r} does not match manifest run ID "
+            f"{recorded_run_id!r}"
+        )
+
+
 def safe_slug(value: str) -> str:
     slug = re.sub(r"[^a-zA-Z0-9._-]+", "--", value.strip()).strip("-.")
     if not slug:
@@ -41,12 +60,24 @@ def safe_slug(value: str) -> str:
     return slug.lower()
 
 
-def resolve_run_directory(output_root: str | Path, run_id: str) -> Path:
-    if not run_id or Path(run_id).name != run_id or run_id in {".", ".."}:
-        raise ValueError("--run-id must be a single output-directory name")
+def resolve_run_directory(output_root: str | Path, model: str, run_id: str) -> Path:
+    if (
+        not run_id
+        or run_id == "auto"
+        or Path(run_id).name != run_id
+        or run_id in {".", ".."}
+        or safe_slug(run_id) != run_id.lower()
+    ):
+        raise ValueError(
+            "--run-id must be one filesystem-safe name, normally a UTC timestamp such as "
+            "20261018T153045Z"
+        )
     root = Path(output_root).expanduser().resolve()
-    run_directory = (root / run_id).resolve()
-    if run_directory.parent != root:
+    model_directory = (root / safe_slug(model)).resolve()
+    if model_directory.parent != root:
+        raise ValueError("Resolved model directory falls outside --output-root")
+    run_directory = (model_directory / run_id).resolve()
+    if run_directory.parent != model_directory:
         raise ValueError("Resolved run directory falls outside --output-root")
     if not run_directory.is_dir():
         raise FileNotFoundError(f"Run directory does not exist: {run_directory}")
