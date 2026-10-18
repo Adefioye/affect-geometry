@@ -26,18 +26,18 @@ minimum version recommended for Qwen3.
 python -m venv .venv
 source .venv/bin/activate
 python -m pip install -e ".[dev]"
-affect-geometry run --config configs/default.json
+python -m run --config configs/default.json
 ```
 
 The stages can be run independently, which is preferable for a long extraction:
 
 ```bash
-affect-geometry prepare --config configs/default.json
-affect-geometry extract --config configs/default.json
-affect-geometry rdm --config configs/default.json
-affect-geometry embed --config configs/default.json
-affect-geometry analyze --config configs/default.json
-affect-geometry plot --config configs/default.json
+python -m prepare --config configs/default.json
+python -m extract --config configs/default.json
+python -m rdm --config configs/default.json
+python -m embed --config configs/default.json
+python -m analyze --config configs/default.json
+python -m plot --config configs/default.json
 ```
 
 `device: "auto"` selects CUDA, then Apple MPS, then CPU. Automatic dtype selects bfloat16 on

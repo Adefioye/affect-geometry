@@ -9,8 +9,7 @@ the mathematical conventions used by the implementation.
 
 ```bash
 python -m pip install -e ".[dev]"
-affect-geometry run --config configs/default.json
+python -m run --config configs/default.json
 ```
 
 All generated artifacts are written below `outputs/<run_id>/`.
-

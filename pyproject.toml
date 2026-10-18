@@ -23,11 +23,11 @@ dependencies = [
 [project.optional-dependencies]
 dev = ["pytest>=8", "ruff>=0.6"]
 
-[project.scripts]
-affect-geometry = "affect_geometry.cli:main"
-
 [tool.setuptools.packages.find]
 where = ["src"]
+
+[tool.setuptools]
+py-modules = ["prepare", "extract", "rdm", "embed", "analyze", "plot", "run"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
@@ -38,4 +38,3 @@ target-version = "py310"
 
 [tool.ruff.lint]
 select = ["E", "F", "I", "UP"]
-
