@@ -7,8 +7,40 @@ and comparing MDS and Isomap affect manifolds.
 See [`doc/rq1-implementation.md`](doc/rq1-implementation.md) for installation, commands, outputs, and
 the mathematical conventions used by the implementation.
 
+## Setup
+
+On a Linux x86-64 machine, bootstrap Miniconda and the complete development environment with one
+command:
+
 ```bash
-python -m pip install -e ".[dev]"
+./bootstrap_dev_env.sh
+source ~/.bashrc
+conda activate affect-geometry
+```
+
+The bootstrap is idempotent: it reuses an existing Conda installation, otherwise runs
+`install_miniconda.sh`, makes Conda immediately available to the setup process, and then runs
+`setup_dev_env.sh`. The latter creates the `affect-geometry` environment, installs this project
+from `pyproject.toml`, and runs its validation checks.
+
+The two steps can still be run separately when needed:
+
+```bash
+./install_miniconda.sh
+source ~/.bashrc
+./setup_dev_env.sh
+conda activate affect-geometry
+```
+
+For a specific CUDA build of PyTorch, provide its wheel index when setting up the environment:
+
+```bash
+TORCH_INDEX_URL=https://download.pytorch.org/whl/cu128 ./bootstrap_dev_env.sh
+```
+
+Run the complete experiment with:
+
+```bash
 python -m run --config configs/default.json
 ```
 
