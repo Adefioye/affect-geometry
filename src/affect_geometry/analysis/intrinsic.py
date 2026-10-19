@@ -44,5 +44,7 @@ def elbow_dimension(dimensions: list[int], residuals: list[float]) -> int:
     points = (points - points.min(axis=0)) / scale
     start, end = points[0], points[-1]
     line = end - start
-    distances = np.abs(np.cross(line, points - start)) / max(np.linalg.norm(line), 1e-12)
+    offsets = points - start
+    distances = np.abs(line[0] * offsets[:, 1] - line[1] * offsets[:, 0])
+    distances /= max(np.linalg.norm(line), 1e-12)
     return int(dimensions[int(np.argmax(distances))])

@@ -1,0 +1,13 @@
+distance,method,layer,criterion,model,run_id,pooling,split,seed,pca_components,distribution_cap,quality_neighbors
+cosine,isomap,17,maximum in-sample V-A R2 across 28 layers,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5
+cosine,mds,17,maximum in-sample V-A R2 across 28 layers,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5
+crossnobis,isomap,27,maximum in-sample V-A R2 across 28 layers,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5
+crossnobis,mds,27,maximum in-sample V-A R2 across 28 layers,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5
+energy,isomap,26,maximum in-sample V-A R2 across 28 layers,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5
+energy,mds,27,maximum in-sample V-A R2 across 28 layers,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5
+euclidean,isomap,10,maximum in-sample V-A R2 across 28 layers,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5
+euclidean,mds,27,maximum in-sample V-A R2 across 28 layers,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5
+rbf_mmd,isomap,10,maximum in-sample V-A R2 across 28 layers,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5
+rbf_mmd,mds,26,maximum in-sample V-A R2 across 28 layers,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5
+sliced_wasserstein,isomap,16,maximum in-sample V-A R2 across 28 layers,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5
+sliced_wasserstein,mds,10,maximum in-sample V-A R2 across 28 layers,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5

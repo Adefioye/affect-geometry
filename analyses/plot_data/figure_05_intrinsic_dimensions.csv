@@ -1,0 +1,841 @@
+layer,distance,model,run_id,pooling,split,seed,pca_components,distribution_cap,quality_neighbors,estimate,dimension,method,dimensions_80,dimensions_90,dimensions_95,participation_ratio,negative_eigenvalue_fraction,isomap_residual_elbow
+0,cosine,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_80,4.0,,,,,,,
+0,crossnobis,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_80,6.0,,,,,,,
+0,energy,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_80,3.0,,,,,,,
+0,euclidean,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_80,4.0,,,,,,,
+0,rbf_mmd,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_80,3.0,,,,,,,
+0,sliced_wasserstein,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_80,6.0,,,,,,,
+1,cosine,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_80,4.0,,,,,,,
+1,crossnobis,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_80,6.0,,,,,,,
+1,energy,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_80,3.0,,,,,,,
+1,euclidean,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_80,4.0,,,,,,,
+1,rbf_mmd,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_80,3.0,,,,,,,
+1,sliced_wasserstein,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_80,6.0,,,,,,,
+2,cosine,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_80,4.0,,,,,,,
+2,crossnobis,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_80,3.0,,,,,,,
+2,energy,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_80,3.0,,,,,,,
+2,euclidean,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_80,3.0,,,,,,,
+2,rbf_mmd,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_80,3.0,,,,,,,
+2,sliced_wasserstein,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_80,7.0,,,,,,,
+3,cosine,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_80,5.0,,,,,,,
+3,crossnobis,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_80,4.0,,,,,,,
+3,energy,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_80,4.0,,,,,,,
+3,euclidean,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_80,4.0,,,,,,,
+3,rbf_mmd,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_80,3.0,,,,,,,
+3,sliced_wasserstein,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_80,7.0,,,,,,,
+4,cosine,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_80,4.0,,,,,,,
+4,crossnobis,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_80,4.0,,,,,,,
+4,energy,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_80,3.0,,,,,,,
+4,euclidean,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_80,4.0,,,,,,,
+4,rbf_mmd,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_80,3.0,,,,,,,
+4,sliced_wasserstein,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_80,7.0,,,,,,,
+5,cosine,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_80,5.0,,,,,,,
+5,crossnobis,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_80,4.0,,,,,,,
+5,energy,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_80,3.0,,,,,,,
+5,euclidean,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_80,4.0,,,,,,,
+5,rbf_mmd,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_80,3.0,,,,,,,
+5,sliced_wasserstein,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_80,7.0,,,,,,,
+6,cosine,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_80,5.0,,,,,,,
+6,crossnobis,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_80,5.0,,,,,,,
+6,energy,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_80,5.0,,,,,,,
+6,euclidean,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_80,5.0,,,,,,,
+6,rbf_mmd,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_80,4.0,,,,,,,
+6,sliced_wasserstein,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_80,8.0,,,,,,,
+7,cosine,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_80,6.0,,,,,,,
+7,crossnobis,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_80,6.0,,,,,,,
+7,energy,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_80,6.0,,,,,,,
+7,euclidean,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_80,6.0,,,,,,,
+7,rbf_mmd,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_80,6.0,,,,,,,
+7,sliced_wasserstein,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_80,9.0,,,,,,,
+8,cosine,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_80,6.0,,,,,,,
+8,crossnobis,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_80,6.0,,,,,,,
+8,energy,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_80,5.0,,,,,,,
+8,euclidean,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_80,6.0,,,,,,,
+8,rbf_mmd,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_80,5.0,,,,,,,
+8,sliced_wasserstein,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_80,9.0,,,,,,,
+9,cosine,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_80,6.0,,,,,,,
+9,crossnobis,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_80,6.0,,,,,,,
+9,energy,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_80,6.0,,,,,,,
+9,euclidean,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_80,7.0,,,,,,,
+9,rbf_mmd,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_80,6.0,,,,,,,
+9,sliced_wasserstein,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_80,9.0,,,,,,,
+10,cosine,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_80,5.0,,,,,,,
+10,crossnobis,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_80,7.0,,,,,,,
+10,energy,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_80,6.0,,,,,,,
+10,euclidean,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_80,7.0,,,,,,,
+10,rbf_mmd,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_80,6.0,,,,,,,
+10,sliced_wasserstein,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_80,9.0,,,,,,,
+11,cosine,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_80,5.0,,,,,,,
+11,crossnobis,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_80,7.0,,,,,,,
+11,energy,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_80,6.0,,,,,,,
+11,euclidean,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_80,7.0,,,,,,,
+11,rbf_mmd,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_80,6.0,,,,,,,
+11,sliced_wasserstein,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_80,9.0,,,,,,,
+12,cosine,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_80,5.0,,,,,,,
+12,crossnobis,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_80,7.0,,,,,,,
+12,energy,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_80,6.0,,,,,,,
+12,euclidean,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_80,7.0,,,,,,,
+12,rbf_mmd,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_80,6.0,,,,,,,
+12,sliced_wasserstein,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_80,9.0,,,,,,,
+13,cosine,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_80,5.0,,,,,,,
+13,crossnobis,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_80,7.0,,,,,,,
+13,energy,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_80,6.0,,,,,,,
+13,euclidean,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_80,7.0,,,,,,,
+13,rbf_mmd,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_80,6.0,,,,,,,
+13,sliced_wasserstein,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_80,9.0,,,,,,,
+14,cosine,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_80,5.0,,,,,,,
+14,crossnobis,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_80,7.0,,,,,,,
+14,energy,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_80,6.0,,,,,,,
+14,euclidean,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_80,7.0,,,,,,,
+14,rbf_mmd,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_80,6.0,,,,,,,
+14,sliced_wasserstein,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_80,9.0,,,,,,,
+15,cosine,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_80,5.0,,,,,,,
+15,crossnobis,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_80,7.0,,,,,,,
+15,energy,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_80,6.0,,,,,,,
+15,euclidean,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_80,7.0,,,,,,,
+15,rbf_mmd,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_80,6.0,,,,,,,
+15,sliced_wasserstein,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_80,9.0,,,,,,,
+16,cosine,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_80,5.0,,,,,,,
+16,crossnobis,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_80,7.0,,,,,,,
+16,energy,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_80,5.0,,,,,,,
+16,euclidean,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_80,6.0,,,,,,,
+16,rbf_mmd,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_80,5.0,,,,,,,
+16,sliced_wasserstein,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_80,8.0,,,,,,,
+17,cosine,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_80,5.0,,,,,,,
+17,crossnobis,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_80,7.0,,,,,,,
+17,energy,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_80,5.0,,,,,,,
+17,euclidean,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_80,6.0,,,,,,,
+17,rbf_mmd,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_80,5.0,,,,,,,
+17,sliced_wasserstein,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_80,8.0,,,,,,,
+18,cosine,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_80,5.0,,,,,,,
+18,crossnobis,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_80,7.0,,,,,,,
+18,energy,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_80,5.0,,,,,,,
+18,euclidean,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_80,6.0,,,,,,,
+18,rbf_mmd,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_80,5.0,,,,,,,
+18,sliced_wasserstein,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_80,8.0,,,,,,,
+19,cosine,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_80,5.0,,,,,,,
+19,crossnobis,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_80,7.0,,,,,,,
+19,energy,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_80,5.0,,,,,,,
+19,euclidean,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_80,6.0,,,,,,,
+19,rbf_mmd,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_80,6.0,,,,,,,
+19,sliced_wasserstein,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_80,8.0,,,,,,,
+20,cosine,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_80,5.0,,,,,,,
+20,crossnobis,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_80,7.0,,,,,,,
+20,energy,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_80,6.0,,,,,,,
+20,euclidean,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_80,6.0,,,,,,,
+20,rbf_mmd,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_80,6.0,,,,,,,
+20,sliced_wasserstein,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_80,8.0,,,,,,,
+21,cosine,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_80,5.0,,,,,,,
+21,crossnobis,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_80,8.0,,,,,,,
+21,energy,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_80,6.0,,,,,,,
+21,euclidean,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_80,6.0,,,,,,,
+21,rbf_mmd,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_80,6.0,,,,,,,
+21,sliced_wasserstein,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_80,8.0,,,,,,,
+22,cosine,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_80,5.0,,,,,,,
+22,crossnobis,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_80,8.0,,,,,,,
+22,energy,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_80,6.0,,,,,,,
+22,euclidean,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_80,6.0,,,,,,,
+22,rbf_mmd,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_80,6.0,,,,,,,
+22,sliced_wasserstein,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_80,8.0,,,,,,,
+23,cosine,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_80,5.0,,,,,,,
+23,crossnobis,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_80,8.0,,,,,,,
+23,energy,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_80,6.0,,,,,,,
+23,euclidean,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_80,6.0,,,,,,,
+23,rbf_mmd,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_80,6.0,,,,,,,
+23,sliced_wasserstein,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_80,8.0,,,,,,,
+24,cosine,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_80,5.0,,,,,,,
+24,crossnobis,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_80,8.0,,,,,,,
+24,energy,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_80,6.0,,,,,,,
+24,euclidean,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_80,6.0,,,,,,,
+24,rbf_mmd,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_80,6.0,,,,,,,
+24,sliced_wasserstein,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_80,8.0,,,,,,,
+25,cosine,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_80,5.0,,,,,,,
+25,crossnobis,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_80,8.0,,,,,,,
+25,energy,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_80,6.0,,,,,,,
+25,euclidean,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_80,6.0,,,,,,,
+25,rbf_mmd,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_80,6.0,,,,,,,
+25,sliced_wasserstein,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_80,8.0,,,,,,,
+26,cosine,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_80,5.0,,,,,,,
+26,crossnobis,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_80,8.0,,,,,,,
+26,energy,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_80,6.0,,,,,,,
+26,euclidean,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_80,6.0,,,,,,,
+26,rbf_mmd,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_80,6.0,,,,,,,
+26,sliced_wasserstein,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_80,8.0,,,,,,,
+27,cosine,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_80,5.0,,,,,,,
+27,crossnobis,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_80,8.0,,,,,,,
+27,energy,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_80,6.0,,,,,,,
+27,euclidean,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_80,6.0,,,,,,,
+27,rbf_mmd,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_80,6.0,,,,,,,
+27,sliced_wasserstein,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_80,8.0,,,,,,,
+0,cosine,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_90,5.0,,,,,,,
+0,crossnobis,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_90,9.0,,,,,,,
+0,energy,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_90,4.0,,,,,,,
+0,euclidean,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_90,6.0,,,,,,,
+0,rbf_mmd,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_90,3.0,,,,,,,
+0,sliced_wasserstein,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_90,11.0,,,,,,,
+1,cosine,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_90,5.0,,,,,,,
+1,crossnobis,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_90,9.0,,,,,,,
+1,energy,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_90,5.0,,,,,,,
+1,euclidean,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_90,7.0,,,,,,,
+1,rbf_mmd,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_90,4.0,,,,,,,
+1,sliced_wasserstein,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_90,12.0,,,,,,,
+2,cosine,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_90,6.0,,,,,,,
+2,crossnobis,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_90,6.0,,,,,,,
+2,energy,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_90,5.0,,,,,,,
+2,euclidean,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_90,5.0,,,,,,,
+2,rbf_mmd,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_90,4.0,,,,,,,
+2,sliced_wasserstein,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_90,12.0,,,,,,,
+3,cosine,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_90,6.0,,,,,,,
+3,crossnobis,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_90,6.0,,,,,,,
+3,energy,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_90,6.0,,,,,,,
+3,euclidean,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_90,6.0,,,,,,,
+3,rbf_mmd,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_90,5.0,,,,,,,
+3,sliced_wasserstein,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_90,13.0,,,,,,,
+4,cosine,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_90,6.0,,,,,,,
+4,crossnobis,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_90,6.0,,,,,,,
+4,energy,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_90,5.0,,,,,,,
+4,euclidean,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_90,6.0,,,,,,,
+4,rbf_mmd,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_90,5.0,,,,,,,
+4,sliced_wasserstein,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_90,12.0,,,,,,,
+5,cosine,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_90,7.0,,,,,,,
+5,crossnobis,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_90,7.0,,,,,,,
+5,energy,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_90,6.0,,,,,,,
+5,euclidean,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_90,7.0,,,,,,,
+5,rbf_mmd,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_90,5.0,,,,,,,
+5,sliced_wasserstein,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_90,13.0,,,,,,,
+6,cosine,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_90,7.0,,,,,,,
+6,crossnobis,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_90,8.0,,,,,,,
+6,energy,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_90,7.0,,,,,,,
+6,euclidean,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_90,8.0,,,,,,,
+6,rbf_mmd,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_90,7.0,,,,,,,
+6,sliced_wasserstein,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_90,13.0,,,,,,,
+7,cosine,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_90,7.0,,,,,,,
+7,crossnobis,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_90,9.0,,,,,,,
+7,energy,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_90,8.0,,,,,,,
+7,euclidean,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_90,9.0,,,,,,,
+7,rbf_mmd,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_90,8.0,,,,,,,
+7,sliced_wasserstein,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_90,14.0,,,,,,,
+8,cosine,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_90,7.0,,,,,,,
+8,crossnobis,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_90,9.0,,,,,,,
+8,energy,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_90,8.0,,,,,,,
+8,euclidean,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_90,9.0,,,,,,,
+8,rbf_mmd,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_90,8.0,,,,,,,
+8,sliced_wasserstein,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_90,14.0,,,,,,,
+9,cosine,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_90,7.0,,,,,,,
+9,crossnobis,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_90,9.0,,,,,,,
+9,energy,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_90,9.0,,,,,,,
+9,euclidean,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_90,10.0,,,,,,,
+9,rbf_mmd,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_90,9.0,,,,,,,
+9,sliced_wasserstein,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_90,14.0,,,,,,,
+10,cosine,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_90,7.0,,,,,,,
+10,crossnobis,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_90,10.0,,,,,,,
+10,energy,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_90,9.0,,,,,,,
+10,euclidean,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_90,10.0,,,,,,,
+10,rbf_mmd,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_90,9.0,,,,,,,
+10,sliced_wasserstein,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_90,14.0,,,,,,,
+11,cosine,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_90,7.0,,,,,,,
+11,crossnobis,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_90,10.0,,,,,,,
+11,energy,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_90,9.0,,,,,,,
+11,euclidean,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_90,10.0,,,,,,,
+11,rbf_mmd,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_90,9.0,,,,,,,
+11,sliced_wasserstein,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_90,13.0,,,,,,,
+12,cosine,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_90,7.0,,,,,,,
+12,crossnobis,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_90,10.0,,,,,,,
+12,energy,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_90,9.0,,,,,,,
+12,euclidean,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_90,10.0,,,,,,,
+12,rbf_mmd,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_90,9.0,,,,,,,
+12,sliced_wasserstein,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_90,14.0,,,,,,,
+13,cosine,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_90,7.0,,,,,,,
+13,crossnobis,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_90,10.0,,,,,,,
+13,energy,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_90,9.0,,,,,,,
+13,euclidean,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_90,10.0,,,,,,,
+13,rbf_mmd,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_90,9.0,,,,,,,
+13,sliced_wasserstein,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_90,14.0,,,,,,,
+14,cosine,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_90,7.0,,,,,,,
+14,crossnobis,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_90,10.0,,,,,,,
+14,energy,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_90,9.0,,,,,,,
+14,euclidean,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_90,10.0,,,,,,,
+14,rbf_mmd,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_90,9.0,,,,,,,
+14,sliced_wasserstein,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_90,14.0,,,,,,,
+15,cosine,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_90,7.0,,,,,,,
+15,crossnobis,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_90,10.0,,,,,,,
+15,energy,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_90,9.0,,,,,,,
+15,euclidean,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_90,10.0,,,,,,,
+15,rbf_mmd,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_90,9.0,,,,,,,
+15,sliced_wasserstein,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_90,13.0,,,,,,,
+16,cosine,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_90,7.0,,,,,,,
+16,crossnobis,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_90,10.0,,,,,,,
+16,energy,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_90,8.0,,,,,,,
+16,euclidean,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_90,10.0,,,,,,,
+16,rbf_mmd,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_90,8.0,,,,,,,
+16,sliced_wasserstein,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_90,13.0,,,,,,,
+17,cosine,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_90,6.0,,,,,,,
+17,crossnobis,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_90,10.0,,,,,,,
+17,energy,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_90,8.0,,,,,,,
+17,euclidean,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_90,9.0,,,,,,,
+17,rbf_mmd,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_90,8.0,,,,,,,
+17,sliced_wasserstein,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_90,13.0,,,,,,,
+18,cosine,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_90,6.0,,,,,,,
+18,crossnobis,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_90,10.0,,,,,,,
+18,energy,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_90,8.0,,,,,,,
+18,euclidean,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_90,9.0,,,,,,,
+18,rbf_mmd,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_90,8.0,,,,,,,
+18,sliced_wasserstein,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_90,13.0,,,,,,,
+19,cosine,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_90,6.0,,,,,,,
+19,crossnobis,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_90,10.0,,,,,,,
+19,energy,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_90,8.0,,,,,,,
+19,euclidean,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_90,9.0,,,,,,,
+19,rbf_mmd,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_90,8.0,,,,,,,
+19,sliced_wasserstein,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_90,13.0,,,,,,,
+20,cosine,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_90,6.0,,,,,,,
+20,crossnobis,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_90,10.0,,,,,,,
+20,energy,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_90,8.0,,,,,,,
+20,euclidean,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_90,9.0,,,,,,,
+20,rbf_mmd,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_90,8.0,,,,,,,
+20,sliced_wasserstein,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_90,13.0,,,,,,,
+21,cosine,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_90,7.0,,,,,,,
+21,crossnobis,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_90,10.0,,,,,,,
+21,energy,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_90,8.0,,,,,,,
+21,euclidean,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_90,9.0,,,,,,,
+21,rbf_mmd,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_90,9.0,,,,,,,
+21,sliced_wasserstein,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_90,13.0,,,,,,,
+22,cosine,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_90,7.0,,,,,,,
+22,crossnobis,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_90,11.0,,,,,,,
+22,energy,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_90,8.0,,,,,,,
+22,euclidean,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_90,9.0,,,,,,,
+22,rbf_mmd,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_90,9.0,,,,,,,
+22,sliced_wasserstein,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_90,13.0,,,,,,,
+23,cosine,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_90,6.0,,,,,,,
+23,crossnobis,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_90,11.0,,,,,,,
+23,energy,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_90,8.0,,,,,,,
+23,euclidean,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_90,9.0,,,,,,,
+23,rbf_mmd,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_90,9.0,,,,,,,
+23,sliced_wasserstein,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_90,12.0,,,,,,,
+24,cosine,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_90,6.0,,,,,,,
+24,crossnobis,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_90,11.0,,,,,,,
+24,energy,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_90,8.0,,,,,,,
+24,euclidean,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_90,9.0,,,,,,,
+24,rbf_mmd,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_90,9.0,,,,,,,
+24,sliced_wasserstein,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_90,13.0,,,,,,,
+25,cosine,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_90,6.0,,,,,,,
+25,crossnobis,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_90,11.0,,,,,,,
+25,energy,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_90,9.0,,,,,,,
+25,euclidean,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_90,9.0,,,,,,,
+25,rbf_mmd,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_90,9.0,,,,,,,
+25,sliced_wasserstein,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_90,13.0,,,,,,,
+26,cosine,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_90,6.0,,,,,,,
+26,crossnobis,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_90,11.0,,,,,,,
+26,energy,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_90,9.0,,,,,,,
+26,euclidean,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_90,9.0,,,,,,,
+26,rbf_mmd,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_90,9.0,,,,,,,
+26,sliced_wasserstein,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_90,13.0,,,,,,,
+27,cosine,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_90,6.0,,,,,,,
+27,crossnobis,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_90,11.0,,,,,,,
+27,energy,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_90,8.0,,,,,,,
+27,euclidean,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_90,9.0,,,,,,,
+27,rbf_mmd,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_90,9.0,,,,,,,
+27,sliced_wasserstein,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_90,13.0,,,,,,,
+0,cosine,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_95,7.0,,,,,,,
+0,crossnobis,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_95,11.0,,,,,,,
+0,energy,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_95,5.0,,,,,,,
+0,euclidean,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_95,9.0,,,,,,,
+0,rbf_mmd,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_95,5.0,,,,,,,
+0,sliced_wasserstein,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_95,16.0,,,,,,,
+1,cosine,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_95,7.0,,,,,,,
+1,crossnobis,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_95,11.0,,,,,,,
+1,energy,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_95,6.0,,,,,,,
+1,euclidean,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_95,10.0,,,,,,,
+1,rbf_mmd,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_95,6.0,,,,,,,
+1,sliced_wasserstein,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_95,16.0,,,,,,,
+2,cosine,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_95,8.0,,,,,,,
+2,crossnobis,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_95,8.0,,,,,,,
+2,energy,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_95,7.0,,,,,,,
+2,euclidean,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_95,7.0,,,,,,,
+2,rbf_mmd,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_95,6.0,,,,,,,
+2,sliced_wasserstein,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_95,17.0,,,,,,,
+3,cosine,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_95,8.0,,,,,,,
+3,crossnobis,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_95,8.0,,,,,,,
+3,energy,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_95,8.0,,,,,,,
+3,euclidean,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_95,9.0,,,,,,,
+3,rbf_mmd,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_95,8.0,,,,,,,
+3,sliced_wasserstein,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_95,17.0,,,,,,,
+4,cosine,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_95,7.0,,,,,,,
+4,crossnobis,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_95,9.0,,,,,,,
+4,energy,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_95,7.0,,,,,,,
+4,euclidean,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_95,9.0,,,,,,,
+4,rbf_mmd,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_95,7.0,,,,,,,
+4,sliced_wasserstein,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_95,17.0,,,,,,,
+5,cosine,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_95,8.0,,,,,,,
+5,crossnobis,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_95,9.0,,,,,,,
+5,energy,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_95,8.0,,,,,,,
+5,euclidean,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_95,10.0,,,,,,,
+5,rbf_mmd,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_95,7.0,,,,,,,
+5,sliced_wasserstein,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_95,18.0,,,,,,,
+6,cosine,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_95,9.0,,,,,,,
+6,crossnobis,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_95,10.0,,,,,,,
+6,energy,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_95,10.0,,,,,,,
+6,euclidean,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_95,12.0,,,,,,,
+6,rbf_mmd,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_95,9.0,,,,,,,
+6,sliced_wasserstein,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_95,18.0,,,,,,,
+7,cosine,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_95,9.0,,,,,,,
+7,crossnobis,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_95,11.0,,,,,,,
+7,energy,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_95,11.0,,,,,,,
+7,euclidean,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_95,12.0,,,,,,,
+7,rbf_mmd,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_95,11.0,,,,,,,
+7,sliced_wasserstein,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_95,19.0,,,,,,,
+8,cosine,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_95,9.0,,,,,,,
+8,crossnobis,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_95,12.0,,,,,,,
+8,energy,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_95,11.0,,,,,,,
+8,euclidean,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_95,13.0,,,,,,,
+8,rbf_mmd,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_95,11.0,,,,,,,
+8,sliced_wasserstein,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_95,19.0,,,,,,,
+9,cosine,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_95,9.0,,,,,,,
+9,crossnobis,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_95,12.0,,,,,,,
+9,energy,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_95,11.0,,,,,,,
+9,euclidean,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_95,13.0,,,,,,,
+9,rbf_mmd,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_95,11.0,,,,,,,
+9,sliced_wasserstein,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_95,18.0,,,,,,,
+10,cosine,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_95,9.0,,,,,,,
+10,crossnobis,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_95,12.0,,,,,,,
+10,energy,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_95,12.0,,,,,,,
+10,euclidean,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_95,13.0,,,,,,,
+10,rbf_mmd,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_95,12.0,,,,,,,
+10,sliced_wasserstein,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_95,18.0,,,,,,,
+11,cosine,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_95,9.0,,,,,,,
+11,crossnobis,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_95,12.0,,,,,,,
+11,energy,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_95,11.0,,,,,,,
+11,euclidean,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_95,13.0,,,,,,,
+11,rbf_mmd,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_95,11.0,,,,,,,
+11,sliced_wasserstein,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_95,18.0,,,,,,,
+12,cosine,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_95,9.0,,,,,,,
+12,crossnobis,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_95,12.0,,,,,,,
+12,energy,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_95,11.0,,,,,,,
+12,euclidean,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_95,13.0,,,,,,,
+12,rbf_mmd,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_95,11.0,,,,,,,
+12,sliced_wasserstein,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_95,18.0,,,,,,,
+13,cosine,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_95,9.0,,,,,,,
+13,crossnobis,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_95,12.0,,,,,,,
+13,energy,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_95,11.0,,,,,,,
+13,euclidean,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_95,13.0,,,,,,,
+13,rbf_mmd,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_95,11.0,,,,,,,
+13,sliced_wasserstein,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_95,18.0,,,,,,,
+14,cosine,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_95,8.0,,,,,,,
+14,crossnobis,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_95,12.0,,,,,,,
+14,energy,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_95,11.0,,,,,,,
+14,euclidean,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_95,13.0,,,,,,,
+14,rbf_mmd,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_95,11.0,,,,,,,
+14,sliced_wasserstein,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_95,18.0,,,,,,,
+15,cosine,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_95,9.0,,,,,,,
+15,crossnobis,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_95,13.0,,,,,,,
+15,energy,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_95,11.0,,,,,,,
+15,euclidean,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_95,13.0,,,,,,,
+15,rbf_mmd,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_95,12.0,,,,,,,
+15,sliced_wasserstein,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_95,18.0,,,,,,,
+16,cosine,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_95,8.0,,,,,,,
+16,crossnobis,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_95,12.0,,,,,,,
+16,energy,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_95,10.0,,,,,,,
+16,euclidean,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_95,13.0,,,,,,,
+16,rbf_mmd,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_95,10.0,,,,,,,
+16,sliced_wasserstein,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_95,18.0,,,,,,,
+17,cosine,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_95,8.0,,,,,,,
+17,crossnobis,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_95,13.0,,,,,,,
+17,energy,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_95,10.0,,,,,,,
+17,euclidean,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_95,12.0,,,,,,,
+17,rbf_mmd,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_95,10.0,,,,,,,
+17,sliced_wasserstein,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_95,17.0,,,,,,,
+18,cosine,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_95,8.0,,,,,,,
+18,crossnobis,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_95,13.0,,,,,,,
+18,energy,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_95,11.0,,,,,,,
+18,euclidean,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_95,12.0,,,,,,,
+18,rbf_mmd,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_95,11.0,,,,,,,
+18,sliced_wasserstein,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_95,17.0,,,,,,,
+19,cosine,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_95,8.0,,,,,,,
+19,crossnobis,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_95,13.0,,,,,,,
+19,energy,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_95,11.0,,,,,,,
+19,euclidean,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_95,13.0,,,,,,,
+19,rbf_mmd,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_95,11.0,,,,,,,
+19,sliced_wasserstein,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_95,17.0,,,,,,,
+20,cosine,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_95,8.0,,,,,,,
+20,crossnobis,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_95,13.0,,,,,,,
+20,energy,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_95,11.0,,,,,,,
+20,euclidean,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_95,12.0,,,,,,,
+20,rbf_mmd,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_95,11.0,,,,,,,
+20,sliced_wasserstein,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_95,17.0,,,,,,,
+21,cosine,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_95,8.0,,,,,,,
+21,crossnobis,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_95,13.0,,,,,,,
+21,energy,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_95,11.0,,,,,,,
+21,euclidean,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_95,12.0,,,,,,,
+21,rbf_mmd,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_95,11.0,,,,,,,
+21,sliced_wasserstein,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_95,17.0,,,,,,,
+22,cosine,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_95,8.0,,,,,,,
+22,crossnobis,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_95,13.0,,,,,,,
+22,energy,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_95,11.0,,,,,,,
+22,euclidean,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_95,12.0,,,,,,,
+22,rbf_mmd,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_95,11.0,,,,,,,
+22,sliced_wasserstein,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_95,17.0,,,,,,,
+23,cosine,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_95,8.0,,,,,,,
+23,crossnobis,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_95,14.0,,,,,,,
+23,energy,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_95,11.0,,,,,,,
+23,euclidean,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_95,12.0,,,,,,,
+23,rbf_mmd,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_95,11.0,,,,,,,
+23,sliced_wasserstein,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_95,17.0,,,,,,,
+24,cosine,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_95,8.0,,,,,,,
+24,crossnobis,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_95,14.0,,,,,,,
+24,energy,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_95,11.0,,,,,,,
+24,euclidean,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_95,12.0,,,,,,,
+24,rbf_mmd,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_95,11.0,,,,,,,
+24,sliced_wasserstein,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_95,18.0,,,,,,,
+25,cosine,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_95,8.0,,,,,,,
+25,crossnobis,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_95,14.0,,,,,,,
+25,energy,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_95,11.0,,,,,,,
+25,euclidean,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_95,12.0,,,,,,,
+25,rbf_mmd,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_95,12.0,,,,,,,
+25,sliced_wasserstein,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_95,17.0,,,,,,,
+26,cosine,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_95,8.0,,,,,,,
+26,crossnobis,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_95,14.0,,,,,,,
+26,energy,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_95,11.0,,,,,,,
+26,euclidean,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_95,12.0,,,,,,,
+26,rbf_mmd,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_95,12.0,,,,,,,
+26,sliced_wasserstein,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_95,17.0,,,,,,,
+27,cosine,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_95,8.0,,,,,,,
+27,crossnobis,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_95,14.0,,,,,,,
+27,energy,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_95,11.0,,,,,,,
+27,euclidean,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_95,12.0,,,,,,,
+27,rbf_mmd,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_95,11.0,,,,,,,
+27,sliced_wasserstein,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,dimensions_95,17.0,,,,,,,
+0,cosine,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,participation_ratio,4.113980534124471,,,,,,,
+0,crossnobis,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,participation_ratio,6.354540550210808,,,,,,,
+0,energy,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,participation_ratio,3.3650444223403846,,,,,,,
+0,euclidean,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,participation_ratio,4.260334678778015,,,,,,,
+0,rbf_mmd,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,participation_ratio,3.1861577081231185,,,,,,,
+0,sliced_wasserstein,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,participation_ratio,5.1104276081188935,,,,,,,
+1,cosine,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,participation_ratio,4.243945139955115,,,,,,,
+1,crossnobis,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,participation_ratio,6.614107609195211,,,,,,,
+1,energy,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,participation_ratio,3.8099526817722222,,,,,,,
+1,euclidean,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,participation_ratio,4.615485657488081,,,,,,,
+1,rbf_mmd,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,participation_ratio,3.589974755841604,,,,,,,
+1,sliced_wasserstein,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,participation_ratio,5.7892076540844295,,,,,,,
+2,cosine,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,participation_ratio,4.886743040889627,,,,,,,
+2,crossnobis,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,participation_ratio,4.101591549092154,,,,,,,
+2,energy,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,participation_ratio,3.85190699803283,,,,,,,
+2,euclidean,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,participation_ratio,2.82405100140036,,,,,,,
+2,rbf_mmd,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,participation_ratio,3.6088255836420617,,,,,,,
+2,sliced_wasserstein,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,participation_ratio,6.094557015533475,,,,,,,
+3,cosine,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,participation_ratio,5.259052099507726,,,,,,,
+3,crossnobis,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,participation_ratio,4.534483199817294,,,,,,,
+3,energy,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,participation_ratio,4.313269899297985,,,,,,,
+3,euclidean,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,participation_ratio,3.303143294508625,,,,,,,
+3,rbf_mmd,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,participation_ratio,4.141647613068273,,,,,,,
+3,sliced_wasserstein,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,participation_ratio,6.522791067421664,,,,,,,
+4,cosine,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,participation_ratio,5.180211061787944,,,,,,,
+4,crossnobis,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,participation_ratio,4.58712258984846,,,,,,,
+4,energy,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,participation_ratio,4.03157565250106,,,,,,,
+4,euclidean,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,participation_ratio,3.8428551544513,,,,,,,
+4,rbf_mmd,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,participation_ratio,3.878431623990668,,,,,,,
+4,sliced_wasserstein,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,participation_ratio,6.268515112371295,,,,,,,
+5,cosine,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,participation_ratio,5.624548810737132,,,,,,,
+5,crossnobis,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,participation_ratio,4.9260543556584135,,,,,,,
+5,energy,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,participation_ratio,4.252286248914426,,,,,,,
+5,euclidean,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,participation_ratio,5.062392961176273,,,,,,,
+5,rbf_mmd,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,participation_ratio,4.087657189033481,,,,,,,
+5,sliced_wasserstein,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,participation_ratio,6.396629177536753,,,,,,,
+6,cosine,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,participation_ratio,6.130567231462029,,,,,,,
+6,crossnobis,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,participation_ratio,5.944711013156413,,,,,,,
+6,energy,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,participation_ratio,5.138964652485569,,,,,,,
+6,euclidean,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,participation_ratio,6.057399191568941,,,,,,,
+6,rbf_mmd,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,participation_ratio,4.925676878859784,,,,,,,
+6,sliced_wasserstein,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,participation_ratio,7.177111600829271,,,,,,,
+7,cosine,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,participation_ratio,6.241750630224143,,,,,,,
+7,crossnobis,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,participation_ratio,6.875963660771383,,,,,,,
+7,energy,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,participation_ratio,6.031030520352224,,,,,,,
+7,euclidean,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,participation_ratio,6.897888884331142,,,,,,,
+7,rbf_mmd,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,participation_ratio,5.9198752269851,,,,,,,
+7,sliced_wasserstein,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,participation_ratio,8.63726035120081,,,,,,,
+8,cosine,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,participation_ratio,6.028622430322098,,,,,,,
+8,crossnobis,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,participation_ratio,6.89034274514494,,,,,,,
+8,energy,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,participation_ratio,5.911909642661628,,,,,,,
+8,euclidean,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,participation_ratio,7.213871931225479,,,,,,,
+8,rbf_mmd,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,participation_ratio,5.821880223670954,,,,,,,
+8,sliced_wasserstein,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,participation_ratio,8.447966673156806,,,,,,,
+9,cosine,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,participation_ratio,5.875970351823837,,,,,,,
+9,crossnobis,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,participation_ratio,7.160096016553831,,,,,,,
+9,energy,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,participation_ratio,6.225695898761667,,,,,,,
+9,euclidean,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,participation_ratio,7.287344613096706,,,,,,,
+9,rbf_mmd,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,participation_ratio,6.175770694313874,,,,,,,
+9,sliced_wasserstein,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,participation_ratio,8.473075117306102,,,,,,,
+10,cosine,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,participation_ratio,5.532031702424389,,,,,,,
+10,crossnobis,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,participation_ratio,7.437571662568586,,,,,,,
+10,energy,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,participation_ratio,6.473596970648679,,,,,,,
+10,euclidean,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,participation_ratio,7.371202546943068,,,,,,,
+10,rbf_mmd,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,participation_ratio,6.556031606221793,,,,,,,
+10,sliced_wasserstein,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,participation_ratio,8.851143963434412,,,,,,,
+11,cosine,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,participation_ratio,5.75977947793095,,,,,,,
+11,crossnobis,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,participation_ratio,7.610844362330292,,,,,,,
+11,energy,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,participation_ratio,6.33394529573054,,,,,,,
+11,euclidean,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,participation_ratio,7.422243317052144,,,,,,,
+11,rbf_mmd,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,participation_ratio,6.331842998431946,,,,,,,
+11,sliced_wasserstein,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,participation_ratio,8.622237605431497,,,,,,,
+12,cosine,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,participation_ratio,5.525802933028926,,,,,,,
+12,crossnobis,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,participation_ratio,7.444742742586518,,,,,,,
+12,energy,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,participation_ratio,6.42030252434777,,,,,,,
+12,euclidean,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,participation_ratio,7.352878963390937,,,,,,,
+12,rbf_mmd,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,participation_ratio,6.443275885312319,,,,,,,
+12,sliced_wasserstein,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,participation_ratio,8.786643107646391,,,,,,,
+13,cosine,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,participation_ratio,5.3978812591821015,,,,,,,
+13,crossnobis,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,participation_ratio,7.415956592439193,,,,,,,
+13,energy,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,participation_ratio,6.286148555508337,,,,,,,
+13,euclidean,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,participation_ratio,7.357754438064388,,,,,,,
+13,rbf_mmd,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,participation_ratio,6.319459153950644,,,,,,,
+13,sliced_wasserstein,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,participation_ratio,8.699438606169213,,,,,,,
+14,cosine,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,participation_ratio,5.412067953963112,,,,,,,
+14,crossnobis,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,participation_ratio,7.568946579170541,,,,,,,
+14,energy,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,participation_ratio,6.302674441366207,,,,,,,
+14,euclidean,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,participation_ratio,7.300515344618605,,,,,,,
+14,rbf_mmd,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,participation_ratio,6.3265806718270765,,,,,,,
+14,sliced_wasserstein,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,participation_ratio,9.006719790344944,,,,,,,
+15,cosine,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,participation_ratio,5.342862587513391,,,,,,,
+15,crossnobis,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,participation_ratio,7.769790960313139,,,,,,,
+15,energy,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,participation_ratio,6.492808334478391,,,,,,,
+15,euclidean,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,participation_ratio,7.403911674561446,,,,,,,
+15,rbf_mmd,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,participation_ratio,6.606140287875547,,,,,,,
+15,sliced_wasserstein,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,participation_ratio,8.915924582938107,,,,,,,
+16,cosine,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,participation_ratio,5.19381576607602,,,,,,,
+16,crossnobis,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,participation_ratio,7.45278055369648,,,,,,,
+16,energy,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,participation_ratio,5.821148857635813,,,,,,,
+16,euclidean,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,participation_ratio,6.82410240717535,,,,,,,
+16,rbf_mmd,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,participation_ratio,5.722941541503385,,,,,,,
+16,sliced_wasserstein,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,participation_ratio,8.077666480359772,,,,,,,
+17,cosine,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,participation_ratio,4.987241244709752,,,,,,,
+17,crossnobis,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,participation_ratio,7.553505283908034,,,,,,,
+17,energy,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,participation_ratio,5.288809001012125,,,,,,,
+17,euclidean,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,participation_ratio,5.706571301766557,,,,,,,
+17,rbf_mmd,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,participation_ratio,5.286951486685044,,,,,,,
+17,sliced_wasserstein,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,participation_ratio,7.43070532702773,,,,,,,
+18,cosine,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,participation_ratio,5.003230918076536,,,,,,,
+18,crossnobis,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,participation_ratio,7.679807832187465,,,,,,,
+18,energy,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,participation_ratio,5.666631774860712,,,,,,,
+18,euclidean,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,participation_ratio,6.199322900424391,,,,,,,
+18,rbf_mmd,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,participation_ratio,5.664487939014316,,,,,,,
+18,sliced_wasserstein,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,participation_ratio,7.484073421899872,,,,,,,
+19,cosine,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,participation_ratio,5.085373701838803,,,,,,,
+19,crossnobis,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,participation_ratio,8.000393091529045,,,,,,,
+19,energy,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,participation_ratio,5.824808326207945,,,,,,,
+19,euclidean,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,participation_ratio,6.381300137690088,,,,,,,
+19,rbf_mmd,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,participation_ratio,5.820030888520842,,,,,,,
+19,sliced_wasserstein,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,participation_ratio,7.939968488817961,,,,,,,
+20,cosine,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,participation_ratio,5.0766092972503,,,,,,,
+20,crossnobis,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,participation_ratio,8.07044085095377,,,,,,,
+20,energy,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,participation_ratio,5.948309596029067,,,,,,,
+20,euclidean,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,participation_ratio,6.514520048014046,,,,,,,
+20,rbf_mmd,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,participation_ratio,5.961017241700266,,,,,,,
+20,sliced_wasserstein,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,participation_ratio,7.552065849830846,,,,,,,
+21,cosine,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,participation_ratio,5.060824783629805,,,,,,,
+21,crossnobis,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,participation_ratio,8.272323333385366,,,,,,,
+21,energy,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,participation_ratio,6.177271430131896,,,,,,,
+21,euclidean,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,participation_ratio,6.678956378653152,,,,,,,
+21,rbf_mmd,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,participation_ratio,6.222258297534416,,,,,,,
+21,sliced_wasserstein,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,participation_ratio,7.995475860317951,,,,,,,
+22,cosine,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,participation_ratio,4.9554003480943765,,,,,,,
+22,crossnobis,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,participation_ratio,8.39458033246076,,,,,,,
+22,energy,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,participation_ratio,6.088857957625217,,,,,,,
+22,euclidean,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,participation_ratio,6.524366485977248,,,,,,,
+22,rbf_mmd,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,participation_ratio,6.1622639138666,,,,,,,
+22,sliced_wasserstein,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,participation_ratio,7.929705010076976,,,,,,,
+23,cosine,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,participation_ratio,4.953077616156332,,,,,,,
+23,crossnobis,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,participation_ratio,8.673259830873443,,,,,,,
+23,energy,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,participation_ratio,6.250057399783068,,,,,,,
+23,euclidean,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,participation_ratio,6.7151778495845456,,,,,,,
+23,rbf_mmd,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,participation_ratio,6.34034610365368,,,,,,,
+23,sliced_wasserstein,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,participation_ratio,7.897750537866296,,,,,,,
+24,cosine,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,participation_ratio,4.854453302585946,,,,,,,
+24,crossnobis,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,participation_ratio,8.818921615229431,,,,,,,
+24,energy,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,participation_ratio,6.226720154622882,,,,,,,
+24,euclidean,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,participation_ratio,6.653468571290777,,,,,,,
+24,rbf_mmd,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,participation_ratio,6.330136127596533,,,,,,,
+24,sliced_wasserstein,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,participation_ratio,8.285047099976127,,,,,,,
+25,cosine,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,participation_ratio,4.959361975494123,,,,,,,
+25,crossnobis,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,participation_ratio,8.99001198633471,,,,,,,
+25,energy,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,participation_ratio,6.411055383876088,,,,,,,
+25,euclidean,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,participation_ratio,6.852646814831714,,,,,,,
+25,rbf_mmd,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,participation_ratio,6.534415739369186,,,,,,,
+25,sliced_wasserstein,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,participation_ratio,8.054297440248828,,,,,,,
+26,cosine,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,participation_ratio,4.920991661159723,,,,,,,
+26,crossnobis,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,participation_ratio,9.064058516104094,,,,,,,
+26,energy,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,participation_ratio,6.376137265781284,,,,,,,
+26,euclidean,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,participation_ratio,6.848667224194424,,,,,,,
+26,rbf_mmd,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,participation_ratio,6.51082402217171,,,,,,,
+26,sliced_wasserstein,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,participation_ratio,7.911745778719789,,,,,,,
+27,cosine,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,participation_ratio,5.034695549597614,,,,,,,
+27,crossnobis,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,participation_ratio,9.346187481681111,,,,,,,
+27,energy,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,participation_ratio,6.431907300351326,,,,,,,
+27,euclidean,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,participation_ratio,7.0433820224270605,,,,,,,
+27,rbf_mmd,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,participation_ratio,6.466504386556873,,,,,,,
+27,sliced_wasserstein,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,participation_ratio,8.256919422712778,,,,,,,
+0,cosine,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,Isomap residual elbow (1–10),3.0,isomap,3.0,5.0,7.0,3.7655704395620337,0.1991068285188832,3.0
+0,crossnobis,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,Isomap residual elbow (1–10),4.0,isomap,5.0,7.0,9.0,5.649201348970475,0.1379459722844998,4.0
+0,energy,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,Isomap residual elbow (1–10),2.0,isomap,2.0,3.0,4.0,2.1008068600633467,0.1384706452123253,2.0
+0,euclidean,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,Isomap residual elbow (1–10),3.0,isomap,4.0,6.0,8.0,4.220971217152894,0.1166275113554378,3.0
+0,rbf_mmd,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,Isomap residual elbow (1–10),2.0,isomap,2.0,2.0,3.0,1.783585818267776,0.1256552674991902,2.0
+0,sliced_wasserstein,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,Isomap residual elbow (1–10),4.0,isomap,5.0,7.0,10.0,4.916660016957838,0.1492137477233237,4.0
+1,cosine,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,Isomap residual elbow (1–10),3.0,isomap,4.0,6.0,8.0,4.017526686496256,0.2035015191596182,3.0
+1,crossnobis,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,Isomap residual elbow (1–10),5.0,isomap,5.0,7.0,9.0,5.655366628995888,0.1342137691025841,5.0
+1,energy,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,Isomap residual elbow (1–10),3.0,isomap,3.0,4.0,6.0,2.7443269663472543,0.1323131612813571,3.0
+1,euclidean,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,Isomap residual elbow (1–10),4.0,isomap,4.0,6.0,8.0,4.6088883647430485,0.1308503959366597,4.0
+1,rbf_mmd,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,Isomap residual elbow (1–10),2.0,isomap,2.0,4.0,6.0,2.461021701300589,0.1302888804540856,2.0
+1,sliced_wasserstein,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,Isomap residual elbow (1–10),2.0,isomap,5.0,7.0,10.0,5.212454934039152,0.1695638214681178,2.0
+2,cosine,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,Isomap residual elbow (1–10),2.0,isomap,4.0,5.0,7.0,3.5076051841980664,0.2008779515440618,2.0
+2,crossnobis,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,Isomap residual elbow (1–10),3.0,isomap,3.0,5.0,8.0,3.699785726507532,0.1258832854975262,3.0
+2,energy,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,Isomap residual elbow (1–10),3.0,isomap,3.0,5.0,7.0,3.004878040153576,0.1365887118936431,3.0
+2,euclidean,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,Isomap residual elbow (1–10),3.0,isomap,3.0,5.0,7.0,2.790079407239616,0.1323695133172487,3.0
+2,rbf_mmd,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,Isomap residual elbow (1–10),3.0,isomap,3.0,4.0,6.0,2.825661916613306,0.1354730264520875,3.0
+2,sliced_wasserstein,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,Isomap residual elbow (1–10),3.0,isomap,6.0,8.0,10.0,5.720239185649848,0.1612876780137723,3.0
+3,cosine,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,Isomap residual elbow (1–10),3.0,isomap,4.0,6.0,7.0,4.500792263097248,0.2149943094753617,3.0
+3,crossnobis,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,Isomap residual elbow (1–10),3.0,isomap,4.0,6.0,8.0,4.323870210464175,0.1468120339543045,3.0
+3,energy,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,Isomap residual elbow (1–10),3.0,isomap,3.0,5.0,7.0,3.4991555276048025,0.1288832480835066,3.0
+3,euclidean,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,Isomap residual elbow (1–10),3.0,isomap,4.0,5.0,7.0,3.0871195054516134,0.149018563459165,3.0
+3,rbf_mmd,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,Isomap residual elbow (1–10),3.0,isomap,3.0,5.0,7.0,3.389988822115117,0.1273133240513413,3.0
+3,sliced_wasserstein,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,Isomap residual elbow (1–10),2.0,isomap,6.0,8.0,10.0,6.062963138072775,0.1814634905641598,2.0
+4,cosine,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,Isomap residual elbow (1–10),4.0,isomap,4.0,6.0,8.0,5.168911952883082,0.2205953842048958,4.0
+4,crossnobis,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,Isomap residual elbow (1–10),3.0,isomap,4.0,6.0,8.0,4.54481791615652,0.1413910527537682,3.0
+4,energy,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,Isomap residual elbow (1–10),2.0,isomap,3.0,5.0,7.0,3.40805592369461,0.1195928140222446,2.0
+4,euclidean,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,Isomap residual elbow (1–10),3.0,isomap,4.0,6.0,8.0,3.6409888625401,0.136597952770507,3.0
+4,rbf_mmd,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,Isomap residual elbow (1–10),2.0,isomap,3.0,5.0,7.0,2.910283476596409,0.1164508537031949,2.0
+4,sliced_wasserstein,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,Isomap residual elbow (1–10),2.0,isomap,6.0,8.0,10.0,5.544035034527939,0.1540204245483725,2.0
+5,cosine,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,Isomap residual elbow (1–10),4.0,isomap,5.0,7.0,8.0,5.691349510084095,0.2243612089439652,4.0
+5,crossnobis,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,Isomap residual elbow (1–10),3.0,isomap,4.0,6.0,8.0,4.789573618663977,0.1441780595065414,3.0
+5,energy,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,Isomap residual elbow (1–10),3.0,isomap,3.0,6.0,8.0,3.799834935046967,0.1292249744705213,3.0
+5,euclidean,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,Isomap residual elbow (1–10),3.0,isomap,4.0,6.0,8.0,4.7821457550088935,0.1549536493240265,3.0
+5,rbf_mmd,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,Isomap residual elbow (1–10),2.0,isomap,3.0,5.0,8.0,3.630105158204207,0.1328777928316578,2.0
+5,sliced_wasserstein,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,Isomap residual elbow (1–10),2.0,isomap,5.0,7.0,9.0,4.82396857027261,0.1579612707816197,2.0
+6,cosine,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,Isomap residual elbow (1–10),4.0,isomap,5.0,7.0,9.0,6.060264018056177,0.2291862298724958,4.0
+6,crossnobis,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,Isomap residual elbow (1–10),3.0,isomap,5.0,7.0,9.0,5.236035440509196,0.1702649722465723,3.0
+6,energy,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,Isomap residual elbow (1–10),3.0,isomap,4.0,6.0,8.0,4.478875995044102,0.1613419738731688,3.0
+6,euclidean,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,Isomap residual elbow (1–10),3.0,isomap,5.0,7.0,9.0,5.184014552730852,0.169463732182135,3.0
+6,rbf_mmd,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,Isomap residual elbow (1–10),3.0,isomap,4.0,6.0,8.0,4.232531800207238,0.1567026874575388,3.0
+6,sliced_wasserstein,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,Isomap residual elbow (1–10),3.0,isomap,6.0,8.0,10.0,5.900815534714956,0.1836478801354908,3.0
+7,cosine,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,Isomap residual elbow (1–10),4.0,isomap,5.0,7.0,9.0,5.677529088864439,0.2340391223981317,4.0
+7,crossnobis,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,Isomap residual elbow (1–10),3.0,isomap,5.0,7.0,9.0,5.297999820387718,0.1725585511255337,3.0
+7,energy,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,Isomap residual elbow (1–10),3.0,isomap,5.0,6.0,8.0,4.825702836965191,0.1704172269795468,3.0
+7,euclidean,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,Isomap residual elbow (1–10),3.0,isomap,5.0,7.0,9.0,5.975843567193838,0.1820080954431676,3.0
+7,rbf_mmd,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,Isomap residual elbow (1–10),3.0,isomap,5.0,7.0,8.0,4.8517238602396064,0.1723553788710734,3.0
+7,sliced_wasserstein,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,Isomap residual elbow (1–10),4.0,isomap,6.0,8.0,10.0,6.406621827156996,0.196035623522709,4.0
+8,cosine,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,Isomap residual elbow (1–10),3.0,isomap,5.0,7.0,8.0,5.377668070762157,0.2340150412617627,3.0
+8,crossnobis,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,Isomap residual elbow (1–10),3.0,isomap,5.0,7.0,8.0,5.236000252036849,0.1711141777011048,3.0
+8,energy,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,Isomap residual elbow (1–10),3.0,isomap,4.0,7.0,8.0,4.636830602052368,0.1681740037848506,3.0
+8,euclidean,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,Isomap residual elbow (1–10),3.0,isomap,5.0,7.0,9.0,5.629089329531835,0.1843429788758597,3.0
+8,rbf_mmd,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,Isomap residual elbow (1–10),3.0,isomap,4.0,6.0,8.0,4.432233088203359,0.1607271743217617,3.0
+8,sliced_wasserstein,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,Isomap residual elbow (1–10),3.0,isomap,6.0,8.0,10.0,5.799642969192937,0.1870109187235262,3.0
+9,cosine,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,Isomap residual elbow (1–10),5.0,isomap,5.0,6.0,8.0,5.265576782170251,0.2319488000764791,5.0
+9,crossnobis,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,Isomap residual elbow (1–10),3.0,isomap,5.0,7.0,9.0,5.19040279154552,0.1714627474209511,3.0
+9,energy,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,Isomap residual elbow (1–10),3.0,isomap,5.0,6.0,8.0,4.802578047787036,0.1694479911988919,3.0
+9,euclidean,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,Isomap residual elbow (1–10),3.0,isomap,5.0,7.0,9.0,5.270167158416251,0.1744763509555551,3.0
+9,rbf_mmd,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,Isomap residual elbow (1–10),4.0,isomap,4.0,6.0,8.0,4.688950908623342,0.166040656515117,4.0
+9,sliced_wasserstein,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,Isomap residual elbow (1–10),3.0,isomap,6.0,8.0,10.0,6.119989803984767,0.1846422048109058,3.0
+10,cosine,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,Isomap residual elbow (1–10),4.0,isomap,5.0,7.0,9.0,5.061412025859436,0.2242547616294771,4.0
+10,crossnobis,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,Isomap residual elbow (1–10),4.0,isomap,5.0,7.0,9.0,5.069950319503076,0.1684876369626362,4.0
+10,energy,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,Isomap residual elbow (1–10),3.0,isomap,4.0,6.0,8.0,4.693347479332747,0.1577980903895443,3.0
+10,euclidean,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,Isomap residual elbow (1–10),4.0,isomap,5.0,7.0,9.0,5.63655095331871,0.1814224855496583,4.0
+10,rbf_mmd,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,Isomap residual elbow (1–10),3.0,isomap,5.0,6.0,8.0,4.983157161957537,0.172580826416803,3.0
+10,sliced_wasserstein,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,Isomap residual elbow (1–10),4.0,isomap,6.0,8.0,10.0,5.839086542372287,0.1940120733382003,4.0
+11,cosine,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,Isomap residual elbow (1–10),4.0,isomap,5.0,6.0,8.0,4.612979120349035,0.219886081554434,4.0
+11,crossnobis,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,Isomap residual elbow (1–10),4.0,isomap,5.0,7.0,9.0,5.096465302466284,0.1654277961929508,4.0
+11,energy,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,Isomap residual elbow (1–10),3.0,isomap,5.0,6.0,8.0,5.004886433668657,0.1649244396620713,3.0
+11,euclidean,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,Isomap residual elbow (1–10),3.0,isomap,5.0,7.0,9.0,5.798088535535712,0.1863407310257375,3.0
+11,rbf_mmd,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,Isomap residual elbow (1–10),3.0,isomap,4.0,6.0,8.0,4.69378288852556,0.1724291930081661,3.0
+11,sliced_wasserstein,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,Isomap residual elbow (1–10),3.0,isomap,6.0,8.0,9.0,5.613358647622506,0.1927765931428508,3.0
+12,cosine,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,Isomap residual elbow (1–10),4.0,isomap,5.0,7.0,8.0,4.781983247062039,0.2232655915293616,4.0
+12,crossnobis,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,Isomap residual elbow (1–10),4.0,isomap,5.0,7.0,9.0,5.092524871586421,0.1637498333223478,4.0
+12,energy,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,Isomap residual elbow (1–10),3.0,isomap,5.0,6.0,8.0,4.902858544875327,0.1607368747501559,3.0
+12,euclidean,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,Isomap residual elbow (1–10),3.0,isomap,5.0,7.0,9.0,5.7330062619903,0.1927024848481172,3.0
+12,rbf_mmd,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,Isomap residual elbow (1–10),3.0,isomap,5.0,6.0,9.0,4.678276056005736,0.1793874733954119,3.0
+12,sliced_wasserstein,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,Isomap residual elbow (1–10),3.0,isomap,5.0,7.0,9.0,5.263672435666109,0.191965397429602,3.0
+13,cosine,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,Isomap residual elbow (1–10),4.0,isomap,5.0,6.0,8.0,4.716543403450208,0.2190205956013119,4.0
+13,crossnobis,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,Isomap residual elbow (1–10),3.0,isomap,5.0,7.0,8.0,4.714992978437938,0.1732787104582873,3.0
+13,energy,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,Isomap residual elbow (1–10),3.0,isomap,4.0,6.0,8.0,4.71825480947258,0.1525040224564687,3.0
+13,euclidean,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,Isomap residual elbow (1–10),3.0,isomap,5.0,7.0,9.0,5.657071350612589,0.189646127774129,3.0
+13,rbf_mmd,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,Isomap residual elbow (1–10),3.0,isomap,4.0,6.0,8.0,4.4769085698881455,0.1753085830011897,3.0
+13,sliced_wasserstein,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,Isomap residual elbow (1–10),3.0,isomap,5.0,8.0,9.0,5.420495906192304,0.2025344251664234,3.0
+14,cosine,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,Isomap residual elbow (1–10),5.0,isomap,5.0,6.0,8.0,4.67519393437987,0.2219436826349261,5.0
+14,crossnobis,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,Isomap residual elbow (1–10),3.0,isomap,5.0,7.0,9.0,5.120105173677666,0.1815608576990919,3.0
+14,energy,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,Isomap residual elbow (1–10),3.0,isomap,4.0,6.0,8.0,4.705206568214893,0.1561189713094454,3.0
+14,euclidean,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,Isomap residual elbow (1–10),3.0,isomap,5.0,7.0,9.0,5.6933367095072045,0.1874799161589703,3.0
+14,rbf_mmd,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,Isomap residual elbow (1–10),3.0,isomap,5.0,6.0,9.0,5.013590411072222,0.1741577264020918,3.0
+14,sliced_wasserstein,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,Isomap residual elbow (1–10),3.0,isomap,6.0,8.0,10.0,5.790208487398269,0.1976065750481102,3.0
+15,cosine,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,Isomap residual elbow (1–10),4.0,isomap,4.0,6.0,8.0,4.286747077920429,0.2176439282266586,4.0
+15,crossnobis,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,Isomap residual elbow (1–10),3.0,isomap,5.0,7.0,9.0,5.049036709897792,0.1821840800336314,3.0
+15,energy,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,Isomap residual elbow (1–10),3.0,isomap,5.0,7.0,9.0,5.1131645383649325,0.1735591734894004,3.0
+15,euclidean,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,Isomap residual elbow (1–10),3.0,isomap,5.0,7.0,9.0,5.463058512308574,0.1884268179783579,3.0
+15,rbf_mmd,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,Isomap residual elbow (1–10),3.0,isomap,5.0,7.0,9.0,5.123812995930895,0.1837400785779994,3.0
+15,sliced_wasserstein,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,Isomap residual elbow (1–10),3.0,isomap,6.0,8.0,10.0,6.015928268740994,0.2053437171134517,3.0
+16,cosine,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,Isomap residual elbow (1–10),4.0,isomap,4.0,6.0,8.0,4.328134441334591,0.2224199529098198,4.0
+16,crossnobis,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,Isomap residual elbow (1–10),3.0,isomap,5.0,7.0,9.0,5.119298675918039,0.17757648202544,3.0
+16,energy,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,Isomap residual elbow (1–10),3.0,isomap,4.0,6.0,8.0,4.85521645562632,0.1567243952065276,3.0
+16,euclidean,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,Isomap residual elbow (1–10),3.0,isomap,5.0,7.0,9.0,5.5590554850359135,0.1865694482969012,3.0
+16,rbf_mmd,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,Isomap residual elbow (1–10),3.0,isomap,4.0,6.0,8.0,4.646347193544859,0.1724304140111816,3.0
+16,sliced_wasserstein,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,Isomap residual elbow (1–10),3.0,isomap,6.0,8.0,9.0,5.891707991470788,0.1935204317351674,3.0
+17,cosine,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,Isomap residual elbow (1–10),4.0,isomap,4.0,6.0,8.0,4.241861872297803,0.2203546404015181,4.0
+17,crossnobis,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,Isomap residual elbow (1–10),4.0,isomap,5.0,7.0,9.0,4.929239686344956,0.1672910817272956,4.0
+17,energy,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,Isomap residual elbow (1–10),3.0,isomap,4.0,6.0,8.0,4.710234256262616,0.1666306492029765,3.0
+17,euclidean,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,Isomap residual elbow (1–10),3.0,isomap,5.0,7.0,9.0,5.339396277056371,0.1858517793435166,3.0
+17,rbf_mmd,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,Isomap residual elbow (1–10),3.0,isomap,4.0,6.0,8.0,4.672384761828661,0.1637311935120258,3.0
+17,sliced_wasserstein,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,Isomap residual elbow (1–10),3.0,isomap,5.0,7.0,9.0,4.897580809560336,0.1871588477834308,3.0
+18,cosine,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,Isomap residual elbow (1–10),4.0,isomap,4.0,6.0,8.0,4.2334435617400334,0.2219384138860442,4.0
+18,crossnobis,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,Isomap residual elbow (1–10),3.0,isomap,5.0,7.0,9.0,5.027857810021104,0.1717670869411627,3.0
+18,energy,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,Isomap residual elbow (1–10),3.0,isomap,5.0,6.0,8.0,4.593480323870668,0.1622582886634258,3.0
+18,euclidean,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,Isomap residual elbow (1–10),3.0,isomap,5.0,7.0,9.0,5.10754599522251,0.1837687238899696,3.0
+18,rbf_mmd,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,Isomap residual elbow (1–10),3.0,isomap,4.0,6.0,8.0,4.786837970012485,0.1674068480331788,3.0
+18,sliced_wasserstein,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,Isomap residual elbow (1–10),3.0,isomap,5.0,7.0,9.0,4.936015805056923,0.1783234888748334,3.0
+19,cosine,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,Isomap residual elbow (1–10),3.0,isomap,4.0,6.0,9.0,4.510675287806873,0.2265183966332634,3.0
+19,crossnobis,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,Isomap residual elbow (1–10),3.0,isomap,6.0,8.0,10.0,5.285636299758869,0.1624323949521515,3.0
+19,energy,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,Isomap residual elbow (1–10),3.0,isomap,4.0,6.0,8.0,4.769374321195719,0.1707807019576722,3.0
+19,euclidean,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,Isomap residual elbow (1–10),3.0,isomap,5.0,7.0,9.0,5.057452528646791,0.1843603505210111,3.0
+19,rbf_mmd,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,Isomap residual elbow (1–10),3.0,isomap,5.0,7.0,8.0,4.9407298309092855,0.1768143272277615,3.0
+19,sliced_wasserstein,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,Isomap residual elbow (1–10),3.0,isomap,6.0,8.0,10.0,5.877489901377579,0.2027471591018198,3.0
+20,cosine,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,Isomap residual elbow (1–10),4.0,isomap,4.0,6.0,8.0,3.821188687312831,0.2120707329223863,4.0
+20,crossnobis,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,Isomap residual elbow (1–10),4.0,isomap,5.0,8.0,9.0,5.435413654068523,0.1788366782138067,4.0
+20,energy,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,Isomap residual elbow (1–10),3.0,isomap,5.0,7.0,9.0,4.945679849523463,0.1684422684575229,3.0
+20,euclidean,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,Isomap residual elbow (1–10),3.0,isomap,5.0,8.0,10.0,5.516852449815085,0.1904245589332291,3.0
+20,rbf_mmd,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,Isomap residual elbow (1–10),3.0,isomap,5.0,6.0,8.0,4.831064315325035,0.1659772249571897,3.0
+20,sliced_wasserstein,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,Isomap residual elbow (1–10),5.0,isomap,6.0,7.0,9.0,5.559006456455232,0.1971633440505644,5.0
+21,cosine,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,Isomap residual elbow (1–10),4.0,isomap,4.0,6.0,8.0,3.952480843567926,0.2128726721209407,4.0
+21,crossnobis,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,Isomap residual elbow (1–10),5.0,isomap,6.0,8.0,10.0,5.626803663535135,0.1770457555681571,5.0
+21,energy,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,Isomap residual elbow (1–10),3.0,isomap,5.0,7.0,9.0,4.894727963580422,0.1706927853788698,3.0
+21,euclidean,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,Isomap residual elbow (1–10),3.0,isomap,5.0,8.0,10.0,5.4391379295905145,0.1894336378391125,3.0
+21,rbf_mmd,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,Isomap residual elbow (1–10),4.0,isomap,5.0,6.0,8.0,4.990157983148758,0.1673677872024747,4.0
+21,sliced_wasserstein,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,Isomap residual elbow (1–10),3.0,isomap,5.0,8.0,10.0,5.776793807914989,0.1867483858297466,3.0
+22,cosine,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,Isomap residual elbow (1–10),4.0,isomap,4.0,6.0,8.0,3.66712214311192,0.2159559082397117,4.0
+22,crossnobis,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,Isomap residual elbow (1–10),3.0,isomap,6.0,8.0,9.0,5.854985816598435,0.1755949083620869,3.0
+22,energy,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,Isomap residual elbow (1–10),3.0,isomap,5.0,6.0,9.0,5.036789554765052,0.1656069386665352,3.0
+22,euclidean,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,Isomap residual elbow (1–10),3.0,isomap,5.0,8.0,10.0,5.349625096263021,0.1881747313790747,3.0
+22,rbf_mmd,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,Isomap residual elbow (1–10),4.0,isomap,4.0,6.0,8.0,4.654406288500499,0.1569887746385762,4.0
+22,sliced_wasserstein,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,Isomap residual elbow (1–10),3.0,isomap,5.0,8.0,10.0,5.884695249324076,0.202597705224848,3.0
+23,cosine,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,Isomap residual elbow (1–10),5.0,isomap,4.0,6.0,8.0,3.797224262804742,0.2138924408147043,5.0
+23,crossnobis,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,Isomap residual elbow (1–10),5.0,isomap,6.0,8.0,10.0,6.118815856667227,0.1686286945168659,5.0
+23,energy,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,Isomap residual elbow (1–10),3.0,isomap,5.0,7.0,9.0,5.173195532407181,0.1685074830292569,3.0
+23,euclidean,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,Isomap residual elbow (1–10),4.0,isomap,5.0,7.0,9.0,5.375348360677175,0.1868903666273434,4.0
+23,rbf_mmd,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,Isomap residual elbow (1–10),3.0,isomap,5.0,7.0,9.0,5.142201146757405,0.1702749690721459,3.0
+23,sliced_wasserstein,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,Isomap residual elbow (1–10),3.0,isomap,5.0,7.0,9.0,5.556705164636344,0.1985743251156925,3.0
+24,cosine,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,Isomap residual elbow (1–10),4.0,isomap,4.0,6.0,8.0,3.585172206249321,0.2042453409662923,4.0
+24,crossnobis,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,Isomap residual elbow (1–10),4.0,isomap,6.0,8.0,10.0,5.751236318870369,0.1721211548368824,4.0
+24,energy,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,Isomap residual elbow (1–10),4.0,isomap,5.0,6.0,9.0,4.711906007000546,0.1536114118062707,4.0
+24,euclidean,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,Isomap residual elbow (1–10),4.0,isomap,5.0,7.0,9.0,5.075165334749844,0.1794111250052013,4.0
+24,rbf_mmd,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,Isomap residual elbow (1–10),4.0,isomap,5.0,6.0,9.0,4.659746808294754,0.154033751168436,4.0
+24,sliced_wasserstein,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,Isomap residual elbow (1–10),4.0,isomap,6.0,8.0,10.0,5.668537417811649,0.2042501631267209,4.0
+25,cosine,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,Isomap residual elbow (1–10),4.0,isomap,4.0,6.0,9.0,3.819172466280584,0.2118268284469312,4.0
+25,crossnobis,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,Isomap residual elbow (1–10),3.0,isomap,6.0,8.0,9.0,5.8109922516169945,0.1716322123219422,3.0
+25,energy,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,Isomap residual elbow (1–10),4.0,isomap,4.0,6.0,9.0,4.829359857627217,0.1632287562088481,4.0
+25,euclidean,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,Isomap residual elbow (1–10),3.0,isomap,5.0,7.0,9.0,5.218313703779844,0.1852170022528411,3.0
+25,rbf_mmd,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,Isomap residual elbow (1–10),4.0,isomap,5.0,7.0,9.0,4.9322899243065335,0.1588606536463639,4.0
+25,sliced_wasserstein,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,Isomap residual elbow (1–10),4.0,isomap,5.0,7.0,9.0,5.414839934451608,0.1921246560260607,4.0
+26,cosine,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,Isomap residual elbow (1–10),4.0,isomap,4.0,6.0,8.0,3.71632538590196,0.2092845093372846,4.0
+26,crossnobis,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,Isomap residual elbow (1–10),4.0,isomap,6.0,8.0,10.0,6.03191072297936,0.170058355914581,4.0
+26,energy,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,Isomap residual elbow (1–10),3.0,isomap,5.0,7.0,9.0,5.045748988350782,0.1661703167642569,3.0
+26,euclidean,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,Isomap residual elbow (1–10),4.0,isomap,5.0,7.0,9.0,4.928339506681895,0.1780616492752827,4.0
+26,rbf_mmd,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,Isomap residual elbow (1–10),3.0,isomap,5.0,7.0,9.0,4.859938945104012,0.1592577416888851,3.0
+26,sliced_wasserstein,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,Isomap residual elbow (1–10),3.0,isomap,6.0,8.0,10.0,5.595931772818089,0.1913257477533317,3.0
+27,cosine,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,Isomap residual elbow (1–10),4.0,isomap,4.0,7.0,9.0,4.451069672196862,0.2294936841013882,4.0
+27,crossnobis,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,Isomap residual elbow (1–10),4.0,isomap,6.0,8.0,10.0,6.119506196208466,0.1753527545392436,4.0
+27,energy,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,Isomap residual elbow (1–10),4.0,isomap,5.0,7.0,9.0,5.688521471866032,0.1774160929977417,4.0
+27,euclidean,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,Isomap residual elbow (1–10),4.0,isomap,5.0,7.0,9.0,5.275553551918235,0.1780700607258247,4.0
+27,rbf_mmd,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,Isomap residual elbow (1–10),4.0,isomap,5.0,7.0,9.0,5.662343265309622,0.1767532729063209,4.0
+27,sliced_wasserstein,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,Isomap residual elbow (1–10),3.0,isomap,5.0,8.0,10.0,5.46528660702068,0.1836624157032846,3.0

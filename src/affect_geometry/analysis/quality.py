@@ -22,7 +22,17 @@ def shepard_correlation(target: np.ndarray, coordinates: np.ndarray) -> float:
 
 
 def _ranks(distances: np.ndarray) -> np.ndarray:
-    return np.argsort(np.argsort(distances, axis=1), axis=1)
+    order = neighbor_order(distances)
+    ranks = np.zeros_like(distances, dtype=int)
+    ranks[np.arange(len(distances))[:, None], order] = np.arange(1, len(distances))
+    return ranks
+
+
+def neighbor_order(distances: np.ndarray) -> np.ndarray:
+    """Order other observations, excluding self even when distances tie at zero."""
+    values = np.array(distances, dtype=float, copy=True)
+    np.fill_diagonal(values, np.inf)
+    return np.argsort(values, axis=1, kind="stable")[:, : len(values) - 1]
 
 
 def trustworthiness_continuity(
@@ -32,9 +42,11 @@ def trustworthiness_continuity(
 ) -> tuple[float, float]:
     embedded = squareform(pdist(coordinates))
     n = len(original)
-    k = min(neighbors, max(1, (2 * n - 2) // 3))
-    original_order = np.argsort(original, axis=1)[:, 1 : k + 1]
-    embedded_order = np.argsort(embedded, axis=1)[:, 1 : k + 1]
+    if not 1 <= neighbors < n / 2:
+        raise ValueError("neighbors must be positive and less than n_samples / 2")
+    k = neighbors
+    original_order = neighbor_order(original)[:, :k]
+    embedded_order = neighbor_order(embedded)[:, :k]
     original_ranks, embedded_ranks = _ranks(original), _ranks(embedded)
     trust_penalty = 0.0
     continuity_penalty = 0.0

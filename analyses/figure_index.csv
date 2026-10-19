@@ -1,0 +1,29 @@
+figure,vector_figure,data,title
+figures/01_va_recovery.png,figures/01_va_recovery.pdf,plot_data/figure_01_va_recovery.csv,V–A shape recovery across all layers
+figures/02_axis_correlations.png,figures/02_axis_correlations.pdf,plot_data/figure_02_axis_correlations.csv,Valence and arousal correlations after joint similarity alignment
+figures/03_aligned_maps.png,figures/03_aligned_maps.pdf,plot_data/figure_03_aligned_maps.csv,Selected maxima of fitted V–A R² (exploratory layer selection)
+figures/04_stress.png,figures/04_stress.pdf,plot_data/figure_04_stress.csv,2D embedding quality against the direct RDM: Normalized metric stress ↓
+figures/04_trustworthiness.png,figures/04_trustworthiness.pdf,plot_data/figure_04_trustworthiness.csv,2D embedding quality against the direct RDM: Trustworthiness at k=5 ↑
+figures/04_shepard_spearman.png,figures/04_shepard_spearman.pdf,plot_data/figure_04_shepard_spearman.csv,2D embedding quality against the direct RDM: Shepard Spearman ρ ↑
+figures/04_continuity.png,figures/04_continuity.pdf,plot_data/figure_04_continuity.csv,2D embedding quality against the direct RDM: Continuity at k=5 ↑
+figures/05_intrinsic_dimensions.png,figures/05_intrinsic_dimensions.pdf,plot_data/figure_05_intrinsic_dimensions.csv,Dimensions of emotion-level geometry: positive MDS spectrum and Isomap elbow
+figures/06_positive_mass.png,figures/06_positive_mass.pdf,plot_data/figure_06_positive_mass.csv,Positive classical-MDS eigenvalue spectrum: average over 28 blocks
+figures/06_cumulative_positive_mass.png,figures/06_cumulative_positive_mass.pdf,plot_data/figure_06_cumulative_positive_mass.csv,Cumulative positive spectral mass: average over 28 blocks
+figures/07_isomap_residuals.png,figures/07_isomap_residuals.pdf,plot_data/figure_07_isomap_residuals.csv,Isomap residual variance at fixed representative depths
+figures/08_mds_isomap_difference.png,figures/08_mds_isomap_difference.pdf,plot_data/figure_08_mds_isomap_difference.csv,Isomap minus classical MDS in 2D (negative stress difference favors Isomap)
+figures/09_dimension_method_difference.png,figures/09_dimension_method_difference.pdf,plot_data/figure_09_dimension_method_difference.csv,Mean Isomap − MDS quality difference by embedding dimension
+figures/10_geodesic_ratios.png,figures/10_geodesic_ratios.pdf,plot_data/figure_10_geodesic_ratios.csv,Geodesic / direct distances (zero direct distances omitted)
+figures/11_distance_agreement.png,figures/11_distance_agreement.pdf,plot_data/figure_11_distance_agreement.csv,Agreement across distances: average of matched blocks
+figures/12_neighborhood_change.png,figures/12_neighborhood_change.pdf,plot_data/figure_12_neighborhood_change.csv,Which emotions depend most on the distance definition?
+figures/13_cross_layer_similarity.png,figures/13_cross_layer_similarity.pdf,plot_data/figure_13_cross_layer_similarity.csv,Evolution of 2D emotion geometry across model depth
+figures/14_graph_sensitivity.png,figures/14_graph_sensitivity.pdf,plot_data/figure_14_graph_sensitivity.csv,Isomap graph sensitivity (quality evaluated at k=5)
+figures/15_reference_rsa.png,figures/15_reference_rsa.pdf,plot_data/figure_15_reference_rsa.csv,Reference-distance agreement before and after nuisance controls
+figures/16_split_sensitivity.png,figures/16_split_sensitivity.pdf,plot_data/figure_16_split_sensitivity.csv,Disjoint text splits using PCA fitted on training text only
+figures/17_balanced_sampling.png,figures/17_balanced_sampling.pdf,plot_data/figure_17_balanced_sampling.csv,Equal sample counts: 200 draws of 47 comments per emotion
+figures/18_non_euclidean_audit.png,figures/18_non_euclidean_audit.pdf,plot_data/figure_18_non_euclidean_audit.csv,Metric assumptions: triangle violations and negative MDS spectral mass
+figures/19_dataset_balance.png,figures/19_dataset_balance.pdf,plot_data/figure_19_dataset_balance.csv,Sample support and comment length by emotion
+figures/20_shepard_diagrams.png,figures/20_shepard_diagrams.pdf,plot_data/figure_20_shepard_diagrams.csv,Shepard diagrams at fixed block 14: all 378 emotion pairs
+figures/21_preprocessing_sensitivity.png,figures/21_preprocessing_sensitivity.pdf,plot_data/figure_21_preprocessing_sensitivity.csv,Cosine depends strongly on centering and PCA; Euclidean geometry is more stable
+figures/22_held_out_axes.png,figures/22_held_out_axes.pdf,plot_data/figure_22_held_out_axes.csv,Held-out emotion predictions relative to training-mean baselines
+figures/23_affine_decoding.png,figures/23_affine_decoding.pdf,plot_data/figure_23_affine_decoding.csv,Separate affine decoder: average held-out label skill over blocks
+figures/24_cosine_chord.png,figures/24_cosine_chord.pdf,plot_data/figure_24_cosine_chord.csv,Cosine dissimilarity versus Euclidean chord distance on the same normalized centroids

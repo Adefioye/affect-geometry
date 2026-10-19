@@ -4,7 +4,7 @@ import numpy as np
 import pandas as pd
 from scipy.stats import spearmanr
 
-from affect_geometry.analysis.quality import upper_triangle
+from affect_geometry.analysis.quality import neighbor_order, upper_triangle
 from affect_geometry.analysis.va import align_similarity
 
 
@@ -27,8 +27,8 @@ def neighborhood_overlap(
     neighbors: int,
 ) -> tuple[float, pd.DataFrame]:
     k = min(neighbors, len(labels) - 1)
-    first_order = np.argsort(first, axis=1)[:, 1 : k + 1]
-    second_order = np.argsort(second, axis=1)[:, 1 : k + 1]
+    first_order = neighbor_order(first)[:, :k]
+    second_order = neighbor_order(second)[:, :k]
     rows = []
     for i, emotion in enumerate(labels):
         a, b = set(first_order[i]), set(second_order[i])

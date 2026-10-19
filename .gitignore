@@ -5,3 +5,6 @@ __pycache__/
 .venv/
 outputs/
 miniconda.sh
+
+# Environment files
+.env

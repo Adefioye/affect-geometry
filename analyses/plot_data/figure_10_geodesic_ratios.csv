@@ -1,0 +1,505 @@
+distance,layer,model,run_id,pooling,split,seed,pca_components,distribution_cap,quality_neighbors,quantile,ratio,series
+cosine,0,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.05,0.862661538054167,5th percentile
+cosine,0,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.5,1.1027086288121024,median
+cosine,0,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.95,1.5612325507067537,95th percentile
+cosine,1,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.05,0.8677241921066623,5th percentile
+cosine,1,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.5,1.0755955464444422,median
+cosine,1,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.95,1.5792381890472373,95th percentile
+cosine,2,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.05,0.8851778428011658,5th percentile
+cosine,2,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.5,1.188510615053674,median
+cosine,2,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.95,1.7868752418964118,95th percentile
+cosine,3,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.05,0.8779972861608353,5th percentile
+cosine,3,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.5,1.1000276779823857,median
+cosine,3,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.95,1.6960966366672705,95th percentile
+cosine,4,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.05,0.8414159585666042,5th percentile
+cosine,4,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.5,1.1105224994895821,median
+cosine,4,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.95,1.6294112060280155,95th percentile
+cosine,5,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.05,0.8991454562846969,5th percentile
+cosine,5,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.5,1.1546006389823302,median
+cosine,5,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.95,1.6392874820836925,95th percentile
+cosine,6,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.05,0.9146973560690251,5th percentile
+cosine,6,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.5,1.1561518694827888,median
+cosine,6,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.95,1.6280056188287046,95th percentile
+cosine,7,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.05,0.9230947898936135,5th percentile
+cosine,7,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.5,1.202898128558712,median
+cosine,7,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.95,1.7965637465856006,95th percentile
+cosine,8,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.05,0.9497885431107809,5th percentile
+cosine,8,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.5,1.1997139636320913,median
+cosine,8,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.95,1.7662416157196146,95th percentile
+cosine,9,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.05,0.947790987336072,5th percentile
+cosine,9,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.5,1.2042416533329654,median
+cosine,9,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.95,1.7554743953822454,95th percentile
+cosine,10,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.05,0.9723907949424071,5th percentile
+cosine,10,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.5,1.2148849315504,median
+cosine,10,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.95,1.7419255583750755,95th percentile
+cosine,11,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.05,0.9740043762085401,5th percentile
+cosine,11,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.5,1.2179092556502633,median
+cosine,11,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.95,1.9211285666581959,95th percentile
+cosine,12,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.05,0.964321590465512,5th percentile
+cosine,12,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.5,1.2197928985481776,median
+cosine,12,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.95,1.800450101261066,95th percentile
+cosine,13,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.05,0.9534030172868948,5th percentile
+cosine,13,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.5,1.2174652105958064,median
+cosine,13,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.95,1.7767081631009018,95th percentile
+cosine,14,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.05,0.9680834319144161,5th percentile
+cosine,14,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.5,1.2243128250076323,median
+cosine,14,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.95,1.7625404267604738,95th percentile
+cosine,15,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.05,0.9923808733952526,5th percentile
+cosine,15,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.5,1.242931162237607,median
+cosine,15,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.95,1.8549281080105684,95th percentile
+cosine,16,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.05,0.9537853493972298,5th percentile
+cosine,16,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.5,1.2150330770865039,median
+cosine,16,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.95,1.8025519590592087,95th percentile
+cosine,17,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.05,0.9427005139332303,5th percentile
+cosine,17,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.5,1.171219651761643,median
+cosine,17,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.95,1.80501782994805,95th percentile
+cosine,18,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.05,0.9564561669073822,5th percentile
+cosine,18,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.5,1.17762050192978,median
+cosine,18,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.95,1.7600436997240512,95th percentile
+cosine,19,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.05,0.9541678480670058,5th percentile
+cosine,19,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.5,1.1729336649857292,median
+cosine,19,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.95,1.7405593036697058,95th percentile
+cosine,20,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.05,0.9554702253509182,5th percentile
+cosine,20,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.5,1.1778979348826708,median
+cosine,20,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.95,1.9570700380199095,95th percentile
+cosine,21,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.05,0.946003469236971,5th percentile
+cosine,21,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.5,1.1736459857395913,median
+cosine,21,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.95,1.8328139131642203,95th percentile
+cosine,22,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.05,0.9450343362822285,5th percentile
+cosine,22,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.5,1.1766356606830732,median
+cosine,22,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.95,1.9804660779163434,95th percentile
+cosine,23,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.05,0.9371089192299867,5th percentile
+cosine,23,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.5,1.1619733719980427,median
+cosine,23,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.95,1.9199341263528182,95th percentile
+cosine,24,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.05,0.9439770841519591,5th percentile
+cosine,24,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.5,1.1612532457274876,median
+cosine,24,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.95,1.926649326144519,95th percentile
+cosine,25,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.05,0.9461175373213397,5th percentile
+cosine,25,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.5,1.174385586656299,median
+cosine,25,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.95,1.8662770307802548,95th percentile
+cosine,26,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.05,0.9436402879930709,5th percentile
+cosine,26,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.5,1.1618984521127482,median
+cosine,26,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.95,1.887316715746778,95th percentile
+cosine,27,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.05,0.926790743491929,5th percentile
+cosine,27,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.5,1.151825969977844,median
+cosine,27,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.95,1.726579356198492,95th percentile
+crossnobis,0,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.05,1.0,5th percentile
+crossnobis,0,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.5,1.163075987189869,median
+crossnobis,0,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.95,1.4712961968541856,95th percentile
+crossnobis,1,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.05,1.0,5th percentile
+crossnobis,1,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.5,1.2140341185459969,median
+crossnobis,1,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.95,1.4896536625435235,95th percentile
+crossnobis,2,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.05,0.8285410620624885,5th percentile
+crossnobis,2,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.5,1.0982038670329233,median
+crossnobis,2,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.95,1.4865233931475332,95th percentile
+crossnobis,3,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.05,1.0,5th percentile
+crossnobis,3,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.5,1.2057434756900558,median
+crossnobis,3,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.95,1.5885541701109773,95th percentile
+crossnobis,4,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.05,1.0,5th percentile
+crossnobis,4,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.5,1.1707711421647113,median
+crossnobis,4,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.95,1.4821272216712376,95th percentile
+crossnobis,5,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.05,1.0,5th percentile
+crossnobis,5,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.5,1.213180988940965,median
+crossnobis,5,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.95,1.578153956773074,95th percentile
+crossnobis,6,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.05,1.0,5th percentile
+crossnobis,6,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.5,1.2707742099545198,median
+crossnobis,6,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.95,1.6251344796465343,95th percentile
+crossnobis,7,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.05,1.0,5th percentile
+crossnobis,7,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.5,1.3158970553393452,median
+crossnobis,7,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.95,1.6743989249171944,95th percentile
+crossnobis,8,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.05,1.0,5th percentile
+crossnobis,8,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.5,1.307289321113652,median
+crossnobis,8,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.95,1.6449454226808005,95th percentile
+crossnobis,9,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.05,1.0,5th percentile
+crossnobis,9,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.5,1.3204869612230197,median
+crossnobis,9,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.95,1.6782109042510656,95th percentile
+crossnobis,10,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.05,1.0,5th percentile
+crossnobis,10,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.5,1.344357868555711,median
+crossnobis,10,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.95,1.761114285140603,95th percentile
+crossnobis,11,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.05,1.0,5th percentile
+crossnobis,11,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.5,1.35855781244934,median
+crossnobis,11,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.95,1.752792488268449,95th percentile
+crossnobis,12,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.05,1.0,5th percentile
+crossnobis,12,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.5,1.3624891582867185,median
+crossnobis,12,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.95,1.8011777152970523,95th percentile
+crossnobis,13,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.05,1.0,5th percentile
+crossnobis,13,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.5,1.375686202151028,median
+crossnobis,13,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.95,1.9044910834534212,95th percentile
+crossnobis,14,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.05,1.0,5th percentile
+crossnobis,14,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.5,1.3661344517781957,median
+crossnobis,14,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.95,1.8107275836051584,95th percentile
+crossnobis,15,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.05,1.0,5th percentile
+crossnobis,15,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.5,1.378424578797675,median
+crossnobis,15,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.95,1.9495842906939134,95th percentile
+crossnobis,16,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.05,1.0,5th percentile
+crossnobis,16,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.5,1.3638152385609112,median
+crossnobis,16,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.95,1.8573032784687946,95th percentile
+crossnobis,17,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.05,1.0,5th percentile
+crossnobis,17,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.5,1.3737713126269497,median
+crossnobis,17,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.95,1.9336222148569742,95th percentile
+crossnobis,18,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.05,1.0,5th percentile
+crossnobis,18,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.5,1.3702471559560463,median
+crossnobis,18,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.95,1.8522265286889394,95th percentile
+crossnobis,19,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.05,1.0,5th percentile
+crossnobis,19,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.5,1.3581776779384243,median
+crossnobis,19,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.95,1.8214975752878462,95th percentile
+crossnobis,20,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.05,1.0,5th percentile
+crossnobis,20,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.5,1.3583370982041822,median
+crossnobis,20,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.95,1.8314178982137803,95th percentile
+crossnobis,21,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.05,1.0,5th percentile
+crossnobis,21,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.5,1.3514378595923149,median
+crossnobis,21,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.95,1.7966234032846806,95th percentile
+crossnobis,22,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.05,1.0,5th percentile
+crossnobis,22,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.5,1.3545544653990247,median
+crossnobis,22,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.95,1.7623101098379497,95th percentile
+crossnobis,23,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.05,1.0,5th percentile
+crossnobis,23,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.5,1.3655986554253159,median
+crossnobis,23,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.95,1.7777546623690748,95th percentile
+crossnobis,24,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.05,1.0,5th percentile
+crossnobis,24,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.5,1.3697814279520006,median
+crossnobis,24,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.95,1.7926787479300055,95th percentile
+crossnobis,25,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.05,1.0,5th percentile
+crossnobis,25,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.5,1.3650663024927288,median
+crossnobis,25,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.95,1.7595710609226298,95th percentile
+crossnobis,26,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.05,1.0,5th percentile
+crossnobis,26,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.5,1.355889891813424,median
+crossnobis,26,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.95,1.746978446581012,95th percentile
+crossnobis,27,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.05,1.0,5th percentile
+crossnobis,27,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.5,1.359244434058273,median
+crossnobis,27,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.95,1.761914097973803,95th percentile
+energy,0,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.05,3.2992247160163648e-15,5th percentile
+energy,0,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.5,0.5750684554262516,median
+energy,0,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.95,1.0007845052973474,95th percentile
+energy,1,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.05,0.1577403291466739,5th percentile
+energy,1,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.5,0.8270441244164926,median
+energy,1,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.95,1.1150905581557458,95th percentile
+energy,2,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.05,0.43849843019317386,5th percentile
+energy,2,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.5,0.9458380427892625,median
+energy,2,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.95,1.22805329238678,95th percentile
+energy,3,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.05,0.8106866703651945,5th percentile
+energy,3,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.5,1.0521199510089487,median
+energy,3,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.95,1.4206928128277594,95th percentile
+energy,4,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.05,0.7506565808885728,5th percentile
+energy,4,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.5,1.0,median
+energy,4,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.95,1.3215468397187309,95th percentile
+energy,5,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.05,0.9995598457804895,5th percentile
+energy,5,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.5,1.1173659056156158,median
+energy,5,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.95,1.468121689256792,95th percentile
+energy,6,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.05,1.0,5th percentile
+energy,6,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.5,1.2455396225978892,median
+energy,6,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.95,1.6328816189730722,95th percentile
+energy,7,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.05,1.0,5th percentile
+energy,7,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.5,1.286295661432483,median
+energy,7,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.95,1.6606002635514487,95th percentile
+energy,8,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.05,1.0,5th percentile
+energy,8,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.5,1.2663912423831023,median
+energy,8,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.95,1.612100456206669,95th percentile
+energy,9,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.05,1.0,5th percentile
+energy,9,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.5,1.2881241999897977,median
+energy,9,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.95,1.6405624358098971,95th percentile
+energy,10,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.05,1.0,5th percentile
+energy,10,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.5,1.3270137333062402,median
+energy,10,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.95,1.7541564497503552,95th percentile
+energy,11,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.05,1.0,5th percentile
+energy,11,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.5,1.3152073201473575,median
+energy,11,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.95,1.7932695750664382,95th percentile
+energy,12,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.05,1.0,5th percentile
+energy,12,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.5,1.3327272299963804,median
+energy,12,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.95,1.7898510847700335,95th percentile
+energy,13,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.05,1.0,5th percentile
+energy,13,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.5,1.3310070562394567,median
+energy,13,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.95,1.848992283376651,95th percentile
+energy,14,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.05,1.0,5th percentile
+energy,14,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.5,1.330491368903908,median
+energy,14,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.95,1.8457527976982944,95th percentile
+energy,15,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.05,1.0,5th percentile
+energy,15,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.5,1.323575891615849,median
+energy,15,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.95,1.8191470185494936,95th percentile
+energy,16,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.05,1.0,5th percentile
+energy,16,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.5,1.2706092560805828,median
+energy,16,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.95,1.7032987457448558,95th percentile
+energy,17,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.05,1.0,5th percentile
+energy,17,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.5,1.2921237672463661,median
+energy,17,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.95,1.8105680249701515,95th percentile
+energy,18,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.05,1.0,5th percentile
+energy,18,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.5,1.2897724009444846,median
+energy,18,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.95,1.7930427976155423,95th percentile
+energy,19,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.05,1.0,5th percentile
+energy,19,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.5,1.289240887550271,median
+energy,19,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.95,1.7963007331573675,95th percentile
+energy,20,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.05,1.0,5th percentile
+energy,20,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.5,1.2791314092299255,median
+energy,20,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.95,1.6702733278933146,95th percentile
+energy,21,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.05,1.0,5th percentile
+energy,21,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.5,1.290685663949397,median
+energy,21,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.95,1.707830163650214,95th percentile
+energy,22,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.05,1.0,5th percentile
+energy,22,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.5,1.2871596567018808,median
+energy,22,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.95,1.6942196013896231,95th percentile
+energy,23,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.05,1.0,5th percentile
+energy,23,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.5,1.2955023253719593,median
+energy,23,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.95,1.6813251143126708,95th percentile
+energy,24,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.05,1.0,5th percentile
+energy,24,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.5,1.3009189071286014,median
+energy,24,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.95,1.6775590905454951,95th percentile
+energy,25,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.05,1.0,5th percentile
+energy,25,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.5,1.2988485472477815,median
+energy,25,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.95,1.6976326557430519,95th percentile
+energy,26,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.05,1.0,5th percentile
+energy,26,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.5,1.2956933621979312,median
+energy,26,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.95,1.7019166149589842,95th percentile
+energy,27,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.05,1.0,5th percentile
+energy,27,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.5,1.2708993308711543,median
+energy,27,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.95,1.6337968756106482,95th percentile
+euclidean,0,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.05,1.0,5th percentile
+euclidean,0,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.5,1.2409580450566562,median
+euclidean,0,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.95,1.6067754508756784,95th percentile
+euclidean,1,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.05,1.0,5th percentile
+euclidean,1,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.5,1.2482376516372615,median
+euclidean,1,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.95,1.6414871497971815,95th percentile
+euclidean,2,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.05,1.0,5th percentile
+euclidean,2,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.5,1.22510858371998,median
+euclidean,2,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.95,1.5484992373954625,95th percentile
+euclidean,3,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.05,1.0,5th percentile
+euclidean,3,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.5,1.2523104762644912,median
+euclidean,3,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.95,1.5810116672212788,95th percentile
+euclidean,4,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.05,1.0,5th percentile
+euclidean,4,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.5,1.2316689946979786,median
+euclidean,4,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.95,1.591330585783851,95th percentile
+euclidean,5,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.05,1.0,5th percentile
+euclidean,5,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.5,1.2531868701465037,median
+euclidean,5,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.95,1.5837453431224098,95th percentile
+euclidean,6,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.05,1.0,5th percentile
+euclidean,6,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.5,1.289729722338926,median
+euclidean,6,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.95,1.639095199286299,95th percentile
+euclidean,7,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.05,1.0,5th percentile
+euclidean,7,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.5,1.3199042940404306,median
+euclidean,7,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.95,1.606653515247219,95th percentile
+euclidean,8,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.05,1.0,5th percentile
+euclidean,8,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.5,1.3179452631625657,median
+euclidean,8,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.95,1.6624042335191838,95th percentile
+euclidean,9,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.05,1.0,5th percentile
+euclidean,9,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.5,1.3456356999521388,median
+euclidean,9,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.95,1.7062892088240063,95th percentile
+euclidean,10,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.05,1.0,5th percentile
+euclidean,10,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.5,1.3536200876790256,median
+euclidean,10,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.95,1.6951427573197524,95th percentile
+euclidean,11,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.05,1.0,5th percentile
+euclidean,11,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.5,1.3694003731496864,median
+euclidean,11,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.95,1.7419931034016907,95th percentile
+euclidean,12,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.05,1.0,5th percentile
+euclidean,12,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.5,1.3750064257757577,median
+euclidean,12,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.95,1.7722137531263813,95th percentile
+euclidean,13,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.05,1.0,5th percentile
+euclidean,13,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.5,1.388674160973034,median
+euclidean,13,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.95,1.8211197662943168,95th percentile
+euclidean,14,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.05,1.0,5th percentile
+euclidean,14,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.5,1.3709000224761518,median
+euclidean,14,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.95,1.780591890589622,95th percentile
+euclidean,15,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.05,1.0,5th percentile
+euclidean,15,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.5,1.3933608328999771,median
+euclidean,15,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.95,1.8344351459615722,95th percentile
+euclidean,16,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.05,1.0,5th percentile
+euclidean,16,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.5,1.359352316503444,median
+euclidean,16,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.95,1.7773480264159365,95th percentile
+euclidean,17,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.05,1.0,5th percentile
+euclidean,17,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.5,1.359787826277679,median
+euclidean,17,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.95,1.9034335453624496,95th percentile
+euclidean,18,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.05,1.0,5th percentile
+euclidean,18,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.5,1.3596167185029642,median
+euclidean,18,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.95,1.8686921907588547,95th percentile
+euclidean,19,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.05,1.0,5th percentile
+euclidean,19,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.5,1.3610588912238892,median
+euclidean,19,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.95,1.8611009629367812,95th percentile
+euclidean,20,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.05,1.0,5th percentile
+euclidean,20,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.5,1.34140816737648,median
+euclidean,20,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.95,1.8170189126163419,95th percentile
+euclidean,21,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.05,1.0,5th percentile
+euclidean,21,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.5,1.3468434896446972,median
+euclidean,21,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.95,1.7887586624721978,95th percentile
+euclidean,22,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.05,1.0,5th percentile
+euclidean,22,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.5,1.3412279790997248,median
+euclidean,22,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.95,1.763958869969298,95th percentile
+euclidean,23,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.05,1.0,5th percentile
+euclidean,23,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.5,1.3366646886815061,median
+euclidean,23,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.95,1.745864672859068,95th percentile
+euclidean,24,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.05,1.0,5th percentile
+euclidean,24,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.5,1.3511175719990578,median
+euclidean,24,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.95,1.7660837636462123,95th percentile
+euclidean,25,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.05,1.0,5th percentile
+euclidean,25,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.5,1.3400509542790757,median
+euclidean,25,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.95,1.72329869005116,95th percentile
+euclidean,26,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.05,1.0,5th percentile
+euclidean,26,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.5,1.3420070447247392,median
+euclidean,26,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.95,1.803332135194637,95th percentile
+euclidean,27,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.05,1.0,5th percentile
+euclidean,27,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.5,1.3391409318880072,median
+euclidean,27,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.95,1.7727030519465379,95th percentile
+rbf_mmd,0,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.05,1.0252749789096206e-14,5th percentile
+rbf_mmd,0,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.5,0.4720336417948676,median
+rbf_mmd,0,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.95,1.0,95th percentile
+rbf_mmd,1,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.05,0.11204079033777431,5th percentile
+rbf_mmd,1,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.5,0.7491853070367724,median
+rbf_mmd,1,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.95,1.0503628664668387,95th percentile
+rbf_mmd,2,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.05,0.26688896278229224,5th percentile
+rbf_mmd,2,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.5,0.838859669714686,median
+rbf_mmd,2,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.95,1.1478928624657254,95th percentile
+rbf_mmd,3,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.05,0.7113699088259797,5th percentile
+rbf_mmd,3,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.5,1.0,median
+rbf_mmd,3,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.95,1.3963791625600332,95th percentile
+rbf_mmd,4,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.05,0.5909070933446791,5th percentile
+rbf_mmd,4,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.5,1.0,median
+rbf_mmd,4,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.95,1.2187972485940795,95th percentile
+rbf_mmd,5,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.05,0.9702807283861129,5th percentile
+rbf_mmd,5,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.5,1.0946708853444989,median
+rbf_mmd,5,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.95,1.4457169225419122,95th percentile
+rbf_mmd,6,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.05,1.0,5th percentile
+rbf_mmd,6,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.5,1.2484622874626397,median
+rbf_mmd,6,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.95,1.67292778403141,95th percentile
+rbf_mmd,7,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.05,1.0,5th percentile
+rbf_mmd,7,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.5,1.2799830148702396,median
+rbf_mmd,7,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.95,1.6932589469244215,95th percentile
+rbf_mmd,8,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.05,1.0,5th percentile
+rbf_mmd,8,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.5,1.267557385102923,median
+rbf_mmd,8,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.95,1.6735294533086644,95th percentile
+rbf_mmd,9,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.05,1.0,5th percentile
+rbf_mmd,9,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.5,1.2967377275834482,median
+rbf_mmd,9,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.95,1.7005765053705317,95th percentile
+rbf_mmd,10,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.05,1.0,5th percentile
+rbf_mmd,10,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.5,1.3311681328090361,median
+rbf_mmd,10,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.95,1.8210805578349156,95th percentile
+rbf_mmd,11,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.05,1.0,5th percentile
+rbf_mmd,11,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.5,1.335849757053357,median
+rbf_mmd,11,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.95,1.8296615807352208,95th percentile
+rbf_mmd,12,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.05,1.0,5th percentile
+rbf_mmd,12,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.5,1.33229675178204,median
+rbf_mmd,12,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.95,1.837049676728424,95th percentile
+rbf_mmd,13,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.05,1.0,5th percentile
+rbf_mmd,13,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.5,1.3450772570014882,median
+rbf_mmd,13,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.95,1.898618217912446,95th percentile
+rbf_mmd,14,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.05,1.0,5th percentile
+rbf_mmd,14,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.5,1.3163381243944658,median
+rbf_mmd,14,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.95,1.7634731111385131,95th percentile
+rbf_mmd,15,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.05,1.0,5th percentile
+rbf_mmd,15,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.5,1.331398551273783,median
+rbf_mmd,15,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.95,1.8749403417620878,95th percentile
+rbf_mmd,16,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.05,1.0,5th percentile
+rbf_mmd,16,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.5,1.2817780408237753,median
+rbf_mmd,16,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.95,1.7541083386448473,95th percentile
+rbf_mmd,17,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.05,1.0,5th percentile
+rbf_mmd,17,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.5,1.2917098156592235,median
+rbf_mmd,17,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.95,1.8107659237760683,95th percentile
+rbf_mmd,18,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.05,1.0,5th percentile
+rbf_mmd,18,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.5,1.2925770447348501,median
+rbf_mmd,18,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.95,1.7811961818106885,95th percentile
+rbf_mmd,19,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.05,1.0,5th percentile
+rbf_mmd,19,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.5,1.296749177787425,median
+rbf_mmd,19,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.95,1.7467064173078102,95th percentile
+rbf_mmd,20,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.05,1.0,5th percentile
+rbf_mmd,20,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.5,1.289884903120158,median
+rbf_mmd,20,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.95,1.7315841960615403,95th percentile
+rbf_mmd,21,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.05,1.0,5th percentile
+rbf_mmd,21,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.5,1.2896475742612656,median
+rbf_mmd,21,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.95,1.7011450933155565,95th percentile
+rbf_mmd,22,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.05,1.0,5th percentile
+rbf_mmd,22,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.5,1.3116042264302898,median
+rbf_mmd,22,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.95,1.7375100050910328,95th percentile
+rbf_mmd,23,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.05,1.0,5th percentile
+rbf_mmd,23,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.5,1.3035384356192838,median
+rbf_mmd,23,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.95,1.7114513071772461,95th percentile
+rbf_mmd,24,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.05,1.0,5th percentile
+rbf_mmd,24,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.5,1.314514412677414,median
+rbf_mmd,24,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.95,1.705699408437662,95th percentile
+rbf_mmd,25,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.05,1.0,5th percentile
+rbf_mmd,25,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.5,1.3129556741154889,median
+rbf_mmd,25,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.95,1.688691414267523,95th percentile
+rbf_mmd,26,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.05,1.0,5th percentile
+rbf_mmd,26,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.5,1.321598203019629,median
+rbf_mmd,26,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.95,1.738703388662884,95th percentile
+rbf_mmd,27,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.05,1.0,5th percentile
+rbf_mmd,27,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.5,1.287619043732037,median
+rbf_mmd,27,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.95,1.6675385459392738,95th percentile
+sliced_wasserstein,0,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.05,1.0,5th percentile
+sliced_wasserstein,0,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.5,1.3744217017919667,median
+sliced_wasserstein,0,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.95,1.7237287384483062,95th percentile
+sliced_wasserstein,1,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.05,1.0,5th percentile
+sliced_wasserstein,1,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.5,1.4074484825571472,median
+sliced_wasserstein,1,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.95,1.7601135093623335,95th percentile
+sliced_wasserstein,2,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.05,1.0,5th percentile
+sliced_wasserstein,2,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.5,1.3988232798354368,median
+sliced_wasserstein,2,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.95,1.7594870266797904,95th percentile
+sliced_wasserstein,3,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.05,1.0,5th percentile
+sliced_wasserstein,3,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.5,1.4142589792745714,median
+sliced_wasserstein,3,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.95,1.7970061332407923,95th percentile
+sliced_wasserstein,4,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.05,1.0,5th percentile
+sliced_wasserstein,4,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.5,1.383979833775372,median
+sliced_wasserstein,4,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.95,1.721063960726761,95th percentile
+sliced_wasserstein,5,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.05,1.0,5th percentile
+sliced_wasserstein,5,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.5,1.4415833816124515,median
+sliced_wasserstein,5,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.95,1.9600589189778148,95th percentile
+sliced_wasserstein,6,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.05,1.0,5th percentile
+sliced_wasserstein,6,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.5,1.4543551430023058,median
+sliced_wasserstein,6,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.95,1.9420739472281034,95th percentile
+sliced_wasserstein,7,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.05,1.0,5th percentile
+sliced_wasserstein,7,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.5,1.4275990969118157,median
+sliced_wasserstein,7,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.95,1.7616584398456336,95th percentile
+sliced_wasserstein,8,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.05,1.0,5th percentile
+sliced_wasserstein,8,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.5,1.4534266459029743,median
+sliced_wasserstein,8,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.95,1.9919471203922297,95th percentile
+sliced_wasserstein,9,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.05,1.0,5th percentile
+sliced_wasserstein,9,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.5,1.437937083562498,median
+sliced_wasserstein,9,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.95,1.8572142631694755,95th percentile
+sliced_wasserstein,10,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.05,1.0,5th percentile
+sliced_wasserstein,10,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.5,1.4297376094113465,median
+sliced_wasserstein,10,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.95,1.9500265968407993,95th percentile
+sliced_wasserstein,11,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.05,1.0,5th percentile
+sliced_wasserstein,11,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.5,1.4731718710418407,median
+sliced_wasserstein,11,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.95,2.0089253751808567,95th percentile
+sliced_wasserstein,12,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.05,1.0,5th percentile
+sliced_wasserstein,12,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.5,1.4659553972240265,median
+sliced_wasserstein,12,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.95,2.107517977761961,95th percentile
+sliced_wasserstein,13,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.05,1.0,5th percentile
+sliced_wasserstein,13,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.5,1.4855136531881354,median
+sliced_wasserstein,13,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.95,2.0610491862098983,95th percentile
+sliced_wasserstein,14,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.05,1.0,5th percentile
+sliced_wasserstein,14,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.5,1.4606147757436827,median
+sliced_wasserstein,14,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.95,1.993342149735481,95th percentile
+sliced_wasserstein,15,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.05,1.0,5th percentile
+sliced_wasserstein,15,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.5,1.4612426705284334,median
+sliced_wasserstein,15,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.95,1.9995886671458847,95th percentile
+sliced_wasserstein,16,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.05,1.0,5th percentile
+sliced_wasserstein,16,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.5,1.4355141193686811,median
+sliced_wasserstein,16,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.95,1.973091572273821,95th percentile
+sliced_wasserstein,17,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.05,1.0,5th percentile
+sliced_wasserstein,17,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.5,1.4785183847509114,median
+sliced_wasserstein,17,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.95,2.0449051850020528,95th percentile
+sliced_wasserstein,18,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.05,1.0,5th percentile
+sliced_wasserstein,18,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.5,1.464577477774622,median
+sliced_wasserstein,18,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.95,1.9812539905204907,95th percentile
+sliced_wasserstein,19,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.05,1.0,5th percentile
+sliced_wasserstein,19,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.5,1.432727265231994,median
+sliced_wasserstein,19,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.95,1.9585121950879414,95th percentile
+sliced_wasserstein,20,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.05,1.0,5th percentile
+sliced_wasserstein,20,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.5,1.4466344749505184,median
+sliced_wasserstein,20,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.95,1.9906936146322887,95th percentile
+sliced_wasserstein,21,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.05,1.0,5th percentile
+sliced_wasserstein,21,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.5,1.4294258168707978,median
+sliced_wasserstein,21,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.95,1.8992842309715043,95th percentile
+sliced_wasserstein,22,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.05,1.0,5th percentile
+sliced_wasserstein,22,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.5,1.43947268361668,median
+sliced_wasserstein,22,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.95,1.9401021248636818,95th percentile
+sliced_wasserstein,23,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.05,1.0,5th percentile
+sliced_wasserstein,23,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.5,1.4424357086685355,median
+sliced_wasserstein,23,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.95,1.9259640493182444,95th percentile
+sliced_wasserstein,24,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.05,1.0,5th percentile
+sliced_wasserstein,24,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.5,1.452123443044065,median
+sliced_wasserstein,24,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.95,1.9561115540602654,95th percentile
+sliced_wasserstein,25,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.05,1.0,5th percentile
+sliced_wasserstein,25,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.5,1.4369772317282588,median
+sliced_wasserstein,25,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.95,1.9251032665884267,95th percentile
+sliced_wasserstein,26,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.05,1.0,5th percentile
+sliced_wasserstein,26,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.5,1.4416979911777836,median
+sliced_wasserstein,26,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.95,1.9217947632589067,95th percentile
+sliced_wasserstein,27,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.05,1.0,5th percentile
+sliced_wasserstein,27,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.5,1.4163580008146859,median
+sliced_wasserstein,27,Qwen/Qwen3-0.6B,20261019T091428Z,last_token,all,1701,64,256,5,0.95,1.8702926946079517,95th percentile
