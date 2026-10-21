@@ -66,6 +66,7 @@ def mean_extraction_config(
     log_root: str | Path = "logs",
     device: str | None = None,
     batch_size: int | None = None,
+    model_revision: str | None = None,
 ) -> ExperimentConfig:
     """Build a mean-only extraction config from an existing activation run."""
 
@@ -78,11 +79,14 @@ def mean_extraction_config(
 
     resolved_revision = metadata.get("resolved_model_revision")
     configured_revision = model_values.get("revision")
-    model_revision = resolved_revision or configured_revision
+    recorded_revision = resolved_revision or configured_revision
+    if recorded_revision and model_revision and recorded_revision != model_revision:
+        raise ValueError("Explicit model revision differs from the recorded reference revision")
+    model_revision = recorded_revision or model_revision
     if not model_revision:
         raise ValueError(
             "The reference run does not record a resolved or configured model revision; "
-            "an exact mean-pooling reproduction cannot be guaranteed"
+            "supply an explicit model_revision to extract without a verified reference revision"
         )
     if batch_size is not None and batch_size < 1:
         raise ValueError("batch_size must be positive")
@@ -154,6 +158,16 @@ def extract_mean_pooled_activations(
         raise RuntimeError("Copied samples.csv does not exactly match the reference run")
 
     samples = load_samples(copied_samples_path)
+    reference_revision = (
+        reference_metadata.get("resolved_model_revision")
+        or reference_manifest.get("config", {}).get("model", {}).get("revision")
+    )
+    if not reference_revision:
+        logger.warning(
+            "activations.reference_revision_unknown extraction_revision=%s "
+            "reference_model_identity_verified=false",
+            config.model.revision,
+        )
     metadata = extract_activations(
         samples,
         layout.activations,
@@ -167,6 +181,8 @@ def extract_mean_pooled_activations(
             ),
             "reference_samples_sha256": reference_samples_hash,
             "pooling": "mean",
+            "reference_model_revision": reference_revision,
+            "reference_model_identity_verified": reference_revision is not None,
         }
     )
     layout.write_json("activations/metadata.json", metadata)
@@ -183,10 +199,7 @@ def extract_mean_pooled_activations(
             "Mean activation dimensions do not match the reference run: "
             f"{actual_shape} != {expected_shape}"
         )
-    expected_revision = str(
-        reference_metadata.get("resolved_model_revision")
-        or reference_metadata.get("model_revision")
-    )
+    expected_revision = str(reference_revision or config.model.revision)
     if source.model_revision != expected_revision:
         raise ValueError(
             "Mean activation model revision does not match the reference run: "

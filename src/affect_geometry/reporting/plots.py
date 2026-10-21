@@ -174,9 +174,12 @@ def _agreement_plots(plot_data: Path, destination: Path) -> None:
         _save(figure, destination / "agreement" / f"{pooling}_layer_{int(layer):03d}.png")
 
 
-def create_all_plots(plot_data: Path, destination: Path) -> None:
+def create_all_plots(
+    plot_data: Path, destination: Path, *, include_coordinates: bool = True
+) -> None:
     """Create every plot exclusively from CSVs in ``plot_data``."""
-    _coordinate_plots(plot_data, destination)
+    if include_coordinates:
+        _coordinate_plots(plot_data, destination)
     _layerwise_plots(plot_data, destination)
     _intrinsic_plots(plot_data, destination)
     _agreement_plots(plot_data, destination)

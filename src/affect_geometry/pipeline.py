@@ -109,6 +109,11 @@ def _cap_indices(indices: list[np.ndarray], maximum: int, seed: int) -> list[np.
 
 
 def compute_rdms(config: ExperimentConfig) -> None:
+    if config.representation.transformation == "neutral_projected":
+        from affect_geometry.experiments.neutral_projected import compute_projected_rdms
+
+        compute_projected_rdms(config, config.run_dir)
+        return
     logger = get_logger()
     logger.info("stage.start stage=rdm")
     layout = initialize_run(config)
@@ -157,7 +162,11 @@ def compute_rdms(config: ExperimentConfig) -> None:
                 load_layer(layout.activations, pooling, layer)[selected_rows], dtype=np.float32
             )
             fit_rows = np.concatenate(capped_local)
-            components = min(config.rdm.pca_components, activations.shape[1], len(fit_rows) - 1)
+            components = (
+                activations.shape[1]
+                if config.rdm.pca_components is None
+                else min(config.rdm.pca_components, activations.shape[1], len(fit_rows) - 1)
+            )
             pca: PCA | None = None
             if components < activations.shape[1]:
                 pca = PCA(

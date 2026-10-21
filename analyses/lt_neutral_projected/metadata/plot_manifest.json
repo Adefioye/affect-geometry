@@ -1,0 +1,13 @@
+{
+  "exploration": {
+    "csv": "plot_data/original/exploration_coordinates.csv",
+    "figures": "plots/exploration/",
+    "origin": "neutral"
+  },
+  "vad_recovery": {
+    "csv": "plot_data/original/vad_recovery.csv",
+    "figure": "plots/layerwise/vad_recovery.png"
+  },
+  "gallery": "exploration.html",
+  "figure_count": 1049
+}

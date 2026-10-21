@@ -63,7 +63,7 @@ class ActivationConfig:
 @dataclass(frozen=True)
 class RDMConfig:
     split: str = "all"
-    pca_components: int = 64
+    pca_components: int | None = 64
     max_samples_per_emotion: int = 256
     crossnobis_folds: int = 5
     mmd_bandwidth_multipliers: list[float] = field(default_factory=lambda: [0.5, 1.0, 2.0])
@@ -94,6 +94,20 @@ class AnalysisConfig:
     va_reference: str = "data/reference/goemotions_nrc_va.csv"
     va_permutations: int = 1000
     knn_neighbors: int = 5
+    vad_reference: str = "data/reference/goemotions_nrc_vad.csv"
+
+
+@dataclass(frozen=True)
+class RepresentationConfig:
+    transformation: str = "raw"
+    neutral_variance_threshold: float = 0.5
+    batch_size: int = 2048
+
+    def __post_init__(self) -> None:
+        if self.transformation not in {"raw", "neutral_projected"}:
+            raise ValueError("representation.transformation must be raw or neutral_projected")
+        if not 0 < self.neutral_variance_threshold <= 1 or self.batch_size < 1:
+            raise ValueError("Invalid neutral variance threshold or representation batch size")
 
 
 @dataclass(frozen=True)
@@ -108,6 +122,7 @@ class ExperimentConfig:
     rdm: RDMConfig = field(default_factory=RDMConfig)
     embedding: EmbeddingConfig = field(default_factory=EmbeddingConfig)
     analysis: AnalysisConfig = field(default_factory=AnalysisConfig)
+    representation: RepresentationConfig = field(default_factory=RepresentationConfig)
 
     @property
     def run_dir(self) -> Path:
@@ -153,4 +168,5 @@ def load_config(
         rdm=RDMConfig(**raw.get("rdm", {})),
         embedding=EmbeddingConfig(**raw.get("embedding", {})),
         analysis=AnalysisConfig(**raw.get("analysis", {})),
+        representation=RepresentationConfig(**raw.get("representation", {})),
     )

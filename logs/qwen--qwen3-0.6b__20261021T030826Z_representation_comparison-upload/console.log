@@ -1,0 +1,7 @@
+Run log: logs/qwen--qwen3-0.6b__20261021T030826Z_representation_comparison-upload/run.log
+Local run:       /workspace/affect-geometry/outputs/upload_staging/qwen--qwen3-0.6b/20261021T030826Z_representation_comparison
+Destination:     hf://datasets/kokolamba/affect-geometry-results/qwen--qwen3-0.6b/20261021T030826Z_representation_comparison
+New repo access: private
+Selected files:  590
+Selected size:   22.83 MiB
+Run outputs uploaded successfully.

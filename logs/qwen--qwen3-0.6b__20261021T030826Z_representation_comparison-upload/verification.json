@@ -1,0 +1,11 @@
+{
+  "repo": "kokolamba/affect-geometry-results",
+  "path": "qwen--qwen3-0.6b/20261021T030826Z_representation_comparison",
+  "commit": "e538872ea6468352ec8d8b7451f93f9a57f37917",
+  "verified_files": 590,
+  "verified_bytes": 23939859,
+  "all_uploaded_checksums_match": true,
+  "original_run_manifest_unchanged": true,
+  "representations_uploaded": false,
+  "plots_uploaded": false
+}

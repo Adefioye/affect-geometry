@@ -48,6 +48,8 @@ to match `manifest.json`, preventing a mislabeled upload.
 - `embeddings/`
 - `analyses/`
 - `plot_data/`
+- `references/` when present, plus `representation.json`, `plot_manifest.json`, and
+  `exploration.html` when present.
 
 It excludes `activations/` and the regenerable `plots/` directory by default.
 
@@ -132,6 +134,10 @@ python script/extract_mean_pooled_activations.py \
 
 The local and remote activation path is `<model-slug>/<run-id>/activations/mean/`. The default
 destination repository is `kokolamba/affect-geometry-activations`; use `--repo-id` to override it.
+
+If the reference did not record a model revision, supply `--model-revision COMMIT_ID`.
+The new run pins that commit and records that the reference model version could not be verified.
+A supplied revision cannot override a different revision already recorded in the reference.
 
 ## Run the representation comparison
 

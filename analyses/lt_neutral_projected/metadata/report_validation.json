@@ -1,0 +1,22 @@
+{
+  "passed": true,
+  "embedded_figures": 30,
+  "plot_ready_csvs": 30,
+  "verified_local_links": 182,
+  "broken_links": [],
+  "source_snapshots": 25,
+  "scientific_checks": {
+    "va_max_score_error": 7.216449660063518e-16,
+    "vad_max_score_error": 4.996003610813204e-16,
+    "max_geodesic_error": 0.0,
+    "geometry_count": 168,
+    "va_tests": 336,
+    "vad_tests": 336,
+    "axis_rows": 1680,
+    "centroid_max_error": 5.4555044926019036e-08,
+    "finite_recovery": true,
+    "passed": true
+  },
+  "focused_tests_passed": 8,
+  "end_to_end_rebuild_passed": true
+}

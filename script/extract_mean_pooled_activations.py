@@ -64,6 +64,10 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--device", help="Model device override, such as cuda or mps")
     parser.add_argument("--batch-size", type=int, help="Extraction batch-size override")
     parser.add_argument(
+        "--model-revision",
+        help="Explicit model commit when the reference run did not record a revision",
+    )
+    parser.add_argument(
         "--path-in-repo",
         help="Destination directory; defaults to <model-slug>/<run-id>",
     )
@@ -102,6 +106,7 @@ def main() -> None:
         log_root=args.log_root,
         device=args.device,
         batch_size=args.batch_size,
+        model_revision=args.model_revision,
     )
     configure_run_logging(config, "extract_mean_pooled_activations")
     logger = get_logger()

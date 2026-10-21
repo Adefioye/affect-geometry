@@ -1,8 +1,10 @@
 datasets>=2.18
+huggingface-hub>=0.30
 matplotlib>=3.8
 numpy>=1.26
 pandas>=2.1
 pyarrow>=14
+python-dotenv>=1.0
 scikit-learn>=1.4
 scipy>=1.11
 torch>=2.1

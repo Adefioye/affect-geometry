@@ -5,10 +5,12 @@ Summary: Layerwise affect-geometry experiments on GoEmotions language-model acti
 Requires-Python: >=3.10
 Description-Content-Type: text/markdown
 Requires-Dist: datasets>=2.18
+Requires-Dist: huggingface-hub>=0.30
 Requires-Dist: matplotlib>=3.8
 Requires-Dist: numpy>=1.26
 Requires-Dist: pandas>=2.1
 Requires-Dist: pyarrow>=14
+Requires-Dist: python-dotenv>=1.0
 Requires-Dist: scikit-learn>=1.4
 Requires-Dist: scipy>=1.11
 Requires-Dist: torch>=2.1

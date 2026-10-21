@@ -1,0 +1,52 @@
+{
+  "analysis_config": {
+    "batch_size": 2048,
+    "minimum_vector_norm": 1e-12,
+    "neutral_label": "neutral",
+    "neutral_variance_threshold": 0.5,
+    "variants": [
+      {
+        "name": "LT-Raw",
+        "pooling": "last_token",
+        "transformation": "raw"
+      },
+      {
+        "name": "LT-Centered",
+        "pooling": "last_token",
+        "transformation": "centered"
+      },
+      {
+        "name": "LT-NeutralProjected",
+        "pooling": "last_token",
+        "transformation": "neutral_projected"
+      },
+      {
+        "name": "Mean-Raw",
+        "pooling": "mean",
+        "transformation": "raw"
+      },
+      {
+        "name": "Mean-Centered",
+        "pooling": "mean",
+        "transformation": "centered"
+      },
+      {
+        "name": "Mean-NeutralProjected",
+        "pooling": "mean",
+        "transformation": "neutral_projected"
+      }
+    ]
+  },
+  "experiment": "representation_comparison_cosine_mds_procrustes",
+  "hidden_size": 1024,
+  "last_token_model_revision": null,
+  "last_token_run": "/workspace/affect-geometry/outputs/activation_sources/kokolamba--affect-geometry-activations/qwen--qwen3-0.6b/20261019T091428Z",
+  "last_token_run_id": "20261019T091428Z",
+  "layers": 28,
+  "mean_model_revision": "c1899de289a04d12100db370d81485cdf75e47ca",
+  "mean_run": "/workspace/affect-geometry/outputs/qwen--qwen3-0.6b/20261021T025934Z",
+  "mean_run_id": "20261021T025934Z",
+  "model": "Qwen/Qwen3-0.6B",
+  "samples": 45446,
+  "va_reference": "/workspace/affect-geometry/data/reference/goemotions_nrc_va.csv"
+}

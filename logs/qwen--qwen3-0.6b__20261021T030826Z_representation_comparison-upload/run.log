@@ -1,0 +1,28 @@
+2026-10-21T03:56:41Z | INFO | command.start command=stage_representation_comparison_upload source=outputs/representation_comparison destination=outputs/upload_staging/qwen--qwen3-0.6b/20261021T030826Z_representation_comparison
+2026-10-21T03:56:41Z | INFO | progress.start description='Preparing standard comparison results for upload' total=589 unit=file
+2026-10-21T03:56:42Z | INFO | progress.update description='Preparing standard comparison results for upload' completed=59 total=589 percent=10
+2026-10-21T03:56:43Z | INFO | progress.update description='Preparing standard comparison results for upload' completed=118 total=589 percent=20
+2026-10-21T03:56:44Z | INFO | progress.update description='Preparing standard comparison results for upload' completed=177 total=589 percent=30
+2026-10-21T03:56:46Z | INFO | progress.update description='Preparing standard comparison results for upload' completed=236 total=589 percent=40
+2026-10-21T03:56:47Z | INFO | progress.update description='Preparing standard comparison results for upload' completed=295 total=589 percent=50
+2026-10-21T03:56:48Z | INFO | progress.update description='Preparing standard comparison results for upload' completed=354 total=589 percent=60
+2026-10-21T03:56:50Z | INFO | progress.update description='Preparing standard comparison results for upload' completed=413 total=589 percent=70
+2026-10-21T03:56:51Z | INFO | progress.update description='Preparing standard comparison results for upload' completed=472 total=589 percent=80
+2026-10-21T03:56:53Z | INFO | progress.update description='Preparing standard comparison results for upload' completed=531 total=589 percent=90
+2026-10-21T03:56:54Z | INFO | progress.complete description='Preparing standard comparison results for upload' completed=589 total=589
+2026-10-21T03:56:54Z | INFO | upload.stage_complete files=590 bytes=23831076 path=outputs/upload_staging/qwen--qwen3-0.6b/20261021T030826Z_representation_comparison
+2026-10-21T03:57:07Z | INFO | command.start command=upload_run_outputs
+2026-10-21T03:59:03Z | INFO | upload.complete repo=kokolamba/affect-geometry-results path=qwen--qwen3-0.6b/20261021T030826Z_representation_comparison
+2026-10-21T03:59:26Z | INFO | command.start command=verify_results_upload repo=kokolamba/affect-geometry-results path=qwen--qwen3-0.6b/20261021T030826Z_representation_comparison
+2026-10-21T03:59:27Z | INFO | progress.start description='Verifying uploaded result checksums' total=590 unit=file
+2026-10-21T03:59:27Z | INFO | progress.update description='Verifying uploaded result checksums' completed=59 total=590 percent=10
+2026-10-21T03:59:27Z | INFO | progress.update description='Verifying uploaded result checksums' completed=118 total=590 percent=20
+2026-10-21T03:59:27Z | INFO | progress.update description='Verifying uploaded result checksums' completed=178 total=590 percent=30
+2026-10-21T03:59:27Z | INFO | progress.update description='Verifying uploaded result checksums' completed=236 total=590 percent=40
+2026-10-21T03:59:28Z | INFO | progress.update description='Verifying uploaded result checksums' completed=295 total=590 percent=50
+2026-10-21T03:59:28Z | INFO | progress.update description='Verifying uploaded result checksums' completed=354 total=590 percent=60
+2026-10-21T03:59:28Z | INFO | progress.update description='Verifying uploaded result checksums' completed=413 total=590 percent=70
+2026-10-21T03:59:28Z | INFO | progress.update description='Verifying uploaded result checksums' completed=472 total=590 percent=80
+2026-10-21T03:59:28Z | INFO | progress.update description='Verifying uploaded result checksums' completed=531 total=590 percent=90
+2026-10-21T03:59:28Z | INFO | progress.complete description='Verifying uploaded result checksums' completed=590 total=590
+2026-10-21T03:59:28Z | INFO | upload.verified repo=kokolamba/affect-geometry-results path=qwen--qwen3-0.6b/20261021T030826Z_representation_comparison commit=e538872ea6468352ec8d8b7451f93f9a57f37917 files=590

@@ -3,6 +3,7 @@ from pathlib import Path
 
 import numpy as np
 import pandas as pd
+import pytest
 
 import affect_geometry.experiments.mean_activation_extraction as extraction_module
 from affect_geometry.experiments.mean_activation_extraction import (
@@ -64,12 +65,21 @@ def _write_reference(root: Path) -> pd.DataFrame:
     return samples
 
 
+@pytest.mark.parametrize("missing_revision", [False, True])
 def test_mean_extraction_preserves_reference_and_validates_store(
     tmp_path: Path,
     monkeypatch,
+    missing_revision: bool,
 ) -> None:
     reference = tmp_path / "reference"
     expected_samples = _write_reference(reference)
+    if missing_revision:
+        metadata_path = reference / "activations" / "metadata.json"
+        metadata = json.loads(metadata_path.read_text())
+        metadata["resolved_model_revision"] = None
+        metadata_path.write_text(json.dumps(metadata))
+        with pytest.raises(ValueError, match="explicit model_revision"):
+            mean_extraction_config(reference, run_id="missing-revision")
 
     def fake_extract(samples, destination, model_config, activation_config):
         assert samples["sample_id"].tolist() == expected_samples["sample_id"].tolist()
@@ -96,6 +106,7 @@ def test_mean_extraction_preserves_reference_and_validates_store(
         run_id="20261020T120000Z",
         output_root=tmp_path / "outputs",
         log_root=tmp_path / "logs",
+        model_revision="fixed-commit" if missing_revision else None,
     )
     result = extract_mean_pooled_activations(reference, config)
 
@@ -107,3 +118,5 @@ def test_mean_extraction_preserves_reference_and_validates_store(
     manifest = json.loads((result.run_directory / "manifest.json").read_text())
     assert manifest["config"]["activations"]["poolings"] == ["mean"]
     assert manifest["config"]["model"]["revision"] == "fixed-commit"
+    metadata = json.loads((result.run_directory / "activations" / "metadata.json").read_text())
+    assert metadata["reference_model_identity_verified"] is (not missing_revision)

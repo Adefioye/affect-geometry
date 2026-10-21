@@ -21,7 +21,9 @@ BASE_DIRECTORIES = (
     "embeddings",
     "analyses",
     "plot_data",
+    "references",
 )
+ROOT_FILES = ("manifest.json", "representation.json", "plot_manifest.json", "exploration.html")
 REQUIRED_DIRECTORIES = ("rdms", "embeddings", "analyses", "plot_data")
 
 
@@ -79,7 +81,7 @@ def main() -> None:
     directories = [*BASE_DIRECTORIES]
     if args.include_plots:
         directories.append("plots")
-    files = selected_files(run_directory, directories)
+    files = selected_files(run_directory, directories, root_files=ROOT_FILES)
     if not files:
         raise FileNotFoundError("No run-result files were selected")
 
@@ -95,7 +97,7 @@ def main() -> None:
         print("Dry run complete; nothing was uploaded.")
         return
 
-    allow_patterns = ["manifest.json", *(f"{name}/**" for name in directories)]
+    allow_patterns = [*ROOT_FILES, *(f"{name}/**" for name in directories)]
     upload_selection(
         run_directory=run_directory,
         repo_id=args.repo_id,

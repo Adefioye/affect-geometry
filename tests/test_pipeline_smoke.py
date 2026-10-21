@@ -2,6 +2,7 @@ from pathlib import Path
 
 import numpy as np
 import pandas as pd
+import pytest
 
 from affect_geometry.config import (
     ActivationConfig,
@@ -14,7 +15,10 @@ from affect_geometry.config import (
 from affect_geometry.pipeline import analyze, compute_rdms, embed
 
 
-def test_synthetic_pipeline_writes_reusable_tables(tmp_path: Path) -> None:
+@pytest.mark.parametrize("pca_components", [4, None])
+def test_synthetic_pipeline_writes_reusable_tables(
+    tmp_path: Path, pca_components: int | None
+) -> None:
     labels = ["joy", "anger", "sadness", "neutral"]
     samples = []
     rng = np.random.default_rng(11)
@@ -52,7 +56,7 @@ def test_synthetic_pipeline_writes_reusable_tables(tmp_path: Path) -> None:
         model=ModelConfig(name="synthetic"),
         activations=ActivationConfig(poolings=["last_token"], storage_dtype="float32"),
         rdm=RDMConfig(
-            pca_components=4,
+            pca_components=pca_components,
             max_samples_per_emotion=8,
             crossnobis_folds=3,
             sliced_wasserstein_projections=16,
@@ -69,6 +73,9 @@ def test_synthetic_pipeline_writes_reusable_tables(tmp_path: Path) -> None:
         ),
     )
     compute_rdms(config)
+    assert (root / "checkpoints/last_token/layer_000_pca.npz").exists() == (
+        pca_components is not None
+    )
     embed(config)
     analyze(config)
     assert (root / "rdms" / "last_token" / "layer_000" / "crossnobis.npz").exists()
