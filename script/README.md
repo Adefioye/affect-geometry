@@ -105,3 +105,59 @@ mapping for every activation matrix.
 
 Run the scripts only after the corresponding pipeline stage completes. In particular, do not
 upload activation `.npy` files while extraction is still writing them.
+
+## Extract and upload mean-pooled activations
+
+`extract_mean_pooled_activations.py` reproduces the model and tokenizer settings from a reference
+last-token run. It copies that run's dataset artifacts byte-for-byte, extracts only mean-pooled
+activations, validates every layer, and then uploads the new timestamped run. The project's `.env`
+file is loaded without overriding credentials already exported in the environment.
+
+Using a reference already on Hugging Face:
+
+```bash
+python script/extract_mean_pooled_activations.py \
+  --reference-path-in-repo qwen--qwen3-0.6b/REFERENCE_RUN_ID \
+  --run-id NEW_MEAN_RUN_ID
+```
+
+Using a local reference run and retaining the result locally only:
+
+```bash
+python script/extract_mean_pooled_activations.py \
+  --reference-run outputs/qwen--qwen3-0.6b/REFERENCE_RUN_ID \
+  --run-id NEW_MEAN_RUN_ID \
+  --no-upload
+```
+
+The local and remote activation path is `<model-slug>/<run-id>/activations/mean/`. The default
+destination repository is `kokolamba/affect-geometry-activations`; use `--repo-id` to override it.
+
+## Run the representation comparison
+
+`run_representation_comparison.py` accepts local activation runs or downloads them from Hugging
+Face. Its default output root is exactly:
+
+```text
+outputs/representation_comparison/
+```
+
+For remotely stored runs:
+
+```bash
+python script/run_representation_comparison.py \
+  --last-token-path-in-repo qwen--qwen3-0.6b/LAST_TOKEN_RUN_ID \
+  --mean-path-in-repo qwen--qwen3-0.6b/MEAN_RUN_ID
+```
+
+For local runs:
+
+```bash
+python script/run_representation_comparison.py \
+  --last-token-run outputs/qwen--qwen3-0.6b/LAST_TOKEN_RUN_ID \
+  --mean-run outputs/qwen--qwen3-0.6b/MEAN_RUN_ID
+```
+
+The command validates and aligns sample IDs, evaluates the configured representation variants,
+and writes representations, neutral-PCA checkpoints, cosine RDMs, MDS coordinates, ranked tables,
+plot-ready CSVs, and plots beneath `outputs/representation_comparison/`.

@@ -4,7 +4,7 @@ import logging
 import time
 from collections.abc import Iterable, Iterator
 from pathlib import Path
-from typing import TypeVar
+from typing import Any, TypeVar
 
 from tqdm.auto import tqdm
 
@@ -19,9 +19,13 @@ def get_logger() -> logging.Logger:
     return logging.getLogger(LOGGER_NAME)
 
 
-def configure_run_logging(config: ExperimentConfig, command: str) -> Path:
-    """Append this process's structured events to the model/run-specific log."""
-    directory = config.log_dir
+def configure_file_logging(
+    directory: str | Path,
+    command: str,
+    **context: Any,
+) -> Path:
+    """Append structured events for a command to a central log directory."""
+    directory = Path(directory)
     directory.mkdir(parents=True, exist_ok=True)
     logger = get_logger()
     logger.setLevel(logging.INFO)
@@ -40,14 +44,20 @@ def configure_run_logging(config: ExperimentConfig, command: str) -> Path:
     handler.setFormatter(formatter)
     logger.addHandler(handler)
     tqdm.write(f"Run log: {directory / 'run.log'}")
-    logger.info(
-        "command.start command=%s model=%s run_id=%s output=%s",
-        command,
-        config.model.name,
-        config.run_id,
-        config.run_dir,
-    )
+    details = " ".join(f"{key}={value}" for key, value in context.items())
+    logger.info("command.start command=%s%s", command, f" {details}" if details else "")
     return directory
+
+
+def configure_run_logging(config: ExperimentConfig, command: str) -> Path:
+    """Append this process's structured events to the model/run-specific log."""
+    return configure_file_logging(
+        config.log_dir,
+        command,
+        model=config.model.name,
+        run_id=config.run_id,
+        output=config.run_dir,
+    )
 
 
 def progress(

@@ -3,7 +3,7 @@ from __future__ import annotations
 import json
 import re
 from collections.abc import Iterable
-from pathlib import Path
+from pathlib import Path, PurePosixPath
 from typing import Any
 
 
@@ -38,8 +38,7 @@ def resolve_model(manifest: dict[str, Any], requested_model: str | None) -> str:
     recorded_model = manifest_model(manifest)
     if requested_model is not None and requested_model != recorded_model:
         raise ValueError(
-            f"Requested model {requested_model!r} does not match manifest model "
-            f"{recorded_model!r}"
+            f"Requested model {requested_model!r} does not match manifest model {recorded_model!r}"
         )
     return recorded_model
 
@@ -58,6 +57,72 @@ def safe_slug(value: str) -> str:
     if not slug:
         raise ValueError(f"Cannot construct a repository path from {value!r}")
     return slug.lower()
+
+
+def load_project_environment(project_root: str | Path) -> None:
+    """Load repository-local credentials without overriding exported environment values."""
+    environment_path = Path(project_root) / ".env"
+    if not environment_path.is_file():
+        return
+    try:
+        from dotenv import load_dotenv
+    except ImportError as error:
+        raise RuntimeError("python-dotenv is required to load the project's .env file") from error
+    load_dotenv(environment_path, override=False)
+
+
+def _validated_repo_path(path_in_repo: str) -> PurePosixPath:
+    path = PurePosixPath(path_in_repo)
+    if path.is_absolute() or not path.parts or any(part in {"", ".", ".."} for part in path.parts):
+        raise ValueError("A Hugging Face run path must be a safe relative repository path")
+    return path
+
+
+def download_activation_run(
+    *,
+    repo_id: str,
+    path_in_repo: str,
+    download_root: str | Path,
+    pooling: str | None,
+) -> Path:
+    """Download one activation run, optionally including one pooling's layer arrays."""
+    try:
+        from huggingface_hub import snapshot_download
+    except ImportError as error:
+        raise RuntimeError(
+            "huggingface_hub is required; install it with "
+            "`python -m pip install -U huggingface_hub`"
+        ) from error
+
+    remote_path = _validated_repo_path(path_in_repo)
+    prefix = remote_path.as_posix()
+    patterns = [
+        f"{prefix}/manifest.json",
+        f"{prefix}/dataset/**",
+        f"{prefix}/activations/metadata.json",
+    ]
+    if pooling is not None:
+        if not re.fullmatch(r"[a-z0-9_]+", pooling):
+            raise ValueError(f"Unsafe activation pooling name: {pooling!r}")
+        patterns.append(f"{prefix}/activations/{pooling}/**")
+
+    local_repository = Path(download_root).expanduser().resolve() / safe_slug(repo_id)
+    local_repository.mkdir(parents=True, exist_ok=True)
+    snapshot_download(
+        repo_id=repo_id,
+        repo_type="dataset",
+        local_dir=local_repository,
+        allow_patterns=patterns,
+    )
+    run_directory = local_repository.joinpath(*remote_path.parts)
+    for required in (
+        run_directory / "manifest.json",
+        run_directory / "dataset" / "samples.csv",
+        run_directory / "activations" / "metadata.json",
+    ):
+        if not required.is_file():
+            raise FileNotFoundError(f"Downloaded activation run is missing: {required}")
+    return run_directory
 
 
 def resolve_run_directory(output_root: str | Path, model: str, run_id: str) -> Path:
