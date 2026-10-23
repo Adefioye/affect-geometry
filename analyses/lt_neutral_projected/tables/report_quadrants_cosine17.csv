@@ -1,6 +1,0 @@
-quadrant,ambiguous,negative,neutral,positive,model,run_id,source_run,pooling,split,analysis_seed,variant,neutral_variance_threshold,post_projection_pca,activation_dimensions,distribution_cap,quality_neighbors
-I,0,7,0,0,Qwen/Qwen3-0.6B,lt-neutral-projected-full-space-20261021,outputs/lt_neutral_projected/qwen--qwen3-0.6b/lt-neutral-projected-full-space-20261021,last_token,all,1701,LT-NeutralProjected,0.5,False,1024,256,5
-II,3,3,0,9,Qwen/Qwen3-0.6B,lt-neutral-projected-full-space-20261021,outputs/lt_neutral_projected/qwen--qwen3-0.6b/lt-neutral-projected-full-space-20261021,last_token,all,1701,LT-NeutralProjected,0.5,False,1024,256,5
-III,0,0,0,3,Qwen/Qwen3-0.6B,lt-neutral-projected-full-space-20261021,outputs/lt_neutral_projected/qwen--qwen3-0.6b/lt-neutral-projected-full-space-20261021,last_token,all,1701,LT-NeutralProjected,0.5,False,1024,256,5
-IV,1,1,0,0,Qwen/Qwen3-0.6B,lt-neutral-projected-full-space-20261021,outputs/lt_neutral_projected/qwen--qwen3-0.6b/lt-neutral-projected-full-space-20261021,last_token,all,1701,LT-NeutralProjected,0.5,False,1024,256,5
-neutral,0,0,1,0,Qwen/Qwen3-0.6B,lt-neutral-projected-full-space-20261021,outputs/lt_neutral_projected/qwen--qwen3-0.6b/lt-neutral-projected-full-space-20261021,last_token,all,1701,LT-NeutralProjected,0.5,False,1024,256,5

@@ -1,7 +1,0 @@
-rank,variant,pooling,transformation,layers,mean_va_procrustes_r2,max_va_procrustes_r2,max_layer
-1,LT-NeutralProjected,last_token,neutral_projected,28,0.444745928862646,0.5474916256222726,17
-2,LT-Centered,last_token,centered,28,0.435794072190423,0.5550699616095607,17
-3,Mean-NeutralProjected,mean,neutral_projected,28,0.356847222045152,0.43361049600990664,27
-4,LT-Raw,last_token,raw,28,0.16996223765298066,0.2666481936749837,27
-5,Mean-Raw,mean,raw,28,0.11679352099292853,0.21613046827431415,27
-6,Mean-Centered,mean,centered,28,0.04046182087840907,0.2850795774954352,27

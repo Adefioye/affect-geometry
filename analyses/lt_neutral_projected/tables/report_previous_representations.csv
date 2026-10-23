@@ -1,4 +1,0 @@
-variant,mean_r2,median_r2,max_r2,peak_layer,model,run_id,source_run,pooling,split,analysis_seed,neutral_variance_threshold,post_projection_pca,activation_dimensions,distribution_cap,quality_neighbors
-LT-NeutralProjected,0.444745928862646,0.4571380953124614,0.5474916256222726,17,Qwen/Qwen3-0.6B,lt-neutral-projected-full-space-20261021,outputs/lt_neutral_projected/qwen--qwen3-0.6b/lt-neutral-projected-full-space-20261021,last_token,all,1701,0.5,False,1024,256,5
-LT-Centered,0.435794072190423,0.4601324592706457,0.5550699616095607,17,Qwen/Qwen3-0.6B,lt-neutral-projected-full-space-20261021,outputs/lt_neutral_projected/qwen--qwen3-0.6b/lt-neutral-projected-full-space-20261021,last_token,all,1701,0.5,False,1024,256,5
-LT-Raw,0.1699622376529806,0.1861380373572488,0.2666481936749837,27,Qwen/Qwen3-0.6B,lt-neutral-projected-full-space-20261021,outputs/lt_neutral_projected/qwen--qwen3-0.6b/lt-neutral-projected-full-space-20261021,last_token,all,1701,0.5,False,1024,256,5
