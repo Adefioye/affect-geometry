@@ -9,5 +9,8 @@ miniconda.sh
 # Results and analysis folder
 results/
 
+# Project documentation
+doc/
+
 # Environment files
 .env
