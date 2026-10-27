@@ -6,5 +6,6 @@
   "seed": 42,
   "pilot_limit": 0,
   "dtype": "bfloat16",
-  "device": "auto"
+  "device": "auto",
+  "batch_size": 8
 }

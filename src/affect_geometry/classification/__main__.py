@@ -17,6 +17,7 @@ def parse_args(argv=None):
     parser.add_argument("--compare-runs", nargs="+", type=Path)
     parser.add_argument("--model-revision", default="main")
     parser.add_argument("--dataset-revision", default="main")
+    parser.add_argument("--batch-size", type=int, default=1)
     parser.add_argument("--seed", type=int, default=42)
     parser.add_argument("--pilot-limit", type=int, default=0, help="Training-only pilot size")
     parser.add_argument("--dtype", choices=["float32", "float16", "bfloat16"], default="bfloat16")
@@ -34,6 +35,8 @@ def parse_args(argv=None):
     args = parser.parse_args(argv)
     if args.run_dir is None:
         parser.error("--run-dir or a config containing run_dir is required")
+    if args.batch_size < 1:
+        parser.error("--batch-size must be positive")
     return args
 
 
@@ -93,9 +96,7 @@ def main():
     model_revision = api.model_info(model_id, revision=args.model_revision).sha
     dataset_id = "google-research-datasets/go_emotions"
     dataset_revision = api.dataset_info(dataset_id, revision=args.dataset_revision).sha
-    dataset = load_dataset(
-        dataset_id, "simplified", revision=dataset_revision, token=hf_token
-    )
+    dataset = load_dataset(dataset_id, "simplified", revision=dataset_revision, token=hf_token)
     rows, audit = prepare(dataset, f"{dataset_id}@{dataset_revision}")
     for item in audit:
         if item["source"] != SOURCE[item["split"]] or item["retained"] != EXPECTED[item["split"]]:
@@ -120,6 +121,7 @@ def main():
         dataset_id=dataset_id,
         dataset_revision=dataset_revision,
         seed=args.seed,
+        batch_size=args.batch_size,
         run_id=args.run_dir.name,
         pilot_limit=args.pilot_limit,
         dtype=args.dtype,

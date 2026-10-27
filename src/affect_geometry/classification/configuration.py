@@ -14,6 +14,7 @@ ALLOWED = {
     "pilot_limit",
     "dtype",
     "device",
+    "batch_size",
 }
 
 
@@ -33,5 +34,9 @@ def load_config(path):
     for key in ("device", "model_revision", "dataset_revision"):
         if key in values and (not isinstance(values[key], str) or not values[key].strip()):
             raise ValueError(f"{key} must be a nonempty string")
+    if "batch_size" in values and (
+        type(values["batch_size"]) is not int or values["batch_size"] < 1
+    ):
+        raise ValueError("batch_size must be a positive integer")
     values["run_dir"] = Path(values["run_dir"])
     return values

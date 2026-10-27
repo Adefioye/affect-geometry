@@ -15,9 +15,9 @@ python -m affect_geometry.classification run --model gemma2 --run-dir outputs/rq
 Other model keys: `llama2`, `apertus`, `olmo2`. Run each in a separate process/run directory.
 `--model-revision` and `--dataset-revision` resolve to immutable Hub commit hashes; omitted values
 resolve the current default branch on the first run, and resume reuses stored commits.
-`--dtype` defaults to bfloat16; `--device` defaults to auto. The implementation processes one
-prompt at a time to keep padding and per-example failures explicit. No batching optimization is
-currently enabled. Generation uses greedy decoding with a ten-token cap. Overlength inputs fail
+`--dtype` defaults to bfloat16; `--device` defaults to auto. The per-model configs use batch size 8 with left padding and attention masks.
+Override with `--batch-size`; direct runs without a config default to 1. Each response is
+checkpointed separately. Failed batches fall back to individual inference with retries. Generation uses greedy decoding with a ten-token cap. Overlength inputs fail
 visibly rather than being silently truncated. Validate GPU compatibility and native templates in
 the training-only pilot before committing to full runs.
 
@@ -118,3 +118,7 @@ CSVs, figures, manifest and available audit files. It rejects pilot/partial runs
 metrics, mismatched model configs, and repositories belonging to a different run. Default
 visibility is private; `--public` explicitly selects public visibility. It verifies the remote
 dataset records and stores the verified Hub revision locally in `publication.json`.
+
+Batch size is recorded in the manifest; changing it requires a new run directory. Existing
+batch-size-1 runs are not silently merged with batch-size-8 predictions. Validate batched
+versus single-example predictions on the target GPU during the pilot.
