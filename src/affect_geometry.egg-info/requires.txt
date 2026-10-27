@@ -11,6 +11,10 @@ torch>=2.1
 tqdm>=4.66
 transformers>=4.51
 
+[classification]
+accelerate>=0.26
+sentencepiece>=0.2
+
 [dev]
 pytest>=8
 ruff>=0.6

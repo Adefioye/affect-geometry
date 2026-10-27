@@ -1,0 +1,111 @@
+Generating train split: 0 examples [00:00, ? examples/s]Generating train split: 36308 examples [00:01, 29007.50 examples/s]Generating train split: 36308 examples [00:01, 27871.66 examples/s]
+Generating train split: 0 examples [00:00, ? examples/s]Generating train split: 4548 examples [00:00, 88916.88 examples/s]
+Generating train split: 0 examples [00:00, ? examples/s]Generating train split: 4590 examples [00:00, 108806.89 examples/s]
+Setting num_proc from 1 back to 1 for the train split to disable multiprocessing as it only contains one shard.
+Uploading the dataset shards:   0%|          | 0/1 [00:00<?, ? shards/s]
+Creating parquet from Arrow format:   0%|          | 0/1 [00:00<?, ?ba/s][A
+Creating parquet from Arrow format: 100%|██████████| 1/1 [00:00<00:00,  4.99ba/s][ACreating parquet from Arrow format: 100%|██████████| 1/1 [00:00<00:00,  4.95ba/s]
+Processing Files (0 / 0)      : |          |  0.00B /  0.00B            
+New Data Upload               : |          |  0.00B /  0.00B            [A
+
+  /tmp/tmpqr8icqgh.parquet    :  41%|████      | 6.32MB / 15.4MB            [A[A
+
+  /tmp/tmpqr8icqgh.parquet    :  41%|████      | 6.32MB / 15.4MB            [A[AProcessing Files (0 / 1)      :  41%|████      | 6.32MB / 15.4MB,   ???B/s  
+New Data Upload               :  41%|████      | 6.32MB / 15.4MB,   ???B/s  [A
+
+  /tmp/tmpqr8icqgh.parquet    : 100%|█████████▉| 15.4MB / 15.4MB            [A[AProcessing Files (0 / 1)      : 100%|█████████▉| 15.4MB / 15.4MB,   ???B/s  
+New Data Upload               : 100%|█████████▉| 15.4MB / 15.4MB,   ???B/s  [A
+
+  /tmp/tmpqr8icqgh.parquet    : 100%|█████████▉| 15.4MB / 15.4MB            [A[A
+
+  /tmp/tmpqr8icqgh.parquet    : 100%|██████████| 15.4MB / 15.4MB            [A[AProcessing Files (1 / 1)      : 100%|██████████| 15.4MB / 15.4MB, 1.49MB/s  
+New Data Upload               : 100%|██████████| 15.4MB / 15.4MB, 1.49MB/s  [A
+
+  /tmp/tmpqr8icqgh.parquet    : 100%|██████████| 15.4MB / 15.4MB            [A[A
+
+
+Validating                    :           |   0%            [A[A[A
+
+
+Validating                    : ██████████| 100%            [A[A[A
+
+  /tmp/tmpqr8icqgh.parquet    : 100%|██████████| 15.4MB / 15.4MB            [A[A
+
+
+Validating                    : ██████████| 100%            [A[A[AProcessing Files (1 / 1)      : 100%|██████████| 15.4MB / 15.4MB, 1.47MB/s  
+New Data Upload               : 100%|██████████| 15.4MB / 15.4MB, 1.47MB/s  
+Validating                    : ██████████| 100%            
+  /tmp/tmpqr8icqgh.parquet    : 100%|██████████| 15.4MB / 15.4MB            
+Uploading the dataset shards: 100%|██████████| 1/1 [00:01<00:00,  1.01s/ shards]Uploading the dataset shards: 100%|██████████| 1/1 [00:01<00:00,  1.02s/ shards]
+Setting num_proc from 1 back to 1 for the validation split to disable multiprocessing as it only contains one shard.
+Uploading the dataset shards:   0%|          | 0/1 [00:00<?, ? shards/s]
+Creating parquet from Arrow format:   0%|          | 0/1 [00:00<?, ?ba/s][ACreating parquet from Arrow format: 100%|██████████| 1/1 [00:00<00:00, 26.53ba/s]
+Processing Files (0 / 0)      : |          |  0.00B /  0.00B            
+New Data Upload               : |          |  0.00B /  0.00B            [A
+
+  /tmp/tmpwx_tfls8.parquet    :  27%|██▋       |  529kB / 1.97MB            [A[A
+
+  /tmp/tmpwx_tfls8.parquet    :  27%|██▋       |  529kB / 1.97MB            [A[AProcessing Files (0 / 1)      :  27%|██▋       |  529kB / 1.97MB,   ???B/s  
+New Data Upload               :  27%|██▋       |  529kB / 1.97MB,   ???B/s  [A
+
+  /tmp/tmpwx_tfls8.parquet    : 100%|█████████▉| 1.97MB / 1.97MB            [A[AProcessing Files (0 / 1)      : 100%|█████████▉| 1.97MB / 1.97MB,   ???B/s  
+New Data Upload               : 100%|█████████▉| 1.97MB / 1.97MB,   ???B/s  [A
+
+  /tmp/tmpwx_tfls8.parquet    : 100%|█████████▉| 1.97MB / 1.97MB            [A[A
+
+  /tmp/tmpwx_tfls8.parquet    : 100%|██████████| 1.97MB / 1.97MB            [A[AProcessing Files (1 / 1)      : 100%|██████████| 1.97MB / 1.97MB,  192kB/s  
+New Data Upload               : 100%|██████████| 1.97MB / 1.97MB,  192kB/s  [A
+
+
+Validating                    :           |   0%            [A[A[A
+
+
+Validating                    :           |   0%            [A[A[A
+
+  /tmp/tmpwx_tfls8.parquet    : 100%|██████████| 1.97MB / 1.97MB            [A[A
+
+
+Validating                    : ██████████| 100%            [A[A[AProcessing Files (1 / 1)      : 100%|██████████| 1.97MB / 1.97MB,  191kB/s  
+New Data Upload               : 100%|██████████| 1.97MB / 1.97MB,  191kB/s  
+Validating                    : ██████████| 100%            
+  /tmp/tmpwx_tfls8.parquet    : 100%|██████████| 1.97MB / 1.97MB            
+Uploading the dataset shards: 100%|██████████| 1/1 [00:00<00:00,  1.56 shards/s]Uploading the dataset shards: 100%|██████████| 1/1 [00:00<00:00,  1.56 shards/s]
+Setting num_proc from 1 back to 1 for the test split to disable multiprocessing as it only contains one shard.
+Uploading the dataset shards:   0%|          | 0/1 [00:00<?, ? shards/s]
+Creating parquet from Arrow format:   0%|          | 0/1 [00:00<?, ?ba/s][ACreating parquet from Arrow format: 100%|██████████| 1/1 [00:00<00:00, 55.74ba/s]
+Processing Files (0 / 0)      : |          |  0.00B /  0.00B            
+New Data Upload               : |          |  0.00B /  0.00B            [A
+
+  /tmp/tmp8bi7l7db.parquet    :  27%|██▋       |  532kB / 1.99MB            [A[A
+
+  /tmp/tmp8bi7l7db.parquet    :  27%|██▋       |  532kB / 1.99MB            [A[AProcessing Files (0 / 1)      :  27%|██▋       |  532kB / 1.99MB,   ???B/s  
+New Data Upload               :  27%|██▋       |  532kB / 1.99MB,   ???B/s  [A
+
+  /tmp/tmp8bi7l7db.parquet    : 100%|█████████▉| 1.99MB / 1.99MB            [A[AProcessing Files (0 / 1)      : 100%|█████████▉| 1.99MB / 1.99MB,   ???B/s  
+New Data Upload               : 100%|█████████▉| 1.99MB / 1.99MB,   ???B/s  [A
+
+  /tmp/tmp8bi7l7db.parquet    : 100%|██████████| 1.99MB / 1.99MB            [A[AProcessing Files (1 / 1)      : 100%|██████████| 1.99MB / 1.99MB,   ???B/s  
+New Data Upload               : 100%|██████████| 1.99MB / 1.99MB,   ???B/s  [A
+
+
+Validating                    :           |   0%            [A[A[A
+
+
+Validating                    :           |   0%            [A[A[A
+
+  /tmp/tmp8bi7l7db.parquet    : 100%|██████████| 1.99MB / 1.99MB            [A[A
+
+
+Validating                    : ██████████| 100%            [A[A[A
+
+  /tmp/tmp8bi7l7db.parquet    : 100%|██████████| 1.99MB / 1.99MB            [A[A
+
+
+Validating                    : ██████████| 100%            [A[A[AProcessing Files (1 / 1)      : 100%|██████████| 1.99MB / 1.99MB,  194kB/s  
+New Data Upload               : 100%|██████████| 1.99MB / 1.99MB,  194kB/s  
+Validating                    : ██████████| 100%            
+  /tmp/tmp8bi7l7db.parquet    : 100%|██████████| 1.99MB / 1.99MB            
+Uploading the dataset shards: 100%|██████████| 1/1 [00:00<00:00,  1.82 shards/s]Uploading the dataset shards: 100%|██████████| 1/1 [00:00<00:00,  1.82 shards/s]
+Generating train split:   0%|          | 0/36308 [00:00<?, ? examples/s]Generating train split: 100%|██████████| 36308/36308 [00:00<00:00, 131410.29 examples/s]Generating train split: 100%|██████████| 36308/36308 [00:00<00:00, 119851.40 examples/s]
+Generating validation split:   0%|          | 0/4548 [00:00<?, ? examples/s]Generating validation split: 100%|██████████| 4548/4548 [00:00<00:00, 115089.23 examples/s]
+Generating test split:   0%|          | 0/4590 [00:00<?, ? examples/s]Generating test split: 100%|██████████| 4590/4590 [00:00<00:00, 116505.62 examples/s]
