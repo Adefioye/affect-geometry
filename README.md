@@ -74,3 +74,13 @@ file identified by model and run ID, for example:
 ```text
 logs/qwen--qwen3-0.6b__20261018T153045Z/run.log
 ```
+
+## RQ2: independent emotion classification
+
+The independent classification runner evaluates all single-label GoEmotions examples, including
+neutral, for LLaMA-2-7B, Gemma-2-9B, Apertus-8B-Instruct-2509, and OLMo-2-1124-7B-Instruct.
+It saves raw responses and strict correctness, with Choi–Weber first-word scoring only as a
+complementary diagnostic. No Choi–Weber scripts are imported or executed.
+
+See [classification commands and outputs](experiments/rq2-classification.md) and
+[the RQ2 protocol](docs/rq2.md). Begin with a training-only pilot before a full GPU run.

@@ -1,0 +1,10 @@
+{
+  "model": "apertus",
+  "run_dir": "outputs/rq2_classification/apertus/full",
+  "model_revision": "main",
+  "dataset_revision": "main",
+  "seed": 42,
+  "pilot_limit": 0,
+  "dtype": "bfloat16",
+  "device": "auto"
+}

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Analyze Affect Outputs"
+  short_description: "Turn saved affect outputs into Markdown reports."
+  default_prompt: "Use $analyze-affect-outputs to analyze a completed local run and produce a concise Markdown report with metric tables, embedded plots, interpretations, and limitations."

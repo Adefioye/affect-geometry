@@ -10,7 +10,7 @@ miniconda.sh
 results/
 
 # Project documentation
-doc/
+docs/
 
 # Environment files
 .env
