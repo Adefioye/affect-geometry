@@ -206,3 +206,76 @@ def test_reject_multi_model_config(tmp_path):
     path.write_text(json.dumps({"models": ["gemma2", "llama2"], "run_dir": "outputs/bad"}))
     with pytest.raises(ValueError):
         load_config(path)
+
+
+def test_hf_token_loads_from_dotenv_without_overriding_environment(tmp_path, monkeypatch):
+    from affect_geometry.classification import environment
+
+    monkeypatch.delenv("HF_TOKEN", raising=False)
+    (tmp_path / ".env").write_text("HF_TOKEN=from-dotenv\n")
+    monkeypatch.setattr(environment, "DOTENV_PATH", tmp_path / ".env")
+    assert environment.load_hf_token() == "from-dotenv"
+
+    monkeypatch.setenv("HF_TOKEN", "from-runpod")
+    assert environment.load_hf_token() == "from-runpod"
+
+
+def test_dotenv_path_is_repository_root():
+    from affect_geometry.classification.environment import DOTENV_PATH
+
+    assert DOTENV_PATH.parent.name == "affect-geometry"
+    assert (DOTENV_PATH.parent / "pyproject.toml").is_file()
+
+
+def test_gated_models_require_hf_token():
+    from affect_geometry.classification.environment import require_model_access
+
+    for model in ("llama2", "gemma2"):
+        with pytest.raises(RuntimeError, match="requires HF_TOKEN"):
+            require_model_access(model, None)
+        require_model_access(model, "secret")
+    for model in ("apertus", "olmo2"):
+        require_model_access(model, None)
+
+
+def test_generator_passes_hf_token_to_model_and_tokenizer(monkeypatch):
+    import sys
+    from types import SimpleNamespace
+
+    calls = {}
+
+    class Tokenizer:
+        chat_template = None
+
+    class AutoTokenizer:
+        @staticmethod
+        def from_pretrained(model_id, **kwargs):
+            calls["tokenizer"] = (model_id, kwargs)
+            return Tokenizer()
+
+    class Model:
+        def eval(self):
+            calls["evaluated"] = True
+
+    class AutoModelForCausalLM:
+        @staticmethod
+        def from_pretrained(model_id, **kwargs):
+            calls["model"] = (model_id, kwargs)
+            return Model()
+
+    monkeypatch.setitem(
+        sys.modules,
+        "transformers",
+        SimpleNamespace(
+            AutoModelForCausalLM=AutoModelForCausalLM,
+            AutoTokenizer=AutoTokenizer,
+        ),
+    )
+    monkeypatch.setitem(sys.modules, "torch", SimpleNamespace(bfloat16="bf16"))
+
+    from affect_geometry.classification.inference import Generator
+
+    Generator("example/model", "revision", False, token="secret")
+    assert calls["tokenizer"][1]["token"] == "secret"
+    assert calls["model"][1]["token"] == "secret"
+    assert calls["evaluated"] is True

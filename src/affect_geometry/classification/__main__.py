@@ -69,6 +69,10 @@ def main():
         return
     if not args.model or args.pilot_limit < 0:
         parser.error("--model is required and pilot limit must be nonnegative")
+    from .environment import load_hf_token, require_model_access
+
+    hf_token = load_hf_token()
+    require_model_access(args.model, hf_token)
     from datasets import load_dataset
     from huggingface_hub import HfApi
 
@@ -78,7 +82,7 @@ def main():
     from .pipeline import classify
 
     model_id, chat = MODELS[args.model]
-    api = HfApi()
+    api = HfApi(token=hf_token)
     previous_path = args.run_dir / "manifest.json"
     if previous_path.exists():
         previous = json.loads(previous_path.read_text())
@@ -89,7 +93,9 @@ def main():
     model_revision = api.model_info(model_id, revision=args.model_revision).sha
     dataset_id = "google-research-datasets/go_emotions"
     dataset_revision = api.dataset_info(dataset_id, revision=args.dataset_revision).sha
-    dataset = load_dataset(dataset_id, "simplified", revision=dataset_revision)
+    dataset = load_dataset(
+        dataset_id, "simplified", revision=dataset_revision, token=hf_token
+    )
     rows, audit = prepare(dataset, f"{dataset_id}@{dataset_revision}")
     for item in audit:
         if item["source"] != SOURCE[item["split"]] or item["retained"] != EXPECTED[item["split"]]:
@@ -98,7 +104,14 @@ def main():
         rows = [r for r in rows if r["source_split"] == "train"][: args.pilot_limit]
     args.run_dir.mkdir(parents=True, exist_ok=True)
     configure_file_logging(Path("logs") / f"{args.model}-{args.run_dir.name}", "classify")
-    generator = Generator(model_id, model_revision, chat, args.dtype, args.device)
+    generator = Generator(
+        model_id,
+        model_revision,
+        chat,
+        args.dtype,
+        args.device,
+        token=hf_token,
+    )
     source_dir = Path(__file__).parent
     code_hash = digest("".join(p.read_text() for p in sorted(source_dir.glob("*.py"))))
     manifest = dict(

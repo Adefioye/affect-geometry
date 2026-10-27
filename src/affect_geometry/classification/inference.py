@@ -5,14 +5,30 @@ from .protocol import digest, prompt
 
 class Generator:
     def __init__(
-        self, model_id, revision, chat, dtype="bfloat16", device="auto", max_new_tokens=10
+        self,
+        model_id,
+        revision,
+        chat,
+        dtype="bfloat16",
+        device="auto",
+        max_new_tokens=10,
+        token=None,
     ):
         import torch
         from transformers import AutoModelForCausalLM, AutoTokenizer
 
-        self.tokenizer = AutoTokenizer.from_pretrained(model_id, revision=revision)
+        from .environment import load_hf_token
+
+        token = token or load_hf_token()
+        self.tokenizer = AutoTokenizer.from_pretrained(
+            model_id, revision=revision, token=token
+        )
         self.model = AutoModelForCausalLM.from_pretrained(
-            model_id, revision=revision, torch_dtype=getattr(torch, dtype), device_map=device
+            model_id,
+            revision=revision,
+            torch_dtype=getattr(torch, dtype),
+            device_map=device,
+            token=token,
         )
         self.model.eval()
         self.chat, self.limit = chat, max_new_tokens
