@@ -1,6 +1,0 @@
-Local run:       /workspace/affect-geometry/outputs/qwen--qwen3-0.6b/20261019T091428Z
-Destination:     hf://datasets/kokolamba/affect-geometry-activations/qwen--qwen3-0.6b/20261019T091428Z
-New repo access: private
-Selected files:  34
-Selected size:   2.43 GiB
-Model activations uploaded successfully.
