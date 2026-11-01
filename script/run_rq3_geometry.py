@@ -23,7 +23,14 @@ def main():
     parser.add_argument(
         "--no-upload", action="store_true", help="Write analysis artifacts locally only"
     )
+    parser.add_argument(
+        "--skip-permutations",
+        action="store_true",
+        help="Skip significance tests and finish analysis in a separate -descriptive run",
+    )
     args = parser.parse_args()
+    if args.skip_permutations and args.command != "run":
+        parser.error("--skip-permutations applies only to run")
     if args.command == "report":
         if args.run_dir is None:
             parser.error("--run-dir is required for report")
@@ -57,6 +64,7 @@ def main():
                     args.project_root,
                     publish=not args.no_upload,
                     validate_only=args.command == "validate",
+                    skip_permutations=args.skip_permutations,
                 ),
                 indent=2,
             )

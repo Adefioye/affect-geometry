@@ -1,0 +1,354 @@
+2026-11-01T21:13:11Z | INFO | command.start command=rq3-publication
+2026-11-01T21:13:12Z | INFO | publication.phase phase=validating-olmo-extraction details={}
+2026-11-01T21:13:12Z | INFO | publication.phase phase=failed details={'error_type': 'TypeError', 'error': "progress() got an unexpected keyword argument 'desc'"}
+2026-11-01T21:13:12Z | ERROR | publication.failed
+Traceback (most recent call last):
+  File "/workspace/affect-geometry/outputs/rq3/publication/all-models-20261101/upload_saved_results.py", line 119, in <module>
+    bundle_files=validate_stage(bundle)
+                 ^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/affect-geometry/outputs/rq3/publication/all-models-20261101/upload_saved_results.py", line 59, in validate_stage
+    for relative, digest in progress(record['artifacts'].items(), desc=f'Validate {root.name}', unit='file'):
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: progress() got an unexpected keyword argument 'desc'
+2026-11-01T21:13:27Z | INFO | command.start command=rq3-publication
+2026-11-01T21:13:27Z | INFO | publication.phase phase=validating-olmo-extraction details={}
+2026-11-01T21:13:27Z | INFO | progress.start description='Validate activation_bundle' total=487 unit=file
+2026-11-01T21:13:28Z | INFO | progress.update description='Validate activation_bundle' completed=49 total=487 percent=10
+2026-11-01T21:13:31Z | INFO | progress.update description='Validate activation_bundle' completed=98 total=487 percent=20
+2026-11-01T21:14:19Z | INFO | progress.update description='Validate activation_bundle' completed=147 total=487 percent=30
+2026-11-01T21:14:33Z | INFO | progress.update description='Validate activation_bundle' completed=195 total=487 percent=40
+2026-11-01T21:14:45Z | INFO | progress.update description='Validate activation_bundle' completed=244 total=487 percent=50
+2026-11-01T21:15:12Z | INFO | progress.update description='Validate activation_bundle' completed=293 total=487 percent=60
+2026-11-01T21:15:13Z | INFO | progress.update description='Validate activation_bundle' completed=341 total=487 percent=70
+2026-11-01T21:15:34Z | INFO | progress.update description='Validate activation_bundle' completed=390 total=487 percent=80
+2026-11-01T21:15:51Z | INFO | progress.update description='Validate activation_bundle' completed=439 total=487 percent=90
+2026-11-01T21:15:52Z | INFO | progress.complete description='Validate activation_bundle' completed=487 total=487
+2026-11-01T21:15:53Z | INFO | progress.start description='Validate prompt_activations' total=34 unit=file
+2026-11-01T21:15:57Z | INFO | progress.update description='Validate prompt_activations' completed=4 total=34 percent=12
+2026-11-01T21:16:00Z | INFO | progress.update description='Validate prompt_activations' completed=7 total=34 percent=21
+2026-11-01T21:16:04Z | INFO | progress.update description='Validate prompt_activations' completed=11 total=34 percent=32
+2026-11-01T21:16:07Z | INFO | progress.update description='Validate prompt_activations' completed=14 total=34 percent=41
+2026-11-01T21:16:10Z | INFO | progress.update description='Validate prompt_activations' completed=17 total=34 percent=50
+2026-11-01T21:16:14Z | INFO | progress.update description='Validate prompt_activations' completed=21 total=34 percent=62
+2026-11-01T21:16:17Z | INFO | progress.update description='Validate prompt_activations' completed=24 total=34 percent=71
+2026-11-01T21:16:21Z | INFO | progress.update description='Validate prompt_activations' completed=28 total=34 percent=82
+2026-11-01T21:16:24Z | INFO | progress.update description='Validate prompt_activations' completed=31 total=34 percent=91
+2026-11-01T21:16:26Z | INFO | progress.complete description='Validate prompt_activations' completed=34 total=34
+2026-11-01T21:16:26Z | INFO | publication.phase phase=failed details={'error_type': 'ValueError', 'error': "Uncheckpointed or missing files: /workspace/affect-geometry/outputs/rq3/olmo2/rq3-activations-bs8-v1/prompt_activations: {'manifest.json'}"}
+2026-11-01T21:16:26Z | ERROR | publication.failed
+Traceback (most recent call last):
+  File "/workspace/affect-geometry/outputs/rq3/publication/all-models-20261101/upload_saved_results.py", line 121, in <module>
+    prompt_files=validate_stage(prompt,'checkpoints/extraction.json',provenance=False)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/affect-geometry/outputs/rq3/publication/all-models-20261101/upload_saved_results.py", line 67, in validate_stage
+    raise ValueError(f'Uncheckpointed or missing files: {root}: {actual.symmetric_difference(files)}')
+ValueError: Uncheckpointed or missing files: /workspace/affect-geometry/outputs/rq3/olmo2/rq3-activations-bs8-v1/prompt_activations: {'manifest.json'}
+2026-11-01T21:16:53Z | INFO | command.start command=rq3-publication
+2026-11-01T21:16:53Z | INFO | publication.phase phase=validating-olmo-extraction details={}
+2026-11-01T21:16:54Z | INFO | progress.start description='Validate activation_bundle' total=487 unit=file
+2026-11-01T21:16:54Z | INFO | progress.update description='Validate activation_bundle' completed=49 total=487 percent=10
+2026-11-01T21:16:57Z | INFO | progress.update description='Validate activation_bundle' completed=98 total=487 percent=20
+2026-11-01T21:17:47Z | INFO | progress.update description='Validate activation_bundle' completed=147 total=487 percent=30
+2026-11-01T21:18:01Z | INFO | progress.update description='Validate activation_bundle' completed=195 total=487 percent=40
+2026-11-01T21:18:13Z | INFO | progress.update description='Validate activation_bundle' completed=244 total=487 percent=50
+2026-11-01T21:18:39Z | INFO | progress.update description='Validate activation_bundle' completed=293 total=487 percent=60
+2026-11-01T21:18:40Z | INFO | progress.update description='Validate activation_bundle' completed=341 total=487 percent=70
+2026-11-01T21:19:00Z | INFO | progress.update description='Validate activation_bundle' completed=390 total=487 percent=80
+2026-11-01T21:19:17Z | INFO | progress.update description='Validate activation_bundle' completed=439 total=487 percent=90
+2026-11-01T21:19:19Z | INFO | progress.complete description='Validate activation_bundle' completed=487 total=487
+2026-11-01T21:19:19Z | INFO | progress.start description='Validate prompt_activations' total=34 unit=file
+2026-11-01T21:19:23Z | INFO | progress.update description='Validate prompt_activations' completed=4 total=34 percent=12
+2026-11-01T21:19:26Z | INFO | progress.update description='Validate prompt_activations' completed=7 total=34 percent=21
+2026-11-01T21:19:30Z | INFO | progress.update description='Validate prompt_activations' completed=11 total=34 percent=32
+2026-11-01T21:19:33Z | INFO | progress.update description='Validate prompt_activations' completed=14 total=34 percent=41
+2026-11-01T21:19:36Z | INFO | progress.update description='Validate prompt_activations' completed=17 total=34 percent=50
+2026-11-01T21:19:40Z | INFO | progress.update description='Validate prompt_activations' completed=21 total=34 percent=62
+2026-11-01T21:19:43Z | INFO | progress.update description='Validate prompt_activations' completed=24 total=34 percent=71
+2026-11-01T21:19:47Z | INFO | progress.update description='Validate prompt_activations' completed=28 total=34 percent=82
+2026-11-01T21:19:50Z | INFO | progress.update description='Validate prompt_activations' completed=31 total=34 percent=91
+2026-11-01T21:19:51Z | INFO | progress.complete description='Validate prompt_activations' completed=34 total=34
+2026-11-01T21:19:52Z | INFO | publication.phase phase=removing-incomplete-olmo details={'files': 145}
+2026-11-01T21:19:52Z | INFO | publication.phase phase=uploading details={'stage': 'olmo2-activations', 'repo': 'kokolamba/rq3-olmo2', 'prefix': 'activations/rq3-activations-bs8-v1'}
+2026-11-01T21:19:53Z | INFO | publication.plan stage=olmo2-activations files=488 pending=488 bytes=38180236816 batches=41
+2026-11-01T21:19:53Z | INFO | progress.start description='Upload olmo2-activations' total=41 unit=commit
+2026-11-01T21:20:14Z | WARNING | publication.retry attempt=1 exception=BadRequestError
+2026-11-01T21:20:22Z | WARNING | publication.retry attempt=2 exception=BadRequestError
+2026-11-01T21:20:34Z | WARNING | publication.retry attempt=3 exception=BadRequestError
+2026-11-01T21:20:57Z | WARNING | publication.retry attempt=4 exception=BadRequestError
+2026-11-01T21:21:40Z | WARNING | publication.retry attempt=5 exception=BadRequestError
+2026-11-01T21:22:42Z | WARNING | publication.retry attempt=6 exception=BadRequestError
+2026-11-01T21:22:42Z | INFO | progress.stopped description='Upload olmo2-activations' completed=1 total=41
+2026-11-01T21:22:42Z | INFO | publication.phase phase=failed details={'error_type': 'BadRequestError', 'error': '(Request ID: Root=1-6ae7ada2-61058f4b285f7a8a2aa13013;025ef14f-49d3-4ba2-b411-1fac623501eb)\n\nBad request for commit endpoint:\nPrivate storage limit reached for user kokolamba, please upgrade your plan to increase your private storage limit'}
+2026-11-01T21:22:42Z | ERROR | publication.failed
+Traceback (most recent call last):
+  File "/root/miniconda/envs/affect-geometry/lib/python3.11/site-packages/huggingface_hub/utils/_http.py", line 866, in hf_raise_for_status
+    response.raise_for_status()
+  File "/root/miniconda/envs/affect-geometry/lib/python3.11/site-packages/httpx2/_models.py", line 828, in raise_for_status
+    raise HTTPStatusError(message, request=request, response=self)
+httpx2.HTTPStatusError: Client error '400 Bad Request' for url 'https://huggingface.co/api/datasets/kokolamba/rq3-olmo2/commit/main'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/workspace/affect-geometry/outputs/rq3/publication/all-models-20261101/upload_saved_results.py", line 137, in <module>
+    receipts.append(upload_stage('olmo2-activations',bundle,repo,'activations/rq3-activations-bs8-v1',bundle_files))
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/affect-geometry/outputs/rq3/publication/all-models-20261101/upload_saved_results.py", line 101, in upload_stage
+    commit=retry(lambda: api.create_commit(repo_id=repo,repo_type='dataset',operations=[CommitOperationAdd(path_in_repo=f'{prefix}/{p}',path_or_fileobj=root/p) for p in batch],commit_message=f'RQ3 {name}: batch {index+1}/{len(batches)}',num_threads=8))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/affect-geometry/outputs/rq3/publication/all-models-20261101/upload_saved_results.py", line 36, in retry
+    return fn()
+           ^^^^
+  File "/workspace/affect-geometry/outputs/rq3/publication/all-models-20261101/upload_saved_results.py", line 101, in <lambda>
+    commit=retry(lambda: api.create_commit(repo_id=repo,repo_type='dataset',operations=[CommitOperationAdd(path_in_repo=f'{prefix}/{p}',path_or_fileobj=root/p) for p in batch],commit_message=f'RQ3 {name}: batch {index+1}/{len(batches)}',num_threads=8))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda/envs/affect-geometry/lib/python3.11/site-packages/huggingface_hub/utils/_validators.py", line 89, in _inner_fn
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda/envs/affect-geometry/lib/python3.11/site-packages/huggingface_hub/hf_api.py", line 2036, in _inner
+    return fn(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda/envs/affect-geometry/lib/python3.11/site-packages/huggingface_hub/hf_api.py", line 5280, in create_commit
+    commit_info = _send_commit(
+                  ^^^^^^^^^^^^^
+  File "/root/miniconda/envs/affect-geometry/lib/python3.11/site-packages/huggingface_hub/_commit_api.py", line 1068, in _send_commit
+    hf_raise_for_status(response, endpoint_name="commit")
+  File "/root/miniconda/envs/affect-geometry/lib/python3.11/site-packages/huggingface_hub/utils/_http.py", line 959, in hf_raise_for_status
+    raise _format(BadRequestError, message, response) from e
+huggingface_hub.errors.BadRequestError: (Request ID: Root=1-6ae7ada2-61058f4b285f7a8a2aa13013;025ef14f-49d3-4ba2-b411-1fac623501eb)
+
+Bad request for commit endpoint:
+Private storage limit reached for user kokolamba, please upgrade your plan to increase your private storage limit
+2026-11-01T21:26:08Z | INFO | command.start command=rq3-publication
+2026-11-01T21:26:08Z | INFO | publication.phase phase=validating-olmo-extraction details={}
+2026-11-01T21:26:08Z | INFO | progress.start description='Validate activation_bundle' total=487 unit=file
+2026-11-01T21:26:09Z | INFO | progress.update description='Validate activation_bundle' completed=49 total=487 percent=10
+2026-11-01T21:26:12Z | INFO | progress.update description='Validate activation_bundle' completed=98 total=487 percent=20
+2026-11-01T21:27:02Z | INFO | progress.update description='Validate activation_bundle' completed=147 total=487 percent=30
+2026-11-01T21:27:17Z | INFO | progress.update description='Validate activation_bundle' completed=195 total=487 percent=40
+2026-11-01T21:27:29Z | INFO | progress.update description='Validate activation_bundle' completed=244 total=487 percent=50
+2026-11-01T21:27:55Z | INFO | progress.update description='Validate activation_bundle' completed=293 total=487 percent=60
+2026-11-01T21:27:56Z | INFO | progress.update description='Validate activation_bundle' completed=341 total=487 percent=70
+2026-11-01T21:28:17Z | INFO | progress.update description='Validate activation_bundle' completed=390 total=487 percent=80
+2026-11-01T21:28:34Z | INFO | progress.update description='Validate activation_bundle' completed=439 total=487 percent=90
+2026-11-01T21:28:35Z | INFO | progress.complete description='Validate activation_bundle' completed=487 total=487
+2026-11-01T21:28:36Z | INFO | progress.start description='Validate prompt_activations' total=34 unit=file
+2026-11-01T21:28:40Z | INFO | progress.update description='Validate prompt_activations' completed=4 total=34 percent=12
+2026-11-01T21:28:43Z | INFO | progress.update description='Validate prompt_activations' completed=7 total=34 percent=21
+2026-11-01T21:28:47Z | INFO | progress.update description='Validate prompt_activations' completed=11 total=34 percent=32
+2026-11-01T21:28:50Z | INFO | progress.update description='Validate prompt_activations' completed=14 total=34 percent=41
+2026-11-01T21:28:53Z | INFO | progress.update description='Validate prompt_activations' completed=17 total=34 percent=50
+2026-11-01T21:28:57Z | INFO | progress.update description='Validate prompt_activations' completed=21 total=34 percent=62
+2026-11-01T21:29:01Z | INFO | progress.update description='Validate prompt_activations' completed=24 total=34 percent=71
+2026-11-01T21:29:05Z | INFO | progress.update description='Validate prompt_activations' completed=28 total=34 percent=82
+2026-11-01T21:29:08Z | INFO | progress.update description='Validate prompt_activations' completed=31 total=34 percent=91
+2026-11-01T21:29:09Z | INFO | progress.complete description='Validate prompt_activations' completed=34 total=34
+2026-11-01T21:29:09Z | INFO | publication.phase phase=uploading details={'stage': 'olmo2-activations', 'repo': 'kokolamba/rq3-olmo2', 'prefix': 'activations/rq3-activations-bs8-v1'}
+2026-11-01T21:29:10Z | INFO | publication.plan stage=olmo2-activations files=488 pending=389 bytes=38180236816 batches=40
+2026-11-01T21:29:10Z | INFO | progress.start description='Upload olmo2-activations' total=40 unit=commit
+2026-11-01T21:29:40Z | INFO | progress.update description='Upload olmo2-activations' completed=4 total=40 percent=10
+2026-11-01T21:30:17Z | INFO | progress.update description='Upload olmo2-activations' completed=8 total=40 percent=20
+2026-11-01T21:31:05Z | INFO | progress.update description='Upload olmo2-activations' completed=13 total=40 percent=32
+2026-11-01T21:31:38Z | INFO | progress.update description='Upload olmo2-activations' completed=16 total=40 percent=40
+2026-11-01T21:32:15Z | INFO | progress.update description='Upload olmo2-activations' completed=20 total=40 percent=50
+2026-11-01T21:32:51Z | INFO | progress.update description='Upload olmo2-activations' completed=24 total=40 percent=60
+2026-11-01T21:33:34Z | INFO | progress.update description='Upload olmo2-activations' completed=28 total=40 percent=70
+2026-11-01T21:34:12Z | INFO | progress.update description='Upload olmo2-activations' completed=32 total=40 percent=80
+2026-11-01T21:34:50Z | INFO | progress.update description='Upload olmo2-activations' completed=36 total=40 percent=90
+2026-11-01T21:35:25Z | INFO | progress.complete description='Upload olmo2-activations' completed=40 total=40
+2026-11-01T21:35:25Z | INFO | publication.phase phase=verifying details={'stage': 'olmo2-activations'}
+2026-11-01T21:35:26Z | INFO | publication.verified stage=olmo2-activations files=488
+2026-11-01T21:35:26Z | INFO | publication.phase phase=uploading details={'stage': 'olmo2-prompt-activations', 'repo': 'kokolamba/rq3-olmo2', 'prefix': 'extractions/rq3-activations-bs8-v1/prompt_activations'}
+2026-11-01T21:35:26Z | INFO | publication.plan stage=olmo2-prompt-activations files=36 pending=36 bytes=9511849912 batches=12
+2026-11-01T21:35:26Z | INFO | progress.start description='Upload olmo2-prompt-activations' total=12 unit=commit
+2026-11-01T21:35:33Z | INFO | progress.update description='Upload olmo2-prompt-activations' completed=2 total=12 percent=17
+2026-11-01T21:35:37Z | INFO | progress.update description='Upload olmo2-prompt-activations' completed=3 total=12 percent=25
+2026-11-01T21:35:41Z | INFO | progress.update description='Upload olmo2-prompt-activations' completed=4 total=12 percent=33
+2026-11-01T21:35:45Z | INFO | progress.update description='Upload olmo2-prompt-activations' completed=5 total=12 percent=42
+2026-11-01T21:35:48Z | INFO | progress.update description='Upload olmo2-prompt-activations' completed=6 total=12 percent=50
+2026-11-01T21:35:56Z | INFO | progress.update description='Upload olmo2-prompt-activations' completed=8 total=12 percent=67
+2026-11-01T21:36:00Z | INFO | progress.update description='Upload olmo2-prompt-activations' completed=9 total=12 percent=75
+2026-11-01T21:36:03Z | INFO | progress.update description='Upload olmo2-prompt-activations' completed=10 total=12 percent=83
+2026-11-01T21:36:10Z | INFO | progress.update description='Upload olmo2-prompt-activations' completed=11 total=12 percent=92
+2026-11-01T21:36:12Z | INFO | progress.complete description='Upload olmo2-prompt-activations' completed=12 total=12
+2026-11-01T21:36:12Z | INFO | publication.phase phase=verifying details={'stage': 'olmo2-prompt-activations'}
+2026-11-01T21:36:12Z | INFO | publication.verified stage=olmo2-prompt-activations files=36
+2026-11-01T21:36:12Z | INFO | publication.phase phase=uploading details={'stage': 'olmo2-extraction-provenance', 'repo': 'kokolamba/rq3-olmo2', 'prefix': 'extractions/rq3-activations-bs8-v1/provenance'}
+2026-11-01T21:36:12Z | INFO | publication.plan stage=olmo2-extraction-provenance files=15 pending=15 bytes=89498 batches=1
+2026-11-01T21:36:12Z | INFO | progress.start description='Upload olmo2-extraction-provenance' total=1 unit=commit
+2026-11-01T21:36:14Z | INFO | progress.complete description='Upload olmo2-extraction-provenance' completed=1 total=1
+2026-11-01T21:36:14Z | INFO | publication.phase phase=verifying details={'stage': 'olmo2-extraction-provenance'}
+2026-11-01T21:36:14Z | INFO | publication.verified stage=olmo2-extraction-provenance files=15
+2026-11-01T21:36:14Z | INFO | publication.phase phase=validating-analysis details={'model': 'gemma2', 'run': 'rq3-analysis-full-v1-descriptive'}
+2026-11-01T21:36:14Z | INFO | publication.phase phase=validating-analysis details={'model': 'olmo2', 'run': 'rq3-analysis-full-bs8-v1-descriptive'}
+2026-11-01T21:36:15Z | INFO | progress.start description='Validate rq3-analysis-full-v1-descriptive' total=32174 unit=file
+2026-11-01T21:36:15Z | INFO | progress.start description='Validate rq3-analysis-full-bs8-v1-descriptive' total=24806 unit=file
+2026-11-01T21:36:56Z | INFO | progress.update description='Validate rq3-analysis-full-bs8-v1-descriptive' completed=2481 total=24806 percent=10
+2026-11-01T21:37:09Z | INFO | progress.update description='Validate rq3-analysis-full-v1-descriptive' completed=3218 total=32174 percent=10
+2026-11-01T21:37:34Z | INFO | command.start command=rq3-publication
+2026-11-01T21:37:34Z | INFO | publication.phase phase=validating-olmo-extraction details={}
+2026-11-01T21:37:34Z | INFO | publication.resume using verified extraction inventory; remote files will be checked again
+2026-11-01T21:37:34Z | INFO | publication.phase phase=uploading details={'stage': 'olmo2-activations', 'repo': 'kokolamba/rq3-olmo2', 'prefix': 'activations/rq3-activations-bs8-v1'}
+2026-11-01T21:37:35Z | INFO | publication.plan stage=olmo2-activations files=488 pending=0 bytes=38180236816 batches=0
+2026-11-01T21:37:35Z | INFO | progress.start description='Upload olmo2-activations' total=0 unit=commit
+2026-11-01T21:37:35Z | INFO | progress.complete description='Upload olmo2-activations' completed=0 total=0
+2026-11-01T21:37:35Z | INFO | publication.phase phase=verifying details={'stage': 'olmo2-activations'}
+2026-11-01T21:37:35Z | INFO | publication.verified stage=olmo2-activations files=488
+2026-11-01T21:37:35Z | INFO | publication.phase phase=uploading details={'stage': 'olmo2-prompt-activations', 'repo': 'kokolamba/rq3-olmo2', 'prefix': 'extractions/rq3-activations-bs8-v1/prompt_activations'}
+2026-11-01T21:37:35Z | INFO | publication.plan stage=olmo2-prompt-activations files=36 pending=0 bytes=9511849912 batches=0
+2026-11-01T21:37:35Z | INFO | progress.start description='Upload olmo2-prompt-activations' total=0 unit=commit
+2026-11-01T21:37:35Z | INFO | progress.complete description='Upload olmo2-prompt-activations' completed=0 total=0
+2026-11-01T21:37:35Z | INFO | publication.phase phase=verifying details={'stage': 'olmo2-prompt-activations'}
+2026-11-01T21:37:36Z | INFO | publication.verified stage=olmo2-prompt-activations files=36
+2026-11-01T21:37:36Z | INFO | publication.phase phase=uploading details={'stage': 'olmo2-extraction-provenance', 'repo': 'kokolamba/rq3-olmo2', 'prefix': 'extractions/rq3-activations-bs8-v1/provenance'}
+2026-11-01T21:37:36Z | INFO | publication.plan stage=olmo2-extraction-provenance files=15 pending=0 bytes=89498 batches=0
+2026-11-01T21:37:36Z | INFO | progress.start description='Upload olmo2-extraction-provenance' total=0 unit=commit
+2026-11-01T21:37:36Z | INFO | progress.complete description='Upload olmo2-extraction-provenance' completed=0 total=0
+2026-11-01T21:37:36Z | INFO | publication.phase phase=verifying details={'stage': 'olmo2-extraction-provenance'}
+2026-11-01T21:37:36Z | INFO | publication.verified stage=olmo2-extraction-provenance files=15
+2026-11-01T21:37:37Z | INFO | publication.phase phase=validating-analysis details={'model': 'gemma2', 'run': 'rq3-analysis-full-v1-descriptive'}
+2026-11-01T21:37:37Z | INFO | publication.phase phase=validating-analysis details={'model': 'apertus', 'run': 'rq3-analysis-full-v1-descriptive'}
+2026-11-01T21:37:37Z | INFO | publication.phase phase=validating-analysis details={'model': 'olmo2', 'run': 'rq3-analysis-full-bs8-v1-descriptive'}
+2026-11-01T21:37:37Z | INFO | progress.start description='Validate gemma2/rq3-analysis-full-v1-descriptive' total=32174 unit=file
+2026-11-01T21:37:37Z | INFO | progress.start description='Validate olmo2/rq3-analysis-full-bs8-v1-descriptive' total=24806 unit=file
+2026-11-01T21:37:37Z | INFO | progress.start description='Validate apertus/rq3-analysis-full-v1-descriptive' total=24638 unit=file
+2026-11-01T21:37:52Z | INFO | command.start command=rq3-publication
+2026-11-01T21:37:52Z | INFO | publication.phase phase=validating-olmo-extraction details={}
+2026-11-01T21:37:52Z | INFO | publication.resume using verified extraction inventory; remote files will be checked again
+2026-11-01T21:37:52Z | INFO | publication.phase phase=uploading details={'stage': 'olmo2-activations', 'repo': 'kokolamba/rq3-olmo2', 'prefix': 'activations/rq3-activations-bs8-v1'}
+2026-11-01T21:37:53Z | INFO | publication.plan stage=olmo2-activations files=488 pending=0 bytes=38180236816 batches=0
+2026-11-01T21:37:53Z | INFO | progress.start description='Upload olmo2-activations' total=0 unit=commit
+2026-11-01T21:37:53Z | INFO | progress.complete description='Upload olmo2-activations' completed=0 total=0
+2026-11-01T21:37:53Z | INFO | publication.phase phase=verifying details={'stage': 'olmo2-activations'}
+2026-11-01T21:37:53Z | INFO | publication.verified stage=olmo2-activations files=488
+2026-11-01T21:37:53Z | INFO | publication.phase phase=uploading details={'stage': 'olmo2-prompt-activations', 'repo': 'kokolamba/rq3-olmo2', 'prefix': 'extractions/rq3-activations-bs8-v1/prompt_activations'}
+2026-11-01T21:37:53Z | INFO | publication.plan stage=olmo2-prompt-activations files=36 pending=0 bytes=9511849912 batches=0
+2026-11-01T21:37:53Z | INFO | progress.start description='Upload olmo2-prompt-activations' total=0 unit=commit
+2026-11-01T21:37:53Z | INFO | progress.complete description='Upload olmo2-prompt-activations' completed=0 total=0
+2026-11-01T21:37:53Z | INFO | publication.phase phase=verifying details={'stage': 'olmo2-prompt-activations'}
+2026-11-01T21:37:54Z | INFO | publication.verified stage=olmo2-prompt-activations files=36
+2026-11-01T21:37:54Z | INFO | publication.phase phase=uploading details={'stage': 'olmo2-extraction-provenance', 'repo': 'kokolamba/rq3-olmo2', 'prefix': 'extractions/rq3-activations-bs8-v1/provenance'}
+2026-11-01T21:37:54Z | INFO | publication.plan stage=olmo2-extraction-provenance files=15 pending=0 bytes=89498 batches=0
+2026-11-01T21:37:54Z | INFO | progress.start description='Upload olmo2-extraction-provenance' total=0 unit=commit
+2026-11-01T21:37:54Z | INFO | progress.complete description='Upload olmo2-extraction-provenance' completed=0 total=0
+2026-11-01T21:37:54Z | INFO | publication.phase phase=verifying details={'stage': 'olmo2-extraction-provenance'}
+2026-11-01T21:37:54Z | INFO | publication.verified stage=olmo2-extraction-provenance files=15
+2026-11-01T21:37:55Z | INFO | publication.phase phase=validating-analysis details={'model': 'gemma2', 'run': 'rq3-analysis-full-v1-descriptive'}
+2026-11-01T21:37:55Z | INFO | publication.phase phase=validating-analysis details={'model': 'olmo2', 'run': 'rq3-analysis-full-bs8-v1-descriptive'}
+2026-11-01T21:37:55Z | INFO | publication.phase phase=validating-analysis details={'model': 'apertus', 'run': 'rq3-analysis-full-v1-descriptive'}
+2026-11-01T21:37:57Z | INFO | progress.start description='Validate olmo2/rq3-analysis-full-bs8-v1-descriptive' total=24806 unit=file
+2026-11-01T21:37:57Z | INFO | progress.start description='Validate apertus/rq3-analysis-full-v1-descriptive' total=24638 unit=file
+2026-11-01T21:37:57Z | INFO | progress.start description='Validate gemma2/rq3-analysis-full-v1-descriptive' total=32174 unit=file
+2026-11-01T21:38:00Z | INFO | progress.update description='Validate olmo2/rq3-analysis-full-bs8-v1-descriptive' completed=2481 total=24806 percent=10
+2026-11-01T21:38:00Z | INFO | progress.update description='Validate apertus/rq3-analysis-full-v1-descriptive' completed=2464 total=24638 percent=10
+2026-11-01T21:38:01Z | INFO | progress.update description='Validate gemma2/rq3-analysis-full-v1-descriptive' completed=3218 total=32174 percent=10
+2026-11-01T21:38:04Z | INFO | progress.update description='Validate olmo2/rq3-analysis-full-bs8-v1-descriptive' completed=4962 total=24806 percent=20
+2026-11-01T21:38:05Z | INFO | progress.update description='Validate apertus/rq3-analysis-full-v1-descriptive' completed=4928 total=24638 percent=20
+2026-11-01T21:38:06Z | INFO | progress.update description='Validate gemma2/rq3-analysis-full-v1-descriptive' completed=6435 total=32174 percent=20
+2026-11-01T21:38:09Z | INFO | progress.update description='Validate olmo2/rq3-analysis-full-bs8-v1-descriptive' completed=7442 total=24806 percent=30
+2026-11-01T21:38:10Z | INFO | progress.update description='Validate apertus/rq3-analysis-full-v1-descriptive' completed=7392 total=24638 percent=30
+2026-11-01T21:38:13Z | INFO | progress.update description='Validate gemma2/rq3-analysis-full-v1-descriptive' completed=9653 total=32174 percent=30
+2026-11-01T21:38:14Z | INFO | progress.update description='Validate olmo2/rq3-analysis-full-bs8-v1-descriptive' completed=9923 total=24806 percent=40
+2026-11-01T21:38:15Z | INFO | progress.update description='Validate apertus/rq3-analysis-full-v1-descriptive' completed=9856 total=24638 percent=40
+2026-11-01T21:38:19Z | INFO | progress.update description='Validate olmo2/rq3-analysis-full-bs8-v1-descriptive' completed=12403 total=24806 percent=50
+2026-11-01T21:38:19Z | INFO | progress.update description='Validate gemma2/rq3-analysis-full-v1-descriptive' completed=12870 total=32174 percent=40
+2026-11-01T21:38:20Z | INFO | progress.update description='Validate apertus/rq3-analysis-full-v1-descriptive' completed=12319 total=24638 percent=50
+2026-11-01T21:38:24Z | INFO | progress.update description='Validate olmo2/rq3-analysis-full-bs8-v1-descriptive' completed=14884 total=24806 percent=60
+2026-11-01T21:38:25Z | INFO | progress.update description='Validate apertus/rq3-analysis-full-v1-descriptive' completed=14783 total=24638 percent=60
+2026-11-01T21:38:26Z | INFO | progress.update description='Validate gemma2/rq3-analysis-full-v1-descriptive' completed=16087 total=32174 percent=50
+2026-11-01T21:38:29Z | INFO | progress.update description='Validate olmo2/rq3-analysis-full-bs8-v1-descriptive' completed=17365 total=24806 percent=70
+2026-11-01T21:38:30Z | INFO | progress.update description='Validate apertus/rq3-analysis-full-v1-descriptive' completed=17247 total=24638 percent=70
+2026-11-01T21:38:32Z | INFO | progress.update description='Validate gemma2/rq3-analysis-full-v1-descriptive' completed=19305 total=32174 percent=60
+2026-11-01T21:38:34Z | INFO | progress.update description='Validate olmo2/rq3-analysis-full-bs8-v1-descriptive' completed=19845 total=24806 percent=80
+2026-11-01T21:38:35Z | INFO | progress.update description='Validate apertus/rq3-analysis-full-v1-descriptive' completed=19711 total=24638 percent=80
+2026-11-01T21:38:39Z | INFO | progress.update description='Validate gemma2/rq3-analysis-full-v1-descriptive' completed=22522 total=32174 percent=70
+2026-11-01T21:38:39Z | INFO | progress.update description='Validate olmo2/rq3-analysis-full-bs8-v1-descriptive' completed=22326 total=24806 percent=90
+2026-11-01T21:38:41Z | INFO | progress.update description='Validate apertus/rq3-analysis-full-v1-descriptive' completed=22175 total=24638 percent=90
+2026-11-01T21:38:46Z | INFO | progress.update description='Validate gemma2/rq3-analysis-full-v1-descriptive' completed=25740 total=32174 percent=80
+2026-11-01T21:38:46Z | INFO | progress.complete description='Validate olmo2/rq3-analysis-full-bs8-v1-descriptive' completed=24806 total=24806
+2026-11-01T21:38:47Z | INFO | progress.complete description='Validate apertus/rq3-analysis-full-v1-descriptive' completed=24638 total=24638
+2026-11-01T21:38:51Z | INFO | progress.update description='Validate gemma2/rq3-analysis-full-v1-descriptive' completed=28957 total=32174 percent=90
+2026-11-01T21:38:57Z | INFO | progress.complete description='Validate gemma2/rq3-analysis-full-v1-descriptive' completed=32174 total=32174
+2026-11-01T21:40:11Z | INFO | publication.phase phase=uploading details={'stage': 'olmo2-analysis', 'repo': 'kokolamba/rq3-olmo2', 'prefix': 'analyses/rq3-analysis-full-bs8-v1-descriptive'}
+2026-11-01T21:40:11Z | INFO | publication.plan stage=olmo2-analysis files=24807 pending=24807 bytes=8217426348 batches=54
+2026-11-01T21:40:11Z | INFO | progress.start description='Upload olmo2-analysis' total=54 unit=commit
+2026-11-01T21:40:11Z | INFO | publication.phase phase=uploading details={'stage': 'apertus-analysis', 'repo': 'kokolamba/rq3-apertus', 'prefix': 'analyses/rq3-analysis-full-v1-descriptive'}
+2026-11-01T21:40:11Z | INFO | publication.plan stage=apertus-analysis files=24639 pending=24639 bytes=8236216843 batches=54
+2026-11-01T21:40:11Z | INFO | progress.start description='Upload apertus-analysis' total=54 unit=commit
+2026-11-01T21:41:03Z | INFO | publication.phase phase=uploading details={'stage': 'gemma2-analysis', 'repo': 'kokolamba/rq3-gemma2', 'prefix': 'analyses/rq3-analysis-full-v1-descriptive'}
+2026-11-01T21:41:03Z | INFO | publication.plan stage=gemma2-analysis files=32175 pending=32175 bytes=8001446507 batches=69
+2026-11-01T21:41:03Z | INFO | progress.start description='Upload gemma2-analysis' total=69 unit=commit
+2026-11-01T21:42:13Z | INFO | command.start command=rq3-publication
+2026-11-01T21:42:13Z | INFO | publication.phase phase=validating-olmo-extraction details={}
+2026-11-01T21:42:13Z | INFO | publication.resume using verified extraction inventory; remote files will be checked again
+2026-11-01T21:42:14Z | INFO | publication.phase phase=uploading details={'stage': 'olmo2-activations', 'repo': 'kokolamba/rq3-olmo2', 'prefix': 'activations/rq3-activations-bs8-v1'}
+2026-11-01T21:42:15Z | INFO | publication.plan stage=olmo2-activations files=488 pending=0 bytes=38180236816 batches=0
+2026-11-01T21:42:15Z | INFO | progress.start description='Upload olmo2-activations' total=0 unit=commit
+2026-11-01T21:42:15Z | INFO | progress.complete description='Upload olmo2-activations' completed=0 total=0
+2026-11-01T21:42:15Z | INFO | publication.phase phase=verifying details={'stage': 'olmo2-activations'}
+2026-11-01T21:42:16Z | INFO | publication.verified stage=olmo2-activations files=488
+2026-11-01T21:42:16Z | INFO | publication.phase phase=uploading details={'stage': 'olmo2-prompt-activations', 'repo': 'kokolamba/rq3-olmo2', 'prefix': 'extractions/rq3-activations-bs8-v1/prompt_activations'}
+2026-11-01T21:42:17Z | INFO | publication.plan stage=olmo2-prompt-activations files=36 pending=0 bytes=9511849912 batches=0
+2026-11-01T21:42:17Z | INFO | progress.start description='Upload olmo2-prompt-activations' total=0 unit=commit
+2026-11-01T21:42:17Z | INFO | progress.complete description='Upload olmo2-prompt-activations' completed=0 total=0
+2026-11-01T21:42:17Z | INFO | publication.phase phase=verifying details={'stage': 'olmo2-prompt-activations'}
+2026-11-01T21:42:18Z | INFO | publication.verified stage=olmo2-prompt-activations files=36
+2026-11-01T21:42:18Z | INFO | publication.phase phase=uploading details={'stage': 'olmo2-extraction-provenance', 'repo': 'kokolamba/rq3-olmo2', 'prefix': 'extractions/rq3-activations-bs8-v1/provenance'}
+2026-11-01T21:42:19Z | INFO | publication.plan stage=olmo2-extraction-provenance files=15 pending=0 bytes=89498 batches=0
+2026-11-01T21:42:19Z | INFO | progress.start description='Upload olmo2-extraction-provenance' total=0 unit=commit
+2026-11-01T21:42:19Z | INFO | progress.complete description='Upload olmo2-extraction-provenance' completed=0 total=0
+2026-11-01T21:42:19Z | INFO | publication.phase phase=verifying details={'stage': 'olmo2-extraction-provenance'}
+2026-11-01T21:42:20Z | INFO | publication.verified stage=olmo2-extraction-provenance files=15
+2026-11-01T21:42:20Z | INFO | publication.phase phase=validating-analysis details={'model': 'olmo2', 'run': 'rq3-analysis-full-bs8-v1-descriptive'}
+2026-11-01T21:42:20Z | INFO | publication.phase phase=validating-analysis details={'model': 'gemma2', 'run': 'rq3-analysis-full-v1-descriptive'}
+2026-11-01T21:42:20Z | INFO | publication.phase phase=validating-analysis details={'model': 'apertus', 'run': 'rq3-analysis-full-v1-descriptive'}
+2026-11-01T21:42:21Z | INFO | publication.resume model=olmo2 using validated inventory; pending files rechecked during upload
+2026-11-01T21:42:21Z | INFO | publication.resume model=gemma2 using validated inventory; pending files rechecked during upload
+2026-11-01T21:42:21Z | INFO | publication.resume model=apertus using validated inventory; pending files rechecked during upload
+2026-11-01T21:42:21Z | INFO | publication.phase phase=uploading details={'stage': 'olmo2-analysis', 'repo': 'kokolamba/rq3-olmo2', 'prefix': 'analyses/rq3-analysis-full-bs8-v1-descriptive'}
+2026-11-01T21:42:21Z | INFO | publication.phase phase=uploading details={'stage': 'gemma2-analysis', 'repo': 'kokolamba/rq3-gemma2', 'prefix': 'analyses/rq3-analysis-full-v1-descriptive'}
+2026-11-01T21:42:21Z | INFO | publication.phase phase=uploading details={'stage': 'apertus-analysis', 'repo': 'kokolamba/rq3-apertus', 'prefix': 'analyses/rq3-analysis-full-v1-descriptive'}
+2026-11-01T21:42:22Z | INFO | publication.plan stage=olmo2-analysis files=24807 pending=21807 bytes=8217426348 batches=48
+2026-11-01T21:42:22Z | INFO | progress.start description='Upload olmo2-analysis' total=48 unit=commit
+2026-11-01T21:42:22Z | INFO | publication.plan stage=gemma2-analysis files=32175 pending=30675 bytes=8001446507 batches=66
+2026-11-01T21:42:22Z | INFO | progress.start description='Upload gemma2-analysis' total=66 unit=commit
+2026-11-01T21:42:22Z | INFO | publication.plan stage=apertus-analysis files=24639 pending=21639 bytes=8236216843 batches=48
+2026-11-01T21:42:22Z | INFO | progress.start description='Upload apertus-analysis' total=48 unit=commit
+2026-11-01T21:44:42Z | INFO | progress.update description='Upload gemma2-analysis' completed=7 total=66 percent=11
+2026-11-01T21:45:06Z | INFO | progress.update description='Upload olmo2-analysis' completed=5 total=48 percent=10
+2026-11-01T21:45:20Z | INFO | progress.update description='Upload apertus-analysis' completed=5 total=48 percent=10
+2026-11-01T21:48:10Z | INFO | progress.update description='Upload olmo2-analysis' completed=10 total=48 percent=21
+2026-11-01T21:48:26Z | INFO | progress.update description='Upload apertus-analysis' completed=10 total=48 percent=21
+2026-11-01T21:48:44Z | INFO | progress.update description='Upload gemma2-analysis' completed=14 total=66 percent=21
+2026-11-01T21:50:44Z | INFO | progress.update description='Upload olmo2-analysis' completed=15 total=48 percent=31
+2026-11-01T21:50:55Z | INFO | progress.update description='Upload apertus-analysis' completed=15 total=48 percent=31
+2026-11-01T21:51:41Z | INFO | progress.update description='Upload gemma2-analysis' completed=20 total=66 percent=30
+2026-11-01T21:52:59Z | INFO | progress.update description='Upload olmo2-analysis' completed=20 total=48 percent=42
+2026-11-01T21:53:06Z | INFO | progress.update description='Upload apertus-analysis' completed=20 total=48 percent=42
+2026-11-01T21:54:42Z | INFO | progress.update description='Upload olmo2-analysis' completed=24 total=48 percent=50
+2026-11-01T21:54:42Z | INFO | progress.update description='Upload gemma2-analysis' completed=27 total=66 percent=41
+2026-11-01T21:54:49Z | INFO | progress.update description='Upload apertus-analysis' completed=24 total=48 percent=50
+2026-11-01T21:56:56Z | INFO | progress.update description='Upload olmo2-analysis' completed=29 total=48 percent=60
+2026-11-01T21:57:03Z | INFO | progress.update description='Upload apertus-analysis' completed=29 total=48 percent=60
+2026-11-01T21:57:09Z | INFO | progress.update description='Upload gemma2-analysis' completed=33 total=66 percent=50
+2026-11-01T21:59:14Z | INFO | progress.update description='Upload olmo2-analysis' completed=34 total=48 percent=71
+2026-11-01T21:59:22Z | INFO | progress.update description='Upload apertus-analysis' completed=34 total=48 percent=71
+2026-11-01T22:00:06Z | INFO | progress.update description='Upload gemma2-analysis' completed=40 total=66 percent=61
+2026-11-01T22:01:30Z | INFO | progress.update description='Upload olmo2-analysis' completed=39 total=48 percent=81
+2026-11-01T22:01:34Z | INFO | progress.update description='Upload apertus-analysis' completed=39 total=48 percent=81
+2026-11-01T22:02:36Z | INFO | progress.update description='Upload olmo2-analysis' completed=44 total=48 percent=92
+2026-11-01T22:02:49Z | INFO | progress.update description='Upload apertus-analysis' completed=44 total=48 percent=92
+2026-11-01T22:03:07Z | INFO | progress.update description='Upload gemma2-analysis' completed=47 total=66 percent=71
+2026-11-01T22:03:28Z | INFO | progress.complete description='Upload olmo2-analysis' completed=48 total=48
+2026-11-01T22:03:28Z | INFO | publication.phase phase=verifying details={'stage': 'olmo2-analysis'}
+2026-11-01T22:03:47Z | INFO | publication.verified stage=olmo2-analysis files=24807
+2026-11-01T22:03:47Z | INFO | progress.complete description='Upload apertus-analysis' completed=48 total=48
+2026-11-01T22:03:47Z | INFO | publication.phase phase=verifying details={'stage': 'apertus-analysis'}
+2026-11-01T22:04:09Z | INFO | publication.verified stage=apertus-analysis files=24639
+2026-11-01T22:05:44Z | INFO | progress.update description='Upload gemma2-analysis' completed=53 total=66 percent=80
+2026-11-01T22:07:44Z | INFO | progress.update description='Upload gemma2-analysis' completed=60 total=66 percent=91
+2026-11-01T22:09:20Z | INFO | progress.complete description='Upload gemma2-analysis' completed=66 total=66
+2026-11-01T22:09:20Z | INFO | publication.phase phase=verifying details={'stage': 'gemma2-analysis'}
+2026-11-01T22:09:46Z | INFO | publication.verified stage=gemma2-analysis files=32175
+2026-11-01T22:09:46Z | INFO | publication.phase phase=complete details={'receipts': 6}

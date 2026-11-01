@@ -84,8 +84,9 @@ def test_raw_and_projected_samples_all_cohorts_and_roundtrip(prepared):
         PreparedActivations.open(bundle.root, expected_model="olmo2")
 
 
+@pytest.mark.parametrize("skip_permutations", [False, True])
 def test_downstream_uses_saved_projection_without_source_or_refitting(
-    prepared, tmp_path, monkeypatch
+    prepared, tmp_path, monkeypatch, skip_permutations
 ):
     bundle, source = prepared
     source.unlink()  # Original extraction files and RQ2 records are not downstream dependencies.
@@ -96,6 +97,9 @@ def test_downstream_uses_saved_projection_without_source_or_refitting(
 
     monkeypatch.setattr(correctness_geometry, "balanced_cohorts", forbidden)
     monkeypatch.setattr(correctness_geometry, "preprocess", forbidden)
+    if skip_permutations:
+        monkeypatch.setattr(correctness_geometry, "permutation_schedule", forbidden)
+        monkeypatch.setattr(correctness_geometry, "infer", forbidden)
     config = load_analysis_config(PROJECT / "configs/rq3/gemma2.json")
     config.update(
         smoke=True,
@@ -111,12 +115,33 @@ def test_downstream_uses_saved_projection_without_source_or_refitting(
     config["activation_source"]["local_path"] = str(bundle.root)
     config["nrc_path"] = str(PROJECT / config["nrc_path"])
     config["nrc_provenance"] = str(PROJECT / config["nrc_provenance"])
-    output = run_analysis(config, tmp_path, publish=False)
+    output = run_analysis(config, tmp_path, publish=False, skip_permutations=skip_permutations)
     root = Path(output["path"])
     scores = pd.read_csv(root / "metrics/scores.csv")
     assert len(scores) == 18 and scores.status.eq("ok").all()
     assert (root / "plot_data/held_out_predictions.csv").exists()
     assert (root / "plots/cka-all-2d.png").exists()
+    if skip_permutations:
+        import json
+
+        assert config["run_id"] == "analysis-fixture"
+        assert root.name == "analysis-fixture-descriptive"
+        assert scores.inference_status.eq("skipped").all()
+        assert scores.raw_p.isna().all() and scores.corrected_p.isna().all()
+        assert json.loads((root / "manifest.json").read_text())["inference_label"] == (
+            "descriptive_permutations_skipped"
+        )
+        for dim in (1, 2):
+            status = json.loads((root / f"inference/{dim}d/status.json").read_text())
+            assert status["status"] == "skipped" and status["completed"] == 0
+            assert not (root / f"inference/{dim}d/nulls.npz").exists()
+        emergence = json.loads((root / "metrics/emergence.json").read_text())
+        assert all(row["significance_status"] == "unavailable" for row in emergence)
+        assert all(row["stable_significant_intervals"] is None for row in emergence)
+        assert all(row["descriptive_peak_layer"] == 0 for row in emergence)
+        metrics = pd.read_csv(root / "metrics/metrics.csv")
+        assert {"trustworthiness_k1", "continuity_k1", "participation_ratio"} <= set(metrics.metric)
+        assert (root / "checkpoints/run.json").exists()
     for cohort in ("correct", "incorrect", "all"):
         with np.load(root / f"preprocessing/{cohort}/layer_000.npz") as prep:
             assert np.array_equal(prep["R"], bundle.preprocessing(cohort, 0)["R"])

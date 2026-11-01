@@ -174,6 +174,8 @@ plot-ready CSVs, and plots beneath `outputs/representation_comparison/`.
 raw/projected activation stage. `run_rq3_geometry.py` provides `validate`, `run`, `report`, and `compare` for
 analysis from saved activations, with one config per model under `configs/rq3/`. Both stages publish
 their complete artifacts to the same model-specific Hugging Face dataset; use `--no-upload` locally.
+Pass `--model olmo2` (or `gemma2`/`apertus`) to extract, validate, or upload only that model
+using the panel configuration.
 See [the RQ3 implementation guide](../experiments/rq3-implementation.md) for required source records,
 configuration, full-run safeguards, and checkpoint replay.
 

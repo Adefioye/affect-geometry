@@ -1,0 +1,40 @@
+2026-11-01T17:02:25Z | INFO | command.start command=rq3-analysis
+2026-11-01T17:07:46Z | INFO | progress.start description='apertus: cohort geometry' total=3 unit=cohort
+2026-11-01T17:07:46Z | INFO | progress.start description='apertus/correct: block geometry' total=32 unit=layer
+2026-11-01T17:09:06Z | INFO | progress.update description='apertus/correct: block geometry' completed=4 total=32 percent=12
+2026-11-01T17:10:02Z | INFO | progress.update description='apertus/correct: block geometry' completed=7 total=32 percent=22
+2026-11-01T17:11:01Z | INFO | progress.update description='apertus/correct: block geometry' completed=10 total=32 percent=31
+2026-11-01T17:12:06Z | INFO | progress.update description='apertus/correct: block geometry' completed=13 total=32 percent=41
+2026-11-01T17:13:04Z | INFO | progress.update description='apertus/correct: block geometry' completed=16 total=32 percent=50
+2026-11-01T17:14:29Z | INFO | progress.update description='apertus/correct: block geometry' completed=20 total=32 percent=62
+2026-11-01T17:15:36Z | INFO | progress.update description='apertus/correct: block geometry' completed=23 total=32 percent=72
+2026-11-01T17:16:38Z | INFO | progress.update description='apertus/correct: block geometry' completed=26 total=32 percent=81
+2026-11-01T17:17:43Z | INFO | progress.update description='apertus/correct: block geometry' completed=29 total=32 percent=91
+2026-11-01T17:18:49Z | INFO | progress.complete description='apertus/correct: block geometry' completed=32 total=32
+2026-11-01T17:18:49Z | INFO | progress.update description='apertus: cohort geometry' completed=1 total=3 percent=33
+2026-11-01T17:18:49Z | INFO | progress.start description='apertus/incorrect: block geometry' total=32 unit=layer
+2026-11-01T17:20:16Z | INFO | progress.update description='apertus/incorrect: block geometry' completed=4 total=32 percent=12
+2026-11-01T17:21:21Z | INFO | progress.update description='apertus/incorrect: block geometry' completed=7 total=32 percent=22
+2026-11-01T17:22:27Z | INFO | progress.update description='apertus/incorrect: block geometry' completed=10 total=32 percent=31
+2026-11-01T17:23:36Z | INFO | progress.update description='apertus/incorrect: block geometry' completed=13 total=32 percent=41
+2026-11-01T17:24:45Z | INFO | progress.update description='apertus/incorrect: block geometry' completed=16 total=32 percent=50
+2026-11-01T17:26:16Z | INFO | progress.update description='apertus/incorrect: block geometry' completed=20 total=32 percent=62
+2026-11-01T17:27:24Z | INFO | progress.update description='apertus/incorrect: block geometry' completed=23 total=32 percent=72
+2026-11-01T17:28:30Z | INFO | progress.update description='apertus/incorrect: block geometry' completed=26 total=32 percent=81
+2026-11-01T17:29:34Z | INFO | progress.update description='apertus/incorrect: block geometry' completed=29 total=32 percent=91
+2026-11-01T17:30:40Z | INFO | progress.complete description='apertus/incorrect: block geometry' completed=32 total=32
+2026-11-01T17:30:40Z | INFO | progress.update description='apertus: cohort geometry' completed=2 total=3 percent=67
+2026-11-01T17:30:40Z | INFO | progress.start description='apertus/all: block geometry' total=32 unit=layer
+2026-11-01T17:32:32Z | INFO | progress.update description='apertus/all: block geometry' completed=4 total=32 percent=12
+2026-11-01T17:33:52Z | INFO | progress.update description='apertus/all: block geometry' completed=7 total=32 percent=22
+2026-11-01T17:35:17Z | INFO | progress.update description='apertus/all: block geometry' completed=10 total=32 percent=31
+2026-11-01T17:36:39Z | INFO | progress.update description='apertus/all: block geometry' completed=13 total=32 percent=41
+2026-11-01T17:38:03Z | INFO | progress.update description='apertus/all: block geometry' completed=16 total=32 percent=50
+2026-11-01T17:39:52Z | INFO | progress.update description='apertus/all: block geometry' completed=20 total=32 percent=62
+2026-11-01T17:41:15Z | INFO | progress.update description='apertus/all: block geometry' completed=23 total=32 percent=72
+2026-11-01T17:42:35Z | INFO | progress.update description='apertus/all: block geometry' completed=26 total=32 percent=81
+2026-11-01T17:43:58Z | INFO | progress.update description='apertus/all: block geometry' completed=29 total=32 percent=91
+2026-11-01T17:45:22Z | INFO | progress.complete description='apertus/all: block geometry' completed=32 total=32
+2026-11-01T17:45:22Z | INFO | progress.complete description='apertus: cohort geometry' completed=3 total=3
+2026-11-01T17:45:23Z | INFO | progress.start description='Permuting NRC rows' total=2000 unit=permutation
+2026-11-01T18:12:07Z | INFO | progress.stopped description='Permuting NRC rows' completed=14 total=2000

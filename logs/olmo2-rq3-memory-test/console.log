@@ -1,0 +1,134 @@
+Run log: /workspace/affect-geometry/logs/olmo2-rq3-memory-test/run.log
+Fetching 10 files:   0%|          | 0/10 [00:00<?, ?it/s]Fetching 10 files:  90%|█████████ | 9/10 [00:00<00:00, 88.68it/s]Fetching 10 files: 100%|██████████| 10/10 [00:00<00:00, 96.00it/s]
+OLMo memory test:   0%|          | 0/2 [00:00<?, ?case/s]Run log: /workspace/affect-geometry/logs/olmo2-rq3-memory-test/run.log
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/355 [00:00<?, ?it/s]Loading weights:   0%|          | 1/355 [00:02<15:11,  2.58s/it]Loading weights:   4%|▍         | 14/355 [00:02<00:48,  7.05it/s]Loading weights:   7%|▋         | 26/355 [00:02<00:22, 14.75it/s]Loading weights:  10%|█         | 37/355 [00:02<00:13, 23.11it/s]Loading weights:  14%|█▎        | 48/355 [00:03<00:09, 32.65it/s]Loading weights:  16%|█▋        | 58/355 [00:03<00:07, 41.20it/s]Loading weights:  19%|█▉        | 68/355 [00:03<00:06, 42.96it/s]Loading weights:  21%|██▏       | 76/355 [00:03<00:06, 45.21it/s]Loading weights:  24%|██▎       | 84/355 [00:03<00:05, 49.09it/s]Loading weights:  26%|██▌       | 91/355 [00:03<00:07, 37.35it/s]Loading weights:  27%|██▋       | 97/355 [00:04<00:06, 37.11it/s]Loading weights:  29%|██▉       | 103/355 [00:04<00:06, 41.08it/s]Loading weights:  32%|███▏      | 112/355 [00:04<00:04, 50.37it/s]Loading weights:  34%|███▍      | 122/355 [00:04<00:03, 60.90it/s]Loading weights:  37%|███▋      | 131/355 [00:04<00:03, 67.53it/s]Loading weights:  40%|████      | 142/355 [00:04<00:02, 77.08it/s]Loading weights:  44%|████▎     | 155/355 [00:04<00:02, 86.97it/s]Loading weights:  47%|████▋     | 167/355 [00:04<00:02, 93.55it/s]Loading weights:  50%|████▉     | 177/355 [00:04<00:01, 94.28it/s]Loading weights:  53%|█████▎    | 187/355 [00:05<00:01, 95.36it/s]Loading weights:  55%|█████▌    | 197/355 [00:05<00:01, 95.28it/s]Loading weights:  59%|█████▊    | 208/355 [00:05<00:01, 98.03it/s]Loading weights:  61%|██████▏   | 218/355 [00:05<00:01, 97.98it/s]Loading weights:  64%|██████▍   | 228/355 [00:05<00:01, 97.59it/s]Loading weights:  67%|██████▋   | 238/355 [00:05<00:01, 95.30it/s]Loading weights:  70%|██████▉   | 248/355 [00:05<00:01, 89.40it/s]Loading weights:  73%|███████▎  | 258/355 [00:05<00:01, 82.41it/s]Loading weights:  75%|███████▌  | 268/355 [00:05<00:01, 81.69it/s]Loading weights:  78%|███████▊  | 278/355 [00:06<00:00, 81.69it/s]Loading weights:  81%|████████  | 287/355 [00:06<00:00, 81.96it/s]Loading weights:  83%|████████▎ | 296/355 [00:06<00:00, 70.54it/s]Loading weights:  86%|████████▌ | 304/355 [00:06<00:00, 72.00it/s]Loading weights:  88%|████████▊ | 312/355 [00:06<00:00, 69.89it/s]Loading weights:  91%|█████████ | 322/355 [00:06<00:00, 74.22it/s]Loading weights:  93%|█████████▎| 330/355 [00:06<00:00, 75.55it/s]Loading weights:  95%|█████████▌| 338/355 [00:06<00:00, 69.43it/s]Loading weights:  97%|█████████▋| 346/355 [00:07<00:00, 61.58it/s]Loading weights: 100%|██████████| 355/355 [00:07<00:00, 49.31it/s]
+Extracting classification prompts:   0%|          | 0/1 [00:00<?, ?batch/s]Extracting classification prompts: 100%|██████████| 1/1 [00:02<00:00,  2.46s/batch]Extracting classification prompts: 100%|██████████| 1/1 [00:02<00:00,  2.46s/batch]
+{
+  "case": "typical-16",
+  "model_id": "allenai/OLMo-2-1124-7B-Instruct",
+  "model_revision": "470b1fba1ae01581f270116362ee4aa1b97f4c84",
+  "batch_size": 16,
+  "prompt_width": 124,
+  "sample_ids": [
+    "27afe49fbf13c8fb9f9ad957bc764eecb0c8676ad5ddca463e352111f760e895",
+    "27b389f5422b6b5115c0e7252866ba87060c0616840d89c9bc8d9505946a72de",
+    "27b3b92e3c851dc83b528c124cd93998048909f0a6300ff32a0e7e39288d877d",
+    "27b9c1486d84482bf2e5cc589a95b62fc17ec341a1f69f88d571704084fcaccc",
+    "27baea107da4e8ee21ec43de7d1dcb51015925e87cd79a8e2b66655997e42140",
+    "27bda0457fca01bc16117f69cc8dcf55291cfa4fbcffec734225aa14667080f3",
+    "27c4eaaa88d6daef8d071b7d3f3ca965ebfcde16ea6db872c5ac423d23b1ed2f",
+    "27c6b420438c0e84e3ae758b589e6c8e826804f30551747b2a64b982062a55fb",
+    "27c72a9ddf2476762666bfe6c5002e4ac4f8ee7026d6612ecece55673a10cc23",
+    "27c853ca76aa9bc0a30a3a13ac30a79f4c3cf240336e6deb77127090ca852463",
+    "27cd2b0e426af04db4bf10302dc7655f9be6af6282cc99a14048853fbdd84b7d",
+    "27cf5c66a221c6349cbe97142a1f1c60a37232c88c9c8e0ac93dba4c2b300d5e",
+    "27d1458350631f9a5c71e16b4861e0733113d1a0b7401d5f4ea9f4ff67b0ef67",
+    "27d37c593d5f1acb122877147932752733919980be70a00d98294e675036e544",
+    "27df3d596f38bdb54dc1f3d8a26fe6c39f46fe8d1cb937eb3612d490e36af11c",
+    "27e0d61612455ec6e62108f19486f3bfae50aae6019404b5b434cec811b26eb2"
+  ],
+  "extractor": "affect_geometry.activations.classification_prompt.extract_prompt_states",
+  "extractor_modified": false,
+  "dtype": "bfloat16",
+  "storage_dtype": "float32",
+  "gpu": "NVIDIA RTX 2000 Ada Generation",
+  "total_gpu_gib": 15.57550048828125,
+  "hf_device_map": {},
+  "parameter_devices": [
+    "cuda:0"
+  ],
+  "after_load_allocated_gib": 13.594735145568848,
+  "status": "passed",
+  "validated_layers": 32,
+  "finite_states": true,
+  "elapsed_seconds": 22.110313748009503,
+  "peak_allocated_gib": 14.264058589935303,
+  "peak_reserved_gib": 14.318359375
+}
+OLMo memory test:  50%|█████     | 1/2 [00:27<00:27, 27.42s/case]Run log: /workspace/affect-geometry/logs/olmo2-rq3-memory-test/run.log
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/355 [00:00<?, ?it/s]Loading weights:   0%|          | 1/355 [00:01<11:45,  1.99s/it]Loading weights:   1%|          | 2/355 [00:04<13:58,  2.37s/it]Loading weights:   1%|          | 3/355 [00:04<08:32,  1.46s/it]Loading weights:   4%|▍         | 14/355 [00:05<01:03,  5.36it/s]Loading weights:   7%|▋         | 26/355 [00:05<00:27, 11.92it/s]Loading weights:  10%|█         | 36/355 [00:05<00:17, 18.50it/s]Loading weights:  13%|█▎        | 47/355 [00:05<00:11, 27.15it/s]Loading weights:  17%|█▋        | 59/355 [00:05<00:07, 37.82it/s]Loading weights:  20%|█▉        | 70/355 [00:05<00:06, 45.74it/s]Loading weights:  23%|██▎       | 82/355 [00:05<00:04, 57.48it/s]Loading weights:  26%|██▌       | 93/355 [00:05<00:03, 66.70it/s]Loading weights:  30%|███       | 108/355 [00:06<00:03, 81.43it/s]Loading weights:  34%|███▎      | 119/355 [00:06<00:02, 86.62it/s]Loading weights:  37%|███▋      | 130/355 [00:06<00:02, 90.68it/s]Loading weights:  40%|████      | 142/355 [00:06<00:02, 96.86it/s]Loading weights:  43%|████▎     | 153/355 [00:06<00:02, 98.79it/s]Loading weights:  46%|████▌     | 164/355 [00:06<00:01, 99.94it/s]Loading weights:  49%|████▉     | 175/355 [00:06<00:01, 101.62it/s]Loading weights:  52%|█████▏    | 186/355 [00:06<00:01, 103.03it/s]Loading weights:  55%|█████▌    | 197/355 [00:06<00:01, 103.57it/s]Loading weights:  59%|█████▊    | 208/355 [00:06<00:01, 102.01it/s]Loading weights:  62%|██████▏   | 221/355 [00:07<00:01, 108.06it/s]Loading weights:  66%|██████▌   | 233/355 [00:07<00:01, 109.78it/s]Loading weights:  69%|██████▉   | 245/355 [00:07<00:01, 94.27it/s] Loading weights:  72%|███████▏  | 256/355 [00:07<00:01, 89.18it/s]Loading weights:  75%|███████▌  | 267/355 [00:07<00:00, 89.26it/s]Loading weights:  78%|███████▊  | 277/355 [00:07<00:00, 87.34it/s]Loading weights:  81%|████████  | 286/355 [00:07<00:00, 78.96it/s]Loading weights:  83%|████████▎ | 295/355 [00:08<00:00, 73.61it/s]Loading weights:  85%|████████▌ | 303/355 [00:08<00:00, 69.79it/s]Loading weights:  88%|████████▊ | 311/355 [00:12<00:06,  7.06it/s]Loading weights:  90%|█████████ | 320/355 [00:12<00:03,  9.70it/s]Loading weights:  92%|█████████▏| 326/355 [00:12<00:02, 11.89it/s]Loading weights:  94%|█████████▍| 334/355 [00:12<00:01, 15.71it/s]Loading weights:  97%|█████████▋| 344/355 [00:12<00:00, 21.83it/s]Loading weights:  99%|█████████▉| 353/355 [00:12<00:00, 28.16it/s]Loading weights: 100%|██████████| 355/355 [00:12<00:00, 28.03it/s]
+Extracting classification prompts:   0%|          | 0/1 [00:00<?, ?batch/s]Extracting classification prompts:   0%|          | 0/1 [00:01<?, ?batch/s]
+{
+  "case": "longest-16",
+  "model_id": "allenai/OLMo-2-1124-7B-Instruct",
+  "model_revision": "470b1fba1ae01581f270116362ee4aa1b97f4c84",
+  "batch_size": 16,
+  "prompt_width": 409,
+  "sample_ids": [
+    "ef0b4127c99916c30d15fce1e0b8f0ee41be318739cae986b043545b04be0e22",
+    "ef0c702bd6deb8fa79f1d1493234fc516de41d5d3de10946864c98ca6413634f",
+    "ef16c32339d04fff587b7927e23c642501c12e75a14dd0f957f30f03868173b7",
+    "ef18663ce4ba63c531292114851c27da55dbcbc78e1b9aa1bf18c48d9bb3c597",
+    "ef200c70ca11568e25045c258308ce3e8c8ae2fb93e6546c9ad46f556e5307e3",
+    "ef22b19cd1fbe883072da58d66ebdf2d69fbc5cd0fb5cc19062f770b668742d8",
+    "ef23030a5b6e875b2b01485c6471ad9d6d2df737815ba8aafef59d280c815ef9",
+    "ef25bafb38211fd51ff06660358017abe98a278ba7a9eeb588b53a2b2bfcba72",
+    "ef27143d99c69ad512c88ec4335d17d5330239ec2bb5ae03cdf9fbf75dc5d241",
+    "ef29e447be8b4213a315988207c76c126761b6555ba17a6d0649ad6939348079",
+    "ef2d3ba4457b9d178e020b82c860c699cbe250259fd6bc00c963d1327c10e76d",
+    "ef3152743eff2c9c0ef2e08fdc2f5c253671cc4b9603ff9903cd5bc19615129b",
+    "ef388e63cd61df504958fbc6c5eedcdf83555aeb3a81c2ebfc917e333e9d40ae",
+    "ef3b230deb61449fe92417bfb95d708858714548a9d64a2783f0a84901cfc25a",
+    "ef3e02178b0741f517ab6cfd05cfa66976ecbae0a29180bf8b00148f3a84c57d",
+    "ef463692ed4f8a79449683d6c232e8ef3abbdc8aa6da6a512475ac8d2dccc62a"
+  ],
+  "extractor": "affect_geometry.activations.classification_prompt.extract_prompt_states",
+  "extractor_modified": false,
+  "dtype": "bfloat16",
+  "storage_dtype": "float32",
+  "gpu": "NVIDIA RTX 2000 Ada Generation",
+  "total_gpu_gib": 15.57550048828125,
+  "hf_device_map": {},
+  "parameter_devices": [
+    "cuda:0"
+  ],
+  "after_load_allocated_gib": 13.594735145568848,
+  "status": "cuda_out_of_memory",
+  "error_type": "OutOfMemoryError",
+  "error": "CUDA out of memory. Tried to allocate 104.00 MiB. GPU 0 has a total capacity of 15.58 GiB of which 12.25 MiB is free. Including non-PyTorch memory, this process has 15.55 GiB memory in use. Of the allocated memory 15.25 GiB is allocated by PyTorch, and 199.31 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)",
+  "elapsed_seconds": 23.028202082961798,
+  "peak_allocated_gib": 15.298647403717041,
+  "peak_reserved_gib": 15.443359375
+}
+OLMo memory test: 100%|██████████| 2/2 [00:55<00:00, 27.80s/case]OLMo memory test: 100%|██████████| 2/2 [00:55<00:00, 27.74s/case]
+Run log: /workspace/affect-geometry/logs/olmo2-rq3-memory-test/run.log
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/355 [00:00<?, ?it/s]Loading weights:   0%|          | 1/355 [00:00<01:59,  2.96it/s]Loading weights:   1%|          | 2/355 [00:00<01:22,  4.29it/s]Loading weights:   1%|▏         | 5/355 [00:00<00:32, 10.88it/s]Loading weights:   5%|▍         | 16/355 [00:00<00:09, 37.35it/s]Loading weights:   8%|▊         | 27/355 [00:00<00:05, 56.57it/s]Loading weights:  10%|▉         | 35/355 [00:01<00:11, 28.48it/s]Loading weights:  12%|█▏        | 41/355 [00:02<00:26, 12.05it/s]Loading weights:  13%|█▎        | 45/355 [00:03<00:28, 11.03it/s]Loading weights:  14%|█▎        | 48/355 [00:04<00:40,  7.67it/s]Loading weights:  14%|█▍        | 50/355 [00:04<00:41,  7.40it/s]Loading weights:  15%|█▍        | 53/355 [00:04<00:34,  8.81it/s]Loading weights:  15%|█▌        | 55/355 [00:04<00:32,  9.32it/s]Loading weights:  16%|█▌        | 57/355 [00:04<00:33,  8.78it/s]Loading weights:  17%|█▋        | 59/355 [00:05<00:52,  5.68it/s]Loading weights:  17%|█▋        | 61/355 [00:06<00:54,  5.43it/s]Loading weights:  18%|█▊        | 64/355 [00:06<00:47,  6.18it/s]Loading weights:  19%|█▉        | 68/355 [00:06<00:30,  9.31it/s]Loading weights:  20%|█▉        | 70/355 [00:07<00:45,  6.31it/s]Loading weights:  20%|██        | 72/355 [00:07<00:43,  6.58it/s]Loading weights:  21%|██        | 75/355 [00:07<00:31,  8.91it/s]Loading weights:  22%|██▏       | 77/355 [00:07<00:32,  8.58it/s]Loading weights:  22%|██▏       | 79/355 [00:07<00:28,  9.73it/s]Loading weights:  23%|██▎       | 81/355 [00:09<01:00,  4.53it/s]Loading weights:  24%|██▍       | 86/355 [00:09<00:38,  7.00it/s]Loading weights:  25%|██▌       | 89/355 [00:09<00:30,  8.77it/s]Loading weights:  26%|██▌       | 91/355 [00:09<00:34,  7.61it/s]Loading weights:  26%|██▌       | 93/355 [00:10<00:43,  6.03it/s]Loading weights:  27%|██▋       | 97/355 [00:10<00:31,  8.14it/s]Loading weights:  28%|██▊       | 99/355 [00:10<00:27,  9.23it/s]Loading weights:  28%|██▊       | 101/355 [00:10<00:24, 10.23it/s]Loading weights:  29%|██▉       | 103/355 [00:11<00:39,  6.37it/s]Loading weights:  30%|██▉       | 105/355 [00:11<00:38,  6.55it/s]Loading weights:  30%|███       | 108/355 [00:12<00:31,  7.93it/s]Loading weights:  32%|███▏      | 112/355 [00:12<00:23, 10.53it/s]Loading weights:  34%|███▎      | 119/355 [00:12<00:13, 17.20it/s]Loading weights:  34%|███▍      | 122/355 [00:12<00:13, 17.33it/s]Loading weights:  35%|███▌      | 125/355 [00:12<00:14, 15.54it/s]Loading weights:  38%|███▊      | 136/355 [00:12<00:07, 30.14it/s]Loading weights:  41%|████▏     | 147/355 [00:13<00:04, 43.98it/s]Loading weights:  45%|████▍     | 158/355 [00:13<00:03, 56.30it/s]Loading weights:  48%|████▊     | 169/355 [00:13<00:02, 67.45it/s]Loading weights:  51%|█████     | 180/355 [00:13<00:02, 76.86it/s]Loading weights:  54%|█████▍    | 191/355 [00:13<00:01, 83.48it/s]Loading weights:  57%|█████▋    | 202/355 [00:13<00:01, 89.12it/s]Loading weights:  60%|██████    | 213/355 [00:13<00:01, 93.68it/s]Loading weights:  63%|██████▎   | 224/355 [00:13<00:01, 96.35it/s]Loading weights:  66%|██████▌   | 235/355 [00:13<00:01, 98.93it/s]Loading weights:  69%|██████▉   | 246/355 [00:14<00:01, 97.36it/s]Loading weights:  72%|███████▏  | 256/355 [00:14<00:01, 96.72it/s]Loading weights:  75%|███████▍  | 266/355 [00:14<00:00, 91.11it/s]Loading weights:  78%|███████▊  | 276/355 [00:14<00:00, 83.48it/s]Loading weights:  80%|████████  | 285/355 [00:14<00:00, 76.60it/s]Loading weights:  83%|████████▎ | 293/355 [00:14<00:00, 73.58it/s]Loading weights:  85%|████████▍ | 301/355 [00:14<00:00, 71.55it/s]Loading weights:  88%|████████▊ | 311/355 [00:14<00:00, 75.46it/s]Loading weights:  90%|████████▉ | 319/355 [00:15<00:00, 74.03it/s]Loading weights:  92%|█████████▏| 327/355 [00:15<00:00, 72.05it/s]Loading weights:  94%|█████████▍| 335/355 [00:15<00:00, 64.33it/s]Loading weights:  97%|█████████▋| 345/355 [00:15<00:00, 69.31it/s]Loading weights: 100%|██████████| 355/355 [00:15<00:00, 22.84it/s]
+Extracting classification prompts:   0%|          | 0/1 [00:00<?, ?batch/s]Extracting classification prompts: 100%|██████████| 1/1 [00:02<00:00,  2.57s/batch]Extracting classification prompts: 100%|██████████| 1/1 [00:02<00:00,  2.57s/batch]
+{
+  "case": "longest-8",
+  "model_id": "allenai/OLMo-2-1124-7B-Instruct",
+  "model_revision": "470b1fba1ae01581f270116362ee4aa1b97f4c84",
+  "batch_size": 8,
+  "prompt_width": 409,
+  "sample_ids": [
+    "ef27143d99c69ad512c88ec4335d17d5330239ec2bb5ae03cdf9fbf75dc5d241",
+    "ef29e447be8b4213a315988207c76c126761b6555ba17a6d0649ad6939348079",
+    "ef2d3ba4457b9d178e020b82c860c699cbe250259fd6bc00c963d1327c10e76d",
+    "ef3152743eff2c9c0ef2e08fdc2f5c253671cc4b9603ff9903cd5bc19615129b",
+    "ef388e63cd61df504958fbc6c5eedcdf83555aeb3a81c2ebfc917e333e9d40ae",
+    "ef3b230deb61449fe92417bfb95d708858714548a9d64a2783f0a84901cfc25a",
+    "ef3e02178b0741f517ab6cfd05cfa66976ecbae0a29180bf8b00148f3a84c57d",
+    "ef463692ed4f8a79449683d6c232e8ef3abbdc8aa6da6a512475ac8d2dccc62a"
+  ],
+  "extractor": "affect_geometry.activations.classification_prompt.extract_prompt_states",
+  "extractor_modified": false,
+  "dtype": "bfloat16",
+  "storage_dtype": "float32",
+  "gpu": "NVIDIA RTX 2000 Ada Generation",
+  "total_gpu_gib": 15.57550048828125,
+  "hf_device_map": {},
+  "parameter_devices": [
+    "cuda:0"
+  ],
+  "after_load_allocated_gib": 13.594735145568848,
+  "status": "passed",
+  "validated_layers": 32,
+  "finite_states": true,
+  "elapsed_seconds": 29.995232477085665,
+  "peak_allocated_gib": 14.686085224151611,
+  "peak_reserved_gib": 14.78515625
+}
+Memory tests finished; full extraction was not started.

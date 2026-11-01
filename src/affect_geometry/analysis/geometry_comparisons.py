@@ -147,6 +147,7 @@ def emergence(scores, minimum_interval=3, transition_threshold=0.1):
         group = group.sort_values("layer")
         valid = group.status.eq("ok").all() and group.cv_r2.notna().all()
         significant = group.corrected_p.le(0.05).to_numpy()
+        significance_available = group.corrected_p.notna().all()
         intervals, start = [], None
         for i, flag in enumerate(np.r_[significant, False]):
             if flag and start is None:
@@ -168,7 +169,8 @@ def emergence(scores, minimum_interval=3, transition_threshold=0.1):
                     else None
                 ),
                 descriptive_peak_layer=int(peak.layer) if valid else None,
-                stable_significant_intervals=intervals,
+                stable_significant_intervals=intervals if significance_available else None,
+                significance_status="available" if significance_available else "unavailable",
                 abrupt_transition_layers=group.loc[
                     changes.abs().ge(transition_threshold), "layer"
                 ].tolist(),

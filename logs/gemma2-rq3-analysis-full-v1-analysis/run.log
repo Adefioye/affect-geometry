@@ -1,0 +1,40 @@
+2026-11-01T17:02:25Z | INFO | command.start command=rq3-analysis
+2026-11-01T17:07:22Z | INFO | progress.start description='gemma2: cohort geometry' total=3 unit=cohort
+2026-11-01T17:07:23Z | INFO | progress.start description='gemma2/correct: block geometry' total=42 unit=layer
+2026-11-01T17:09:04Z | INFO | progress.update description='gemma2/correct: block geometry' completed=5 total=42 percent=12
+2026-11-01T17:10:20Z | INFO | progress.update description='gemma2/correct: block geometry' completed=9 total=42 percent=21
+2026-11-01T17:11:36Z | INFO | progress.update description='gemma2/correct: block geometry' completed=13 total=42 percent=31
+2026-11-01T17:12:51Z | INFO | progress.update description='gemma2/correct: block geometry' completed=17 total=42 percent=40
+2026-11-01T17:14:08Z | INFO | progress.update description='gemma2/correct: block geometry' completed=21 total=42 percent=50
+2026-11-01T17:15:45Z | INFO | progress.update description='gemma2/correct: block geometry' completed=26 total=42 percent=62
+2026-11-01T17:16:59Z | INFO | progress.update description='gemma2/correct: block geometry' completed=30 total=42 percent=71
+2026-11-01T17:18:14Z | INFO | progress.update description='gemma2/correct: block geometry' completed=34 total=42 percent=81
+2026-11-01T17:19:31Z | INFO | progress.update description='gemma2/correct: block geometry' completed=38 total=42 percent=90
+2026-11-01T17:20:47Z | INFO | progress.complete description='gemma2/correct: block geometry' completed=42 total=42
+2026-11-01T17:20:47Z | INFO | progress.update description='gemma2: cohort geometry' completed=1 total=3 percent=33
+2026-11-01T17:20:47Z | INFO | progress.start description='gemma2/incorrect: block geometry' total=42 unit=layer
+2026-11-01T17:22:17Z | INFO | progress.update description='gemma2/incorrect: block geometry' completed=5 total=42 percent=12
+2026-11-01T17:23:30Z | INFO | progress.update description='gemma2/incorrect: block geometry' completed=9 total=42 percent=21
+2026-11-01T17:24:39Z | INFO | progress.update description='gemma2/incorrect: block geometry' completed=13 total=42 percent=31
+2026-11-01T17:25:57Z | INFO | progress.update description='gemma2/incorrect: block geometry' completed=17 total=42 percent=40
+2026-11-01T17:27:14Z | INFO | progress.update description='gemma2/incorrect: block geometry' completed=21 total=42 percent=50
+2026-11-01T17:28:46Z | INFO | progress.update description='gemma2/incorrect: block geometry' completed=26 total=42 percent=62
+2026-11-01T17:30:00Z | INFO | progress.update description='gemma2/incorrect: block geometry' completed=30 total=42 percent=71
+2026-11-01T17:31:16Z | INFO | progress.update description='gemma2/incorrect: block geometry' completed=34 total=42 percent=81
+2026-11-01T17:32:34Z | INFO | progress.update description='gemma2/incorrect: block geometry' completed=38 total=42 percent=90
+2026-11-01T17:33:51Z | INFO | progress.complete description='gemma2/incorrect: block geometry' completed=42 total=42
+2026-11-01T17:33:51Z | INFO | progress.update description='gemma2: cohort geometry' completed=2 total=3 percent=67
+2026-11-01T17:33:51Z | INFO | progress.start description='gemma2/all: block geometry' total=42 unit=layer
+2026-11-01T17:35:44Z | INFO | progress.update description='gemma2/all: block geometry' completed=5 total=42 percent=12
+2026-11-01T17:37:19Z | INFO | progress.update description='gemma2/all: block geometry' completed=9 total=42 percent=21
+2026-11-01T17:38:49Z | INFO | progress.update description='gemma2/all: block geometry' completed=13 total=42 percent=31
+2026-11-01T17:40:20Z | INFO | progress.update description='gemma2/all: block geometry' completed=17 total=42 percent=40
+2026-11-01T17:41:51Z | INFO | progress.update description='gemma2/all: block geometry' completed=21 total=42 percent=50
+2026-11-01T17:43:43Z | INFO | progress.update description='gemma2/all: block geometry' completed=26 total=42 percent=62
+2026-11-01T17:45:16Z | INFO | progress.update description='gemma2/all: block geometry' completed=30 total=42 percent=71
+2026-11-01T17:46:50Z | INFO | progress.update description='gemma2/all: block geometry' completed=34 total=42 percent=81
+2026-11-01T17:48:24Z | INFO | progress.update description='gemma2/all: block geometry' completed=38 total=42 percent=90
+2026-11-01T17:49:58Z | INFO | progress.complete description='gemma2/all: block geometry' completed=42 total=42
+2026-11-01T17:49:58Z | INFO | progress.complete description='gemma2: cohort geometry' completed=3 total=3
+2026-11-01T17:49:58Z | INFO | progress.start description='Permuting NRC rows' total=2000 unit=permutation
+2026-11-01T18:12:07Z | INFO | progress.stopped description='Permuting NRC rows' completed=12 total=2000

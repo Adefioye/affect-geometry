@@ -1,0 +1,147 @@
+Started descriptive analysis: 2026-11-01T18:15:27+00:00
+Run log: /workspace/affect-geometry/logs/gemma2-rq3-analysis-full-v1-descriptive-analysis/run.log
+Fetching 638 files:   0%|          | 0/638 [00:00<?, ?it/s]Fetching 638 files:   0%|          | 1/638 [00:00<01:29,  7.11it/s]Fetching 638 files:   2%|▏         | 12/638 [00:00<00:10, 58.89it/s]Fetching 638 files:   3%|▎         | 22/638 [00:00<00:08, 75.91it/s]Fetching 638 files:   5%|▌         | 33/638 [00:00<00:07, 82.55it/s]Fetching 638 files:   7%|▋         | 43/638 [00:00<00:07, 83.69it/s]Fetching 638 files:   9%|▉         | 56/638 [00:00<00:06, 94.24it/s]Fetching 638 files:  11%|█         | 68/638 [00:00<00:05, 97.06it/s]Fetching 638 files:  13%|█▎        | 80/638 [00:00<00:05, 99.46it/s]Fetching 638 files:  15%|█▍        | 93/638 [00:01<00:05, 99.99it/s]Fetching 638 files:  17%|█▋        | 106/638 [00:01<00:04, 108.09it/s]Fetching 638 files:  18%|█▊        | 117/638 [00:01<00:04, 105.79it/s]Fetching 638 files:  20%|██        | 129/638 [00:01<00:04, 108.74it/s]Fetching 638 files:  22%|██▏       | 142/638 [00:01<00:04, 108.27it/s]Fetching 638 files:  24%|██▍       | 155/638 [00:01<00:04, 114.17it/s]Fetching 638 files:  26%|██▌       | 167/638 [00:01<00:04, 108.03it/s]Fetching 638 files:  29%|██▊       | 182/638 [00:01<00:03, 114.97it/s]Fetching 638 files:  30%|███       | 194/638 [00:01<00:03, 113.91it/s]Fetching 638 files:  32%|███▏      | 207/638 [00:02<00:03, 113.78it/s]Fetching 638 files:  34%|███▍      | 219/638 [00:02<00:03, 112.72it/s]Fetching 638 files:  36%|███▋      | 232/638 [00:02<00:03, 116.22it/s]Fetching 638 files:  38%|███▊      | 244/638 [00:02<00:03, 109.44it/s]Fetching 638 files:  40%|████      | 256/638 [00:02<00:03, 108.08it/s]Fetching 638 files:  42%|████▏     | 268/638 [00:02<00:03, 109.28it/s]Fetching 638 files:  44%|████▍     | 281/638 [00:02<00:03, 111.33it/s]Fetching 638 files:  46%|████▌     | 295/638 [00:02<00:02, 114.86it/s]Fetching 638 files:  48%|████▊     | 307/638 [00:02<00:02, 114.37it/s]Fetching 638 files:  50%|█████     | 319/638 [00:03<00:02, 110.71it/s]Fetching 638 files:  52%|█████▏    | 331/638 [00:03<00:02, 111.18it/s]Fetching 638 files:  54%|█████▍    | 343/638 [00:03<00:02, 105.35it/s]Fetching 638 files:  55%|█████▌    | 354/638 [00:03<00:02, 104.70it/s]Fetching 638 files:  57%|█████▋    | 366/638 [00:03<00:02, 108.87it/s]Fetching 638 files:  59%|█████▉    | 378/638 [00:03<00:02, 103.89it/s]Fetching 638 files:  61%|██████▏   | 391/638 [00:03<00:02, 109.83it/s]Fetching 638 files:  63%|██████▎   | 403/638 [00:03<00:02, 106.27it/s]Fetching 638 files:  65%|██████▍   | 414/638 [00:03<00:02, 106.83it/s]Fetching 638 files:  67%|██████▋   | 425/638 [00:04<00:02, 105.54it/s]Fetching 638 files:  68%|██████▊   | 437/638 [00:04<00:01, 103.16it/s]Fetching 638 files:  70%|███████   | 449/638 [00:04<00:01, 102.20it/s]Fetching 638 files:  72%|███████▏  | 462/638 [00:04<00:01, 108.10it/s]Fetching 638 files:  74%|███████▍  | 473/638 [00:04<00:01, 108.44it/s]Fetching 638 files:  76%|███████▌  | 485/638 [00:04<00:01, 111.06it/s]Fetching 638 files:  78%|███████▊  | 498/638 [00:04<00:01, 113.86it/s]Fetching 638 files:  80%|███████▉  | 510/638 [00:04<00:01, 115.61it/s]Fetching 638 files:  82%|████████▏ | 523/638 [00:04<00:00, 118.35it/s]Fetching 638 files:  84%|████████▍ | 536/638 [00:05<00:00, 117.86it/s]Fetching 638 files:  86%|████████▌ | 549/638 [00:05<00:00, 120.73it/s]Fetching 638 files:  88%|████████▊ | 562/638 [00:05<00:00, 117.33it/s]Fetching 638 files:  90%|█████████ | 576/638 [00:05<00:00, 121.53it/s]Fetching 638 files:  92%|█████████▏| 589/638 [00:05<00:00, 115.30it/s]Fetching 638 files:  95%|█████████▍| 603/638 [00:05<00:00, 116.88it/s]Fetching 638 files:  97%|█████████▋| 619/638 [00:05<00:00, 121.79it/s]Fetching 638 files:  99%|█████████▉| 633/638 [00:05<00:00, 123.88it/s]Fetching 638 files: 100%|██████████| 638/638 [00:05<00:00, 109.01it/s]
+gemma2: cohort geometry:   0%|          | 0/3 [00:00<?, ?cohort/s]
+gemma2/correct: block geometry:   0%|          | 0/42 [00:00<?, ?layer/s][A
+gemma2/correct: block geometry:   2%|▏         | 1/42 [00:18<12:51, 18.81s/layer][A
+gemma2/correct: block geometry:   5%|▍         | 2/42 [00:38<12:44, 19.12s/layer][A
+gemma2/correct: block geometry:   7%|▋         | 3/42 [00:57<12:24, 19.09s/layer][A
+gemma2/correct: block geometry:  10%|▉         | 4/42 [01:15<12:00, 18.95s/layer][A
+gemma2/correct: block geometry:  12%|█▏        | 5/42 [01:34<11:39, 18.90s/layer][A
+gemma2/correct: block geometry:  14%|█▍        | 6/42 [01:53<11:15, 18.76s/layer][A
+gemma2/correct: block geometry:  17%|█▋        | 7/42 [02:12<10:56, 18.76s/layer][A
+gemma2/correct: block geometry:  19%|█▉        | 8/42 [02:31<10:40, 18.85s/layer][A
+gemma2/correct: block geometry:  21%|██▏       | 9/42 [02:51<10:35, 19.25s/layer][A
+gemma2/correct: block geometry:  24%|██▍       | 10/42 [03:10<10:18, 19.34s/layer][A
+gemma2/correct: block geometry:  26%|██▌       | 11/42 [03:30<10:02, 19.42s/layer][A
+gemma2/correct: block geometry:  29%|██▊       | 12/42 [03:49<09:40, 19.35s/layer][A
+gemma2/correct: block geometry:  31%|███       | 13/42 [04:09<09:24, 19.45s/layer][A
+gemma2/correct: block geometry:  33%|███▎      | 14/42 [04:29<09:12, 19.73s/layer][A
+gemma2/correct: block geometry:  36%|███▌      | 15/42 [04:50<08:58, 19.95s/layer][A
+gemma2/correct: block geometry:  38%|███▊      | 16/42 [05:10<08:44, 20.18s/layer][A
+gemma2/correct: block geometry:  40%|████      | 17/42 [05:31<08:25, 20.22s/layer][A
+gemma2/correct: block geometry:  43%|████▎     | 18/42 [05:50<08:00, 20.01s/layer][A
+gemma2/correct: block geometry:  45%|████▌     | 19/42 [06:10<07:38, 19.94s/layer][A
+gemma2/correct: block geometry:  48%|████▊     | 20/42 [06:30<07:21, 20.06s/layer][A
+gemma2/correct: block geometry:  50%|█████     | 21/42 [06:50<06:58, 19.91s/layer][A
+gemma2/correct: block geometry:  52%|█████▏    | 22/42 [07:09<06:32, 19.62s/layer][A
+gemma2/correct: block geometry:  55%|█████▍    | 23/42 [07:28<06:09, 19.46s/layer][A
+gemma2/correct: block geometry:  57%|█████▋    | 24/42 [07:47<05:48, 19.36s/layer][A
+gemma2/correct: block geometry:  60%|█████▉    | 25/42 [08:06<05:28, 19.31s/layer][A
+gemma2/correct: block geometry:  62%|██████▏   | 26/42 [08:25<05:09, 19.32s/layer][A
+gemma2/correct: block geometry:  64%|██████▍   | 27/42 [08:45<04:49, 19.33s/layer][A
+gemma2/correct: block geometry:  67%|██████▋   | 28/42 [09:03<04:27, 19.14s/layer][A
+gemma2/correct: block geometry:  69%|██████▉   | 29/42 [09:22<04:05, 18.92s/layer][A
+gemma2/correct: block geometry:  71%|███████▏  | 30/42 [09:41<03:48, 19.00s/layer][A
+gemma2/correct: block geometry:  74%|███████▍  | 31/42 [10:00<03:27, 18.85s/layer][A
+gemma2/correct: block geometry:  76%|███████▌  | 32/42 [10:19<03:08, 18.87s/layer][A
+gemma2/correct: block geometry:  79%|███████▊  | 33/42 [10:37<02:49, 18.88s/layer][A
+gemma2/correct: block geometry:  81%|████████  | 34/42 [10:56<02:30, 18.82s/layer][A
+gemma2/correct: block geometry:  83%|████████▎ | 35/42 [11:15<02:11, 18.83s/layer][A
+gemma2/correct: block geometry:  86%|████████▌ | 36/42 [11:33<01:52, 18.73s/layer][A
+gemma2/correct: block geometry:  88%|████████▊ | 37/42 [11:52<01:33, 18.74s/layer][A
+gemma2/correct: block geometry:  90%|█████████ | 38/42 [12:12<01:16, 19.02s/layer][A
+gemma2/correct: block geometry:  93%|█████████▎| 39/42 [12:31<00:56, 18.94s/layer][A
+gemma2/correct: block geometry:  95%|█████████▌| 40/42 [12:49<00:37, 18.87s/layer][A
+gemma2/correct: block geometry:  98%|█████████▊| 41/42 [13:08<00:18, 18.78s/layer][A
+gemma2/correct: block geometry: 100%|██████████| 42/42 [13:27<00:00, 18.82s/layer][Agemma2/correct: block geometry: 100%|██████████| 42/42 [13:27<00:00, 19.22s/layer]
+gemma2: cohort geometry:  33%|███▎      | 1/3 [13:27<26:54, 807.37s/cohort]
+gemma2/incorrect: block geometry:   0%|          | 0/42 [00:00<?, ?layer/s][A
+gemma2/incorrect: block geometry:   2%|▏         | 1/42 [00:18<12:50, 18.80s/layer][A
+gemma2/incorrect: block geometry:   5%|▍         | 2/42 [00:34<11:07, 16.70s/layer][A
+gemma2/incorrect: block geometry:   7%|▋         | 3/42 [00:52<11:29, 17.67s/layer][A
+gemma2/incorrect: block geometry:  10%|▉         | 4/42 [01:11<11:22, 17.96s/layer][A
+gemma2/incorrect: block geometry:  12%|█▏        | 5/42 [01:30<11:15, 18.26s/layer][A
+gemma2/incorrect: block geometry:  14%|█▍        | 6/42 [01:48<10:56, 18.25s/layer][A
+gemma2/incorrect: block geometry:  17%|█▋        | 7/42 [02:06<10:38, 18.25s/layer][A
+gemma2/incorrect: block geometry:  19%|█▉        | 8/42 [02:22<09:51, 17.40s/layer][A
+gemma2/incorrect: block geometry:  21%|██▏       | 9/42 [02:40<09:43, 17.68s/layer][A
+gemma2/incorrect: block geometry:  24%|██▍       | 10/42 [02:55<08:57, 16.79s/layer][A
+gemma2/incorrect: block geometry:  26%|██▌       | 11/42 [03:09<08:19, 16.12s/layer][A
+gemma2/incorrect: block geometry:  29%|██▊       | 12/42 [03:25<08:00, 16.03s/layer][A
+gemma2/incorrect: block geometry:  31%|███       | 13/42 [03:44<08:06, 16.78s/layer][A
+gemma2/incorrect: block geometry:  33%|███▎      | 14/42 [04:02<08:05, 17.35s/layer][A
+gemma2/incorrect: block geometry:  36%|███▌      | 15/42 [04:22<08:04, 17.94s/layer][A
+gemma2/incorrect: block geometry:  38%|███▊      | 16/42 [04:41<07:58, 18.41s/layer][A
+gemma2/incorrect: block geometry:  40%|████      | 17/42 [05:01<07:51, 18.87s/layer][A
+gemma2/incorrect: block geometry:  43%|████▎     | 18/42 [05:21<07:38, 19.11s/layer][A
+gemma2/incorrect: block geometry:  45%|████▌     | 19/42 [05:39<07:15, 18.92s/layer][A
+gemma2/incorrect: block geometry:  48%|████▊     | 20/42 [06:02<07:22, 20.10s/layer][A
+gemma2/incorrect: block geometry:  50%|█████     | 21/42 [06:22<06:58, 19.91s/layer][A
+gemma2/incorrect: block geometry:  52%|█████▏    | 22/42 [06:41<06:33, 19.69s/layer][A
+gemma2/incorrect: block geometry:  55%|█████▍    | 23/42 [07:00<06:13, 19.68s/layer][A
+gemma2/incorrect: block geometry:  57%|█████▋    | 24/42 [07:16<05:32, 18.45s/layer][A
+gemma2/incorrect: block geometry:  60%|█████▉    | 25/42 [07:36<05:21, 18.93s/layer][A
+gemma2/incorrect: block geometry:  62%|██████▏   | 26/42 [07:56<05:05, 19.12s/layer][A
+gemma2/incorrect: block geometry:  64%|██████▍   | 27/42 [08:15<04:48, 19.21s/layer][A
+gemma2/incorrect: block geometry:  67%|██████▋   | 28/42 [08:35<04:30, 19.31s/layer][A
+gemma2/incorrect: block geometry:  69%|██████▉   | 29/42 [08:54<04:11, 19.38s/layer][A
+gemma2/incorrect: block geometry:  71%|███████▏  | 30/42 [09:14<03:53, 19.42s/layer][A
+gemma2/incorrect: block geometry:  74%|███████▍  | 31/42 [09:33<03:32, 19.36s/layer][A
+gemma2/incorrect: block geometry:  76%|███████▌  | 32/42 [09:52<03:13, 19.40s/layer][A
+gemma2/incorrect: block geometry:  79%|███████▊  | 33/42 [10:11<02:52, 19.19s/layer][A
+gemma2/incorrect: block geometry:  81%|████████  | 34/42 [10:30<02:32, 19.04s/layer][A
+gemma2/incorrect: block geometry:  83%|████████▎ | 35/42 [10:49<02:13, 19.08s/layer][A
+gemma2/incorrect: block geometry:  86%|████████▌ | 36/42 [11:08<01:55, 19.20s/layer][A
+gemma2/incorrect: block geometry:  88%|████████▊ | 37/42 [11:27<01:35, 19.08s/layer][A
+gemma2/incorrect: block geometry:  90%|█████████ | 38/42 [11:46<01:16, 19.04s/layer][A
+gemma2/incorrect: block geometry:  93%|█████████▎| 39/42 [12:05<00:56, 18.96s/layer][A
+gemma2/incorrect: block geometry:  95%|█████████▌| 40/42 [12:24<00:37, 18.93s/layer][A
+gemma2/incorrect: block geometry:  98%|█████████▊| 41/42 [12:43<00:19, 19.11s/layer][A
+gemma2/incorrect: block geometry: 100%|██████████| 42/42 [13:03<00:00, 19.24s/layer][Agemma2/incorrect: block geometry: 100%|██████████| 42/42 [13:03<00:00, 18.65s/layer]
+gemma2: cohort geometry:  67%|██████▋   | 2/3 [26:30<13:13, 793.23s/cohort]
+gemma2/all: block geometry:   0%|          | 0/42 [00:00<?, ?layer/s][A
+gemma2/all: block geometry:   2%|▏         | 1/42 [00:22<15:10, 22.21s/layer][A
+gemma2/all: block geometry:   5%|▍         | 2/42 [00:41<13:44, 20.61s/layer][A
+gemma2/all: block geometry:   7%|▋         | 3/42 [01:04<13:54, 21.40s/layer][A
+gemma2/all: block geometry:  10%|▉         | 4/42 [01:26<13:56, 22.01s/layer][A
+gemma2/all: block geometry:  12%|█▏        | 5/42 [01:49<13:47, 22.35s/layer][A
+gemma2/all: block geometry:  14%|█▍        | 6/42 [02:12<13:29, 22.50s/layer][A
+gemma2/all: block geometry:  17%|█▋        | 7/42 [02:35<13:09, 22.55s/layer][A
+gemma2/all: block geometry:  19%|█▉        | 8/42 [02:58<12:55, 22.80s/layer][A
+gemma2/all: block geometry:  21%|██▏       | 9/42 [03:22<12:38, 23.00s/layer][A
+gemma2/all: block geometry:  24%|██▍       | 10/42 [03:45<12:20, 23.14s/layer][A
+gemma2/all: block geometry:  26%|██▌       | 11/42 [04:09<12:03, 23.34s/layer][A
+gemma2/all: block geometry:  29%|██▊       | 12/42 [04:33<11:46, 23.54s/layer][A
+gemma2/all: block geometry:  31%|███       | 13/42 [04:57<11:25, 23.65s/layer][A
+gemma2/all: block geometry:  33%|███▎      | 14/42 [05:20<11:02, 23.64s/layer][A
+gemma2/all: block geometry:  36%|███▌      | 15/42 [05:45<10:42, 23.80s/layer][A
+gemma2/all: block geometry:  38%|███▊      | 16/42 [06:09<10:21, 23.89s/layer][A
+gemma2/all: block geometry:  40%|████      | 17/42 [06:33<10:01, 24.06s/layer][A
+gemma2/all: block geometry:  43%|████▎     | 18/42 [06:57<09:38, 24.09s/layer][A
+gemma2/all: block geometry:  45%|████▌     | 19/42 [07:21<09:09, 23.91s/layer][A
+gemma2/all: block geometry:  48%|████▊     | 20/42 [07:45<08:49, 24.09s/layer][A
+gemma2/all: block geometry:  50%|█████     | 21/42 [08:11<08:33, 24.45s/layer][A
+gemma2/all: block geometry:  52%|█████▏    | 22/42 [08:36<08:13, 24.67s/layer][A
+gemma2/all: block geometry:  55%|█████▍    | 23/42 [09:01<07:49, 24.69s/layer][A
+gemma2/all: block geometry:  57%|█████▋    | 24/42 [09:26<07:27, 24.86s/layer][A
+gemma2/all: block geometry:  60%|█████▉    | 25/42 [09:51<07:04, 24.96s/layer][A
+gemma2/all: block geometry:  62%|██████▏   | 26/42 [10:16<06:38, 24.89s/layer][A
+gemma2/all: block geometry:  64%|██████▍   | 27/42 [10:40<06:09, 24.66s/layer][A
+gemma2/all: block geometry:  67%|██████▋   | 28/42 [11:04<05:41, 24.41s/layer][A
+gemma2/all: block geometry:  69%|██████▉   | 29/42 [11:28<05:18, 24.51s/layer][A
+gemma2/all: block geometry:  71%|███████▏  | 30/42 [11:53<04:55, 24.60s/layer][A
+gemma2/all: block geometry:  74%|███████▍  | 31/42 [12:18<04:29, 24.53s/layer][A
+gemma2/all: block geometry:  76%|███████▌  | 32/42 [12:43<04:07, 24.75s/layer][A
+gemma2/all: block geometry:  79%|███████▊  | 33/42 [13:08<03:44, 24.92s/layer][A
+gemma2/all: block geometry:  81%|████████  | 34/42 [13:33<03:19, 24.99s/layer][A
+gemma2/all: block geometry:  83%|████████▎ | 35/42 [13:57<02:53, 24.73s/layer][A
+gemma2/all: block geometry:  86%|████████▌ | 36/42 [14:21<02:26, 24.47s/layer][A
+gemma2/all: block geometry:  88%|████████▊ | 37/42 [14:45<02:00, 24.14s/layer][A
+gemma2/all: block geometry:  90%|█████████ | 38/42 [15:09<01:36, 24.18s/layer][A
+gemma2/all: block geometry:  93%|█████████▎| 39/42 [15:33<01:12, 24.04s/layer][A
+gemma2/all: block geometry:  95%|█████████▌| 40/42 [15:56<00:47, 23.91s/layer][A
+gemma2/all: block geometry:  98%|█████████▊| 41/42 [16:20<00:23, 23.99s/layer][A
+gemma2/all: block geometry: 100%|██████████| 42/42 [16:43<00:00, 23.65s/layer][Agemma2/all: block geometry: 100%|██████████| 42/42 [16:43<00:00, 23.90s/layer]
+gemma2: cohort geometry: 100%|██████████| 3/3 [43:14<00:00, 889.40s/cohort]gemma2: cohort geometry: 100%|██████████| 3/3 [43:14<00:00, 864.85s/cohort]
+/workspace/affect-geometry/src/affect_geometry/reporting/correctness_geometry.py:85: DtypeWarning: Columns (27: reason) have mixed types. Specify dtype option on import or set low_memory=False.
+  frame = pd.read_csv(path)
+/workspace/affect-geometry/src/affect_geometry/reporting/correctness_geometry.py:177: DtypeWarning: Columns (27: reason) have mixed types. Specify dtype option on import or set low_memory=False.
+  coordinates = pd.read_csv(plot_data / "coordinates.csv")
+/workspace/affect-geometry/src/affect_geometry/reporting/correctness_geometry.py:233: DtypeWarning: Columns (24: emotion, 26: reason) have mixed types. Specify dtype option on import or set low_memory=False.
+  metrics = pd.read_csv(plot_data / "metric_curves.csv")
+{
+  "path": "/workspace/affect-geometry/outputs/rq3/gemma2/rq3-analysis-full-v1-descriptive",
+  "upload": null
+}
+Finished: 2026-11-01T19:42:47+00:00 | exit code: 0

@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+set -uo pipefail
+cd /workspace/affect-geometry
+export PATH=/root/miniconda/envs/affect-geometry/bin:$PATH
+export PYTHONUNBUFFERED=1
+export OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1 NUMEXPR_NUM_THREADS=1
+export HF_HOME=/workspace/affect-geometry/outputs/rq3/hf_cache
+printf 'Started: %s\n' "$(date -u --iso-8601=seconds)"
+python script/run_rq3_geometry.py run --config configs/rq3/gemma2.json --no-upload 2>&1 | tee -a '/workspace/affect-geometry/logs/gemma2-rq3-analysis-full-v1-analysis/console.log'
+run_status=${PIPESTATUS[0]}
+printf '%s\n' "$run_status" > '/workspace/affect-geometry/logs/gemma2-rq3-analysis-full-v1-analysis/exit_code'
+printf 'Finished: %s | exit code: %s\n' "$(date -u --iso-8601=seconds)" "$run_status" | tee -a '/workspace/affect-geometry/logs/gemma2-rq3-analysis-full-v1-analysis/console.log'
+exit "$run_status"

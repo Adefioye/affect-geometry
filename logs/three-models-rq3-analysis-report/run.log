@@ -1,0 +1,60 @@
+2026-11-01T22:47:07Z | INFO | command.start command=build_report models=gemma2,apertus,olmo2 output=/workspace/affect-geometry/analyses/rq3/analysis.md
+2026-11-01T22:47:07Z | INFO | progress.start description='Audit saved RQ3 model results' total=3 unit=model
+2026-11-01T22:47:10Z | INFO | audit.complete model=gemma2 layers=42 scores=756 cohort_identity=ok
+2026-11-01T22:47:10Z | INFO | progress.update description='Audit saved RQ3 model results' completed=1 total=3 percent=33
+2026-11-01T22:47:13Z | INFO | audit.complete model=apertus layers=32 scores=576 cohort_identity=ok
+2026-11-01T22:47:13Z | INFO | progress.update description='Audit saved RQ3 model results' completed=2 total=3 percent=67
+2026-11-01T22:47:16Z | INFO | audit.complete model=olmo2 layers=32 scores=576 cohort_identity=ok
+2026-11-01T22:47:16Z | INFO | progress.complete description='Audit saved RQ3 model results' completed=3 total=3
+2026-11-01T22:47:16Z | INFO | progress.start description='Write RQ3 evidence tables and figures' total=11 unit=section
+2026-11-01T22:47:16Z | INFO | progress.update description='Write RQ3 evidence tables and figures' completed=2 total=11 percent=18
+2026-11-01T22:47:19Z | INFO | progress.update description='Write RQ3 evidence tables and figures' completed=3 total=11 percent=27
+2026-11-01T22:47:21Z | INFO | progress.update description='Write RQ3 evidence tables and figures' completed=4 total=11 percent=36
+2026-11-01T22:47:21Z | INFO | progress.update description='Write RQ3 evidence tables and figures' completed=5 total=11 percent=45
+2026-11-01T22:47:24Z | INFO | progress.update description='Write RQ3 evidence tables and figures' completed=6 total=11 percent=55
+2026-11-01T22:47:27Z | INFO | progress.update description='Write RQ3 evidence tables and figures' completed=7 total=11 percent=64
+2026-11-01T22:47:29Z | INFO | progress.update description='Write RQ3 evidence tables and figures' completed=8 total=11 percent=73
+2026-11-01T22:47:35Z | INFO | progress.update description='Write RQ3 evidence tables and figures' completed=9 total=11 percent=82
+2026-11-01T22:47:35Z | INFO | progress.update description='Write RQ3 evidence tables and figures' completed=10 total=11 percent=91
+2026-11-01T22:47:35Z | INFO | progress.complete description='Write RQ3 evidence tables and figures' completed=11 total=11
+2026-11-01T22:47:35Z | INFO | report.complete path=/workspace/affect-geometry/analyses/rq3/analysis.md figures=11 tables=28
+2026-11-01T22:50:32Z | INFO | command.start command=build_report models=gemma2,apertus,olmo2 output=/workspace/affect-geometry/analyses/rq3/analysis.md
+2026-11-01T22:50:32Z | INFO | progress.start description='Audit saved RQ3 model results' total=3 unit=model
+2026-11-01T22:50:35Z | INFO | audit.complete model=gemma2 layers=42 scores=756 cohort_identity=ok
+2026-11-01T22:50:35Z | INFO | progress.update description='Audit saved RQ3 model results' completed=1 total=3 percent=33
+2026-11-01T22:50:38Z | INFO | audit.complete model=apertus layers=32 scores=576 cohort_identity=ok
+2026-11-01T22:50:38Z | INFO | progress.update description='Audit saved RQ3 model results' completed=2 total=3 percent=67
+2026-11-01T22:50:41Z | INFO | audit.complete model=olmo2 layers=32 scores=576 cohort_identity=ok
+2026-11-01T22:50:41Z | INFO | progress.complete description='Audit saved RQ3 model results' completed=3 total=3
+2026-11-01T22:50:42Z | INFO | progress.start description='Write RQ3 evidence tables and figures' total=11 unit=section
+2026-11-01T22:50:42Z | INFO | progress.update description='Write RQ3 evidence tables and figures' completed=2 total=11 percent=18
+2026-11-01T22:50:44Z | INFO | progress.update description='Write RQ3 evidence tables and figures' completed=3 total=11 percent=27
+2026-11-01T22:50:46Z | INFO | progress.update description='Write RQ3 evidence tables and figures' completed=4 total=11 percent=36
+2026-11-01T22:50:46Z | INFO | progress.update description='Write RQ3 evidence tables and figures' completed=5 total=11 percent=45
+2026-11-01T22:50:49Z | INFO | progress.update description='Write RQ3 evidence tables and figures' completed=6 total=11 percent=55
+2026-11-01T22:50:52Z | INFO | progress.update description='Write RQ3 evidence tables and figures' completed=7 total=11 percent=64
+2026-11-01T22:50:54Z | INFO | progress.update description='Write RQ3 evidence tables and figures' completed=8 total=11 percent=73
+2026-11-01T22:51:08Z | INFO | progress.update description='Write RQ3 evidence tables and figures' completed=9 total=11 percent=82
+2026-11-01T22:51:08Z | INFO | progress.update description='Write RQ3 evidence tables and figures' completed=10 total=11 percent=91
+2026-11-01T22:51:08Z | INFO | progress.complete description='Write RQ3 evidence tables and figures' completed=11 total=11
+2026-11-01T22:51:08Z | INFO | report.complete path=/workspace/affect-geometry/analyses/rq3/analysis.md figures=11 tables=31
+2026-11-01T22:53:33Z | INFO | command.start command=build_report models=gemma2,apertus,olmo2 output=/workspace/affect-geometry/analyses/rq3/analysis.md
+2026-11-01T22:53:33Z | INFO | progress.start description='Audit saved RQ3 model results' total=3 unit=model
+2026-11-01T22:53:36Z | INFO | audit.complete model=gemma2 layers=42 scores=756 cohort_identity=ok
+2026-11-01T22:53:36Z | INFO | progress.update description='Audit saved RQ3 model results' completed=1 total=3 percent=33
+2026-11-01T22:53:39Z | INFO | audit.complete model=apertus layers=32 scores=576 cohort_identity=ok
+2026-11-01T22:53:39Z | INFO | progress.update description='Audit saved RQ3 model results' completed=2 total=3 percent=67
+2026-11-01T22:53:42Z | INFO | audit.complete model=olmo2 layers=32 scores=576 cohort_identity=ok
+2026-11-01T22:53:42Z | INFO | progress.complete description='Audit saved RQ3 model results' completed=3 total=3
+2026-11-01T22:53:42Z | INFO | progress.start description='Write RQ3 evidence tables and figures' total=11 unit=section
+2026-11-01T22:53:42Z | INFO | progress.update description='Write RQ3 evidence tables and figures' completed=2 total=11 percent=18
+2026-11-01T22:53:45Z | INFO | progress.update description='Write RQ3 evidence tables and figures' completed=3 total=11 percent=27
+2026-11-01T22:53:46Z | INFO | progress.update description='Write RQ3 evidence tables and figures' completed=4 total=11 percent=36
+2026-11-01T22:53:47Z | INFO | progress.update description='Write RQ3 evidence tables and figures' completed=5 total=11 percent=45
+2026-11-01T22:53:50Z | INFO | progress.update description='Write RQ3 evidence tables and figures' completed=6 total=11 percent=55
+2026-11-01T22:53:53Z | INFO | progress.update description='Write RQ3 evidence tables and figures' completed=7 total=11 percent=64
+2026-11-01T22:53:55Z | INFO | progress.update description='Write RQ3 evidence tables and figures' completed=8 total=11 percent=73
+2026-11-01T22:54:05Z | INFO | progress.update description='Write RQ3 evidence tables and figures' completed=9 total=11 percent=82
+2026-11-01T22:54:05Z | INFO | progress.update description='Write RQ3 evidence tables and figures' completed=10 total=11 percent=91
+2026-11-01T22:54:05Z | INFO | progress.complete description='Write RQ3 evidence tables and figures' completed=11 total=11
+2026-11-01T22:54:05Z | INFO | report.complete path=/workspace/affect-geometry/analyses/rq3/analysis.md figures=11 tables=31

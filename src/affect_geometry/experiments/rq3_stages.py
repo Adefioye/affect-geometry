@@ -244,7 +244,11 @@ def run_extraction(config, project_root, *, command="run", publish=True):
     return outputs
 
 
-def run_analysis(config, project_root, *, publish=True, validate_only=False):
+def run_analysis(
+    config, project_root, *, publish=True, validate_only=False, skip_permutations=False
+):
+    if skip_permutations:
+        config = dict(config, run_id=f"{config['run_id']}-descriptive")
     project = Path(project_root).resolve()
     slug = config["model"]
     configure_file_logging(project / "logs" / f"{slug}-{config['run_id']}-analysis", "rq3-analysis")
@@ -313,6 +317,7 @@ def run_analysis(config, project_root, *, publish=True, validate_only=False):
         nrc,
         root,
         prepared=bundle,
+        skip_permutations=skip_permutations,
     )
     receipt = None
     if publish and config["publish"]["enabled"]:

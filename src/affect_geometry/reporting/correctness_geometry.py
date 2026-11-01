@@ -324,7 +324,7 @@ def render(root):
         "are descriptive; all overlaps both balanced subsets. No prompt-sampling confidence "
         "intervals are reported.\n\n"
         "See `../metrics/failures.csv` for unsupported settings, `../metrics/aggregates.csv` "
-        "for coverage, and `../inference/` for complete correction families. "
+        "for coverage, and `../inference/` for correction-family completion or skip status. "
         "Each figure reads its corresponding self-contained table under `../plot_data/`.\n"
     )
 

@@ -71,6 +71,20 @@ runtime. Analysis budgets are seven days and 64 GiB peak CPU RAM per model; thes
 limits, not GPU memory reservations or runtime estimates. Full analysis requires a bundle built
 from a full-population RQ2 source.
 
+To finish all descriptive analyses and plots without permutation testing:
+
+```sh
+python script/run_rq3_geometry.py run --config configs/rq3/gemma2.json --skip-permutations --no-upload
+python script/run_rq3_geometry.py run --config configs/rq3/apertus.json --skip-permutations --no-upload
+```
+
+This retains every configured layer and cohort and writes a separate run with `-descriptive`
+appended to the configured run ID. Existing full-run outputs and permutation checkpoints remain
+available. The descriptive run replays saved activations, computes the non-permutation metrics,
+and produces plot-ready CSVs, plots, and the run inventory. Both permutation families are marked
+`skipped`; p-values, first significant layers, and significant intervals are unavailable. Peak
+layers, abrupt changes, and declines remain descriptive summaries. This mode is not a smoke run.
+
 Validate local or Hub inputs without running metrics or uploading results:
 
 ```sh

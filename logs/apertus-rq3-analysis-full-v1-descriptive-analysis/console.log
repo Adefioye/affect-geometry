@@ -1,0 +1,117 @@
+Started descriptive analysis: 2026-11-01T18:15:27+00:00
+Run log: /workspace/affect-geometry/logs/apertus-rq3-analysis-full-v1-descriptive-analysis/run.log
+Fetching 488 files:   0%|          | 0/488 [00:00<?, ?it/s]Fetching 488 files:   0%|          | 1/488 [00:00<01:07,  7.17it/s]Fetching 488 files:   2%|▏         | 10/488 [00:00<00:09, 48.48it/s]Fetching 488 files:   4%|▍         | 20/488 [00:00<00:06, 69.68it/s]Fetching 488 files:   7%|▋         | 33/488 [00:00<00:05, 89.61it/s]Fetching 488 files:   9%|▉         | 43/488 [00:00<00:05, 81.04it/s]Fetching 488 files:  11%|█▏        | 55/488 [00:00<00:04, 89.14it/s]Fetching 488 files:  14%|█▎        | 66/488 [00:00<00:04, 93.67it/s]Fetching 488 files:  16%|█▌        | 78/488 [00:00<00:04, 100.65it/s]Fetching 488 files:  18%|█▊        | 89/488 [00:01<00:04, 92.69it/s] Fetching 488 files:  21%|██        | 101/488 [00:01<00:03, 99.56it/s]Fetching 488 files:  23%|██▎       | 112/488 [00:01<00:03, 101.08it/s]Fetching 488 files:  25%|██▌       | 123/488 [00:01<00:03, 101.30it/s]Fetching 488 files:  27%|██▋       | 134/488 [00:01<00:03, 95.77it/s] Fetching 488 files:  30%|███       | 147/488 [00:01<00:03, 104.29it/s]Fetching 488 files:  32%|███▏      | 158/488 [00:01<00:03, 103.03it/s]Fetching 488 files:  35%|███▍      | 170/488 [00:01<00:03, 105.56it/s]Fetching 488 files:  38%|███▊      | 183/488 [00:01<00:02, 109.72it/s]Fetching 488 files:  40%|███▉      | 195/488 [00:02<00:02, 107.38it/s]Fetching 488 files:  42%|████▏     | 207/488 [00:02<00:02, 108.72it/s]Fetching 488 files:  45%|████▍     | 219/488 [00:02<00:02, 110.38it/s]Fetching 488 files:  47%|████▋     | 231/488 [00:02<00:02, 108.80it/s]Fetching 488 files:  50%|█████     | 244/488 [00:02<00:02, 113.11it/s]Fetching 488 files:  52%|█████▏    | 256/488 [00:02<00:02, 114.16it/s]Fetching 488 files:  55%|█████▌    | 269/488 [00:02<00:01, 118.11it/s]Fetching 488 files:  58%|█████▊    | 282/488 [00:02<00:01, 113.92it/s]Fetching 488 files:  60%|██████    | 295/488 [00:02<00:01, 118.00it/s]Fetching 488 files:  63%|██████▎   | 307/488 [00:03<00:01, 112.37it/s]Fetching 488 files:  65%|██████▌   | 319/488 [00:03<00:01, 111.42it/s]Fetching 488 files:  68%|██████▊   | 332/488 [00:03<00:01, 115.17it/s]Fetching 488 files:  70%|███████   | 344/488 [00:03<00:01, 110.44it/s]Fetching 488 files:  74%|███████▎  | 359/488 [00:03<00:01, 107.00it/s]Fetching 488 files:  76%|███████▌  | 372/488 [00:03<00:01, 112.68it/s]Fetching 488 files:  79%|███████▊  | 384/488 [00:03<00:00, 106.30it/s]Fetching 488 files:  81%|████████▏ | 397/488 [00:03<00:00, 107.83it/s]Fetching 488 files:  84%|████████▍ | 409/488 [00:03<00:00, 110.22it/s]Fetching 488 files:  86%|████████▋ | 421/488 [00:04<00:00, 107.77it/s]Fetching 488 files:  89%|████████▊ | 432/488 [00:04<00:00, 108.21it/s]Fetching 488 files:  91%|█████████ | 444/488 [00:04<00:00, 111.19it/s]Fetching 488 files:  93%|█████████▎| 456/488 [00:04<00:00, 103.38it/s]Fetching 488 files:  96%|█████████▌| 469/488 [00:04<00:00, 105.09it/s]Fetching 488 files:  99%|█████████▊| 481/488 [00:04<00:00, 107.92it/s]Fetching 488 files: 100%|██████████| 488/488 [00:04<00:00, 103.73it/s]
+apertus: cohort geometry:   0%|          | 0/3 [00:00<?, ?cohort/s]
+apertus/correct: block geometry:   0%|          | 0/32 [00:00<?, ?layer/s][A
+apertus/correct: block geometry:   3%|▎         | 1/32 [00:21<11:17, 21.85s/layer][A
+apertus/correct: block geometry:   6%|▋         | 2/32 [00:43<10:57, 21.91s/layer][A
+apertus/correct: block geometry:   9%|▉         | 3/32 [01:05<10:27, 21.63s/layer][A
+apertus/correct: block geometry:  12%|█▎        | 4/32 [01:26<10:04, 21.58s/layer][A
+apertus/correct: block geometry:  16%|█▌        | 5/32 [01:48<09:42, 21.57s/layer][A
+apertus/correct: block geometry:  19%|█▉        | 6/32 [02:10<09:26, 21.77s/layer][A
+apertus/correct: block geometry:  22%|██▏       | 7/32 [02:32<09:11, 22.05s/layer][A
+apertus/correct: block geometry:  25%|██▌       | 8/32 [02:56<08:59, 22.48s/layer][A
+apertus/correct: block geometry:  28%|██▊       | 9/32 [03:19<08:40, 22.63s/layer][A
+apertus/correct: block geometry:  31%|███▏      | 10/32 [03:41<08:16, 22.56s/layer][A
+apertus/correct: block geometry:  34%|███▍      | 11/32 [04:04<07:54, 22.62s/layer][A
+apertus/correct: block geometry:  38%|███▊      | 12/32 [04:27<07:36, 22.85s/layer][A
+apertus/correct: block geometry:  41%|████      | 13/32 [04:51<07:16, 22.96s/layer][A
+apertus/correct: block geometry:  44%|████▍     | 14/32 [05:10<06:35, 21.98s/layer][A
+apertus/correct: block geometry:  47%|████▋     | 15/32 [05:29<05:58, 21.10s/layer][A
+apertus/correct: block geometry:  50%|█████     | 16/32 [05:52<05:44, 21.53s/layer][A
+apertus/correct: block geometry:  53%|█████▎    | 17/32 [06:16<05:32, 22.19s/layer][A
+apertus/correct: block geometry:  56%|█████▋    | 18/32 [06:38<05:10, 22.20s/layer][A
+apertus/correct: block geometry:  59%|█████▉    | 19/32 [06:59<04:45, 21.96s/layer][A
+apertus/correct: block geometry:  62%|██████▎   | 20/32 [07:17<04:09, 20.83s/layer][A
+apertus/correct: block geometry:  66%|██████▌   | 21/32 [07:39<03:51, 21.09s/layer][A
+apertus/correct: block geometry:  69%|██████▉   | 22/32 [08:01<03:34, 21.40s/layer][A
+apertus/correct: block geometry:  72%|███████▏  | 23/32 [08:23<03:14, 21.65s/layer][A
+apertus/correct: block geometry:  75%|███████▌  | 24/32 [08:46<02:54, 21.83s/layer][A
+apertus/correct: block geometry:  78%|███████▊  | 25/32 [09:04<02:24, 20.64s/layer][A
+apertus/correct: block geometry:  81%|████████▏ | 26/32 [09:26<02:06, 21.06s/layer][A
+apertus/correct: block geometry:  84%|████████▍ | 27/32 [09:47<01:46, 21.29s/layer][A
+apertus/correct: block geometry:  88%|████████▊ | 28/32 [10:09<01:25, 21.44s/layer][A
+apertus/correct: block geometry:  91%|█████████ | 29/32 [10:31<01:04, 21.53s/layer][A
+apertus/correct: block geometry:  94%|█████████▍| 30/32 [10:53<00:43, 21.53s/layer][A
+apertus/correct: block geometry:  97%|█████████▋| 31/32 [11:14<00:21, 21.62s/layer][A
+apertus/correct: block geometry: 100%|██████████| 32/32 [11:36<00:00, 21.58s/layer][Aapertus/correct: block geometry: 100%|██████████| 32/32 [11:36<00:00, 21.76s/layer]
+apertus: cohort geometry:  33%|███▎      | 1/3 [11:36<23:12, 696.39s/cohort]
+apertus/incorrect: block geometry:   0%|          | 0/32 [00:00<?, ?layer/s][A
+apertus/incorrect: block geometry:   3%|▎         | 1/32 [00:22<11:22, 22.00s/layer][A
+apertus/incorrect: block geometry:   6%|▋         | 2/32 [00:43<10:53, 21.78s/layer][A
+apertus/incorrect: block geometry:   9%|▉         | 3/32 [01:05<10:29, 21.72s/layer][A
+apertus/incorrect: block geometry:  12%|█▎        | 4/32 [01:26<10:05, 21.63s/layer][A
+apertus/incorrect: block geometry:  16%|█▌        | 5/32 [01:48<09:48, 21.78s/layer][A
+apertus/incorrect: block geometry:  19%|█▉        | 6/32 [02:10<09:28, 21.87s/layer][A
+apertus/incorrect: block geometry:  22%|██▏       | 7/32 [02:32<09:08, 21.93s/layer][A
+apertus/incorrect: block geometry:  25%|██▌       | 8/32 [02:54<08:45, 21.88s/layer][A
+apertus/incorrect: block geometry:  28%|██▊       | 9/32 [03:16<08:19, 21.73s/layer][A
+apertus/incorrect: block geometry:  31%|███▏      | 10/32 [03:37<07:57, 21.71s/layer][A
+apertus/incorrect: block geometry:  34%|███▍      | 11/32 [03:59<07:38, 21.82s/layer][A
+apertus/incorrect: block geometry:  38%|███▊      | 12/32 [04:21<07:16, 21.83s/layer][A
+apertus/incorrect: block geometry:  41%|████      | 13/32 [04:43<06:52, 21.72s/layer][A
+apertus/incorrect: block geometry:  44%|████▍     | 14/32 [05:04<06:27, 21.50s/layer][A
+apertus/incorrect: block geometry:  47%|████▋     | 15/32 [05:25<06:05, 21.49s/layer][A
+apertus/incorrect: block geometry:  50%|█████     | 16/32 [05:48<05:49, 21.82s/layer][A
+apertus/incorrect: block geometry:  53%|█████▎    | 17/32 [06:10<05:30, 22.00s/layer][A
+apertus/incorrect: block geometry:  56%|█████▋    | 18/32 [06:33<05:10, 22.18s/layer][A
+apertus/incorrect: block geometry:  59%|█████▉    | 19/32 [06:55<04:50, 22.35s/layer][A
+apertus/incorrect: block geometry:  62%|██████▎   | 20/32 [07:18<04:27, 22.29s/layer][A
+apertus/incorrect: block geometry:  66%|██████▌   | 21/32 [07:43<04:15, 23.23s/layer][A
+apertus/incorrect: block geometry:  69%|██████▉   | 22/32 [08:06<03:51, 23.20s/layer][A
+apertus/incorrect: block geometry:  72%|███████▏  | 23/32 [08:29<03:27, 23.08s/layer][A
+apertus/incorrect: block geometry:  75%|███████▌  | 24/32 [08:51<03:02, 22.87s/layer][A
+apertus/incorrect: block geometry:  78%|███████▊  | 25/32 [09:15<02:40, 22.97s/layer][A
+apertus/incorrect: block geometry:  81%|████████▏ | 26/32 [09:37<02:17, 22.92s/layer][A
+apertus/incorrect: block geometry:  84%|████████▍ | 27/32 [10:00<01:54, 22.97s/layer][A
+apertus/incorrect: block geometry:  88%|████████▊ | 28/32 [10:23<01:31, 22.84s/layer][A
+apertus/incorrect: block geometry:  91%|█████████ | 29/32 [10:46<01:08, 22.76s/layer][A
+apertus/incorrect: block geometry:  94%|█████████▍| 30/32 [11:08<00:45, 22.55s/layer][A
+apertus/incorrect: block geometry:  97%|█████████▋| 31/32 [11:30<00:22, 22.48s/layer][A
+apertus/incorrect: block geometry: 100%|██████████| 32/32 [11:52<00:00, 22.31s/layer][Aapertus/incorrect: block geometry: 100%|██████████| 32/32 [11:52<00:00, 22.26s/layer]
+apertus: cohort geometry:  67%|██████▋   | 2/3 [23:28<11:45, 705.78s/cohort]
+apertus/all: block geometry:   0%|          | 0/32 [00:00<?, ?layer/s][A
+apertus/all: block geometry:   3%|▎         | 1/32 [00:28<14:30, 28.09s/layer][A
+apertus/all: block geometry:   6%|▋         | 2/32 [00:55<13:52, 27.76s/layer][A
+apertus/all: block geometry:   9%|▉         | 3/32 [01:23<13:21, 27.63s/layer][A
+apertus/all: block geometry:  12%|█▎        | 4/32 [01:50<12:49, 27.50s/layer][A
+apertus/all: block geometry:  16%|█▌        | 5/32 [02:18<12:25, 27.61s/layer][A
+apertus/all: block geometry:  19%|█▉        | 6/32 [02:42<11:29, 26.51s/layer][A
+apertus/all: block geometry:  22%|██▏       | 7/32 [03:09<11:09, 26.76s/layer][A
+apertus/all: block geometry:  25%|██▌       | 8/32 [03:37<10:47, 26.98s/layer][A
+apertus/all: block geometry:  28%|██▊       | 9/32 [04:04<10:25, 27.20s/layer][A
+apertus/all: block geometry:  31%|███▏      | 10/32 [04:32<10:02, 27.38s/layer][A
+apertus/all: block geometry:  34%|███▍      | 11/32 [05:00<09:38, 27.56s/layer][A
+apertus/all: block geometry:  38%|███▊      | 12/32 [05:28<09:10, 27.54s/layer][A
+apertus/all: block geometry:  41%|████      | 13/32 [05:56<08:46, 27.72s/layer][A
+apertus/all: block geometry:  44%|████▍     | 14/32 [06:24<08:19, 27.75s/layer][A
+apertus/all: block geometry:  47%|████▋     | 15/32 [06:53<07:57, 28.09s/layer][A
+apertus/all: block geometry:  50%|█████     | 16/32 [07:21<07:32, 28.26s/layer][A
+apertus/all: block geometry:  53%|█████▎    | 17/32 [07:50<07:05, 28.33s/layer][A
+apertus/all: block geometry:  56%|█████▋    | 18/32 [08:18<06:37, 28.36s/layer][A
+apertus/all: block geometry:  59%|█████▉    | 19/32 [08:47<06:10, 28.49s/layer][A
+apertus/all: block geometry:  62%|██████▎   | 20/32 [09:16<05:43, 28.62s/layer][A
+apertus/all: block geometry:  66%|██████▌   | 21/32 [09:44<05:13, 28.50s/layer][A
+apertus/all: block geometry:  69%|██████▉   | 22/32 [10:12<04:44, 28.46s/layer][A
+apertus/all: block geometry:  72%|███████▏  | 23/32 [10:42<04:19, 28.85s/layer][A
+apertus/all: block geometry:  75%|███████▌  | 24/32 [11:11<03:51, 28.97s/layer][A
+apertus/all: block geometry:  78%|███████▊  | 25/32 [11:41<03:23, 29.12s/layer][A
+apertus/all: block geometry:  81%|████████▏ | 26/32 [12:10<02:54, 29.03s/layer][A
+apertus/all: block geometry:  84%|████████▍ | 27/32 [12:39<02:25, 29.11s/layer][A
+apertus/all: block geometry:  88%|████████▊ | 28/32 [13:08<01:56, 29.18s/layer][A
+apertus/all: block geometry:  91%|█████████ | 29/32 [13:38<01:27, 29.21s/layer][A
+apertus/all: block geometry:  94%|█████████▍| 30/32 [14:06<00:57, 28.90s/layer][A
+apertus/all: block geometry:  97%|█████████▋| 31/32 [14:36<00:29, 29.17s/layer][A
+apertus/all: block geometry: 100%|██████████| 32/32 [15:04<00:00, 29.03s/layer][Aapertus/all: block geometry: 100%|██████████| 32/32 [15:04<00:00, 28.28s/layer]
+apertus: cohort geometry: 100%|██████████| 3/3 [38:33<00:00, 796.71s/cohort]apertus: cohort geometry: 100%|██████████| 3/3 [38:33<00:00, 771.22s/cohort]
+/workspace/affect-geometry/src/affect_geometry/reporting/correctness_geometry.py:85: DtypeWarning: Columns (27: reason) have mixed types. Specify dtype option on import or set low_memory=False.
+  frame = pd.read_csv(path)
+/workspace/affect-geometry/src/affect_geometry/reporting/correctness_geometry.py:177: DtypeWarning: Columns (27: reason) have mixed types. Specify dtype option on import or set low_memory=False.
+  coordinates = pd.read_csv(plot_data / "coordinates.csv")
+/workspace/affect-geometry/src/affect_geometry/reporting/correctness_geometry.py:233: DtypeWarning: Columns (24: emotion, 26: reason) have mixed types. Specify dtype option on import or set low_memory=False.
+  metrics = pd.read_csv(plot_data / "metric_curves.csv")
+{
+  "path": "/workspace/affect-geometry/outputs/rq3/apertus/rq3-analysis-full-v1-descriptive",
+  "upload": null
+}
+Finished: 2026-11-01T19:32:23+00:00 | exit code: 0

@@ -1,0 +1,116 @@
+Started descriptive analysis: 2026-11-01T19:36:43+00:00
+Run log: /workspace/affect-geometry/logs/olmo2-rq3-analysis-full-bs8-v1-descriptive-analysis/run.log
+olmo2: cohort geometry:   0%|          | 0/3 [00:00<?, ?cohort/s]
+olmo2/correct: block geometry:   0%|          | 0/32 [00:00<?, ?layer/s][A
+olmo2/correct: block geometry:   3%|▎         | 1/32 [00:18<09:38, 18.65s/layer][A
+olmo2/correct: block geometry:   6%|▋         | 2/32 [00:38<09:32, 19.08s/layer][A
+olmo2/correct: block geometry:   9%|▉         | 3/32 [00:57<09:16, 19.19s/layer][A
+olmo2/correct: block geometry:  12%|█▎        | 4/32 [01:15<08:50, 18.94s/layer][A
+olmo2/correct: block geometry:  16%|█▌        | 5/32 [01:35<08:37, 19.15s/layer][A
+olmo2/correct: block geometry:  19%|█▉        | 6/32 [01:54<08:17, 19.12s/layer][A
+olmo2/correct: block geometry:  22%|██▏       | 7/32 [02:16<08:19, 20.00s/layer][A
+olmo2/correct: block geometry:  25%|██▌       | 8/32 [02:38<08:15, 20.66s/layer][A
+olmo2/correct: block geometry:  28%|██▊       | 9/32 [03:02<08:17, 21.63s/layer][A
+olmo2/correct: block geometry:  31%|███▏      | 10/32 [03:25<08:06, 22.12s/layer][A
+olmo2/correct: block geometry:  34%|███▍      | 11/32 [03:48<07:51, 22.43s/layer][A
+olmo2/correct: block geometry:  38%|███▊      | 12/32 [04:10<07:25, 22.28s/layer][A
+olmo2/correct: block geometry:  41%|████      | 13/32 [04:32<07:03, 22.31s/layer][A
+olmo2/correct: block geometry:  44%|████▍     | 14/32 [04:55<06:45, 22.51s/layer][A
+olmo2/correct: block geometry:  47%|████▋     | 15/32 [05:18<06:23, 22.57s/layer][A
+olmo2/correct: block geometry:  50%|█████     | 16/32 [05:41<06:04, 22.78s/layer][A
+olmo2/correct: block geometry:  53%|█████▎    | 17/32 [06:06<05:49, 23.28s/layer][A
+olmo2/correct: block geometry:  56%|█████▋    | 18/32 [06:30<05:30, 23.60s/layer][A
+olmo2/correct: block geometry:  59%|█████▉    | 19/32 [06:54<05:07, 23.63s/layer][A
+olmo2/correct: block geometry:  62%|██████▎   | 20/32 [07:18<04:45, 23.77s/layer][A
+olmo2/correct: block geometry:  66%|██████▌   | 21/32 [07:42<04:21, 23.74s/layer][A
+olmo2/correct: block geometry:  69%|██████▉   | 22/32 [08:05<03:56, 23.69s/layer][A
+olmo2/correct: block geometry:  72%|███████▏  | 23/32 [08:29<03:32, 23.65s/layer][A
+olmo2/correct: block geometry:  75%|███████▌  | 24/32 [08:52<03:09, 23.68s/layer][A
+olmo2/correct: block geometry:  78%|███████▊  | 25/32 [09:16<02:45, 23.66s/layer][A
+olmo2/correct: block geometry:  81%|████████▏ | 26/32 [09:40<02:22, 23.78s/layer][A
+olmo2/correct: block geometry:  84%|████████▍ | 27/32 [10:05<01:59, 24.00s/layer][A
+olmo2/correct: block geometry:  88%|████████▊ | 28/32 [10:29<01:36, 24.12s/layer][A
+olmo2/correct: block geometry:  91%|█████████ | 29/32 [10:53<01:12, 24.16s/layer][A
+olmo2/correct: block geometry:  94%|█████████▍| 30/32 [11:17<00:48, 24.01s/layer][A
+olmo2/correct: block geometry:  97%|█████████▋| 31/32 [11:41<00:24, 24.00s/layer][A
+olmo2/correct: block geometry: 100%|██████████| 32/32 [12:04<00:00, 23.85s/layer][Aolmo2/correct: block geometry: 100%|██████████| 32/32 [12:04<00:00, 22.65s/layer]
+olmo2: cohort geometry:  33%|███▎      | 1/3 [12:04<24:09, 724.93s/cohort]
+olmo2/incorrect: block geometry:   0%|          | 0/32 [00:00<?, ?layer/s][A
+olmo2/incorrect: block geometry:   3%|▎         | 1/32 [00:24<12:24, 24.00s/layer][A
+olmo2/incorrect: block geometry:   6%|▋         | 2/32 [00:47<11:57, 23.91s/layer][A
+olmo2/incorrect: block geometry:   9%|▉         | 3/32 [01:07<10:39, 22.06s/layer][A
+olmo2/incorrect: block geometry:  12%|█▎        | 4/32 [01:30<10:27, 22.40s/layer][A
+olmo2/incorrect: block geometry:  16%|█▌        | 5/32 [01:53<10:10, 22.62s/layer][A
+olmo2/incorrect: block geometry:  19%|█▉        | 6/32 [02:16<09:53, 22.84s/layer][A
+olmo2/incorrect: block geometry:  22%|██▏       | 7/32 [02:40<09:40, 23.21s/layer][A
+olmo2/incorrect: block geometry:  25%|██▌       | 8/32 [03:05<09:26, 23.61s/layer][A
+olmo2/incorrect: block geometry:  28%|██▊       | 9/32 [03:29<09:09, 23.91s/layer][A
+olmo2/incorrect: block geometry:  31%|███▏      | 10/32 [03:54<08:51, 24.16s/layer][A
+olmo2/incorrect: block geometry:  34%|███▍      | 11/32 [04:19<08:31, 24.35s/layer][A
+olmo2/incorrect: block geometry:  38%|███▊      | 12/32 [04:44<08:11, 24.56s/layer][A
+olmo2/incorrect: block geometry:  41%|████      | 13/32 [05:10<07:53, 24.91s/layer][A
+olmo2/incorrect: block geometry:  44%|████▍     | 14/32 [05:36<07:37, 25.39s/layer][A
+olmo2/incorrect: block geometry:  47%|████▋     | 15/32 [06:02<07:14, 25.53s/layer][A
+olmo2/incorrect: block geometry:  50%|█████     | 16/32 [06:27<06:47, 25.47s/layer][A
+olmo2/incorrect: block geometry:  53%|█████▎    | 17/32 [06:53<06:22, 25.51s/layer][A
+olmo2/incorrect: block geometry:  56%|█████▋    | 18/32 [07:18<05:53, 25.25s/layer][A
+olmo2/incorrect: block geometry:  59%|█████▉    | 19/32 [07:43<05:28, 25.24s/layer][A
+olmo2/incorrect: block geometry:  62%|██████▎   | 20/32 [08:08<05:01, 25.11s/layer][A
+olmo2/incorrect: block geometry:  66%|██████▌   | 21/32 [08:33<04:35, 25.08s/layer][A
+olmo2/incorrect: block geometry:  69%|██████▉   | 22/32 [08:59<04:13, 25.33s/layer][A
+olmo2/incorrect: block geometry:  72%|███████▏  | 23/32 [09:24<03:47, 25.26s/layer][A
+olmo2/incorrect: block geometry:  75%|███████▌  | 24/32 [09:48<03:20, 25.06s/layer][A
+olmo2/incorrect: block geometry:  78%|███████▊  | 25/32 [10:12<02:53, 24.77s/layer][A
+olmo2/incorrect: block geometry:  81%|████████▏ | 26/32 [10:37<02:27, 24.61s/layer][A
+olmo2/incorrect: block geometry:  84%|████████▍ | 27/32 [11:01<02:03, 24.64s/layer][A
+olmo2/incorrect: block geometry:  88%|████████▊ | 28/32 [11:26<01:38, 24.67s/layer][A
+olmo2/incorrect: block geometry:  91%|█████████ | 29/32 [11:51<01:13, 24.62s/layer][A
+olmo2/incorrect: block geometry:  94%|█████████▍| 30/32 [12:15<00:48, 24.49s/layer][A
+olmo2/incorrect: block geometry:  97%|█████████▋| 31/32 [12:39<00:24, 24.53s/layer][A
+olmo2/incorrect: block geometry: 100%|██████████| 32/32 [13:03<00:00, 24.33s/layer][Aolmo2/incorrect: block geometry: 100%|██████████| 32/32 [13:03<00:00, 24.49s/layer]
+olmo2: cohort geometry:  67%|██████▋   | 2/3 [25:08<12:39, 759.55s/cohort]
+olmo2/all: block geometry:   0%|          | 0/32 [00:00<?, ?layer/s][A
+olmo2/all: block geometry:   3%|▎         | 1/32 [00:29<15:06, 29.24s/layer][A
+olmo2/all: block geometry:   6%|▋         | 2/32 [00:59<14:53, 29.79s/layer][A
+olmo2/all: block geometry:   9%|▉         | 3/32 [01:28<14:14, 29.47s/layer][A
+olmo2/all: block geometry:  12%|█▎        | 4/32 [01:57<13:43, 29.42s/layer][A
+olmo2/all: block geometry:  16%|█▌        | 5/32 [02:27<13:11, 29.33s/layer][A
+olmo2/all: block geometry:  19%|█▉        | 6/32 [02:59<13:06, 30.27s/layer][A
+olmo2/all: block geometry:  22%|██▏       | 7/32 [03:29<12:33, 30.16s/layer][A
+olmo2/all: block geometry:  25%|██▌       | 8/32 [03:57<11:52, 29.67s/layer][A
+olmo2/all: block geometry:  28%|██▊       | 9/32 [04:26<11:18, 29.50s/layer][A
+olmo2/all: block geometry:  31%|███▏      | 10/32 [04:55<10:43, 29.23s/layer][A
+olmo2/all: block geometry:  34%|███▍      | 11/32 [05:24<10:10, 29.08s/layer][A
+olmo2/all: block geometry:  38%|███▊      | 12/32 [05:52<09:39, 28.97s/layer][A
+olmo2/all: block geometry:  41%|████      | 13/32 [06:21<09:08, 28.88s/layer][A
+olmo2/all: block geometry:  44%|████▍     | 14/32 [06:50<08:41, 28.98s/layer][A
+olmo2/all: block geometry:  47%|████▋     | 15/32 [07:19<08:12, 28.96s/layer][A
+olmo2/all: block geometry:  50%|█████     | 16/32 [07:48<07:42, 28.93s/layer][A
+olmo2/all: block geometry:  53%|█████▎    | 17/32 [08:17<07:14, 28.97s/layer][A
+olmo2/all: block geometry:  56%|█████▋    | 18/32 [08:46<06:44, 28.87s/layer][A
+olmo2/all: block geometry:  59%|█████▉    | 19/32 [09:14<06:13, 28.70s/layer][A
+olmo2/all: block geometry:  62%|██████▎   | 20/32 [09:42<05:43, 28.61s/layer][A
+olmo2/all: block geometry:  66%|██████▌   | 21/32 [10:12<05:17, 28.91s/layer][A
+olmo2/all: block geometry:  69%|██████▉   | 22/32 [10:41<04:48, 28.81s/layer][A
+olmo2/all: block geometry:  72%|███████▏  | 23/32 [11:11<04:22, 29.21s/layer][A
+olmo2/all: block geometry:  75%|███████▌  | 24/32 [11:40<03:54, 29.32s/layer][A
+olmo2/all: block geometry:  78%|███████▊  | 25/32 [12:10<03:24, 29.28s/layer][A
+olmo2/all: block geometry:  81%|████████▏ | 26/32 [12:38<02:54, 29.12s/layer][A
+olmo2/all: block geometry:  84%|████████▍ | 27/32 [13:07<02:25, 29.04s/layer][A
+olmo2/all: block geometry:  88%|████████▊ | 28/32 [13:36<01:56, 29.11s/layer][A
+olmo2/all: block geometry:  91%|█████████ | 29/32 [14:06<01:27, 29.25s/layer][A
+olmo2/all: block geometry:  94%|█████████▍| 30/32 [14:36<00:58, 29.36s/layer][A
+olmo2/all: block geometry:  97%|█████████▋| 31/32 [15:05<00:29, 29.50s/layer][A
+olmo2/all: block geometry: 100%|██████████| 32/32 [15:34<00:00, 29.34s/layer][Aolmo2/all: block geometry: 100%|██████████| 32/32 [15:34<00:00, 29.22s/layer]
+olmo2: cohort geometry: 100%|██████████| 3/3 [40:43<00:00, 839.66s/cohort]olmo2: cohort geometry: 100%|██████████| 3/3 [40:43<00:00, 814.57s/cohort]
+/workspace/affect-geometry/src/affect_geometry/reporting/correctness_geometry.py:85: DtypeWarning: Columns (27: reason) have mixed types. Specify dtype option on import or set low_memory=False.
+  frame = pd.read_csv(path)
+/workspace/affect-geometry/src/affect_geometry/reporting/correctness_geometry.py:177: DtypeWarning: Columns (27: reason) have mixed types. Specify dtype option on import or set low_memory=False.
+  coordinates = pd.read_csv(plot_data / "coordinates.csv")
+/workspace/affect-geometry/src/affect_geometry/reporting/correctness_geometry.py:233: DtypeWarning: Columns (24: emotion, 26: reason) have mixed types. Specify dtype option on import or set low_memory=False.
+  metrics = pd.read_csv(plot_data / "metric_curves.csv")
+{
+  "path": "/workspace/affect-geometry/outputs/rq3/olmo2/rq3-analysis-full-bs8-v1-descriptive",
+  "upload": null
+}
+Finished: 2026-11-01T20:56:00+00:00 | exit code: 0

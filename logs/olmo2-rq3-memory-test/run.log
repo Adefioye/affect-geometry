@@ -1,0 +1,127 @@
+2026-11-01T17:53:53Z | INFO | command.start command=memory-test
+2026-11-01T17:53:53Z | INFO | memory_probe.download_start model=allenai/OLMo-2-1124-7B-Instruct revision=470b1fba1ae01581f270116362ee4aa1b97f4c84
+2026-11-01T17:54:28Z | INFO | memory_probe.download_complete
+2026-11-01T17:54:28Z | INFO | progress.start description='OLMo memory test' total=2 unit=case
+2026-11-01T17:54:32Z | INFO | command.start command=probe-typical-16
+2026-11-01T17:54:33Z | INFO | memory_probe.start case=typical-16 batch=16 width=124
+2026-11-01T17:54:40Z | ERROR | memory_probe.failed case=typical-16
+Traceback (most recent call last):
+  File "/workspace/affect-geometry/outputs/rq3/olmo2/memory_test/probe.py", line 67, in run_case
+    extract_prompt_states(
+  File "/workspace/affect-geometry/src/affect_geometry/activations/classification_prompt.py", line 48, in extract_prompt_states
+    generator = Generator(
+                ^^^^^^^^^^
+  File "/workspace/affect-geometry/outputs/rq3/olmo2/memory_test/probe.py", line 55, in __init__
+    super().__init__(*args, **kwargs)
+  File "/workspace/affect-geometry/src/affect_geometry/classification/inference.py", line 24, in __init__
+    self.model = AutoModelForCausalLM.from_pretrained(
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda/envs/affect-geometry/lib/python3.11/site-packages/transformers/models/auto/auto_factory.py", line 406, in from_pretrained
+    return model_class.from_pretrained(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda/envs/affect-geometry/lib/python3.11/site-packages/transformers/modeling_utils.py", line 4327, in from_pretrained
+    device_map = _get_device_map(model, device_map, max_memory, hf_quantizer)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda/envs/affect-geometry/lib/python3.11/site-packages/transformers/integrations/accelerate.py", line 354, in _get_device_map
+    inferred_max_memory = get_balanced_memory(
+                          ^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda/envs/affect-geometry/lib/python3.11/site-packages/transformers/integrations/accelerate.py", line 276, in get_balanced_memory
+    max_memory = get_max_memory(max_memory)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda/envs/affect-geometry/lib/python3.11/site-packages/transformers/integrations/accelerate.py", line 210, in get_max_memory
+    final_max_memory = accelerate_max_memory(max_memory)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/affect-geometry/outputs/rq3/olmo2/memory_test/runtime/accelerate/utils/modeling.py", line 761, in get_max_memory
+    import psutil
+ModuleNotFoundError: No module named 'psutil'
+2026-11-01T17:54:41Z | INFO | progress.stopped description='OLMo memory test' completed=0 total=2
+2026-11-01T17:55:18Z | INFO | command.start command=memory-test
+2026-11-01T17:55:18Z | INFO | memory_probe.download_start model=allenai/OLMo-2-1124-7B-Instruct revision=470b1fba1ae01581f270116362ee4aa1b97f4c84
+2026-11-01T17:55:19Z | INFO | memory_probe.download_complete
+2026-11-01T17:55:19Z | INFO | progress.start description='OLMo memory test' total=2 unit=case
+2026-11-01T17:55:22Z | INFO | command.start command=probe-typical-16
+2026-11-01T17:55:23Z | INFO | memory_probe.start case=typical-16 batch=16 width=124
+2026-11-01T17:56:19Z | ERROR | memory_probe.failed case=typical-16
+Traceback (most recent call last):
+  File "/workspace/affect-geometry/outputs/rq3/olmo2/memory_test/probe.py", line 67, in run_case
+    extract_prompt_states(
+  File "/workspace/affect-geometry/src/affect_geometry/activations/classification_prompt.py", line 48, in extract_prompt_states
+    generator = Generator(
+                ^^^^^^^^^^
+  File "/workspace/affect-geometry/outputs/rq3/olmo2/memory_test/probe.py", line 56, in __init__
+    result['hf_device_map'] = {k: str(v) for k, v in self.model.hf_device_map.items()}
+                                                     ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda/envs/affect-geometry/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1976, in __getattr__
+    raise AttributeError(
+AttributeError: 'Olmo2ForCausalLM' object has no attribute 'hf_device_map'
+2026-11-01T17:56:20Z | INFO | progress.stopped description='OLMo memory test' completed=0 total=2
+2026-11-01T17:56:48Z | INFO | command.start command=memory-test
+2026-11-01T17:56:48Z | INFO | memory_probe.download_start model=allenai/OLMo-2-1124-7B-Instruct revision=470b1fba1ae01581f270116362ee4aa1b97f4c84
+2026-11-01T17:56:48Z | INFO | memory_probe.download_complete
+2026-11-01T17:56:48Z | INFO | progress.start description='OLMo memory test' total=2 unit=case
+2026-11-01T17:56:51Z | INFO | command.start command=probe-typical-16
+2026-11-01T17:56:52Z | INFO | memory_probe.start case=typical-16 batch=16 width=124
+2026-11-01T17:57:08Z | INFO | memory_probe.model_loaded case=typical-16 devices=['cuda:0'] allocated_gib=13.595
+2026-11-01T17:57:09Z | INFO | progress.start description='Extracting classification prompts' total=1 unit=batch
+2026-11-01T17:57:11Z | INFO | progress.complete description='Extracting classification prompts' completed=1 total=1
+2026-11-01T17:57:15Z | INFO | progress.update description='OLMo memory test' completed=1 total=2 percent=50
+2026-11-01T17:57:18Z | INFO | command.start command=probe-longest-16
+2026-11-01T17:57:19Z | INFO | memory_probe.start case=longest-16 batch=16 width=409
+2026-11-01T17:57:40Z | INFO | memory_probe.model_loaded case=longest-16 devices=['cuda:0'] allocated_gib=13.595
+2026-11-01T17:57:41Z | INFO | progress.start description='Extracting classification prompts' total=1 unit=batch
+2026-11-01T17:57:42Z | INFO | progress.stopped description='Extracting classification prompts' completed=0 total=1
+2026-11-01T17:57:42Z | ERROR | memory_probe.failed case=longest-16
+Traceback (most recent call last):
+  File "/workspace/affect-geometry/outputs/rq3/olmo2/memory_test/probe.py", line 67, in run_case
+    extract_prompt_states(
+  File "/workspace/affect-geometry/src/affect_geometry/activations/classification_prompt.py", line 142, in extract_prompt_states
+    backbone(**encoded, use_cache=False, return_dict=True)
+  File "/root/miniconda/envs/affect-geometry/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1787, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda/envs/affect-geometry/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1798, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda/envs/affect-geometry/lib/python3.11/site-packages/transformers/utils/generic.py", line 1081, in wrapper
+    output = func(self, *args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda/envs/affect-geometry/lib/python3.11/site-packages/transformers/utils/output_capturing.py", line 287, in wrapper
+    outputs = func(self, *args, **kwargs)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda/envs/affect-geometry/lib/python3.11/site-packages/transformers/models/olmo2/modeling_olmo2.py", line 394, in forward
+    hidden_states = decoder_layer(
+                    ^^^^^^^^^^^^^^
+  File "/root/miniconda/envs/affect-geometry/lib/python3.11/site-packages/transformers/modeling_layers.py", line 111, in __call__
+    return super().__call__(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda/envs/affect-geometry/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1787, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda/envs/affect-geometry/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1893, in _call_impl
+    return inner()
+           ^^^^^^^
+  File "/root/miniconda/envs/affect-geometry/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1841, in inner
+    result = forward_call(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda/envs/affect-geometry/lib/python3.11/site-packages/transformers/models/olmo2/modeling_olmo2.py", line 298, in forward
+    hidden_states, _ = self.self_attn(
+                       ^^^^^^^^^^^^^^^
+  File "/root/miniconda/envs/affect-geometry/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1787, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda/envs/affect-geometry/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1798, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda/envs/affect-geometry/lib/python3.11/site-packages/transformers/models/olmo2/modeling_olmo2.py", line 236, in forward
+    query_states, key_states = apply_rotary_pos_emb(query_states, key_states, cos, sin)
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda/envs/affect-geometry/lib/python3.11/site-packages/transformers/models/olmo2/modeling_olmo2.py", line 176, in apply_rotary_pos_emb
+    k_embed = (k * cos) + (rotate_half(k) * sin)
+              ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 104.00 MiB. GPU 0 has a total capacity of 15.58 GiB of which 12.25 MiB is free. Including non-PyTorch memory, this process has 15.55 GiB memory in use. Of the allocated memory 15.25 GiB is allocated by PyTorch, and 199.31 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)
+2026-11-01T17:57:43Z | INFO | progress.complete description='OLMo memory test' completed=2 total=2
+2026-11-01T17:57:47Z | INFO | command.start command=probe-longest-8
+2026-11-01T17:57:48Z | INFO | memory_probe.start case=longest-8 batch=8 width=409
+2026-11-01T17:58:11Z | INFO | memory_probe.model_loaded case=longest-8 devices=['cuda:0'] allocated_gib=13.595
+2026-11-01T17:58:13Z | INFO | progress.start description='Extracting classification prompts' total=1 unit=batch
+2026-11-01T17:58:15Z | INFO | progress.complete description='Extracting classification prompts' completed=1 total=1

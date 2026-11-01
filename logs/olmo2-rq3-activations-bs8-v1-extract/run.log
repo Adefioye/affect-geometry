@@ -1,0 +1,52 @@
+2026-11-01T18:02:37Z | INFO | command.start command=rq3-extract
+2026-11-01T18:02:40Z | INFO | progress.complete description='RQ3 extraction panel' completed=1 total=1
+2026-11-01T18:03:03Z | INFO | command.start command=rq3-extract
+2026-11-01T18:04:10Z | INFO | progress.start description='Extracting classification prompts' total=2261 unit=batch
+2026-11-01T18:06:11Z | INFO | progress.update description='Extracting classification prompts' completed=227 total=2261 percent=10
+2026-11-01T18:08:06Z | INFO | progress.update description='Extracting classification prompts' completed=453 total=2261 percent=20
+2026-11-01T18:10:02Z | INFO | progress.update description='Extracting classification prompts' completed=679 total=2261 percent=30
+2026-11-01T18:11:57Z | INFO | progress.update description='Extracting classification prompts' completed=905 total=2261 percent=40
+2026-11-01T18:13:52Z | INFO | progress.update description='Extracting classification prompts' completed=1131 total=2261 percent=50
+2026-11-01T18:15:46Z | INFO | progress.update description='Extracting classification prompts' completed=1357 total=2261 percent=60
+2026-11-01T18:17:42Z | INFO | progress.update description='Extracting classification prompts' completed=1583 total=2261 percent=70
+2026-11-01T18:19:38Z | INFO | progress.update description='Extracting classification prompts' completed=1809 total=2261 percent=80
+2026-11-01T18:21:33Z | INFO | progress.update description='Extracting classification prompts' completed=2035 total=2261 percent=90
+2026-11-01T18:23:29Z | INFO | progress.complete description='Extracting classification prompts' completed=2261 total=2261
+2026-11-01T18:23:52Z | INFO | progress.start description='olmo2: export cohort activations' total=3 unit=cohort
+2026-11-01T18:23:53Z | INFO | progress.start description='correct: neutral projection' total=32 unit=layer
+2026-11-01T18:25:31Z | INFO | progress.update description='correct: neutral projection' completed=4 total=32 percent=12
+2026-11-01T18:26:42Z | INFO | progress.update description='correct: neutral projection' completed=7 total=32 percent=22
+2026-11-01T18:27:54Z | INFO | progress.update description='correct: neutral projection' completed=10 total=32 percent=31
+2026-11-01T18:29:06Z | INFO | progress.update description='correct: neutral projection' completed=13 total=32 percent=41
+2026-11-01T18:30:18Z | INFO | progress.update description='correct: neutral projection' completed=16 total=32 percent=50
+2026-11-01T18:31:54Z | INFO | progress.update description='correct: neutral projection' completed=20 total=32 percent=62
+2026-11-01T18:33:05Z | INFO | progress.update description='correct: neutral projection' completed=23 total=32 percent=72
+2026-11-01T18:34:17Z | INFO | progress.update description='correct: neutral projection' completed=26 total=32 percent=81
+2026-11-01T18:35:29Z | INFO | progress.update description='correct: neutral projection' completed=29 total=32 percent=91
+2026-11-01T18:36:41Z | INFO | progress.complete description='correct: neutral projection' completed=32 total=32
+2026-11-01T18:36:41Z | INFO | progress.update description='olmo2: export cohort activations' completed=1 total=3 percent=33
+2026-11-01T18:36:42Z | INFO | progress.start description='incorrect: neutral projection' total=32 unit=layer
+2026-11-01T18:38:18Z | INFO | progress.update description='incorrect: neutral projection' completed=4 total=32 percent=12
+2026-11-01T18:39:30Z | INFO | progress.update description='incorrect: neutral projection' completed=7 total=32 percent=22
+2026-11-01T18:40:42Z | INFO | progress.update description='incorrect: neutral projection' completed=10 total=32 percent=31
+2026-11-01T18:41:55Z | INFO | progress.update description='incorrect: neutral projection' completed=13 total=32 percent=41
+2026-11-01T18:43:06Z | INFO | progress.update description='incorrect: neutral projection' completed=16 total=32 percent=50
+2026-11-01T18:44:42Z | INFO | progress.update description='incorrect: neutral projection' completed=20 total=32 percent=62
+2026-11-01T18:45:54Z | INFO | progress.update description='incorrect: neutral projection' completed=23 total=32 percent=72
+2026-11-01T18:47:05Z | INFO | progress.update description='incorrect: neutral projection' completed=26 total=32 percent=81
+2026-11-01T18:48:15Z | INFO | progress.update description='incorrect: neutral projection' completed=29 total=32 percent=91
+2026-11-01T18:49:27Z | INFO | progress.complete description='incorrect: neutral projection' completed=32 total=32
+2026-11-01T18:49:27Z | INFO | progress.update description='olmo2: export cohort activations' completed=2 total=3 percent=67
+2026-11-01T18:49:30Z | INFO | progress.start description='all: neutral projection' total=32 unit=layer
+2026-11-01T18:51:21Z | INFO | progress.update description='all: neutral projection' completed=4 total=32 percent=12
+2026-11-01T18:52:46Z | INFO | progress.update description='all: neutral projection' completed=7 total=32 percent=22
+2026-11-01T18:54:10Z | INFO | progress.update description='all: neutral projection' completed=10 total=32 percent=31
+2026-11-01T18:55:35Z | INFO | progress.update description='all: neutral projection' completed=13 total=32 percent=41
+2026-11-01T18:56:59Z | INFO | progress.update description='all: neutral projection' completed=16 total=32 percent=50
+2026-11-01T18:58:52Z | INFO | progress.update description='all: neutral projection' completed=20 total=32 percent=62
+2026-11-01T19:00:18Z | INFO | progress.update description='all: neutral projection' completed=23 total=32 percent=72
+2026-11-01T19:01:44Z | INFO | progress.update description='all: neutral projection' completed=26 total=32 percent=81
+2026-11-01T19:03:09Z | INFO | progress.update description='all: neutral projection' completed=29 total=32 percent=91
+2026-11-01T19:04:33Z | INFO | progress.complete description='all: neutral projection' completed=32 total=32
+2026-11-01T19:04:33Z | INFO | progress.complete description='olmo2: export cohort activations' completed=3 total=3
+2026-11-01T19:09:32Z | INFO | progress.complete description='RQ3 extraction panel' completed=1 total=1

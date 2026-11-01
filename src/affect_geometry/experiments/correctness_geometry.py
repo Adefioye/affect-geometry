@@ -105,6 +105,7 @@ def run_geometry(
     nrc_metadata,
     root,
     prepared=None,
+    skip_permutations=False,
 ):
     """Injectable scientific runner; arrays may be memory maps in production."""
     started = time.monotonic()
@@ -145,7 +146,13 @@ def run_geometry(
         versions={
             p: importlib.metadata.version(p) for p in ("numpy", "scipy", "pandas", "scikit-learn")
         },
-        inference_label="non_inferential_smoke" if config["smoke"] else "alignment_against_chance",
+        inference_label=(
+            "descriptive_permutations_skipped"
+            if skip_permutations
+            else "non_inferential_smoke"
+            if config["smoke"]
+            else "alignment_against_chance"
+        ),
         evaluation="transductive_representation_held_out_rating",
         graph_policy="union; distance ties broken by emotion ID; reject disconnected",
         full_population=source_audit.get("full_population", False),
@@ -566,13 +573,34 @@ def run_geometry(
     aggregates = aggregate_scores(scores, layers)
     aggregates["raw_p"], aggregates["corrected_p"] = np.nan, np.nan
     for table in (scores, aggregates):
-        table["inference_status"] = "non_inferential_smoke" if config["smoke"] else "pending"
-        table["inference_reason"] = ""
-    schedule = permutation_schedule(
-        len(labels), config["permutations"], config["permutation_seed"], config["smoke"]
+        table["inference_status"] = (
+            "skipped"
+            if skip_permutations
+            else "non_inferential_smoke"
+            if config["smoke"]
+            else "pending"
+        )
+        table["inference_reason"] = "user_requested_skip" if skip_permutations else ""
+    schedule = (
+        np.empty((0, len(labels)), dtype=int)
+        if skip_permutations
+        else permutation_schedule(
+            len(labels), config["permutations"], config["permutation_seed"], config["smoke"]
+        )
     )
     store.arrays("inference/permutation_schedule.npz", indices=schedule)
     for dim in (1, 2):
+        if skip_permutations:
+            store.json(
+                f"inference/{dim}d/status.json",
+                dict(
+                    status="skipped",
+                    reason="user_requested_skip",
+                    completed=0,
+                    requested=config["permutations"],
+                ),
+            )
+            continue
         family_scores = scores.loc[scores.dimension.eq(dim)]
         # A failed member invalidates the whole family, never silently drops out.
         if not family_scores.status.eq("ok").all():

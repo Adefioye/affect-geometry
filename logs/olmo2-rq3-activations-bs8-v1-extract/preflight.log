@@ -1,0 +1,43 @@
+RQ3 extraction panel:   0%|          | 0/1 [00:00<?, ?model/s]                                                              Run log: /workspace/affect-geometry/logs/olmo2-rq3-activations-bs8-v1-extract/run.log
+RQ3 extraction panel:   0%|          | 0/1 [00:00<?, ?model/s]RQ3 extraction panel: 100%|██████████| 1/1 [00:03<00:00,  3.15s/model]RQ3 extraction panel: 100%|██████████| 1/1 [00:03<00:00,  3.15s/model]
+[
+  {
+    "model": "olmo2",
+    "source": {
+      "full_population": true,
+      "counts": {
+        "test": 4590,
+        "train": 36308,
+        "validation": 4548
+      },
+      "unresolved": 0,
+      "checksums": {
+        "/workspace/affect-geometry/outputs/rq2_classification/olmo2/full/manifest.json": "56b0ea4d2e199295cccb5fef6e763f306128b79c082e20191fe050129c91a485",
+        "/workspace/affect-geometry/outputs/rq2_classification/olmo2/full/dataset/train.parquet": "f16b43417f286b2b488ac072d2475b121c7599479ea374056747f8efb9688f70",
+        "/workspace/affect-geometry/outputs/rq2_classification/olmo2/full/dataset/validation.parquet": "3467a7afaaf71e7515359f732189f64c81d48cf212855707f8f6c07c183c6fc2",
+        "/workspace/affect-geometry/outputs/rq2_classification/olmo2/full/dataset/test.parquet": "65ca143761016b267bb35d6799c762fa5ceffa53f197785f9cc80550ca46709e"
+      }
+    },
+    "labels": [
+      "admiration",
+      "amusement",
+      "anger",
+      "annoyance",
+      "approval",
+      "confusion",
+      "curiosity",
+      "disappointment",
+      "disapproval",
+      "disgust",
+      "excitement",
+      "fear",
+      "gratitude",
+      "joy",
+      "love",
+      "neutral",
+      "optimism",
+      "sadness",
+      "surprise"
+    ]
+  }
+]
