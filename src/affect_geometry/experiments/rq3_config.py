@@ -1,6 +1,5 @@
 """Explicit RQ3 panel and frozen numerical policies."""
 
-import json
 import math
 from pathlib import Path
 
@@ -9,8 +8,7 @@ from affect_geometry.classification.protocol import MODELS
 PANEL = ("gemma2", "apertus", "olmo2")
 
 
-def load_config(path):
-    config = json.loads(Path(path).read_text())
+def validate_config(config, require_panel=True):
     required = {
         "run_id",
         "models",
@@ -42,8 +40,12 @@ def load_config(path):
             f"Configuration keys differ: missing={required - set(config)}, "
             f"extra={set(config) - required}"
         )
-    if set(config["models"]) != set(PANEL):
+    if require_panel and set(config["models"]) != set(PANEL):
         raise ValueError("RQ3 requires exactly Gemma2, Apertus and OLMo2")
+    if not require_panel and (
+        len(config["models"]) != 1 or not set(config["models"]) <= set(PANEL)
+    ):
+        raise ValueError("Downstream analysis requires exactly one RQ3 model")
     for key in ("smoke", "settings_frozen", "pilot_verified"):
         if type(config[key]) is not bool:
             raise ValueError(f"{key} must be boolean")

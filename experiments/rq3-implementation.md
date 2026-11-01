@@ -1,42 +1,124 @@
 # Running correctness-conditioned geometry (RQ3)
 
-The implementation follows `docs/rq3.md`. Primary results use three models, the single saved
-balanced correct/incorrect draw and its exact union, all three embedding methods, and 1D valence /
-2D VA. Existing RQ1/RQ2 behavior remains available. RQ3's strict decomposition API lives in
-`embeddings/geometry.py`; legacy MDS/Isomap entry points retain their older defaults.
+The implementation follows `docs/rq3.md` with two independently runnable stages. Cohort sampling
+and neutral projection happen only in stage 1. Stage 2 reads the saved sample states and transforms.
+The former combined `configs/rq3_geometry.json` has been replaced by the configurations below.
 
-## Entry point
-
-Run from the project directory with the project installed (`pip install -e '.[dev]'`):
+## Stage 1: extract, project, and publish all three models
 
 ```sh
-python script/run_rq3_geometry.py validate --config configs/rq3_geometry.json
-python script/run_rq3_geometry.py extract --config configs/rq3_geometry.json
-python script/run_rq3_geometry.py run --config configs/rq3_geometry.json
-python script/run_rq3_geometry.py report --run-dir outputs/rq3/gemma2/rq3-pilot-v1
+python script/extract_rq3_activations.py validate
+python script/extract_rq3_activations.py run
+# Retry publishing already completed local bundles without loading models:
+python script/extract_rq3_activations.py upload
 ```
 
-`validate` checks all three sources and NRC coverage. `extract` reconstructs and verifies saved
-classification prompts, then captures post-block final-nonpadding states without generating
-answers. `run` requires checksum-verified prompt states and runs the three cohorts for every
-model. `report` rebuilds figures from persisted tables. No command reruns classification.
+Configuration: `configs/rq3/extract_activations.json`. It contains the three model IDs, RQ2 source
+paths, extraction precision/batching, one sampling seed, projection storage settings, budgets, and
+one Hugging Face destination per model. `--no-upload` prepares local bundles only.
 
-The supplied JSON is explicitly a **non-inferential smoke/pilot configuration**, with two layers
-and two permutations. Its source paths match the RQ2 run-directory convention; set them to the
-actual complete RQ2 runs on the execution machine. The locally downloaded `hf_snapshot` analysis
-exports are insufficient: `sample_outcomes.csv` lacks the compatibility-parser and prompt
-provenance fields required here. Supply the original `manifest.json` and
-`dataset/{train,validation,test}.parquet` files. Do not substitute strict correctness.
+The script validates complete RQ2 predictions, draws balanced cohorts once, and extracts each
+selected sample's final non-padding classification-prompt token at every transformer block.
+It exports **sample-level matrices**, not just centroids, for correct, incorrect, and all:
 
-NRC v2.1's existing checksum-pinned exact-label mapping includes neutral. It is checked at runtime.
-If that mapping is replaced, provide its corresponding provenance and reference checksum.
+- `last_token/layer_000.npy`: original uncentered last-token residual states.
+- `neutral_projected/layer_000.npy`: `(x - grand_mean) @ (I - components.T @ components)`.
+- `preprocessing/layer_000.npz`: fitted means/components/variances, raw and projected centroids,
+  normalized centroids, similarities and cosine distances.
+- `samples.csv`: exact row IDs, gold labels, correctness/parser audit, prompt hashes and token
+  positions (when supplied by the classification source).
+- `status/layer_000.json`: explicit support/failure information.
 
-Before a full run, use a new run ID, set `smoke: false`, `layers: null`, and `permutations: 2000`.
-Review/freeze the grids and numerical policies, inspect pilot timings and peak memory, and set
-`settings_frozen` and `pilot_verified` to true. Set runtime and memory budgets for the host.
-Limits are checked between layers and permutations, so one active work unit may exceed a budget.
-Full-run p-values are never emitted for smaller smoke schedules. Source/model access and sufficient
-model memory are still required for real extraction; the offline test suite does not download models.
+The neutral transform is fitted independently for each model/cohort/block at threshold 0.5.
+The all cohort's raw rows are the exact union of the subsets, but its projected rows use its own
+transform; they are **not** concatenated subset projections. Saved projected sample states are
+not unit-normalized. Downstream geometry normalizes centroids. Centroids are computed from the
+saved projected arrays so their storage precision is accounted for. Unsupported projections keep
+the raw states and failure records; no substitute derivative is fabricated.
+
+Local bundles live at `outputs/rq3/<model>/rq3-activations-v1/activation_bundle/`.
+Complete source manifests and checksums travel with each bundle. Original extraction caches remain
+local and can be reused. Local layer checkpoints make projection/export resumable.
+
+The local `hf_snapshot` analysis exports are insufficient RQ2 inputs: their `sample_outcomes.csv`
+lacks compatibility-parser and prompt provenance fields. Supply the original `manifest.json` and
+`dataset/{train,validation,test}.parquet` under each configured classification run.
+
+## Stage 2: one analysis job/config per model
+
+```sh
+python script/run_rq3_geometry.py run --config configs/rq3/gemma2.json
+python script/run_rq3_geometry.py run --config configs/rq3/apertus.json
+python script/run_rq3_geometry.py run --config configs/rq3/olmo2.json
+```
+
+Each config contains only that model's activation source, analysis settings, budgets, and publishing
+settings. The saved cohort draw and seed come from the bundle; stage 2 cannot choose another draw.
+It does not load a language model, need the original RQ2 files, fit neutral PCA, or project the samples
+again. It consumes the persisted derivative and preprocessing checkpoint for every metric/analysis.
+
+A valid local bundle is preferred. If it is absent, the script downloads the configured dataset
+folder, resolving `revision` to an exact commit before downloading. An existing broken local bundle
+fails validation instead of silently changing inputs. The source commit/checksums are recorded.
+Set `activation_source.revision` to the upload receipt's commit to pin a particular remote release.
+
+The supplied analysis configs remain **non-inferential pilots** (two layers, two permutations).
+For full inference use a new run ID, `smoke: false`, `layers: null`, `permutations: 2000`, and set
+`settings_frozen` and `pilot_verified` after reviewing pilot runtime/memory and grids. Full inference
+requires a bundle built from a full RQ2 source. Numerical policies and metrics below are unchanged.
+
+Replay plots from an existing result directory:
+
+```sh
+python script/run_rq3_geometry.py report --run-dir outputs/rq3/gemma2/rq3-analysis-pilot-v1
+```
+
+After all three independent model jobs finish, produce common-support comparisons:
+
+```sh
+python script/run_rq3_geometry.py compare --comparison-id rq3-comparison-v1 --compare-runs \
+  outputs/rq3/gemma2/rq3-analysis-pilot-v1 \
+  outputs/rq3/apertus/rq3-analysis-pilot-v1 \
+  outputs/rq3/olmo2/rq3-analysis-pilot-v1
+```
+
+## Hugging Face organization
+
+Defaults resolve `{username}` from the authenticated Hugging Face account (`HF_TOKEN` or the
+existing Hub login). They create private dataset repositories when absent:
+
+- `{username}/rq3-gemma2`
+- `{username}/rq3-apertus`
+- `{username}/rq3-olmo2`
+
+Use an explicit namespace in the configs to publish to an organization. Existing repository
+visibility is preserved. Analysis and activation configs must name the same repository per model.
+Both stages upload by default; use `--no-upload` for offline work. Credentials are never stored
+in artifacts. Upload receipts with repository, folder and commit are saved next to each local run.
+
+Each model dataset has this layout:
+
+```text
+activations/rq3-activations-v1/
+  manifest.json
+  cohorts/
+    support.csv  counts.csv  unresolved.csv
+    correct/    # samples.csv, last_token/, neutral_projected/, preprocessing/, status/
+    incorrect/  # same files, separate fitted projection
+    all/        # same files, union draw and its own fitted projection
+  checkpoints/
+analyses/rq3-analysis-pilot-v1/
+  manifest.json
+  cohorts/  activations/  preprocessing/  geometry/
+  validation/  inference/  metrics/  plot_data/  plots/  reports/  checkpoints/
+comparisons/rq3-comparison-v1/
+  manifest.json  common_support/  model_support.csv  plot_data/  checkpoints/
+```
+
+All checksum-covered files, including `plot_data`, plots and analysis checkpoints, are uploaded.
+Only completed, verified stages can be published. An existing remote path with different manifest
+provenance is rejected; use a new run ID. Comparisons are uploaded to all three model datasets.
+Operational logs stay under `logs/<model>-<run>-extract/` or `logs/<model>-<run>-analysis/`.
 
 ## Frozen policies
 
@@ -90,7 +172,10 @@ model memory are still required for real extraction; the offline test suite does
 | Aggregates, paired contrasts, CKA, emergence | `analysis/geometry_comparisons.py` |
 | Cross-model common support | `analysis/cross_model_geometry.py` |
 | Atomic writes and checkpoint checksums | `persistence/correctness_geometry.py` |
-| Nine-cohort orchestration | `experiments/correctness_geometry.py` |
+| Two-stage orchestration/configuration | `experiments/rq3_stages.py` |
+| Portable raw/projected activation bundles | `activations/rq3_bundle.py` |
+| Hugging Face upload/download | `persistence/rq3_hub.py` |
+| Scientific analysis orchestration | `experiments/correctness_geometry.py` |
 | Configuration and cooperative budgets | `experiments/rq3_config.py`, `experiments/rq3_budget.py` |
 | CSV-based plots and run inventory | `reporting/correctness_geometry.py` |
 

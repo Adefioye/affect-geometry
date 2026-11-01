@@ -10,7 +10,6 @@ import numpy as np
 import pandas as pd
 from scipy.stats import spearmanr
 
-from affect_geometry.activations.classification_prompt import open_prompt_states
 from affect_geometry.analysis.cohorts import balanced_cohorts
 from affect_geometry.analysis.geometry_comparisons import (
     COHORTS,
@@ -38,7 +37,6 @@ from affect_geometry.analysis.nonlinearity import (
 )
 from affect_geometry.analysis.topology import persistence
 from affect_geometry.classification.protocol import EMOTIONS
-from affect_geometry.data.classification_source import read_classification, read_targets
 from affect_geometry.embeddings.diffusion_maps import diffusion_maps
 from affect_geometry.embeddings.geometry import (
     Decomposition,
@@ -46,7 +44,7 @@ from affect_geometry.embeddings.geometry import (
     isomap_decomposition,
     mds_decomposition,
 )
-from affect_geometry.logging import configure_file_logging, get_logger, progress
+from affect_geometry.logging import progress
 from affect_geometry.persistence.correctness_geometry import GeometryStore, checksum, fingerprint
 
 
@@ -106,13 +104,18 @@ def run_geometry(
     target,
     nrc_metadata,
     root,
+    prepared=None,
 ):
     """Injectable scientific runner; arrays may be memory maps in production."""
     started = time.monotonic()
     from affect_geometry.experiments.rq3_budget import RunBudget
 
     budget = RunBudget(config["budgets"])
-    cohort = balanced_cohorts(samples, EMOTIONS, config["seed"])
+    cohort = (
+        prepared.cohorts
+        if prepared is not None
+        else balanced_cohorts(samples, EMOTIONS, config["seed"])
+    )
     labels = cohort.labels
     if target.shape != (len(labels), 2):
         raise ValueError("NRC target rows must match the saved supported emotion order")
@@ -215,8 +218,12 @@ def run_geometry(
                     with np.load(store.root / prepath) as saved:
                         prep = dict(saved)
                 else:
-                    prep = preprocess(
-                        np.asarray(arrays[layer][rows]), selected, labels, config["tolerance"]
+                    prep = (
+                        prepared.preprocessing(c, layer)
+                        if prepared is not None
+                        else preprocess(
+                            np.asarray(arrays[layer][rows]), selected, labels, config["tolerance"]
+                        )
                     )
                     path = store.arrays(prepath, **prep)
                     meta = store.json(prepath.replace(".npz", ".json"), preprov)
@@ -242,8 +249,11 @@ def run_geometry(
                         )
                     )
                 # Within-emotion scatter after the cohort-specific projection.
-                centered = np.asarray(arrays[layer][rows], float) - prep["grand_mean"]
-                projected = centered - (centered @ prep["components"].T) @ prep["components"]
+                if prepared is not None:
+                    projected = prepared.projected(c, layer)
+                else:
+                    centered = np.asarray(arrays[layer][rows], float) - prep["grand_mean"]
+                    projected = centered - (centered @ prep["components"].T) @ prep["components"]
                 for i, emotion in enumerate(labels):
                     residual = projected[selected.emotion.to_numpy() == emotion] - prep["R"][i]
                     metric_rows.append(
@@ -713,97 +723,3 @@ def _peak_rss():
 
     value = resource.getrusage(resource.RUSAGE_SELF).ru_maxrss
     return dict(value=value, unit="bytes" if sys.platform == "darwin" else "KiB")
-
-
-def run_panel(config, project_root, command="run"):
-    project_root = Path(project_root)
-    results = []
-    failures = []
-    for slug, spec in progress(
-        config["models"].items(), description="RQ3 model panel", unit="model"
-    ):
-        configure_file_logging(
-            project_root / "logs" / f"{slug}-{config['run_id']}", "rq3", model=slug
-        )
-        root = project_root / "outputs/rq3" / slug / config["run_id"]
-        try:
-            samples, manifest, audit = read_classification(
-                project_root / spec["classification_run"], spec["model_id"], config["smoke"]
-            )
-            cohorts = balanced_cohorts(samples, EMOTIONS, config["seed"])
-            target, nrc = read_targets(
-                project_root / config["nrc_path"],
-                project_root / config["nrc_provenance"],
-                cohorts.labels,
-            )
-            if command == "validate":
-                root.mkdir(parents=True, exist_ok=True)
-                (root / "input_validation.json").write_text(
-                    json.dumps(dict(source=audit, labels=cohorts.labels), indent=2)
-                )
-                continue
-            selected = samples[samples.sample_id.isin(cohorts.samples.sample_id)].sort_values(
-                "sample_id"
-            )
-            if command == "extract":
-                from affect_geometry.activations.classification_prompt import extract_prompt_states
-
-                extract_prompt_states(
-                    selected,
-                    manifest,
-                    project_root / spec["activation_run"],
-                    **config["extraction"],
-                )
-                continue
-            activation_samples, paths, metadata, hashes = open_prompt_states(
-                project_root / spec["activation_run"], selected, manifest
-            )
-            arrays = [np.load(p, mmap_mode="r") for p in paths]
-            # Map each source row to the sharded activation rows without materializing all layers.
-            positions = {s: i for i, s in enumerate(activation_samples.sample_id)}
-
-            class SourceRows:
-                def __init__(self, array):
-                    self.array = array
-
-                def __getitem__(self, indices):
-                    return self.array[[positions[samples.iloc[int(i)].sample_id] for i in indices]]
-
-            aligned = [SourceRows(array) for array in arrays]
-            results.append(
-                run_geometry(
-                    config,
-                    slug,
-                    samples,
-                    aligned,
-                    manifest,
-                    audit,
-                    dict(
-                        metadata=metadata,
-                        checksums=hashes,
-                        root=str(project_root / spec["activation_run"]),
-                    ),
-                    target,
-                    nrc,
-                    root,
-                )
-            )
-        except (ValueError, FileNotFoundError) as exc:
-            get_logger().exception("rq3.model_failed model=%s", slug)
-            root.mkdir(parents=True, exist_ok=True)
-            record = dict(model=slug, status="unsupported", reason=str(exc))
-            (root / "input_failure.json").write_text(json.dumps(record, indent=2))
-            failures.append(record)
-    if command == "run":
-        from affect_geometry.analysis.cross_model_geometry import compare_common_support
-        from affect_geometry.reporting.correctness_geometry import compare_models
-
-        compare_common_support(results, project_root / "outputs/rq3/comparisons" / config["run_id"])
-        compare_models(
-            results, project_root / "outputs/rq3/comparisons" / config["run_id"], failures
-        )
-    if failures:
-        raise ValueError(
-            "RQ3 input failures: " + "; ".join(f"{r['model']}: {r['reason']}" for r in failures)
-        )
-    return results

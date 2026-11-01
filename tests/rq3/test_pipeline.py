@@ -7,7 +7,7 @@ from test_scientific_contracts import source_rows
 from affect_geometry.analysis.cohorts import balanced_cohorts
 from affect_geometry.classification.protocol import EMOTIONS
 from affect_geometry.experiments.correctness_geometry import run_geometry
-from affect_geometry.experiments.rq3_config import load_config
+from affect_geometry.experiments.rq3_stages import analysis_geometry_config, load_analysis_config
 from affect_geometry.persistence.correctness_geometry import checksum
 
 
@@ -15,7 +15,9 @@ def test_end_to_end_nine_cohorts_three_methods_replay(tmp_path):
     from pathlib import Path
 
     project = Path(__file__).resolve().parents[2]
-    config = load_config(project / "configs/rq3_geometry.json")
+    config = analysis_geometry_config(
+        load_analysis_config(project / "configs/rq3/gemma2.json"), seed=42
+    )
     config.update(
         layers=[0, 1],
         isomap_neighbors=[3],
@@ -33,7 +35,7 @@ def test_end_to_end_nine_cohorts_three_methods_replay(tmp_path):
     arrays = [values, values + 0.05 * rng.normal(size=values.shape)]
     target = rng.normal(size=(len(labels), 2))
     roots = []
-    for slug in config["models"]:
+    for slug in ("gemma2", "apertus", "olmo2"):
         root = tmp_path / slug
         run_geometry(
             config,
@@ -79,13 +81,21 @@ def test_end_to_end_nine_cohorts_three_methods_replay(tmp_path):
     assert len(manifest["common_emotions"]) == 6
     common = pd.read_csv(tmp_path / "comparisons/common_support/aggregates.csv")
     assert len(common) == 54 and common.status.eq("ok").all()
+    from affect_geometry.experiments.rq3_stages import compare_analyses
+
+    comparison = compare_analyses(roots, tmp_path, "comparison-stage", publish=False)
+    output = Path(comparison["path"])
+    assert (output / "checkpoints/run.json").exists()
+    assert len(pd.read_csv(output / "plot_data/common_support_scores.csv")) == 108
 
 
 def test_unsupported_geometry_keeps_all_cells_and_invalidates_families(tmp_path):
     from pathlib import Path
 
     project = Path(__file__).resolve().parents[2]
-    config = load_config(project / "configs/rq3_geometry.json")
+    config = analysis_geometry_config(
+        load_analysis_config(project / "configs/rq3/gemma2.json"), seed=42
+    )
     config.update(
         layers=[0],
         isomap_neighbors=[3],

@@ -170,6 +170,9 @@ plot-ready CSVs, and plots beneath `outputs/representation_comparison/`.
 
 ## RQ3 correctness-conditioned geometry
 
-`run_rq3_geometry.py` provides `validate`, `extract`, `run`, and `report` commands.
+`extract_rq3_activations.py` provides `validate`, `run`, and `upload` for the three-model
+raw/projected activation stage. `run_rq3_geometry.py` provides `run`, `report`, and `compare` for
+analysis from saved activations, with one config per model under `configs/rq3/`. Both stages publish
+their complete artifacts to the same model-specific Hugging Face dataset; use `--no-upload` locally.
 See [the RQ3 implementation guide](../experiments/rq3-implementation.md) for required source records,
 configuration, full-run safeguards, and checkpoint replay.

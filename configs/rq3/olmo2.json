@@ -1,25 +1,7 @@
 {
-  "run_id": "rq3-pilot-v1",
-  "models": {
-    "gemma2": {
-      "model_id": "google/gemma-2-9b",
-      "classification_run": "outputs/rq2_classification/gemma2/full",
-      "activation_run": "outputs/rq3/gemma2/prompt-activations-v1"
-    },
-    "apertus": {
-      "model_id": "swiss-ai/Apertus-8B-Instruct-2509",
-      "classification_run": "outputs/rq2_classification/apertus/full",
-      "activation_run": "outputs/rq3/apertus/prompt-activations-v1"
-    },
-    "olmo2": {
-      "model_id": "allenai/OLMo-2-1124-7B-Instruct",
-      "classification_run": "outputs/rq2_classification/olmo2/full",
-      "activation_run": "outputs/rq3/olmo2/prompt-activations-v1"
-    }
-  },
+  "run_id": "rq3-analysis-pilot-v1",
   "nrc_path": "data/reference/goemotions_nrc_vad.csv",
   "nrc_provenance": "data/reference/goemotions_nrc_vad.provenance.json",
-  "seed": 42,
   "permutation_seed": 17,
   "permutations": 2,
   "smoke": true,
@@ -66,14 +48,20 @@
     "minimum_interval": 3,
     "transition_threshold": 0.1
   },
-  "extraction": {
-    "batch_size": 1,
-    "dtype": "bfloat16",
-    "device": "auto",
-    "storage_dtype": "float32"
-  },
   "budgets": {
     "max_seconds": 3600,
     "max_rss_gib": 32
+  },
+  "model": "olmo2",
+  "activation_source": {
+    "local_path": "outputs/rq3/olmo2/rq3-activations-v1/activation_bundle",
+    "repo_id": "{username}/rq3-olmo2",
+    "path_in_repo": "activations/rq3-activations-v1",
+    "revision": "main"
+  },
+  "publish": {
+    "enabled": true,
+    "repo_id": "{username}/rq3-olmo2",
+    "private": true
   }
 }

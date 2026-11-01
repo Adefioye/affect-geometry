@@ -91,5 +91,10 @@ The RQ3 pipeline adds balanced correctness cohorts, verified classification-prom
 strict MDS/Isomap and Diffusion Maps, nested held-out-rating evaluation, NRC-row permutation
 families, centroid topology, selected-layer CKA, and reproducible CSV-based figures.
 Start with the [implementation and run guide](experiments/rq3-implementation.md).
-The supplied [configuration](configs/rq3_geometry.json) is a non-inferential pilot; full inference
-requires the complete source records, verified prompt activations, frozen settings, and 2,000 permutations.
+Use [extract_rq3_activations.py](script/extract_rq3_activations.py) with
+[the extraction config](configs/rq3/extract_activations.json) to publish raw and neutral-projected
+sample states for all three cohorts/models. Then run [run_rq3_geometry.py](script/run_rq3_geometry.py)
+with [Gemma2](configs/rq3/gemma2.json), [Apertus](configs/rq3/apertus.json), or
+[OLMo2](configs/rq3/olmo2.json). Each model's activations and all analysis artifacts, including
+`plot_data`, share its `{username}/rq3-<model>` dataset. Analysis configs default to non-inferential
+pilots; full inference requires frozen settings and 2,000 permutations.
