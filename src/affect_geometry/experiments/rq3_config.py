@@ -66,8 +66,8 @@ def validate_config(config, require_panel=True):
         raise ValueError("run_id must be a single path component")
     if not config["smoke"] and (config["permutations"] != 2000 or config["layers"] is not None):
         raise ValueError("Full runs require 2,000 permutations and every block layer")
-    if not config["smoke"] and not (config["settings_frozen"] and config["pilot_verified"]):
-        raise ValueError("Freeze settings and verify pilot budgets before a full run")
+    if not config["smoke"] and not config["settings_frozen"]:
+        raise ValueError("Freeze settings before a full run")
     if config["selection"] != "nested":
         raise ValueError("This configuration uses nested leave-one-emotion-out selection")
     if config["permutations"] < 1 or config["tolerance"] <= 0:

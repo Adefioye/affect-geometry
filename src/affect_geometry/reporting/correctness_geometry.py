@@ -19,6 +19,62 @@ def _save(fig, path):
     plt.close(fig)
 
 
+def _metric_curve(ax, group, x, y, label):
+    """Missing layers are gaps; crosses at the axis edge are not zero estimates."""
+    group = group.sort_values(x)
+    values = pd.to_numeric(group[y], errors="coerce").copy()
+    valid = np.isfinite(values)
+    if "status" in group:
+        valid &= group.status.eq("ok")
+    values.loc[~valid] = np.nan
+    (line,) = ax.plot(group[x], values, ".-", label=label, alpha=0.7)
+    if (~valid).any():
+        ax.scatter(
+            group.loc[~valid, x],
+            np.full((~valid).sum(), 0.02),
+            transform=ax.get_xaxis_transform(),
+            marker="x",
+            color=line.get_color(),
+        )
+        ax.text(
+            0.01,
+            0.98,
+            "× at lower edge = unsupported",
+            transform=ax.transAxes,
+            va="top",
+            fontsize=6,
+        )
+
+
+def metric_curve_table(metrics, scores):
+    """Persist missing evaluated layers explicitly, keeping emotion-specific scatter separate."""
+    if metrics.empty:
+        return metrics.copy()
+    metrics = metrics.copy()
+    if "emotion" not in metrics:
+        metrics["emotion"] = ""
+    metrics["emotion"] = metrics.emotion.fillna("")
+    keys = ["cohort", "method", "dimension", "setting", "reference", "metric", "emotion"]
+    depth = scores.drop_duplicates("layer").set_index("layer").depth.to_dict()
+    rows = []
+    for _, group in metrics.groupby(keys, dropna=False):
+        for layer in sorted(depth):
+            present = group.loc[group.layer.eq(layer)]
+            if len(present):
+                rows.extend(present.to_dict("records"))
+            else:
+                row = group.iloc[0].to_dict()
+                row.update(
+                    layer=layer,
+                    depth=depth[layer],
+                    value=np.nan,
+                    status="unsupported",
+                    reason="missing_layer_metric",
+                )
+                rows.append(row)
+    return pd.DataFrame(rows)
+
+
 def render(root):
     root = Path(root)
     plot_data, plots = root / "plot_data", root / "plots"
@@ -57,7 +113,21 @@ def render(root):
             )
             failed = group.loc[group.status.ne("ok")]
             if len(failed):
-                ax.scatter(failed.depth, np.zeros(len(failed)), marker="x", color=line.get_color())
+                ax.scatter(
+                    failed.depth,
+                    np.full(len(failed), 0.02),
+                    marker="x",
+                    transform=ax.get_xaxis_transform(),
+                    color=line.get_color(),
+                )
+                ax.text(
+                    0.01,
+                    0.98,
+                    "× at lower edge = unsupported",
+                    transform=ax.transAxes,
+                    va="top",
+                    fontsize=6,
+                )
         ax.set(
             xlabel="Normalized block depth",
             ylabel="Procrustes R²",
@@ -159,6 +229,8 @@ def render(root):
         _save(fig, plots / "aligned-1d.png")
     # Metric-specific curves preserve common/native reference and matched setting labels.
     metrics = pd.read_csv(plot_data / "metrics.csv")
+    metric_curve_table(metrics, scores).to_csv(plot_data / "metric_curves.csv", index=False)
+    metrics = pd.read_csv(plot_data / "metric_curves.csv")
     if len(metrics):
         for (metric, reference, dimension), part in metrics.groupby(
             ["metric", "reference", "dimension"]
@@ -166,8 +238,13 @@ def render(root):
             fig, axes = plt.subplots(1, 3, figsize=(14, 4))
             for ax, cohort in zip(axes, ("correct", "incorrect", "all")):
                 subset = part.loc[part.cohort.eq(cohort)]
-                for (method, setting), group in subset.groupby(["method", "setting"]):
-                    ax.plot(group.layer, group.value, ".-", label=f"{method}/{setting}", alpha=0.7)
+                for (method, setting, emotion), group in subset.groupby(
+                    ["method", "setting", "emotion"], dropna=False
+                ):
+                    label = f"{method}/{setting}"
+                    if pd.notna(emotion) and emotion:
+                        label += f"/{emotion}"
+                    _metric_curve(ax, group, "layer", "value", label)
                 ax.set(title=cohort, xlabel="Block", ylabel=metric)
             if len(part.groupby(["method", "setting"])) <= 12:
                 axes[-1].legend(fontsize=5)
@@ -181,6 +258,16 @@ def render(root):
             ax.bar(range(len(part)), part[value])
             for i, row in enumerate(part.itertuples()):
                 ax.text(i, 0, f"{row.completed_layers}/{row.layer_count}", rotation=90, fontsize=6)
+                if not np.isfinite(getattr(row, value)):
+                    ax.text(
+                        i,
+                        0.5,
+                        "N/A",
+                        transform=ax.get_xaxis_transform(),
+                        ha="center",
+                        rotation=90,
+                        fontsize=7,
+                    )
             ax.set_xticks(range(len(part)), labels, rotation=70, fontsize=7)
             ax.set_ylabel(value)
         fig.suptitle(f"{dim}D · equal weights over prespecified layers; counts show coverage")
@@ -311,8 +398,9 @@ def render_support_and_predictions(root):
             for (method, dim), part in scores.loc[scores.cohort.eq(cohort)].groupby(
                 ["method", "dimension"]
             ):
-                if part[axis].notna().any():
-                    ax.plot(part.depth, part[axis], label=f"{method}/{dim}D")
+                if axis == "arousal_pearson" and dim == 1:
+                    continue
+                _metric_curve(ax, part, "depth", axis, f"{method}/{dim}D")
             ax.set(title=cohort, xlabel="Normalized depth", ylabel=axis)
         if axes[-1].get_legend_handles_labels()[0]:
             axes[-1].legend(fontsize=6)
@@ -343,7 +431,7 @@ def render_support_and_predictions(root):
             ["cohort_left", "method_left", "cohort_right", "method_right"]
         ):
             ax = axes[0] if key[0] == key[2] else axes[1]
-            ax.plot(part.layer, part.delta_r2, label="/".join(key))
+            _metric_curve(ax, part, "layer", "delta_r2", "/".join(key))
         for ax, title in zip(axes, ["Method contrasts", "Cohort contrasts"]):
             ax.axhline(0, color="gray", lw=0.5)
             ax.set(title=title, xlabel="Block", ylabel="Paired CV R² difference")

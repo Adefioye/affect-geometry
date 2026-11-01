@@ -133,3 +133,27 @@ def evaluate(candidates, y, *, selection="nested"):
         full_transform=transform.record(),
         aligned=aligned,
     )
+
+
+def evaluate_layers(layer_candidates, y, layers):
+    """Secondary held-out evaluation selecting both layer and setting in inner folds.
+
+    No peak from the outer scores enters selection. Equal inner scores choose the
+    earliest layer, then the lexicographically first setting. All declared layers
+    must have supported candidates. This secondary estimate has no permutation p-value.
+    """
+    if any(not layer_candidates.get(layer) for layer in layers):
+        raise UnsupportedGeometry("incomplete_layer_selection_support")
+    candidates, lookup = {}, {}
+    for layer in sorted(layers):
+        for setting, coordinates in sorted(layer_candidates[layer].items()):
+            key = f"layer_{layer:06d}/{setting}"
+            candidates[key] = coordinates
+            lookup[key] = dict(layer=layer, setting=setting)
+    result = evaluate(candidates, y, selection="nested")
+    for fold in result["folds"]:
+        selected = lookup[fold["setting"]]
+        fold["selected_layer"] = selected["layer"]
+        fold["selected_setting"] = selected["setting"]
+    result["candidate_lookup"] = lookup
+    return result

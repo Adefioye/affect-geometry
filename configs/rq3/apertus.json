@@ -1,14 +1,11 @@
 {
-  "run_id": "rq3-analysis-pilot-v1",
+  "run_id": "rq3-analysis-full-v1",
   "nrc_path": "data/reference/goemotions_nrc_vad.csv",
   "nrc_provenance": "data/reference/goemotions_nrc_vad.provenance.json",
   "permutation_seed": 17,
-  "permutations": 2,
-  "smoke": true,
-  "layers": [
-    0,
-    1
-  ],
+  "permutations": 2000,
+  "smoke": false,
+  "layers": null,
   "isomap_neighbors": [
     3,
     5,
@@ -42,15 +39,15 @@
   "filtration_bound": 2.0,
   "betti_grid_size": 101,
   "tolerance": 1e-10,
-  "settings_frozen": false,
+  "settings_frozen": true,
   "pilot_verified": false,
   "emergence": {
     "minimum_interval": 3,
     "transition_threshold": 0.1
   },
   "budgets": {
-    "max_seconds": 3600,
-    "max_rss_gib": 32
+    "max_seconds": 604800,
+    "max_rss_gib": 64
   },
   "model": "apertus",
   "activation_source": {

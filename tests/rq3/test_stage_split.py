@@ -98,6 +98,7 @@ def test_downstream_uses_saved_projection_without_source_or_refitting(
     monkeypatch.setattr(correctness_geometry, "preprocess", forbidden)
     config = load_analysis_config(PROJECT / "configs/rq3/gemma2.json")
     config.update(
+        smoke=True,
         run_id="analysis-fixture",
         layers=[0],
         permutations=1,
@@ -254,3 +255,98 @@ def test_upload_rejects_different_existing_remote_run(prepared, tmp_path, monkey
             api=hub,
         )
     assert not hub.uploads
+
+
+def test_full_configs_preserve_unverified_pilot_status():
+    for slug in ("gemma2", "apertus", "olmo2"):
+        config = load_analysis_config(PROJECT / f"configs/rq3/{slug}.json")
+        assert config["layers"] is None and config["permutations"] == 2000
+        assert not config["smoke"] and config["settings_frozen"]
+        assert not config["pilot_verified"]
+
+
+def test_validate_remote_bundle_does_not_run_analysis(prepared, tmp_path, monkeypatch):
+    from affect_geometry.experiments import correctness_geometry, rq3_stages
+
+    bundle, _ = prepared
+    config = load_analysis_config(PROJECT / "configs/rq3/gemma2.json")
+    config.update(smoke=True, layers=[0], permutations=1)
+    config["activation_source"]["local_path"] = str(tmp_path / "absent")
+    config["nrc_path"] = str(PROJECT / config["nrc_path"])
+    config["nrc_provenance"] = str(PROJECT / config["nrc_provenance"])
+    monkeypatch.setattr(
+        rq3_stages,
+        "download_bundle",
+        lambda *a: (bundle.root, {"revision": "pinned", "repo_id": "researcher/rq3-gemma2"}),
+    )
+
+    def forbidden(*args, **kwargs):
+        raise AssertionError("Validation must not run analysis or publish")
+
+    monkeypatch.setattr(correctness_geometry, "run_geometry", forbidden)
+    monkeypatch.setattr(rq3_stages, "publish_stage", forbidden)
+    result = run_analysis(config, tmp_path, validate_only=True)
+    assert result["status"] == "validated" and not result["analysis_started"]
+    assert set(result["cohort_counts"]) == {"correct", "incorrect", "all"}
+    assert result["hub"]["revision"] == "pinned"
+    config["smoke"] = False
+    with pytest.raises(ValueError, match="full-population"):
+        run_analysis(config, tmp_path, validate_only=True)
+
+
+def test_standalone_upload_all_outputs_without_activations(tmp_path, monkeypatch):
+    from affect_geometry.experiments.rq3_stages import upload_analysis
+    from affect_geometry.persistence import rq3_hub
+    from affect_geometry.persistence.correctness_geometry import GeometryStore
+
+    config = load_analysis_config(PROJECT / "configs/rq3/gemma2.json")
+    root = tmp_path / "outputs/rq3/gemma2" / config["run_id"]
+    store = GeometryStore(
+        root, dict(model="gemma2", activations={"analysis_configuration": config})
+    )
+    for directory in ("metrics", "plot_data", "geometry", "validation", "inference"):
+        store.csv(f"{directory}/result.csv", pd.DataFrame({"value": [1.0]}))
+    (root / "plots").mkdir()
+    (root / "plots/figure.png").write_bytes(b"synthetic-figure")
+    (root / "reports").mkdir()
+    (root / "reports/run.md").write_text("Synthetic test report")
+    store.finish()
+    hub = FakeHub()
+    monkeypatch.setattr(rq3_hub, "hub_api", lambda: hub)
+    result = upload_analysis(config, tmp_path)
+    assert result["upload"]["repo_id"] == "researcher/rq3-gemma2"
+    uploaded = set(hub.uploads[0]["allow_patterns"])
+    assert uploaded == {str(p.relative_to(root)) for p in root.rglob("*") if p.is_file()}
+    assert hub.uploads[0]["path_in_repo"] == f"analyses/{config['run_id']}"
+    (root / "extra.csv").write_text("unexpected")
+    with pytest.raises(ValueError, match="uncheckpointed"):
+        upload_analysis(config, tmp_path)
+
+
+def test_metric_plot_data_preserves_missing_layers_and_emotion_curves():
+    from affect_geometry.reporting.correctness_geometry import metric_curve_table
+
+    rows = []
+    for emotion in ("joy", "neutral"):
+        for layer in (0, 2):
+            rows.append(
+                dict(
+                    cohort="all",
+                    method="shared",
+                    dimension=0,
+                    setting="original",
+                    reference="projected_samples",
+                    metric="within_emotion_scatter",
+                    emotion=emotion,
+                    layer=layer,
+                    value=1.0,
+                    status="ok",
+                    reason="",
+                )
+            )
+    scores = pd.DataFrame({"layer": [0, 1, 2], "depth": [1 / 3, 2 / 3, 1]})
+    result = metric_curve_table(pd.DataFrame(rows), scores)
+    assert len(result) == 6
+    missing = result.loc[result.layer.eq(1)]
+    assert set(missing.emotion) == {"joy", "neutral"}
+    assert missing.value.isna().all() and missing.status.eq("unsupported").all()

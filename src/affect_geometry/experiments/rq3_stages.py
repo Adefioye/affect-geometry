@@ -244,7 +244,7 @@ def run_extraction(config, project_root, *, command="run", publish=True):
     return outputs
 
 
-def run_analysis(config, project_root, *, publish=True):
+def run_analysis(config, project_root, *, publish=True, validate_only=False):
     project = Path(project_root).resolve()
     slug = config["model"]
     configure_file_logging(project / "logs" / f"{slug}-{config['run_id']}-analysis", "rq3-analysis")
@@ -271,6 +271,27 @@ def run_analysis(config, project_root, *, publish=True):
     target, nrc = read_targets(
         project / config["nrc_path"], project / config["nrc_provenance"], bundle.cohorts.labels
     )
+    if validate_only:
+        projection_failures = []
+        for cohort in ("correct", "incorrect", "all"):
+            for layer in range(bundle.manifest["n_layers"]):
+                status = json.loads(
+                    (local / f"cohorts/{cohort}/status/layer_{layer:03d}.json").read_text()
+                )
+                if status["status"] != "ok":
+                    projection_failures.append(status)
+        return dict(
+            model=slug,
+            bundle=str(local),
+            hub=remote,
+            layers=bundle.manifest["n_layers"],
+            emotions=list(bundle.cohorts.labels),
+            cohort_counts=bundle.cohorts.samples.groupby("cohort").size().to_dict(),
+            full_population=bundle.manifest["source_audit"].get("full_population", False),
+            unsupported_projections=projection_failures,
+            status="validated",
+            analysis_started=False,
+        )
     samples = bundle.cohorts.samples.loc[bundle.cohorts.samples.cohort.eq("all")].sort_values(
         "sample_id"
     )
@@ -359,3 +380,37 @@ def compare_analyses(roots, project_root, comparison_id, *, publish=True):
                 )
         atomic_json(destination.parent / f"{comparison_id}-uploads.json", receipts)
     return dict(path=str(destination), uploads=receipts)
+
+
+def upload_analysis(config, project_root):
+    """Upload an existing completed analysis without loading activations or running metrics."""
+    project = Path(project_root).resolve()
+    root = project / "outputs/rq3" / config["model"] / config["run_id"]
+    manifest = json.loads((root / "manifest.json").read_text())
+    if manifest.get("model") != config["model"]:
+        raise ValueError("Analysis model differs from upload configuration")
+    saved = manifest.get("activations", {}).get("analysis_configuration")
+    if saved != config:
+        raise ValueError("Use the analysis configuration saved with this run for upload")
+    receipt = publish_stage(
+        root,
+        repo_id=config["publish"]["repo_id"],
+        path_in_repo=f"analyses/{config['run_id']}",
+        private=config["publish"]["private"],
+    )
+    atomic_json(root.parent / f"{config['run_id']}-upload.json", receipt)
+    return dict(path=str(root), upload=receipt)
+
+
+def regenerate_report(root):
+    """Refresh figures from verified saved tables and checkpoint the new renderings."""
+    from affect_geometry.persistence.correctness_geometry import GeometryStore
+    from affect_geometry.reporting.correctness_geometry import render
+
+    root = Path(root)
+    manifest = json.loads((root / "manifest.json").read_text())
+    store = GeometryStore(root, {k: v for k, v in manifest.items() if k != "schema_version"})
+    if not store.valid("run", store.manifest):
+        raise ValueError("Cannot render an incomplete or modified analysis run")
+    render(root)
+    store.finish()

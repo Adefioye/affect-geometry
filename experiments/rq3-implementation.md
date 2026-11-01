@@ -55,32 +55,62 @@ python script/run_rq3_geometry.py run --config configs/rq3/olmo2.json
 Each config contains only that model's activation source, analysis settings, budgets, and publishing
 settings. The saved cohort draw and seed come from the bundle; stage 2 cannot choose another draw.
 It does not load a language model, need the original RQ2 files, fit neutral PCA, or project the samples
-again. It consumes the persisted derivative and preprocessing checkpoint for every metric/analysis.
+again. Primary per-model geometry consumes persisted projected samples and preprocessing checkpoints.
+Raw arrays remain part of bundle validation; cross-model recentering uses saved raw centroids.
 
 A valid local bundle is preferred. If it is absent, the script downloads the configured dataset
 folder, resolving `revision` to an exact commit before downloading. An existing broken local bundle
 fails validation instead of silently changing inputs. The source commit/checksums are recorded.
 Set `activation_source.revision` to the upload receipt's commit to pin a particular remote release.
 
-The supplied analysis configs remain **non-inferential pilots** (two layers, two permutations).
-For full inference use a new run ID, `smoke: false`, `layers: null`, `permutations: 2000`, and set
-`settings_frozen` and `pilot_verified` after reviewing pilot runtime/memory and grids. Full inference
-requires a bundle built from a full RQ2 source. Numerical policies and metrics below are unchanged.
+The supplied analysis configs select **full runs**: every block layer (`layers: null`), all three
+cohorts, both dimensions, and 2,000 permutations (`smoke: false`). Settings are frozen in the config.
+At the user's request, real-data pilot verification is not a prerequisite; `pilot_verified: false`
+is retained honestly in provenance. No real-data pilot or full analysis has been executed to verify
+runtime. Analysis budgets are seven days and 64 GiB peak CPU RAM per model; these are cooperative
+limits, not GPU memory reservations or runtime estimates. Full analysis requires a bundle built
+from a full-population RQ2 source.
+
+Validate local or Hub inputs without running metrics or uploading results:
+
+```sh
+python script/run_rq3_geometry.py validate --config configs/rq3/gemma2.json
+```
+
+Validation checks the model, all artifact checksums, cohort/sample identities, raw/projected
+matrix shapes, full-population provenance, and NRC coverage. The complete stage-1 bundle is required,
+including samples, preprocessing and manifests; bare activation arrays are insufficient. Unsupported
+cohort/layer projection statuses remain explicit. No language model or original RQ2 files are needed.
 
 Replay plots from an existing result directory:
 
 ```sh
-python script/run_rq3_geometry.py report --run-dir outputs/rq3/gemma2/rq3-analysis-pilot-v1
+python script/run_rq3_geometry.py report --run-dir outputs/rq3/gemma2/rq3-analysis-full-v1
 ```
 
 After all three independent model jobs finish, produce common-support comparisons:
 
 ```sh
 python script/run_rq3_geometry.py compare --comparison-id rq3-comparison-v1 --compare-runs \
-  outputs/rq3/gemma2/rq3-analysis-pilot-v1 \
-  outputs/rq3/apertus/rq3-analysis-pilot-v1 \
-  outputs/rq3/olmo2/rq3-analysis-pilot-v1
+  outputs/rq3/gemma2/rq3-analysis-full-v1 \
+  outputs/rq3/apertus/rq3-analysis-full-v1 \
+  outputs/rq3/olmo2/rq3-analysis-full-v1
 ```
+
+## Upload completed analysis without rerunning it
+
+```sh
+python script/upload_rq3_analysis.py --config configs/rq3/gemma2.json
+python script/upload_rq3_analysis.py --config configs/rq3/apertus.json
+python script/upload_rq3_analysis.py --config configs/rq3/olmo2.json
+```
+
+This standalone script needs only the completed local analysis folder and its original configuration;
+it does not download activations or compute metrics. It verifies model/configuration identity and
+all output checksums, then uploads every recorded file: plots, CSVs, plot_data, geometry, validation,
+inference, reports, manifests and checkpoints. Unexpected uncheckpointed files cause an error rather
+than silent omission. Report regeneration verifies the existing run and refreshes its checksums.
+`HF_TOKEN` is loaded from `affect-geometry/.env`; an exported token takes precedence.
 
 ## Hugging Face organization
 
@@ -107,7 +137,7 @@ activations/rq3-activations-v1/
     incorrect/  # same files, separate fitted projection
     all/        # same files, union draw and its own fitted projection
   checkpoints/
-analyses/rq3-analysis-pilot-v1/
+analyses/rq3-analysis-full-v1/
   manifest.json
   cohorts/  activations/  preprocessing/  geometry/
   validation/  inference/  metrics/  plot_data/  plots/  reports/  checkpoints/
@@ -142,6 +172,11 @@ Operational logs stay under `logs/<model>-<run>-extract/` or `logs/<model>-<run>
   all layers. Complete VA rows stay together. Every permutation refits transformations and
   rating-dependent selection. Per-permutation checkpoints save null values, settings and fitted
   outer transformations. Aggregate and layerwise maximum-statistic families are separate.
+- Secondary nested layer-and-setting selection is saved separately in
+  `metrics/selected_layer_scores.csv` and `validation/selected_layers/`. Each outer fold selects
+  both layer and setting using only inner training ratings; ties choose the earliest layer.
+  It does not replace `A_M` or receive a permutation p-value. Primary permutation families remain
+  the prespecified aggregate and layerwise families. Incomplete layer support is recorded explicitly.
 - Best-layer CKA is descriptive, uses native coordinates and the earliest exactly tied layer, and
   retains unsupported matrix cells. No CKA selection occurs from an incomplete layer panel.
 - A stable significant interval means at least the configured number of successive evaluated

@@ -25,7 +25,7 @@ from affect_geometry.analysis.geometry_inference import (
     permutation_schedule,
 )
 from affect_geometry.analysis.geometry_preprocessing import preprocess
-from affect_geometry.analysis.geometry_validation import evaluate
+from affect_geometry.analysis.geometry_validation import evaluate, evaluate_layers
 from affect_geometry.analysis.nonlinearity import (
     fidelity,
     graph_diagnostics,
@@ -648,6 +648,55 @@ def run_geometry(
             aggregates.loc[indices, "A_M"], inference["aggregate_null"]
         )
         aggregates.loc[indices, "raw_p"], aggregates.loc[indices, "corrected_p"] = raw, adjusted
+    # Secondary selected-pipeline prediction, distinct from primary mean-layer A_M.
+    selected_rows = []
+    for dim in (1, 2):
+        for c in COHORTS:
+            for method in METHODS:
+                budget.check()
+                context = dict(
+                    cohort=c,
+                    method=method,
+                    dimension=dim,
+                    target_set="valence" if dim == 1 else "VA",
+                    analysis="nested_layer_and_setting_selection",
+                    inference_status="descriptive_no_permutation_test",
+                    layer_set="|".join(map(str, layers)),
+                )
+                try:
+                    result = evaluate_layers(
+                        {layer: candidates[dim].get((c, method, layer), {}) for layer in layers},
+                        target[:, :dim],
+                        layers,
+                    )
+                    path = f"validation/selected_layers/{c}/{method}/{dim}d"
+                    store.json(f"{path}/folds.json", result["folds"])
+                    store.json(f"{path}/candidate_lookup.json", result["candidate_lookup"])
+                    rows = []
+                    for i, emotion in enumerate(labels):
+                        for axis in range(dim):
+                            rows.append(
+                                dict(
+                                    emotion=emotion,
+                                    axis=("valence", "arousal")[axis],
+                                    observed=target[i, axis],
+                                    predicted=result["predictions"][i, axis],
+                                    training_mean=result["training_means"][i, axis],
+                                    selected_layer=result["folds"][i]["selected_layer"],
+                                    selected_setting=result["folds"][i]["selected_setting"],
+                                )
+                            )
+                    store.csv(
+                        f"{path}/predictions.csv",
+                        context_frame(pd.DataFrame(rows), dict(base, **context)),
+                    )
+                    selected_rows.append(
+                        dict(context, cv_r2=result["cv_r2"], status="ok", reason="")
+                    )
+                except UnsupportedGeometry as exc:
+                    selected_rows.append(
+                        dict(context, cv_r2=np.nan, status="unsupported", reason=str(exc))
+                    )
     differences, errors = contrasts(scores, evaluations)
     if len(errors):
         errors["emotion"] = errors.emotion_index.map(dict(enumerate(labels)))
@@ -672,6 +721,7 @@ def run_geometry(
     for record in metric_rows:
         record["value"] = float(record["value"])
     tables = dict(
+        selected_layer_scores=pd.DataFrame(selected_rows),
         scores=scores,
         aggregates=aggregates,
         cka=selected_cka(scores, coordinates),

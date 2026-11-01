@@ -96,5 +96,5 @@ Use [extract_rq3_activations.py](script/extract_rq3_activations.py) with
 sample states for all three cohorts/models. Then run [run_rq3_geometry.py](script/run_rq3_geometry.py)
 with [Gemma2](configs/rq3/gemma2.json), [Apertus](configs/rq3/apertus.json), or
 [OLMo2](configs/rq3/olmo2.json). Each model's activations and all analysis artifacts, including
-`plot_data`, share its `{username}/rq3-<model>` dataset. Analysis configs default to non-inferential
-pilots; full inference requires frozen settings and 2,000 permutations.
+`plot_data`, share its `{username}/rq3-<model>` dataset. Analysis configs select all layers and 2,000 permutations. Use
+[upload_rq3_analysis.py](script/upload_rq3_analysis.py) to upload a completed run independently.

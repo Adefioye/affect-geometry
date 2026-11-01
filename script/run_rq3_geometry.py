@@ -10,7 +10,9 @@ from affect_geometry.experiments.rq3_stages import load_analysis_config, run_ana
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("command", nargs="?", default="run", choices=["run", "report", "compare"])
+    parser.add_argument(
+        "command", nargs="?", default="run", choices=["run", "validate", "report", "compare"]
+    )
     parser.add_argument("--config", type=Path, help="configs/rq3/{gemma2,apertus,olmo2}.json")
     parser.add_argument("--project-root", type=Path, default=Path(__file__).resolve().parents[1])
     parser.add_argument("--run-dir", type=Path)
@@ -25,9 +27,9 @@ def main():
     if args.command == "report":
         if args.run_dir is None:
             parser.error("--run-dir is required for report")
-        from affect_geometry.reporting.correctness_geometry import render
+        from affect_geometry.experiments.rq3_stages import regenerate_report
 
-        render(args.run_dir)
+        regenerate_report(args.project_root / args.run_dir)
     elif args.command == "compare":
         if not args.compare_runs:
             parser.error("--compare-runs requires three completed model runs")
@@ -51,7 +53,10 @@ def main():
         print(
             json.dumps(
                 run_analysis(
-                    load_analysis_config(path), args.project_root, publish=not args.no_upload
+                    load_analysis_config(path),
+                    args.project_root,
+                    publish=not args.no_upload,
+                    validate_only=args.command == "validate",
                 ),
                 indent=2,
             )

@@ -19,6 +19,7 @@ def test_end_to_end_nine_cohorts_three_methods_replay(tmp_path):
         load_analysis_config(project / "configs/rq3/gemma2.json"), seed=42
     )
     config.update(
+        smoke=True,
         layers=[0, 1],
         isomap_neighbors=[3],
         diffusion_neighbors=[3],
@@ -58,6 +59,11 @@ def test_end_to_end_nine_cohorts_three_methods_replay(tmp_path):
         assert (root / "inference/1d/nulls.npz").exists()
         assert (root / "plots/cka-all-2d.png").exists()
         assert len(pd.read_csv(root / "metrics/aggregates.csv")) == 18
+        secondary = pd.read_csv(root / "metrics/selected_layer_scores.csv")
+        assert len(secondary) == 18 and secondary.status.eq("ok").all()
+        assert secondary.inference_status.eq("descriptive_no_permutation_test").all()
+        assert (root / "validation/selected_layers/all/mds/2d/folds.json").exists()
+        assert (root / "plot_data/metric_curves.csv").exists()
         before = checksum(root / "metrics/scores.csv")
         run_geometry(
             config,
@@ -97,6 +103,7 @@ def test_unsupported_geometry_keeps_all_cells_and_invalidates_families(tmp_path)
         load_analysis_config(project / "configs/rq3/gemma2.json"), seed=42
     )
     config.update(
+        smoke=True,
         layers=[0],
         isomap_neighbors=[3],
         diffusion_neighbors=[3],

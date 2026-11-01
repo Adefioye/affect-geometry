@@ -51,6 +51,11 @@ def publish_stage(root, *, repo_id, path_in_repo, private=True, api=None):
     store = GeometryStore(root, {k: v for k, v in manifest.items() if k != "schema_version"})
     if not store.valid("run", store.manifest):
         raise ValueError("Cannot publish an incomplete or modified RQ3 stage")
+    record = json.loads((root / "checkpoints/run.json").read_text())
+    files = sorted(record["artifacts"]) + ["checkpoints/run.json"]
+    actual = {str(p.relative_to(root)) for p in root.rglob("*") if p.is_file()}
+    if actual != set(files):
+        raise ValueError("Run contains uncheckpointed files; cannot silently omit outputs")
     api = api or hub_api()
     repository = resolve_repository(repo_id, api)
     prefix = repo_path(path_in_repo)
@@ -66,8 +71,6 @@ def publish_stage(root, *, repo_id, path_in_repo, private=True, api=None):
         )
         if json.loads(Path(remote).read_text()) != manifest:
             raise ValueError("Remote run manifest differs; choose a new run_id/path")
-    record = json.loads((root / "checkpoints/run.json").read_text())
-    files = sorted(record["artifacts"]) + ["checkpoints/run.json"]
     commit = api.upload_folder(
         repo_id=repository,
         repo_type="dataset",

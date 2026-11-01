@@ -197,3 +197,21 @@ def test_store_invalidates_corruption_and_provenance(tmp_path):
     assert not store.valid("a", {"cohort": "correct"})
     with pytest.raises(ValueError):
         GeometryStore(tmp_path, {"run": "changed"})
+
+
+def test_nested_layer_selection_uses_only_outer_training_targets():
+    from affect_geometry.analysis.geometry_validation import evaluate_layers
+
+    rng = np.random.default_rng(73)
+    candidates = {0: {"a": rng.normal(size=(8, 1))}, 1: {"b": rng.normal(size=(8, 1))}}
+    y = rng.normal(size=(8, 1))
+    result = evaluate_layers(candidates, y, [0, 1])
+    altered = y.copy()
+    altered[0] += 100
+    changed = evaluate_layers(candidates, altered, [0, 1])
+    assert result["folds"][0] == changed["folds"][0]
+    assert result["predictions"][0] == changed["predictions"][0]
+    tied = evaluate_layers({3: candidates[0], 0: candidates[0]}, y, [3, 0])
+    assert all(f["selected_layer"] == 0 for f in tied["folds"])
+    with pytest.raises(UnsupportedGeometry, match="incomplete_layer_selection_support"):
+        evaluate_layers({0: candidates[0]}, y, [0, 1])
