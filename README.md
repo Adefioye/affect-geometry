@@ -84,3 +84,12 @@ complementary diagnostic. No Choi–Weber scripts are imported or executed.
 
 See [classification commands and outputs](experiments/rq2-classification.md) and
 [the RQ2 protocol](docs/rq2.md). Begin with a training-only pilot before a full GPU run.
+
+### RQ3: correctness-conditioned affective geometry
+
+The RQ3 pipeline adds balanced correctness cohorts, verified classification-prompt activations,
+strict MDS/Isomap and Diffusion Maps, nested held-out-rating evaluation, NRC-row permutation
+families, centroid topology, selected-layer CKA, and reproducible CSV-based figures.
+Start with the [implementation and run guide](experiments/rq3-implementation.md).
+The supplied [configuration](configs/rq3_geometry.json) is a non-inferential pilot; full inference
+requires the complete source records, verified prompt activations, frozen settings, and 2,000 permutations.

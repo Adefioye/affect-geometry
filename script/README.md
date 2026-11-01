@@ -167,3 +167,9 @@ python script/run_representation_comparison.py \
 The command validates and aligns sample IDs, evaluates the configured representation variants,
 and writes representations, neutral-PCA checkpoints, cosine RDMs, MDS coordinates, ranked tables,
 plot-ready CSVs, and plots beneath `outputs/representation_comparison/`.
+
+## RQ3 correctness-conditioned geometry
+
+`run_rq3_geometry.py` provides `validate`, `extract`, `run`, and `report` commands.
+See [the RQ3 implementation guide](../experiments/rq3-implementation.md) for required source records,
+configuration, full-run safeguards, and checkpoint replay.
