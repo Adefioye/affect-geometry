@@ -180,6 +180,7 @@ def test_paired_comparison_checks_population(tmp_path):
 
 
 def test_single_model_configs_and_cli_overrides():
+    import json
     from pathlib import Path
 
     from affect_geometry.classification.__main__ import parse_args
@@ -191,11 +192,15 @@ def test_single_model_configs_and_cli_overrides():
         assert args.model == model
         assert str(args.run_dir) == f"outputs/rq2_classification/{model}/full"
         assert args.pilot_limit == 0
-        assert args.batch_size == 8
+        assert args.batch_size == json.loads(config.read_text())["batch_size"]
         override = parse_args(
-            ["run", "--config", str(config), "--pilot-limit", "8", "--run-dir", "outputs/pilot"]
+            [
+                "run", "--config", str(config), "--pilot-limit", "8",
+                "--run-dir", "outputs/pilot", "--batch-size", "3",
+            ]
         )
         assert override.pilot_limit == 8 and str(override.run_dir) == "outputs/pilot"
+        assert override.batch_size == 3
 
 
 def test_reject_multi_model_config(tmp_path):
