@@ -1,0 +1,67 @@
+{
+  "output_dir": "outputs/valence-transfer/pc1-v1",
+  "nrc_path": "data/reference/goemotions_nrc_vad.csv",
+  "seed": 42,
+  "max_tokens": 1000,
+  "max_pairs": null,
+  "random_directions": 5,
+  "models": {
+    "gemma2": {
+      "device": "auto",
+      "dtype": "auto",
+      "activation_source": {
+        "repo_id": "kokolamba/rq3-gemma2",
+        "revision": "3ae38a8e481a56b3b7c24025fb86cea44259ef2c",
+        "path_in_repo": "activations/rq3-activations-v1"
+      }
+    },
+    "apertus": {
+      "device": "auto",
+      "dtype": "auto",
+      "activation_source": {
+        "repo_id": "kokolamba/rq3-apertus",
+        "revision": "07517cb3cbb71a2cc6298cfdfaf74362805b5cb0",
+        "path_in_repo": "activations/rq3-activations-v1"
+      }
+    },
+    "olmo2": {
+      "device": "auto",
+      "dtype": "auto",
+      "activation_source": {
+        "repo_id": "kokolamba/rq3-olmo2",
+        "revision": "a581c7d352339b00789855ae1fe13d66f44120cd",
+        "path_in_repo": "activations/rq3-activations-bs8-v1"
+      }
+    }
+  },
+  "datasets": [
+    {
+      "name": "sst",
+      "repo_id": "kokolamba/sentiment-manifold-sst-pythia-2.8b",
+      "revision": "bcffb933a34a48b409a7caf3a53f0fe7bb8152cc",
+      "config": "tigges_pairing_candidates",
+      "split": "test"
+    },
+    {
+      "name": "imdb",
+      "repo_id": "kokolamba/sentiment-manifold-imdb-pythia-2.8b",
+      "revision": "06586d20342aa46fa61525b1f7609ab065983e3e",
+      "config": "pairing_candidates",
+      "split": "test"
+    },
+    {
+      "name": "dynasent_r1",
+      "repo_id": "kokolamba/sentiment-manifold-dynasent-r1-r2-pythia-2.8b",
+      "revision": "f4aa6cc90bfeda2080e6445592a8f689c974fd3d",
+      "config": "r1_pairing_candidates",
+      "split": "test"
+    },
+    {
+      "name": "dynasent_r2",
+      "repo_id": "kokolamba/sentiment-manifold-dynasent-r1-r2-pythia-2.8b",
+      "revision": "f4aa6cc90bfeda2080e6445592a8f689c974fd3d",
+      "config": "r2_pairing_candidates",
+      "split": "test"
+    }
+  ]
+}

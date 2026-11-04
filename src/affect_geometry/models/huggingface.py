@@ -4,6 +4,7 @@ from typing import Any
 
 import torch
 
+from affect_geometry.classification.environment import load_hf_token
 from affect_geometry.config import ModelConfig
 
 
@@ -32,13 +33,15 @@ def load_causal_lm(config: ModelConfig) -> tuple[Any, Any, torch.device]:
 
     device = resolve_device(config.device)
     dtype = resolve_dtype(config.dtype, device)
-    tokenizer = AutoTokenizer.from_pretrained(config.name, revision=config.revision)
+    token = load_hf_token()
+    tokenizer = AutoTokenizer.from_pretrained(config.name, revision=config.revision, token=token)
     if tokenizer.pad_token_id is None:
         tokenizer.pad_token = tokenizer.eos_token
     model = AutoModelForCausalLM.from_pretrained(
         config.name,
         revision=config.revision,
         torch_dtype=dtype,
+        token=token,
     )
     model.to(device)
     model.eval()

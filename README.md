@@ -98,3 +98,9 @@ with [Gemma2](configs/rq3/gemma2.json), [Apertus](configs/rq3/apertus.json), or
 [OLMo2](configs/rq3/olmo2.json). Each model's activations and all analysis artifacts, including
 `plot_data`, share its `{username}/rq3-<model>` dataset. Analysis configs select all layers and 2,000 permutations. Use
 [upload_rq3_analysis.py](script/upload_rq3_analysis.py) to upload a completed run independently.
+
+## Valence-direction transfer
+
+See [RQ4](rq4.md) for centroid-PC1 extraction from saved RQ3 last-token neutral-projected
+activations and frozen directional patching on SST, IMDb, DynaSent R1 and R2.
+The standalone configuration is `configs/valence_transfer.json`.
