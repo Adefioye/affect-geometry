@@ -23,6 +23,7 @@ BASELINES = {
     "apertus": "d61972e561c168e9be9fb55b29208999acf2c00f",
 }
 RUNS = ("repeat-01", "repeat-02")
+REPEAT_BATCH_SIZE = 16
 MATCH_COLUMNS = ["sample_id", "source_split", "source_row", "text_hash", "emotion", "prompt_hash"]
 OUTCOME_COLUMNS = ["status", "correct", "compat_correct", "inference_batch_size"]
 
@@ -44,7 +45,7 @@ def command(model, run, manifest):
         "--seed",
         str(manifest["seed"]),
         "--batch-size",
-        str(manifest["batch_size"]),
+        str(REPEAT_BATCH_SIZE),
         "--dtype",
         manifest["dtype"],
         "--device",
@@ -53,10 +54,9 @@ def command(model, run, manifest):
 
 
 def check_manifest(baseline, actual, run):
-    differences = [
-        key for key, value in baseline.items() if key != "run_id" and actual.get(key) != value
-    ]
-    if actual.get("run_id") != run or differences:
+    expected = dict(baseline, run_id=run, batch_size=REPEAT_BATCH_SIZE)
+    differences = [key for key, value in expected.items() if actual.get(key) != value]
+    if differences:
         raise ValueError(f"{run}: manifest mismatch: {differences}")
 
 
@@ -77,6 +77,19 @@ def load_split(files, split):
     ):
         raise ValueError(f"Incomplete or invalid {split} data")
     return frame.sort_values("sample_id").reset_index(drop=True)
+
+
+def check_batch_sizes(splits, run):
+    # The classifier batches the full dataset in source order, across split boundaries.
+    sizes = [
+        size for split in splits for size in split.sort_values("source_row").inference_batch_size
+    ]
+    full_batches, tail = divmod(len(sizes), REPEAT_BATCH_SIZE)
+    full_rows = full_batches * REPEAT_BATCH_SIZE
+    if any(size != REPEAT_BATCH_SIZE for size in sizes[:full_rows]) or any(
+        size != tail for size in sizes[full_rows:]
+    ):
+        raise ValueError(f"{run}: unexpected actual batch sizes for batch size {REPEAT_BATCH_SIZE}")
 
 
 def compare_runs(model, frames):
@@ -204,9 +217,8 @@ def run_model(api, model, repo, revision, cache, baseline):
         for split, reference in original.items():
             repeat = load_split([local / "dataset" / f"{split}.parquet"], split)
             pd.testing.assert_frame_equal(repeat[MATCH_COLUMNS], reference[MATCH_COLUMNS])
-            if not repeat.inference_batch_size.eq(reference.inference_batch_size).all():
-                raise ValueError(f"{model}/{run}: actual batch sizes differ in {split}")
             paired.append(repeat)
+        check_batch_sizes(paired, f"{model}/{run}")
         rows = pd.concat(paired, ignore_index=True)
         frames[run] = rows
         print(

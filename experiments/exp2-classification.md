@@ -135,9 +135,11 @@ python script/run_classification_repeats.py
 Use `--model gemma2`, `--model olmo2`, or `--model apertus` to select one model. Install the
 package versions listed under `versions` in the original Hub manifest in the intended inference
 environment. The launcher checks those versions and the classifier code hash. It pins the
-published model and dataset revisions, reuses the recorded seed, batch size, dtype, and device
-setting, and verifies complete sample IDs, prompt hashes, and actual batch sizes against the
-published original. The manifests do not record the original GPU model.
+published model and dataset revisions, reuses the recorded seed, dtype, and device setting,
+and verifies complete sample IDs and prompt hashes against the published original. Both
+repeats use batch size 16, with a final batch of 6 for the 45,446 samples. The published
+originals used batch size 32, so comparisons with the original include a batch-size change.
+The manifests do not record the original GPU model.
 
 Each pass uses its own local run directory. After both pass validation, one Hub commit adds
 `runs/repeat-01/` and `runs/repeat-02/` to the model's existing `exp2-goemotions-single-label-*`
