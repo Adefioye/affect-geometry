@@ -121,6 +121,41 @@ def test_source_preservation_and_filter():
     assert len(rows) == 3 and len({r["sample_id"] for r in rows}) == 3
     assert all(r["emotion"] == "neutral" and r["extra"] == "keep" for r in rows)
     assert all(a["excluded"] == 1 for a in audit)
+    test_rows, test_audit = prepare({"test": data["test"]}, "fixture", splits=("test",))
+    assert test_rows == [row for row in rows if row["source_split"] == "test"]
+    assert test_audit == [entry for entry in audit if entry["split"] == "test"]
+
+
+def test_scoped_repeat_resume_preserves_batch_context_and_writes_only_test(tmp_path):
+    import pyarrow.parquet as pq
+
+    rows = [
+        dict(sample_id=str(i), text="example", emotion="joy", source_split="test")
+        for i in range(3)
+    ]
+    manifest = dict(
+        model_id="fake", model_revision="sha", run_id="repeat-01", split="test",
+        seed=42, batch_size=2,
+    )
+
+    class Generator:
+        def __init__(self):
+            self.batches = []
+
+        def batch(self, batch, seed):
+            self.batches.append([row["sample_id"] for row in batch])
+            return [dict(raw_response="joy", inference_batch_size=len(batch)) for _ in batch]
+
+    ledger = Ledger(tmp_path, manifest)
+    ledger.put(dict(rows[0], status="completed", inference_batch_size=2, **score("joy", "joy")))
+    ledger.close()
+    generator = Generator()
+    classify(rows, generator, tmp_path, manifest)
+    assert generator.batches == [["0", "1"], ["2"]]
+    assert sorted(path.name for path in (tmp_path / "dataset").iterdir()) == ["test.parquet"]
+    table = pq.read_table(tmp_path / "dataset/test.parquet")
+    assert table["inference_batch_size"].to_pylist() == [2, 2, 1]
+    assert table["correct"].to_pylist() == [True, True, True]
 
 
 def test_all_errors_have_nullable_boolean_snapshot(tmp_path):
@@ -201,6 +236,8 @@ def test_single_model_configs_and_cli_overrides():
         )
         assert override.pilot_limit == 8 and str(override.run_dir) == "outputs/pilot"
         assert override.batch_size == 3
+        test = parse_args(["run", "--config", str(config), "--split", "test"])
+        assert test.split == "test" and args.split is None
 
 
 def test_reject_multi_model_config(tmp_path):

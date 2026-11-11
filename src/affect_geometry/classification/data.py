@@ -6,9 +6,9 @@ EXPECTED = {"train": 36308, "validation": 4548, "test": 4590}
 SOURCE = {"train": 43410, "validation": 5426, "test": 5427}
 
 
-def prepare(dataset, identity):
+def prepare(dataset, identity, *, splits=EXPECTED):
     rows, audit = [], []
-    for split in EXPECTED:
+    for split in splits:
         part = dataset[split]
         names = list(part.features["labels"].feature.names)
         if names != EMOTIONS:

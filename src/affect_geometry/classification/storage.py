@@ -5,6 +5,8 @@ import os
 import sqlite3
 from pathlib import Path
 
+from .data import EXPECTED
+
 
 def atomic_json(path, value):
     path = Path(path)
@@ -48,7 +50,7 @@ class Ledger:
         self.db.close()
 
 
-def snapshot(root, rows):
+def snapshot(root, rows, *, splits=EXPECTED):
     import pyarrow as pa
     import pyarrow.parquet as pq
 
@@ -72,7 +74,7 @@ def snapshot(root, rows):
         if key in table.column_names:
             i = table.column_names.index(key)
             table = table.set_column(i, key, table[key].cast(dtype))
-    for split in ("train", "validation", "test"):
+    for split in splits:
         import pyarrow.compute as pc
 
         part = table.filter(pc.equal(table["source_split"], split))

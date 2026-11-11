@@ -1,4 +1,4 @@
-"""Run, compare and publish two full EXP2 repeats using the original classifier."""
+"""Run, compare and publish three EXP2 repeats on the GoEmotions test split."""
 
 import argparse
 import hashlib
@@ -13,6 +13,7 @@ from huggingface_hub import CommitOperationAdd, HfApi, hf_hub_download
 
 from affect_geometry.classification.data import EXPECTED as SPLITS
 from affect_geometry.classification.environment import load_hf_token
+from affect_geometry.classification.protocol import digest
 
 ROOT = Path(__file__).resolve().parents[1]
 OUTPUT = ROOT / "outputs/exp2_classification"
@@ -22,7 +23,8 @@ BASELINES = {
     "olmo2": "04c26868cb2b16ab127d9182e8d06264e13dd698",
     "apertus": "d61972e561c168e9be9fb55b29208999acf2c00f",
 }
-RUNS = ("repeat-01", "repeat-02")
+RUNS = ("repeat-01", "repeat-02", "repeat-03")
+TEST_SPLIT = "test"
 REPEAT_BATCH_SIZE = 16
 MATCH_COLUMNS = ["sample_id", "source_split", "source_row", "text_hash", "emotion", "prompt_hash"]
 OUTCOME_COLUMNS = ["status", "correct", "compat_correct", "inference_batch_size"]
@@ -36,6 +38,8 @@ def command(model, run, manifest):
         "run",
         "--model",
         model,
+        "--split",
+        TEST_SPLIT,
         "--run-dir",
         f"outputs/exp2_classification/{model}/{run}",
         "--model-revision",
@@ -53,8 +57,15 @@ def command(model, run, manifest):
     ]
 
 
-def check_manifest(baseline, actual, run):
-    expected = dict(baseline, run_id=run, batch_size=REPEAT_BATCH_SIZE)
+def check_manifest(baseline, actual, run, *, code_hash, sample_ids_hash):
+    expected = dict(
+        baseline,
+        run_id=run,
+        split=TEST_SPLIT,
+        batch_size=REPEAT_BATCH_SIZE,
+        code_hash=code_hash,
+        sample_ids_hash=sample_ids_hash,
+    )
     differences = [key for key, value in expected.items() if actual.get(key) != value]
     if differences:
         raise ValueError(f"{run}: manifest mismatch: {differences}")
@@ -79,11 +90,8 @@ def load_split(files, split):
     return frame.sort_values("sample_id").reset_index(drop=True)
 
 
-def check_batch_sizes(splits, run):
-    # The classifier batches the full dataset in source order, across split boundaries.
-    sizes = [
-        size for split in splits for size in split.sort_values("source_row").inference_batch_size
-    ]
+def check_batch_sizes(rows, run):
+    sizes = rows.sort_values("source_row").inference_batch_size.tolist()
     full_batches, tail = divmod(len(sizes), REPEAT_BATCH_SIZE)
     full_rows = full_batches * REPEAT_BATCH_SIZE
     if any(size != REPEAT_BATCH_SIZE for size in sizes[:full_rows]) or any(
@@ -95,8 +103,7 @@ def check_batch_sizes(splits, run):
 def compare_runs(model, frames):
     import pandas as pd
 
-    original = frames["full"]
-    pairs = original[["sample_id", "source_split", "emotion", "prompt_hash"]].copy()
+    pairs = frames[RUNS[0]][["sample_id", "source_split", "emotion", "prompt_hash"]].copy()
     metrics = ("correct", "compat_correct")
     for run, frame in frames.items():
         for metric in metrics:
@@ -124,7 +131,7 @@ def compare_runs(model, frames):
 def publish_repeats(api, repo, model, parent_commit):
     operations = []
     patterns = [
-        "dataset/*.parquet",
+        f"dataset/{TEST_SPLIT}.parquet",
         "manifest.json",
         "analyses/*",
         "plot_data/*",
@@ -137,8 +144,11 @@ def publish_repeats(api, repo, model, parent_commit):
         paths = sorted(
             {path for pattern in patterns for path in local.glob(pattern) if path.is_file()}
         )
-        required = {local / "dataset" / f"{split}.parquet" for split in SPLITS}
-        required |= {local / "manifest.json", local / "analyses/summary.csv"}
+        required = {
+            local / "dataset" / f"{TEST_SPLIT}.parquet",
+            local / "manifest.json",
+            local / "analyses/summary.csv",
+        }
         if not required <= set(paths):
             raise ValueError(f"Missing publication artifacts for {model}/{run}")
         operations.extend(
@@ -153,7 +163,7 @@ def publish_repeats(api, repo, model, parent_commit):
         repo_type="dataset",
         parent_commit=parent_commit,
         operations=operations,
-        commit_message="Add both EXP2 classification repeats",
+        commit_message="Add three EXP2 classification repeats on the test split",
     )
     uploaded = set(api.list_repo_files(repo, repo_type="dataset", revision=commit.oid))
     if not {operation.path_in_repo for operation in operations} <= uploaded:
@@ -175,9 +185,6 @@ def run_model(api, model, repo, revision, cache, baseline):
     code_hash = hashlib.sha256(
         "".join(path.read_text() for path in sorted(SOURCE.glob("*.py"))).encode()
     ).hexdigest()
-    if code_hash != baseline["code_hash"]:
-        raise ValueError("Classifier code differs from the published original")
-
     if not api.token:
         raise RuntimeError("Set HF_TOKEN for model access and dataset uploads")
     baseline_files = api.list_repo_files(repo, repo_type="dataset", revision=revision)
@@ -185,41 +192,32 @@ def run_model(api, model, repo, revision, cache, baseline):
     for run in RUNS:
         if any(file.rfilename.startswith(f"runs/{run}/") for file in current.siblings):
             raise ValueError(f"Destination already contains {repo}/runs/{run}")
-    original = {}
-    for split in SPLITS:
-        files = [
-            name
-            for name in baseline_files
-            if name.startswith(f"data/{split}-") and name.endswith(".parquet")
-        ]
-        original[split] = load_split(
-            [
-                hf_hub_download(
-                    repo,
-                    name,
-                    revision=revision,
-                    repo_type="dataset",
-                    token=api.token,
-                    local_dir=cache,
-                )
-                for name in files
-            ],
-            split,
-        )
-
-    frames = {"full": pd.concat(original.values(), ignore_index=True)}
+    files = [
+        name
+        for name in baseline_files
+        if name.startswith(f"data/{TEST_SPLIT}-") and name.endswith(".parquet")
+    ]
+    if not files:
+        raise ValueError(f"No published test predictions for {repo}@{revision}")
+    original = load_split(
+        [
+            hf_hub_download(
+                repo, name, revision=revision, repo_type="dataset", token=api.token, local_dir=cache
+            )
+            for name in files
+        ],
+        TEST_SPLIT,
+    )
+    sample_ids_hash = digest("\n".join(original.sort_values("source_row").sample_id))
+    frames = {}
     for run in RUNS:
         local = OUTPUT / model / run
         subprocess.run(command(model, run, baseline), cwd=ROOT, check=True)
         actual = json.loads((local / "manifest.json").read_text())
-        check_manifest(baseline, actual, run)
-        paired = []
-        for split, reference in original.items():
-            repeat = load_split([local / "dataset" / f"{split}.parquet"], split)
-            pd.testing.assert_frame_equal(repeat[MATCH_COLUMNS], reference[MATCH_COLUMNS])
-            paired.append(repeat)
-        check_batch_sizes(paired, f"{model}/{run}")
-        rows = pd.concat(paired, ignore_index=True)
+        check_manifest(baseline, actual, run, code_hash=code_hash, sample_ids_hash=sample_ids_hash)
+        rows = load_split([local / "dataset" / f"{TEST_SPLIT}.parquet"], TEST_SPLIT)
+        pd.testing.assert_frame_equal(rows[MATCH_COLUMNS], original[MATCH_COLUMNS])
+        check_batch_sizes(rows, f"{model}/{run}")
         frames[run] = rows
         print(
             f"{model}/{run}: {len(rows)} verified prompts, strict {rows.correct.mean():.2%}, "

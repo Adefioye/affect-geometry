@@ -2,6 +2,7 @@
 
 from affect_geometry.logging import get_logger, progress
 
+from .data import EXPECTED
 from .protocol import PROTOCOL, score
 from .storage import Ledger, snapshot
 
@@ -20,9 +21,16 @@ def classify(rows, generator, root, manifest, retries=2):
         if type(batch_size) is not int or batch_size < 1:
             raise ValueError("batch_size must be a positive integer")
 
+        split = manifest.get("split")
+        # A scoped repeat keeps the original batch context when resuming inside a batch.
+        batch_rows = rows if split else pending
+        pending_ids = {row["sample_id"] for row in pending}
+
         def predictions():
-            for start in range(0, len(pending), batch_size):
-                batch = pending[start : start + batch_size]
+            for start in range(0, len(batch_rows), batch_size):
+                batch = batch_rows[start : start + batch_size]
+                if not any(row["sample_id"] in pending_ids for row in batch):
+                    continue
                 cached = None
                 if hasattr(generator, "batch"):
                     try:
@@ -42,7 +50,8 @@ def classify(rows, generator, root, manifest, retries=2):
                         if torch is not None and torch.cuda.is_available():
                             torch.cuda.empty_cache()
                 for index, row in enumerate(batch):
-                    yield row, cached[index] if cached is not None else None
+                    if row["sample_id"] in pending_ids:
+                        yield row, cached[index] if cached is not None else None
 
         for row, cached in progress(
             predictions(),
@@ -85,7 +94,7 @@ def classify(rows, generator, root, manifest, retries=2):
         result = ledger.rows()
         if {r["sample_id"] for r in result} != {r["sample_id"] for r in rows}:
             raise ValueError("Ledger source rows differ")
-        snapshot(root, result)
+        snapshot(root, result, splits=(split,) if split else EXPECTED)
         return result
     finally:
         ledger.close()

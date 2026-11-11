@@ -123,7 +123,7 @@ Batch size is recorded in the manifest; changing it requires a new run directory
 batch-size-1 runs are not silently merged with batch-size-8 predictions. Validate batched
 versus single-example predictions on the target GPU during the pilot.
 
-## Repeat the published Gemma 2, OLMo 2, and Apertus runs
+## Repeat the Gemma 2, OLMo 2, and Apertus test runs
 
 From the project root, preview the commands or execute and upload the repeats:
 
@@ -134,16 +134,18 @@ python script/run_classification_repeats.py
 
 Use `--model gemma2`, `--model olmo2`, or `--model apertus` to select one model. Install the
 package versions listed under `versions` in the original Hub manifest in the intended inference
-environment. The launcher checks those versions and the classifier code hash. It pins the
-published model and dataset revisions, reuses the recorded seed, dtype, and device setting,
-and verifies complete sample IDs and prompt hashes against the published original. Both
-repeats use batch size 16, with a final batch of 6 for the 45,446 samples. The published
-originals used batch size 32, so comparisons with the original include a batch-size change.
-The manifests do not record the original GPU model.
+environment. The launcher checks those versions, pins the published model and dataset
+revisions, and reuses the original seed, greedy decoding, dtype, and device setting. All
+three fresh passes use `--split test` and the same 4,590 single-label GoEmotions test samples.
+Each uses batch size 16 with a final batch of 14. Validation checks the repeat code hash,
+actual batch sizes, and the test sample IDs and prompt hashes against the published records.
 
-Each pass uses its own local run directory. After both pass validation, one Hub commit adds
-`runs/repeat-01/` and `runs/repeat-02/` to the model's existing `exp2-goemotions-single-label-*`
-dataset. The launcher rejects a collision with either destination folder. Use `--model` to
-resume a model that has not been published. This upload requires a write token for the existing
-public dataset. The local `repeat-comparison/` directory holds accuracy by pass, all three
-strict and relaxed correctness flags per sample, and counts for 0 through 3 correct answers.
+Each pass writes `dataset/test.parquet` and its reports in a separate local run directory.
+After all three pass validation, one Hub commit adds `runs/repeat-01/`, `runs/repeat-02/`, and
+`runs/repeat-03/` to the model's existing `exp2-goemotions-single-label-*` dataset. The launcher
+rejects a collision with any destination folder. Use `--model` to resume a model whose repeats
+are still local. Upload requires a write token for the existing public dataset.
+
+The local `repeat-comparison/` directory holds accuracy by pass, all three strict and relaxed
+correctness flags per sample, and counts for 0 through 3 correct answers. These counts use
+the three new passes. The published batch-size-32 run supplies the reference test records.

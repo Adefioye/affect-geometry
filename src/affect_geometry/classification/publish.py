@@ -15,6 +15,8 @@ def publish(root, repo_id, private=True):
     manifest = json.loads((root / "manifest.json").read_text())
     if manifest["pilot_limit"]:
         raise ValueError("Pilot runs cannot be published as complete datasets")
+    if manifest.get("split"):
+        raise ValueError("Single-split runs cannot be published as complete datasets")
     required = [
         "summary.csv",
         "confusion.csv",

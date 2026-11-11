@@ -2,6 +2,7 @@
 
 from pathlib import Path
 
+from .data import EXPECTED
 from .protocol import EMOTIONS
 
 
@@ -48,14 +49,15 @@ def summarize(rows, split, emotion):
     )
 
 
-def report(root, rows, model_id, run_id):
+def report(root, rows, model_id, run_id, *, split=None):
     import pandas as pd
 
     root = Path(root)
     for directory in ("analyses", "plot_data", "plots"):
         (root / directory).mkdir(exist_ok=True)
     summaries, confusion, scores = [], [], []
-    for split in ("all", "train", "validation", "test"):
+    splits = (split,) if split else EXPECTED
+    for split in ("all", *splits):
         subset = [r for r in rows if split == "all" or r["source_split"] == split]
         for emotion in ["all", *EMOTIONS]:
             group = [r for r in subset if emotion == "all" or r["emotion"] == emotion]
@@ -142,7 +144,7 @@ def report(root, rows, model_id, run_id):
     from .storage import atomic_json
 
     indexes = []
-    for split in ("train", "validation", "test"):
+    for split in splits:
         for emotion in EMOTIONS:
             for correct in (True, False):
                 indexes.append(
@@ -200,10 +202,11 @@ def compare(run_dirs, destination, seed=42, bootstrap_samples=1000):
     sources = []
     for directory in map(Path, run_dirs):
         manifest = json.loads((directory / "manifest.json").read_text())
+        split = manifest.get("split")
         rows = [
             r
-            for split in ("train", "validation", "test")
-            for r in pq.read_table(directory / "dataset" / f"{split}.parquet").to_pylist()
+            for s in ((split,) if split else EXPECTED)
+            for r in pq.read_table(directory / "dataset" / f"{s}.parquet").to_pylist()
         ]
         if any(r["status"] != "completed" for r in rows):
             raise ValueError("Cross-model comparisons require completed runs")

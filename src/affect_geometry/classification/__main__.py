@@ -19,6 +19,7 @@ def parse_args(argv=None):
     parser.add_argument("--dataset-revision", default="main")
     parser.add_argument("--batch-size", type=int, default=1)
     parser.add_argument("--seed", type=int, default=42)
+    parser.add_argument("--split", choices=EXPECTED, help="Run on one official dataset split")
     parser.add_argument("--pilot-limit", type=int, default=0, help="Training-only pilot size")
     parser.add_argument("--dtype", choices=["float32", "float16", "bfloat16"], default="bfloat16")
     parser.add_argument("--device", default="auto")
@@ -37,6 +38,8 @@ def parse_args(argv=None):
         parser.error("--run-dir or a config containing run_dir is required")
     if args.batch_size < 1:
         parser.error("--batch-size must be positive")
+    if args.split and (args.command != "run" or args.pilot_limit):
+        parser.error("--split is for run and cannot be combined with --pilot-limit")
     return args
 
 
@@ -63,12 +66,13 @@ def main():
         import pyarrow.parquet as pq
 
         manifest = json.loads((args.run_dir / "manifest.json").read_text())
+        split = manifest.get("split")
         rows = [
             r
-            for s in EXPECTED
+            for s in ((split,) if split else EXPECTED)
             for r in pq.read_table(args.run_dir / "dataset" / f"{s}.parquet").to_pylist()
         ]
-        report(args.run_dir, rows, manifest["model_id"], manifest["run_id"])
+        report(args.run_dir, rows, manifest["model_id"], manifest["run_id"], split=split)
         return
     if not args.model or args.pilot_limit < 0:
         parser.error("--model is required and pilot limit must be nonnegative")
@@ -89,6 +93,8 @@ def main():
     previous_path = args.run_dir / "manifest.json"
     if previous_path.exists():
         previous = json.loads(previous_path.read_text())
+        if previous.get("split") != args.split:
+            parser.error("Resume split differs; choose a new run directory")
         if args.model_revision == "main":
             args.model_revision = previous["model_revision"]
         if args.dataset_revision == "main":
@@ -96,8 +102,13 @@ def main():
     model_revision = api.model_info(model_id, revision=args.model_revision).sha
     dataset_id = "google-research-datasets/go_emotions"
     dataset_revision = api.dataset_info(dataset_id, revision=args.dataset_revision).sha
-    dataset = load_dataset(dataset_id, "simplified", revision=dataset_revision, token=hf_token)
-    rows, audit = prepare(dataset, f"{dataset_id}@{dataset_revision}")
+    dataset = load_dataset(
+        dataset_id, "simplified", revision=dataset_revision, token=hf_token, split=args.split
+    )
+    splits = (args.split,) if args.split else EXPECTED
+    if args.split:
+        dataset = {args.split: dataset}
+    rows, audit = prepare(dataset, f"{dataset_id}@{dataset_revision}", splits=splits)
     for item in audit:
         if item["source"] != SOURCE[item["split"]] or item["retained"] != EXPECTED[item["split"]]:
             raise ValueError("Pinned dataset counts differ from protocol")
@@ -139,6 +150,8 @@ def main():
             for p in ["torch", "transformers", "datasets", "pyarrow", "huggingface-hub"]
         },
     )
+    if args.split:
+        manifest["split"] = args.split
     atomic_json(args.run_dir / "source_audit.json", audit)
     from collections import Counter
 
@@ -147,7 +160,7 @@ def main():
         args.run_dir / "duplicate_audit.json", {h: n for h, n in duplicates.items() if n > 1}
     )
     result = classify(rows, generator, args.run_dir, manifest)
-    report(args.run_dir, result, model_id, args.run_dir.name)
+    report(args.run_dir, result, model_id, args.run_dir.name, split=args.split)
     if any(r["status"] != "completed" for r in result):
         raise SystemExit("Partial run: unresolved errors retained; rerun to retry")
 
