@@ -1,0 +1,60 @@
+2026-11-10T07:53:37Z | INFO | command.start command=compat_exploration
+2026-11-10T07:53:37Z | INFO | progress.start description='Load RQ3 tables' total=3 unit=item
+2026-11-10T07:53:37Z | INFO | progress.update description='Load RQ3 tables' completed=1 total=3 percent=33
+2026-11-10T07:53:37Z | INFO | progress.update description='Load RQ3 tables' completed=2 total=3 percent=67
+2026-11-10T07:53:37Z | INFO | progress.complete description='Load RQ3 tables' completed=3 total=3
+2026-11-10T07:53:37Z | INFO | progress.start description='Audit saved scores' total=3 unit=item
+2026-11-10T07:53:37Z | INFO | progress.update description='Audit saved scores' completed=1 total=3 percent=33
+2026-11-10T07:53:37Z | INFO | progress.update description='Audit saved scores' completed=2 total=3 percent=67
+2026-11-10T07:53:37Z | INFO | progress.complete description='Audit saved scores' completed=3 total=3
+2026-11-10T07:54:18Z | INFO | command.start command=compat_exploration
+2026-11-10T07:54:18Z | INFO | progress.start description='Load RQ3 tables' total=3 unit=item
+2026-11-10T07:54:18Z | INFO | progress.update description='Load RQ3 tables' completed=1 total=3 percent=33
+2026-11-10T07:54:19Z | INFO | progress.update description='Load RQ3 tables' completed=2 total=3 percent=67
+2026-11-10T07:54:19Z | INFO | progress.complete description='Load RQ3 tables' completed=3 total=3
+2026-11-10T07:54:19Z | INFO | progress.start description='Audit saved scores' total=3 unit=item
+2026-11-10T07:54:19Z | INFO | progress.update description='Audit saved scores' completed=1 total=3 percent=33
+2026-11-10T07:54:19Z | INFO | progress.update description='Audit saved scores' completed=2 total=3 percent=67
+2026-11-10T07:54:19Z | INFO | progress.complete description='Audit saved scores' completed=3 total=3
+2026-11-11T09:17:36Z | INFO | command.start command=compat_exploration
+2026-11-11T09:17:36Z | INFO | progress.start description='Load RQ3 tables' total=3 unit=item
+2026-11-11T09:17:37Z | INFO | progress.update description='Load RQ3 tables' completed=1 total=3 percent=33
+2026-11-11T09:17:37Z | INFO | progress.update description='Load RQ3 tables' completed=2 total=3 percent=67
+2026-11-11T09:17:37Z | INFO | progress.complete description='Load RQ3 tables' completed=3 total=3
+2026-11-11T09:17:37Z | INFO | progress.start description='Audit saved scores' total=3 unit=item
+2026-11-11T09:17:37Z | INFO | progress.update description='Audit saved scores' completed=1 total=3 percent=33
+2026-11-11T09:17:37Z | INFO | progress.update description='Audit saved scores' completed=2 total=3 percent=67
+2026-11-11T09:17:37Z | INFO | progress.complete description='Audit saved scores' completed=3 total=3
+2026-11-11T09:17:38Z | INFO | progress.start description='gemma2: per-gold histograms' total=16 unit=label
+2026-11-11T09:17:39Z | INFO | progress.update description='gemma2: per-gold histograms' completed=2 total=16 percent=12
+2026-11-11T09:17:39Z | INFO | progress.update description='gemma2: per-gold histograms' completed=4 total=16 percent=25
+2026-11-11T09:17:40Z | INFO | progress.update description='gemma2: per-gold histograms' completed=5 total=16 percent=31
+2026-11-11T09:17:40Z | INFO | progress.update description='gemma2: per-gold histograms' completed=7 total=16 percent=44
+2026-11-11T09:17:40Z | INFO | progress.update description='gemma2: per-gold histograms' completed=8 total=16 percent=50
+2026-11-11T09:17:41Z | INFO | progress.update description='gemma2: per-gold histograms' completed=10 total=16 percent=62
+2026-11-11T09:17:41Z | INFO | progress.update description='gemma2: per-gold histograms' completed=12 total=16 percent=75
+2026-11-11T09:17:42Z | INFO | progress.update description='gemma2: per-gold histograms' completed=13 total=16 percent=81
+2026-11-11T09:17:42Z | INFO | progress.update description='gemma2: per-gold histograms' completed=15 total=16 percent=94
+2026-11-11T09:17:42Z | INFO | progress.complete description='gemma2: per-gold histograms' completed=16 total=16
+2026-11-11T09:17:43Z | INFO | progress.start description='olmo2: per-gold histograms' total=19 unit=label
+2026-11-11T09:17:44Z | INFO | progress.update description='olmo2: per-gold histograms' completed=2 total=19 percent=11
+2026-11-11T09:17:44Z | INFO | progress.update description='olmo2: per-gold histograms' completed=4 total=19 percent=21
+2026-11-11T09:17:45Z | INFO | progress.update description='olmo2: per-gold histograms' completed=6 total=19 percent=32
+2026-11-11T09:17:45Z | INFO | progress.update description='olmo2: per-gold histograms' completed=8 total=19 percent=42
+2026-11-11T09:17:46Z | INFO | progress.update description='olmo2: per-gold histograms' completed=10 total=19 percent=53
+2026-11-11T09:17:46Z | INFO | progress.update description='olmo2: per-gold histograms' completed=12 total=19 percent=63
+2026-11-11T09:17:47Z | INFO | progress.update description='olmo2: per-gold histograms' completed=14 total=19 percent=74
+2026-11-11T09:17:47Z | INFO | progress.update description='olmo2: per-gold histograms' completed=16 total=19 percent=84
+2026-11-11T09:17:48Z | INFO | progress.update description='olmo2: per-gold histograms' completed=18 total=19 percent=95
+2026-11-11T09:17:48Z | INFO | progress.complete description='olmo2: per-gold histograms' completed=19 total=19
+2026-11-11T09:17:49Z | INFO | progress.start description='apertus: per-gold histograms' total=19 unit=label
+2026-11-11T09:17:49Z | INFO | progress.update description='apertus: per-gold histograms' completed=2 total=19 percent=11
+2026-11-11T09:17:50Z | INFO | progress.update description='apertus: per-gold histograms' completed=4 total=19 percent=21
+2026-11-11T09:17:50Z | INFO | progress.update description='apertus: per-gold histograms' completed=6 total=19 percent=32
+2026-11-11T09:17:51Z | INFO | progress.update description='apertus: per-gold histograms' completed=8 total=19 percent=42
+2026-11-11T09:17:51Z | INFO | progress.update description='apertus: per-gold histograms' completed=10 total=19 percent=53
+2026-11-11T09:17:52Z | INFO | progress.update description='apertus: per-gold histograms' completed=12 total=19 percent=63
+2026-11-11T09:17:52Z | INFO | progress.update description='apertus: per-gold histograms' completed=14 total=19 percent=74
+2026-11-11T09:17:53Z | INFO | progress.update description='apertus: per-gold histograms' completed=16 total=19 percent=84
+2026-11-11T09:17:54Z | INFO | progress.update description='apertus: per-gold histograms' completed=18 total=19 percent=95
+2026-11-11T09:17:54Z | INFO | progress.complete description='apertus: per-gold histograms' completed=19 total=19

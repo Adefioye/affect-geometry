@@ -25,6 +25,7 @@ dependencies = [
 
 [project.optional-dependencies]
 dev = ["pytest>=8", "ruff>=0.6"]
+notebooks = ["ipykernel>=6", "nbformat>=5", "nbclient>=0.10", "jupyterlab>=4"]
 classification = ["accelerate>=0.26", "sentencepiece>=0.2"]
 
 [tool.setuptools.packages.find]
