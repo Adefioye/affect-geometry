@@ -1,6 +1,6 @@
 # Research notebooks
 
-`01_rq3_compat_error_exploration.ipynb` explores saved first-word classification errors for
+`01_compat_error_exploration.ipynb` explores saved EXP3 first-word classification errors for
 Gemma 2, OLMo 2 and Apertus. It includes confusion distributions, formatting breakdowns,
 min/max/mean tables and boxplots. The executed notebook retains its tables and figures.
 
@@ -10,7 +10,7 @@ The local `.venv` uses Python 3.12 and inherits the machine's existing scientifi
 Its project-local kernel is named **Python (affect-geometry)**. From the project root:
 
 ```sh
-.venv/bin/python -m jupyterlab notebooks/01_rq3_compat_error_exploration.ipynb
+.venv/bin/python -m jupyterlab notebooks/01_compat_error_exploration.ipynb
 ```
 
 For a fresh, isolated installation (Python >=3.10):
@@ -19,7 +19,7 @@ For a fresh, isolated installation (Python >=3.10):
 python -m venv .venv
 .venv/bin/python -m pip install -e '.[notebooks]'
 .venv/bin/python -m ipykernel install --prefix .venv --name affect-geometry --display-name 'Python (affect-geometry)'
-.venv/bin/python -m jupyterlab notebooks/01_rq3_compat_error_exploration.ipynb
+.venv/bin/python -m jupyterlab notebooks/01_compat_error_exploration.ipynb
 ```
 
 The notebook imports project sources directly, supports launch from the root or `notebooks/`,

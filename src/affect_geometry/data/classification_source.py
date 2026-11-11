@@ -1,4 +1,4 @@
-"""Read and audit saved RQ2 records without rerunning classification."""
+"""Read and audit saved EXP2 records without rerunning classification."""
 
 import json
 from pathlib import Path
@@ -76,11 +76,11 @@ def read_classification(root, model_id, allow_partial=False):
         ) != row.get("prompt_hash"):
             raise ValueError("Saved prompt hash mismatch")
         if row.get("was_truncated"):
-            raise ValueError("RQ2 prompt truncation is prohibited")
+            raise ValueError("EXP2 prompt truncation is prohibited")
     counts = rows.groupby("source_split").size().to_dict()
     full = counts == EXPECTED and not manifest.get("pilot_limit") and len(done) == len(rows)
     if not full and not allow_partial:
-        raise ValueError("Partial RQ2 source; explicit pilot mode is required")
+        raise ValueError("Partial EXP2 source; explicit pilot mode is required")
     rows["text_length"] = rows.text.str.len()
     rows["duplicate_text_group"] = rows.text_hash
     return (

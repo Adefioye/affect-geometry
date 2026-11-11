@@ -1,0 +1,65 @@
+{
+  "run_id": "exp3-analysis-full-v1",
+  "nrc_path": "data/reference/goemotions_nrc_vad.csv",
+  "nrc_provenance": "data/reference/goemotions_nrc_vad.provenance.json",
+  "permutation_seed": 17,
+  "permutations": 2000,
+  "smoke": false,
+  "layers": null,
+  "isomap_neighbors": [
+    3,
+    5,
+    7,
+    10
+  ],
+  "diffusion_neighbors": [
+    3,
+    5,
+    7,
+    10
+  ],
+  "diffusion_scale_ranks": [
+    3,
+    5
+  ],
+  "diffusion_times": [
+    1,
+    2,
+    4
+  ],
+  "diffusion_alphas": [
+    1.0
+  ],
+  "selection": "nested",
+  "neighborhoods": [
+    1,
+    3,
+    5
+  ],
+  "filtration_bound": 2.0,
+  "betti_grid_size": 101,
+  "tolerance": 1e-10,
+  "settings_frozen": true,
+  "pilot_verified": false,
+  "emergence": {
+    "minimum_interval": 3,
+    "transition_threshold": 0.1
+  },
+  "budgets": {
+    "max_seconds": 604800,
+    "max_rss_gib": 64
+  },
+  "model": "olmo2",
+  "activation_source": {
+    "local_path": "outputs/exp3/olmo2/exp3-activations-v1/activation_bundle",
+    "repo_id": "{username}/rq3-olmo2",
+    "path_in_repo": "activations/exp3-activations-v1",
+    "fallback_path_in_repo": "activations/rq3-activations-v1",
+    "revision": "main"
+  },
+  "publish": {
+    "enabled": true,
+    "repo_id": "{username}/rq3-olmo2",
+    "private": true
+  }
+}

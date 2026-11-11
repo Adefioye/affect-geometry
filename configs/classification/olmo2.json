@@ -1,6 +1,6 @@
 {
   "model": "olmo2",
-  "run_dir": "outputs/rq2_classification/olmo2/full",
+  "run_dir": "outputs/exp2_classification/olmo2/full",
   "model_revision": "main",
   "dataset_revision": "main",
   "seed": 42,

@@ -4,7 +4,7 @@ A reproducible pipeline for extracting every-layer Qwen residual-stream activati
 single-label GoEmotions examples, constructing representational dissimilarity matrices (RDMs),
 and comparing MDS and Isomap affect manifolds.
 
-See [`doc/rq1-implementation.md`](doc/rq1-implementation.md) for installation, commands, outputs, and
+See [the EXP1 implementation guide](docs/exp1-implementation.md) for installation, commands, outputs, and
 the mathematical conventions used by the implementation.
 
 ## Setup
@@ -75,32 +75,33 @@ file identified by model and run ID, for example:
 logs/qwen--qwen3-0.6b__20261018T153045Z/run.log
 ```
 
-## RQ2: independent emotion classification
+## EXP2: independent emotion classification
 
 The independent classification runner evaluates all single-label GoEmotions examples, including
 neutral, for LLaMA-2-7B, Gemma-2-9B, Apertus-8B-Instruct-2509, and OLMo-2-1124-7B-Instruct.
 It saves raw responses and strict correctness, with Choi–Weber first-word scoring only as a
 complementary diagnostic. No Choi–Weber scripts are imported or executed.
 
-See [classification commands and outputs](experiments/rq2-classification.md) and
-[the RQ2 protocol](docs/rq2.md). Begin with a training-only pilot before a full GPU run.
+See [classification commands and outputs](experiments/exp2-classification.md) and
+[the EXP2 protocol](docs/exp2.md). Begin with a training-only pilot before a full GPU run.
 
-### RQ3: correctness-conditioned affective geometry
+### EXP3: correctness-conditioned affective geometry
 
-The RQ3 pipeline adds balanced correctness cohorts, verified classification-prompt activations,
+The EXP3 pipeline adds balanced correctness cohorts, verified classification-prompt activations,
 strict MDS/Isomap and Diffusion Maps, nested held-out-rating evaluation, NRC-row permutation
 families, centroid topology, selected-layer CKA, and reproducible CSV-based figures.
-Start with the [implementation and run guide](experiments/rq3-implementation.md).
-Use [extract_rq3_activations.py](script/extract_rq3_activations.py) with
-[the extraction config](configs/rq3/extract_activations.json) to publish raw and neutral-projected
-sample states for all three cohorts/models. Then run [run_rq3_geometry.py](script/run_rq3_geometry.py)
-with [Gemma2](configs/rq3/gemma2.json), [Apertus](configs/rq3/apertus.json), or
-[OLMo2](configs/rq3/olmo2.json). Each model's activations and all analysis artifacts, including
-`plot_data`, share its `{username}/rq3-<model>` dataset. Analysis configs select all layers and 2,000 permutations. Use
-[upload_rq3_analysis.py](script/upload_rq3_analysis.py) to upload a completed run independently.
+Start with the [implementation and run guide](experiments/exp3-implementation.md).
+Use [extract_exp3_activations.py](script/extract_exp3_activations.py) with
+[the extraction config](configs/exp3/extract_activations.json) to publish raw and neutral-projected
+sample states for all three cohorts/models. Then run [run_exp3_geometry.py](script/run_exp3_geometry.py)
+with [Gemma2](configs/exp3/gemma2.json), [Apertus](configs/exp3/apertus.json), or
+[OLMo2](configs/exp3/olmo2.json). Each model's activations and all analysis artifacts, including
+`plot_data`, share its existing `{username}/rq3-<model>` dataset. The analysis configs select all
+layers and 2,000 permutations. Use
+[upload_exp3_analysis.py](script/upload_exp3_analysis.py) to upload a completed run independently.
 
-## Valence-direction transfer
+## EXP4: valence-direction transfer
 
-See [RQ4](rq4.md) for centroid-PC1 extraction from saved RQ3 last-token neutral-projected
+See [EXP4](docs/exp4.md) for centroid-PC1 extraction from saved EXP3 last-token neutral-projected
 activations and frozen directional patching on SST, IMDb, DynaSent R1 and R2.
 The standalone configuration is `configs/valence_transfer.json`.

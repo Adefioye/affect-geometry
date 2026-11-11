@@ -1,4 +1,4 @@
-"""RQ3 orchestration: saved source → cohorts → geometry → evaluation → inference."""
+"""EXP3 orchestration: saved source → cohorts → geometry → evaluation → inference."""
 
 import importlib.metadata
 import itertools
@@ -109,7 +109,7 @@ def run_geometry(
 ):
     """Injectable scientific runner; arrays may be memory maps in production."""
     started = time.monotonic()
-    from affect_geometry.experiments.rq3_budget import RunBudget
+    from affect_geometry.experiments.exp3_budget import RunBudget
 
     budget = RunBudget(config["budgets"])
     cohort = (

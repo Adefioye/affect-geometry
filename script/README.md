@@ -168,19 +168,19 @@ The command validates and aligns sample IDs, evaluates the configured representa
 and writes representations, neutral-PCA checkpoints, cosine RDMs, MDS coordinates, ranked tables,
 plot-ready CSVs, and plots beneath `outputs/representation_comparison/`.
 
-## RQ3 correctness-conditioned geometry
+## EXP3 correctness-conditioned geometry
 
-`extract_rq3_activations.py` provides `validate`, `run`, and `upload` for the three-model
-raw/projected activation stage. `run_rq3_geometry.py` provides `validate`, `run`, `report`, and `compare` for
-analysis from saved activations, with one config per model under `configs/rq3/`. Both stages publish
+`extract_exp3_activations.py` provides `validate`, `run`, and `upload` for the three-model
+raw/projected activation stage. `run_exp3_geometry.py` provides `validate`, `run`, `report`, and `compare` for
+analysis from saved activations, with one config per model under `configs/exp3/`. Both stages publish
 their complete artifacts to the same model-specific Hugging Face dataset; use `--no-upload` locally.
 Pass `--model olmo2` (or `gemma2`/`apertus`) to extract, validate, or upload only that model
 using the panel configuration.
-See [the RQ3 implementation guide](../experiments/rq3-implementation.md) for required source records,
+See [the EXP3 implementation guide](../experiments/exp3-implementation.md) for required source records,
 configuration, full-run safeguards, and checkpoint replay.
 
-`upload_rq3_analysis.py --config configs/rq3/<model>.json` uploads an existing completed
+`upload_exp3_analysis.py --config configs/exp3/<model>.json` uploads an existing completed
 analysis, including plots and plot_data, without loading activations or rerunning metrics.
-RQ3 analysis configs now select every layer and 2,000 permutations. `validate` only checks
+EXP3 analysis configs now select every layer and 2,000 permutations. `validate` only checks
 saved activation bundles and NRC inputs; it does not start analysis. Both Hub stages load
 `HF_TOKEN` from the project `.env` (an exported token takes precedence).

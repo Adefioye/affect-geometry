@@ -1,4 +1,4 @@
-"""Pinned, lightweight RQ3 classification tables (no activation arrays)."""
+"""Pinned, lightweight EXP3 classification tables (no activation arrays)."""
 
 import json
 from pathlib import Path
@@ -19,8 +19,8 @@ SOURCES = {
 def load_sources(destination):
     """Reuse local files; download missing files at explicit immutable revisions."""
     result = {}
-    for model, (revision, run) in progress(SOURCES.items(), description="Load RQ3 tables"):
-        repo = f"kokolamba/rq3-{model}"
+    for model, (revision, run) in progress(SOURCES.items(), description="Load EXP3 tables"):
+        repo = f"kokolamba/exp3-{model}"
         prefix = f"activations/{run}"
         root = Path(destination) / model
         files = [

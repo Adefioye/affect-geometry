@@ -147,7 +147,7 @@ def test_end_to_end_selection_and_evaluation(tmp_path, monkeypatch):
         models={
             m: {
                 "activation_source": dict(
-                    repo_id=f"kokolamba/rq3-{m}",
+                    repo_id=f"kokolamba/exp3-{m}",
                     revision="a" * 40,
                     path_in_repo="activations/fixture",
                 )
@@ -192,7 +192,7 @@ def test_end_to_end_selection_and_evaluation(tmp_path, monkeypatch):
     assert len(selection) == 9 and (selection.layer == 0).all()  # deterministic tie rule
     manifest = json.loads((tmp_path / "outputs/directions/manifest.json").read_text())
     for name in experiment.MODELS:
-        assert manifest["sources"][name]["activation_repo_id"] == f"kokolamba/rq3-{name}"
+        assert manifest["sources"][name]["activation_repo_id"] == f"kokolamba/exp3-{name}"
         assert manifest["sources"][name]["activation_revision"] == "a" * 40
 
     def loader(config):
@@ -220,8 +220,8 @@ def test_end_to_end_selection_and_evaluation(tmp_path, monkeypatch):
         experiment.evaluate_frozen(cfg, model_loader=loader)
 
 
-def test_selection_reads_actual_checksummed_rq3_bundle(tmp_path):
-    from affect_geometry.activations.rq3_bundle import export_cohort_bundle
+def test_selection_reads_actual_checksummed_exp3_bundle(tmp_path):
+    from affect_geometry.activations.exp3_bundle import export_cohort_bundle
     from affect_geometry.analysis.cohorts import balanced_cohorts
     from affect_geometry.experiments.valence_transfer import MODELS, select_directions
     from affect_geometry.persistence.correctness_geometry import checksum

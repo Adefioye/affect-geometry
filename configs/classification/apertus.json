@@ -1,6 +1,6 @@
 {
   "model": "apertus",
-  "run_dir": "outputs/rq2_classification/apertus/full",
+  "run_dir": "outputs/exp2_classification/apertus/full",
   "model_revision": "main",
   "dataset_revision": "main",
   "seed": 42,

@@ -10,7 +10,7 @@ import numpy as np
 import pandas as pd
 import torch
 
-from affect_geometry.activations.rq3_bundle import COHORT_NAMES
+from affect_geometry.activations.exp3_bundle import COHORT_NAMES
 from affect_geometry.activations.valence_source import open_source, validate_source
 from affect_geometry.analysis.valence_direction import fit_centroid_pc1
 from affect_geometry.config import ModelConfig
@@ -48,7 +48,7 @@ def load_config(path):
     if not Path(cfg["output_dir"]).is_relative_to(root / "outputs"):
         raise ValueError("Run output must be inside project outputs/")
     if set(cfg["models"]) != set(MODELS):
-        raise ValueError("Configure exactly the three RQ3 models")
+        raise ValueError("Configure exactly the three EXP3 models")
     if {d["name"] for d in cfg["datasets"]} != DATASETS or len(cfg["datasets"]) != 4:
         raise ValueError("Expected SST, IMDb, DynaSent R1 and R2")
     if cfg.get("random_directions", 5) < 1 or cfg.get("max_tokens", 128) < 1:
@@ -84,7 +84,7 @@ def _manifest(cfg, phase):
 
 
 def select_directions(cfg):
-    """Reuse checksummed RQ3 projections; select max |Pearson(PC1, NRC V)|."""
+    """Reuse checksummed EXP3 projections; select max |Pearson(PC1, NRC V)|."""
     destination = Path(cfg["output_dir"]) / "directions"
     destination.mkdir(parents=True, exist_ok=False)
     manifest = _manifest(cfg, "selection")
@@ -104,7 +104,7 @@ def select_directions(cfg):
             )
             bundle, remote = open_source(settings, model, cfg["project_root"])
             if bundle.manifest["model_id"] != MODELS[model]:
-                raise ValueError("Unexpected RQ3 model ID")
+                raise ValueError("Unexpected EXP3 model ID")
             if bundle.manifest.get("projected_states_are_unit_normalized") is not False:
                 raise ValueError("Require unnormalized projected states")
             if bundle.manifest["prompt_metadata"].get("layer_indexing") != "zero_based_post_block":
@@ -265,7 +265,7 @@ def evaluate_frozen(cfg, *, model_loader=load_causal_lm, candidate_loader=load_c
             model, tokenizer, device = model_loader(config)
             resolved = getattr(model.config, "_commit_hash", None)
             if resolved is not None and resolved != config.revision:
-                raise ValueError("Loaded model revision differs from RQ3")
+                raise ValueError("Loaded model revision differs from EXP3")
             patcher = LastTokenPatcher(model, tokenizer, device, cfg["max_tokens"])
             for spec in cfg["datasets"]:
                 out = destination / model_name / spec["name"]

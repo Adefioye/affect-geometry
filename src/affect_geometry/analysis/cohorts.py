@@ -1,4 +1,4 @@
-"""RQ3's single balanced draw; gold labels, never predicted labels, define nodes."""
+"""EXP3's single balanced draw; gold labels, never predicted labels, define nodes."""
 
 from dataclasses import dataclass
 

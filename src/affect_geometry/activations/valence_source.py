@@ -3,8 +3,8 @@
 import re
 from pathlib import Path
 
-from affect_geometry.activations.rq3_bundle import PreparedActivations
-from affect_geometry.persistence.rq3_hub import download_bundle, repo_path
+from affect_geometry.activations.exp3_bundle import PreparedActivations
+from affect_geometry.persistence.exp3_hub import download_bundle, repo_path
 
 
 def validate_source(settings):

@@ -190,7 +190,7 @@ def test_single_model_configs_and_cli_overrides():
         config = root / "configs" / "classification" / f"{model}.json"
         args = parse_args(["run", "--config", str(config)])
         assert args.model == model
-        assert str(args.run_dir) == f"outputs/rq2_classification/{model}/full"
+        assert str(args.run_dir) == f"outputs/exp2_classification/{model}/full"
         assert args.pilot_limit == 0
         assert args.batch_size == json.loads(config.read_text())["batch_size"]
         override = parse_args(

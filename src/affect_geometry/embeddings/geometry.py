@@ -1,4 +1,4 @@
-"""Strict RQ3 decomposition contracts, separate from legacy permissive defaults."""
+"""Strict EXP3 decomposition contracts, separate from legacy permissive defaults."""
 
 from dataclasses import dataclass, field
 
@@ -21,7 +21,7 @@ class Decomposition:
 
     def coordinates(self, dimension: int, tolerance=1e-10):
         if dimension not in (1, 2):
-            raise ValueError("RQ3 supports only 1D and 2D")
+            raise ValueError("EXP3 supports only 1D and 2D")
         order = np.asarray(self.metadata["mode_order"], dtype=int)
         if len(order) < dimension or np.any(self.weights[order[:dimension]] <= tolerance):
             raise UnsupportedGeometry("insufficient_positive_rank_or_diffusion_energy")

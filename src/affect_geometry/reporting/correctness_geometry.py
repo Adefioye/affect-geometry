@@ -1,4 +1,4 @@
-"""All RQ3 figures read self-contained CSVs; no hidden analysis state."""
+"""All EXP3 figures read self-contained CSVs; no hidden analysis state."""
 
 import json
 from pathlib import Path
@@ -314,7 +314,7 @@ def render(root):
     report.mkdir(exist_ok=True)
     manifest = json.loads((root / "manifest.json").read_text())
     (report / "run.md").write_text(
-        "# RQ3 run inventory\n\n"
+        "# EXP3 run inventory\n\n"
         f"Mode: **{manifest['inference_label']}**.\n\n"
         f"Model: {manifest['model']}. Layers: {manifest['layers']}.\n\n"
         f"Supported emotion order: {', '.join(manifest['emotion_order'])}.\n\n"

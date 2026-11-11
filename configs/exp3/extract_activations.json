@@ -1,0 +1,52 @@
+{
+  "run_id": "exp3-activations-v1",
+  "seed": 42,
+  "allow_partial_source": false,
+  "models": {
+    "gemma2": {
+      "model_id": "google/gemma-2-9b",
+      "classification_run": "outputs/exp2_classification/gemma2/full",
+      "prompt_run": "outputs/exp3/gemma2/prompt-activations-v1",
+      "publish": {
+        "enabled": true,
+        "repo_id": "{username}/rq3-gemma2",
+        "private": true
+      }
+    },
+    "apertus": {
+      "model_id": "swiss-ai/Apertus-8B-Instruct-2509",
+      "classification_run": "outputs/exp2_classification/apertus/full",
+      "prompt_run": "outputs/exp3/apertus/prompt-activations-v1",
+      "publish": {
+        "enabled": true,
+        "repo_id": "{username}/rq3-apertus",
+        "private": true
+      }
+    },
+    "olmo2": {
+      "model_id": "allenai/OLMo-2-1124-7B-Instruct",
+      "classification_run": "outputs/exp2_classification/olmo2/full",
+      "prompt_run": "outputs/exp3/olmo2/prompt-activations-v1",
+      "publish": {
+        "enabled": true,
+        "repo_id": "{username}/rq3-olmo2",
+        "private": true
+      }
+    }
+  },
+  "extraction": {
+    "batch_size": 32,
+    "dtype": "bfloat16",
+    "device": "auto",
+    "storage_dtype": "float32"
+  },
+  "projection": {
+    "storage_dtype": "float32",
+    "batch_size": 2048,
+    "tolerance": 1e-10
+  },
+  "budgets": {
+    "max_seconds": 86400,
+    "max_rss_gib": 64
+  }
+}

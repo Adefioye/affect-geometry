@@ -1,4 +1,4 @@
-"""Extract pre-generation RQ2 prompt states; never substitute raw-comment states."""
+"""Extract pre-generation EXP2 prompt states; never substitute raw-comment states."""
 
 import json
 from pathlib import Path
@@ -23,10 +23,10 @@ def validate_prompts(samples, manifest, tokenizer):
             else payload
         )
         if text != row["rendered_prompt"] or digest(text) != row["prompt_hash"]:
-            raise ValueError("RQ2 prompt reconstruction mismatch")
+            raise ValueError("EXP2 prompt reconstruction mismatch")
         rendered.append(text)
     if manifest["chat"] and tokenizer.chat_template != manifest["chat_template"]:
-        raise ValueError("Tokenizer template differs from RQ2")
+        raise ValueError("Tokenizer template differs from EXP2")
     return rendered
 
 
@@ -120,7 +120,7 @@ def extract_prompt_states(
             length = mask.sum(1).numpy()
             expected = samples.iloc[start : start + len(text)].input_token_count.to_numpy()
             if not np.array_equal(length, expected):
-                raise ValueError("RQ2 token lengths do not match reconstructed prompts")
+                raise ValueError("EXP2 token lengths do not match reconstructed prompts")
             width = mask.shape[1]
             if width + manifest["max_new_tokens"] > getattr(
                 model.config, "max_position_embeddings", float("inf")
@@ -165,7 +165,7 @@ def open_prompt_states(root, samples, manifest):
     root = Path(root)
     metadata = json.loads((root / "manifest.json").read_text())
     if metadata.get("input_condition") != "classification_prompt_before_generation":
-        raise ValueError("Raw-comment activations cannot be used for RQ3")
+        raise ValueError("Raw-comment activations cannot be used for EXP3")
     for key in ("model_id", "model_revision"):
         if metadata.get(key) != manifest[key]:
             raise ValueError(f"Activation provenance mismatch: {key}")
