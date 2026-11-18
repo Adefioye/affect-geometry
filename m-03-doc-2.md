@@ -514,7 +514,6 @@ set for confirmatory claims about methods developed after inspecting those resul
 
 ## Related local documents
 
-- [Earlier M03 experiment portfolio](m-03-doc.md)
 - [Lens definitions and shared evaluation protocol](docs/lens-methods.md)
 - [Complete-label layer contrast proposal](docs/notes-7.md)
 - [Original EXP2 zero-shot classification protocol](docs/exp2.md)
