@@ -5,6 +5,12 @@ Run commands from the `affect-geometry/` repository root. The checked-in configu
 [configs/m03/gemma2.json](../../configs/m03/gemma2.json). Implementation details and artifact
 conventions are in [METHODS.md](METHODS.md); saved files are described in [OUTPUTS.md](OUTPUTS.md).
 
+The experiment branch is **`lens-methods-m-03`** in
+`https://github.com/Adefioye/affect-geometry.git`. See
+[REMOTE.md](REMOTE.md) for cloning that branch on a GPU machine,
+switching an existing checkout, and verifying that the implementation is present.
+The branch and implementation were verified on GitHub at commit `8bde570` on 2026-11-19.
+
 ## Install and test
 
 Use Python 3.10 or newer. Install the CUDA-compatible PyTorch build for your GPU before the
