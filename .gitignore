@@ -14,3 +14,6 @@ docs/
 
 # Environment files
 .env
+
+# M03 operational logs (run artifacts stay local)
+logs/*__m03__*/

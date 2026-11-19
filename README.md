@@ -105,3 +105,12 @@ layers and 2,000 permutations. Use
 See [EXP4](docs/exp4.md) for centroid-PC1 extraction from saved EXP3 last-token neutral-projected
 activations and frozen directional patching on SST, IMDb, DynaSent R1 and R2.
 The standalone configuration is `configs/valence_transfer.json`.
+
+## M03: frozen vocabulary lens comparison
+
+M03 implements complete-label direct readout and layer contrast with logit, prefitted tuned,
+and prefitted Jacobian lenses. It evaluates all supported layers, the fixed beta grid,
+the six predeclared headline settings, and the secondary label-free rules.
+See the separate [M03 run instructions](experiments/m03/README.md) for installation,
+the CPU smoke test, GPU commands, resume behavior, and output schemas.
+Validation-tuned variants remain future work.
