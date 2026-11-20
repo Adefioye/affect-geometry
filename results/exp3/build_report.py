@@ -21,7 +21,7 @@ import pandas as pd
 from affect_geometry.logging import configure_file_logging, get_logger, progress
 
 ROOT = Path(__file__).resolve().parents[2]
-REPORT = ROOT / "analyses/exp3/analysis.md"
+REPORT = ROOT / "results/exp3/analysis.md"
 PLOTS = REPORT.parent / "plots"
 ASSETS = ROOT / "outputs/exp3/analyses/three-models"
 RUNS = {
@@ -2019,7 +2019,7 @@ embeddings.
     add("""To rebuild from the same canonical tables, run from the repository root:
 
 ```bash
-python analyses/exp3/build_report.py
+python results/exp3/build_report.py
 ```
 
 The builder uses the project's shared progress/logging utilities. Logs are centralized

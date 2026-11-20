@@ -1123,7 +1123,7 @@ embeddings.
 To rebuild from the same canonical tables, run from the repository root:
 
 ```bash
-python analyses/exp3/build_report.py
+python results/exp3/build_report.py
 ```
 
 The builder uses the project's shared progress/logging utilities. Logs are centralized
