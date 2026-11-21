@@ -62,6 +62,7 @@ def baseline_manifest(config):
         ("label_id", 0),
         ("was_truncated", True),
         ("predicted_emotion", "sadness"),
+        ("predicted_emotion", np.nan),
     ],
 )
 def test_baseline_identity_prompt_parser_and_completeness_checks(field, value):
@@ -72,6 +73,15 @@ def test_baseline_identity_prompt_parser_and_completeness_checks(field, value):
         validate_baseline(
             [dict(row, **{field: value})], baseline_manifest(config), config, check_counts=False
         )
+
+
+def test_baseline_accepts_missing_prediction_for_invalid_response():
+    config = Config()
+    row = source_row(config, 1)
+    response = "invalid response"
+    row.update(score(response, row["emotion"]))
+    row.update(raw_response=response, predicted_emotion=np.nan)
+    validate_baseline([row], baseline_manifest(config), config, check_counts=False)
 
 
 def test_baseline_exact_population_and_provenance():

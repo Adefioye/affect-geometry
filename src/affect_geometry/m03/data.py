@@ -70,10 +70,13 @@ def validate_baseline(
         ):
             raise ValueError("Baseline prompt/order mismatch")
         prediction = parse_strict(row["raw_response"])
+        saved_prediction = row["predicted_emotion"]
+        if pd.isna(saved_prediction):
+            saved_prediction = None
         if (
             row["status"] != "completed"
             or row["parser_version"] != "strict_label_v1"
-            or row["predicted_emotion"] != prediction
+            or saved_prediction != prediction
             or bool(row["correct"]) != (prediction == row["emotion"])
             or bool(row["valid_label"]) != (prediction is not None)
         ):
