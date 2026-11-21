@@ -43,8 +43,8 @@ class Config:
     dtype: str = "bfloat16"
     device: str = "cuda"
     lens_device: str = "model"
-    prefix_batch_size: int = 4
-    projection_batch_size: int = 4
+    prefix_batch_size: int = 16
+    projection_batch_size: int = 16
     seed: int = 42
     label_prefix: str = " "
     stop_token_id: int = 1

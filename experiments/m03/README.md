@@ -73,6 +73,11 @@ fit the 9B backbone, frozen lens matrices, and extraction workspace. Exact memor
 are measured on the real GPU rather than estimated from the training hardware listed in
 the lens artifact card. The runner fails immediately if CUDA is requested but unavailable.
 
+Both supplied configurations and the shared defaults use `prefix_batch_size: 16` and
+`projection_batch_size: 16` as the starting settings for one A40. Confirm memory use and
+throughput in the pilot. Use a new run ID when adopting these values; existing run manifests
+reject changes to their frozen configuration or implementation.
+
 ```bash
 python -m affect_geometry.m03 pilot --config configs/m03/gemma2.json --run-id "$RUN_ID"
 ```

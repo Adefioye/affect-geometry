@@ -1,4 +1,6 @@
 {
+  "prefix_batch_size": 16,
+  "projection_batch_size": 16,
   "calibrated": true,
   "length_normalized": true,
   "alternate_prompt": true
