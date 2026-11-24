@@ -28,14 +28,16 @@ class Tokenizer:
 
 def test_centroid_pc1_native_dimensions_equal_weight_neutral_and_translation():
     labels = ["sad", "neutral", "joy"]
-    x = np.array([[-2.0, 0, 1], [0, 0, 1], [2, 0, 1]])
+    x = np.array([[-2.0, 0, 1, 4], [0, 0, 1, 4], [2, 0, 1, 4]])
     fit = fit_centroid_pc1(x, labels, labels, [-1, -0.062, 1])
-    assert fit.vector.shape == (3,) and fit.scores.shape == (3,)
+    assert fit.vector.shape == (4,) and fit.scores.shape == (3,)
+    np.testing.assert_allclose(fit.scores, (x - x.mean(axis=0)) @ fit.vector)
+    np.testing.assert_allclose(fit.scores, [-2, 0, 2])
     assert fit.vector[0] > 0.99 and fit.pearson_r > 0.99
     duplicate = fit_centroid_pc1(
         np.concatenate([x, x[2:]]), labels + ["joy"], labels, [-1, -0.062, 1]
     )
-    translated = fit_centroid_pc1(x + [4, 3, 9], labels, labels, [-1, -0.062, 1])
+    translated = fit_centroid_pc1(x + [4, 3, 9, 7], labels, labels, [-1, -0.062, 1])
     np.testing.assert_allclose(fit.vector, duplicate.vector)
     np.testing.assert_allclose(fit.scores, translated.scores)
     with pytest.raises(ValueError):
@@ -132,6 +134,7 @@ def test_recovery_does_not_cancel_opposite_directions():
 
 def test_end_to_end_selection_and_evaluation(tmp_path, monkeypatch):
     from affect_geometry.activations import valence_source
+    from affect_geometry.activations.exp3_bundle import COHORT_NAMES as INPUT_COHORTS
     from affect_geometry.experiments import valence_transfer as experiment
 
     labels = ["sadness", "neutral", "joy"]
@@ -156,17 +159,21 @@ def test_end_to_end_selection_and_evaluation(tmp_path, monkeypatch):
         },
         datasets=[dict(name=name, split="test") for name in sorted(experiment.DATASETS)],
     )
-    rng = np.random.default_rng(3)
-    base = rng.normal(size=(3, 16))
-    base[:, 0] = [-20, 0, 20]
-    frames = pd.DataFrame(
-        [dict(cohort=c, emotion=e) for c in experiment.COHORT_NAMES for e in labels]
-    )
+    expected_layers = {"correct": 0, "incorrect": 1}
+    frames = pd.DataFrame([dict(cohort=c, emotion=e) for c in INPUT_COHORTS for e in labels])
 
     def bundle_open(path, expected_model):
         root = tmp_path / expected_model
         root.mkdir()
         (root / "manifest.json").write_text("{}")
+
+        def projected(cohort, layer):
+            states = np.zeros((3, 16))
+            axis = 2 * list(experiment.MODELS).index(expected_model) + layer
+            # Both correct layers tie. Only layer 1 aligns for the incorrect cohort.
+            states[:, axis] = [-1, -0.062, 1] if cohort == "correct" or layer == 1 else [1, -2, 1]
+            return states
+
         return SimpleNamespace(
             root=root,
             cohorts=SimpleNamespace(samples=frames),
@@ -178,7 +185,7 @@ def test_end_to_end_selection_and_evaluation(tmp_path, monkeypatch):
                 source=dict(model_revision="fixture"),
                 n_layers=2,
             ),
-            projected=lambda cohort, layer: base,
+            projected=projected,
         )
 
     from affect_geometry.activations.valence_source import PreparedActivations
@@ -189,15 +196,23 @@ def test_end_to_end_selection_and_evaluation(tmp_path, monkeypatch):
     )
     experiment.select_directions(cfg)
     selection = pd.read_csv(tmp_path / "outputs/directions/selection.csv")
-    assert len(selection) == 9 and (selection.layer == 0).all()  # deterministic tie rule
+    assert len(selection) == 6
+    for _, selected in selection.groupby("model"):
+        assert selected.set_index("cohort").layer.to_dict() == expected_layers
+    assert not list((tmp_path / "outputs/directions").glob("*/all"))
     manifest = json.loads((tmp_path / "outputs/directions/manifest.json").read_text())
     for name in experiment.MODELS:
         assert manifest["sources"][name]["activation_repo_id"] == f"kokolamba/exp3-{name}"
         assert manifest["sources"][name]["activation_revision"] == "a" * 40
 
+    patched = []
+    model_index = None
+
     def loader(config):
         from transformers import Olmo2Config, Olmo2ForCausalLM
 
+        nonlocal model_index
+        model_index = list(experiment.MODELS.values()).index(config.name)
         tiny = Olmo2Config(
             vocab_size=32,
             hidden_size=16,
@@ -209,12 +224,25 @@ def test_end_to_end_selection_and_evaluation(tmp_path, monkeypatch):
         tiny._attn_implementation = "eager"
         return Olmo2ForCausalLM(tiny).eval(), Tokenizer(), "cpu"
 
+    def check_patching_direction(patcher, pairs, vector, layer, **kwargs):
+        expected_vector = np.eye(16)[2 * model_index + layer]
+        np.testing.assert_allclose(vector, expected_vector)
+        patched.append((model_index, layer))
+        return evaluate_pairs(patcher, pairs, vector, layer, **kwargs)
+
+    monkeypatch.setattr(experiment, "evaluate_pairs", check_patching_direction)
     experiment.evaluate_frozen(
         cfg, model_loader=loader, candidate_loader=lambda spec: candidate_frame()
     )
     result = tmp_path / "outputs/evaluation"
     assert json.loads((result / "manifest.json").read_text())["status"] == "completed"
-    assert len(list(result.glob("*/*/*_metrics.csv"))) == 36
+    assert sorted(patched) == [
+        (model, layer) for model in range(3) for layer in (0, 1) for _ in experiment.DATASETS
+    ]
+    assert len(list(result.glob("*/*/*_metrics.csv"))) == 24
+    for path in result.glob("*/*/*_metrics.csv"):
+        cohort = path.stem.removesuffix("_metrics")
+        assert set(pd.read_csv(path).layer) == {expected_layers[cohort]}
     assert len(list(result.glob("*/*/pairs.csv"))) == 12
     with pytest.raises(FileExistsError):
         experiment.evaluate_frozen(cfg, model_loader=loader)
@@ -281,7 +309,8 @@ def test_selection_reads_actual_checksummed_exp3_bundle(tmp_path):
     )
     select_directions(cfg)
     selection = pd.read_csv(tmp_path / "outputs/directions/selection.csv")
-    assert len(selection) == 9 and set(selection.status) == {"ok"}
+    assert len(selection) == 6 and set(selection.status) == {"ok"}
+    assert set(selection.cohort) == {"correct", "incorrect"}
     assert (selection.n_emotions == 3).all()
 
 

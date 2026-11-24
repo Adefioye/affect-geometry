@@ -103,5 +103,6 @@ layers and 2,000 permutations. Use
 ## EXP4: valence-direction transfer
 
 See [EXP4](docs/exp4.md) for centroid-PC1 extraction from saved EXP3 last-token neutral-projected
-activations and frozen directional patching on SST, IMDb, DynaSent R1 and R2.
+activations for the correct and incorrect cohorts and frozen directional patching on SST, IMDb,
+DynaSent R1 and R2.
 The standalone configuration is `configs/valence_transfer.json`.

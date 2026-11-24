@@ -10,7 +10,6 @@ import numpy as np
 import pandas as pd
 import torch
 
-from affect_geometry.activations.exp3_bundle import COHORT_NAMES
 from affect_geometry.activations.valence_source import open_source, validate_source
 from affect_geometry.analysis.valence_direction import fit_centroid_pc1
 from affect_geometry.config import ModelConfig
@@ -27,6 +26,7 @@ MODELS = {
     "apertus": "swiss-ai/Apertus-8B-Instruct-2509",
     "olmo2": "allenai/OLMo-2-1124-7B-Instruct",
 }
+COHORT_NAMES = ("correct", "incorrect")
 DATASETS = {"sst", "imdb", "dynasent_r1", "dynasent_r2"}
 
 
@@ -231,7 +231,7 @@ def select_directions(cfg):
 
 
 def evaluate_frozen(cfg, *, model_loader=load_causal_lm, candidate_loader=load_candidates):
-    """Evaluate all nine frozen directions; never refit/select with OOD outcomes."""
+    """Evaluate the frozen correct and incorrect directions for each model."""
     source = Path(cfg["output_dir"]) / "directions"
     manifest = json.loads((source / "manifest.json").read_text())
     if manifest["status"] != "completed" or manifest["config_sha256"] != _settings_hash(cfg):
@@ -239,8 +239,10 @@ def evaluate_frozen(cfg, *, model_loader=load_causal_lm, candidate_loader=load_c
     if checksum(source / "selection.csv") != manifest["selection_sha256"]:
         raise ValueError("Selection table changed after freezing")
     selection = pd.read_csv(source / "selection.csv")
-    if len(selection) != 9 or selection.duplicated(["model", "cohort"]).any():
-        raise ValueError("Expected exactly nine frozen model/cohort directions")
+    expected = {(model, cohort) for model in cfg["models"] for cohort in COHORT_NAMES}
+    selected_pairs = set(selection[["model", "cohort"]].itertuples(index=False, name=None))
+    if len(selection) != len(expected) or selected_pairs != expected:
+        raise ValueError("Expected one frozen correct and one incorrect direction per model")
     destination = Path(cfg["output_dir"]) / "evaluation"
     destination.mkdir(parents=True, exist_ok=False)
     run = _manifest(cfg, "evaluation")
@@ -253,8 +255,6 @@ def evaluate_frozen(cfg, *, model_loader=load_causal_lm, candidate_loader=load_c
                 model=model_name,
             )
             selected = selection.loc[selection.model.eq(model_name)]
-            if set(selected.cohort) != set(COHORT_NAMES):
-                raise ValueError("Missing frozen cohort")
             identity = manifest["sources"][model_name]
             config = ModelConfig(
                 name=identity["model_id"],

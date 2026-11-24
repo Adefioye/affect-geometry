@@ -1,5 +1,5 @@
 {
-  "output_dir": "outputs/valence-transfer/pc1-v1",
+  "output_dir": "outputs/valence-transfer/pc1-v2",
   "nrc_path": "data/reference/goemotions_nrc_vad.csv",
   "seed": 42,
   "max_tokens": 1000,
