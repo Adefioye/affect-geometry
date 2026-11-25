@@ -1,0 +1,97 @@
+2026-11-25T06:50:25Z | INFO | command.start command=select model=apertus
+2026-11-25T06:53:19Z | INFO | progress.start description='apertus/correct PC1' total=32 unit=layer
+2026-11-25T06:53:20Z | INFO | progress.update description='apertus/correct PC1' completed=4 total=32 percent=12
+2026-11-25T06:53:20Z | INFO | progress.update description='apertus/correct PC1' completed=7 total=32 percent=22
+2026-11-25T06:53:20Z | INFO | progress.update description='apertus/correct PC1' completed=10 total=32 percent=31
+2026-11-25T06:53:21Z | INFO | progress.update description='apertus/correct PC1' completed=13 total=32 percent=41
+2026-11-25T06:53:21Z | INFO | progress.update description='apertus/correct PC1' completed=16 total=32 percent=50
+2026-11-25T06:53:22Z | INFO | progress.update description='apertus/correct PC1' completed=20 total=32 percent=62
+2026-11-25T06:53:22Z | INFO | progress.update description='apertus/correct PC1' completed=23 total=32 percent=72
+2026-11-25T06:53:22Z | INFO | progress.update description='apertus/correct PC1' completed=26 total=32 percent=81
+2026-11-25T06:53:23Z | INFO | progress.update description='apertus/correct PC1' completed=29 total=32 percent=91
+2026-11-25T06:53:23Z | INFO | progress.complete description='apertus/correct PC1' completed=32 total=32
+2026-11-25T06:53:23Z | INFO | selected model=apertus cohort=correct layer=13 r=0.8750781237238708
+2026-11-25T06:53:23Z | INFO | progress.start description='apertus/incorrect PC1' total=32 unit=layer
+2026-11-25T06:53:24Z | INFO | progress.update description='apertus/incorrect PC1' completed=4 total=32 percent=12
+2026-11-25T06:53:24Z | INFO | progress.update description='apertus/incorrect PC1' completed=7 total=32 percent=22
+2026-11-25T06:53:24Z | INFO | progress.update description='apertus/incorrect PC1' completed=10 total=32 percent=31
+2026-11-25T06:53:25Z | INFO | progress.update description='apertus/incorrect PC1' completed=13 total=32 percent=41
+2026-11-25T06:53:25Z | INFO | progress.update description='apertus/incorrect PC1' completed=16 total=32 percent=50
+2026-11-25T06:53:26Z | INFO | progress.update description='apertus/incorrect PC1' completed=20 total=32 percent=62
+2026-11-25T06:53:26Z | INFO | progress.update description='apertus/incorrect PC1' completed=23 total=32 percent=72
+2026-11-25T06:53:26Z | INFO | progress.update description='apertus/incorrect PC1' completed=26 total=32 percent=81
+2026-11-25T06:53:27Z | INFO | progress.update description='apertus/incorrect PC1' completed=29 total=32 percent=91
+2026-11-25T06:53:27Z | INFO | progress.complete description='apertus/incorrect PC1' completed=32 total=32
+2026-11-25T06:53:27Z | INFO | selected model=apertus cohort=incorrect layer=12 r=0.6204695075660598
+2026-11-25T06:56:33Z | INFO | command.start command=select model=apertus
+2026-11-25T06:58:12Z | INFO | progress.start description='apertus/correct PC1' total=32 unit=layer
+2026-11-25T06:58:12Z | INFO | progress.update description='apertus/correct PC1' completed=4 total=32 percent=12
+2026-11-25T06:58:13Z | INFO | progress.update description='apertus/correct PC1' completed=7 total=32 percent=22
+2026-11-25T06:58:13Z | INFO | progress.update description='apertus/correct PC1' completed=10 total=32 percent=31
+2026-11-25T06:58:13Z | INFO | progress.update description='apertus/correct PC1' completed=13 total=32 percent=41
+2026-11-25T06:58:14Z | INFO | progress.update description='apertus/correct PC1' completed=16 total=32 percent=50
+2026-11-25T06:58:14Z | INFO | progress.update description='apertus/correct PC1' completed=20 total=32 percent=62
+2026-11-25T06:58:15Z | INFO | progress.update description='apertus/correct PC1' completed=23 total=32 percent=72
+2026-11-25T06:58:15Z | INFO | progress.update description='apertus/correct PC1' completed=26 total=32 percent=81
+2026-11-25T06:58:16Z | INFO | progress.update description='apertus/correct PC1' completed=29 total=32 percent=91
+2026-11-25T06:58:16Z | INFO | progress.complete description='apertus/correct PC1' completed=32 total=32
+2026-11-25T06:58:16Z | INFO | selected model=apertus cohort=correct layer=13 r=0.8750781237238708
+2026-11-25T06:58:16Z | INFO | progress.start description='apertus/incorrect PC1' total=32 unit=layer
+2026-11-25T06:58:17Z | INFO | progress.update description='apertus/incorrect PC1' completed=4 total=32 percent=12
+2026-11-25T06:58:17Z | INFO | progress.update description='apertus/incorrect PC1' completed=7 total=32 percent=22
+2026-11-25T06:58:17Z | INFO | progress.update description='apertus/incorrect PC1' completed=10 total=32 percent=31
+2026-11-25T06:58:18Z | INFO | progress.update description='apertus/incorrect PC1' completed=13 total=32 percent=41
+2026-11-25T06:58:18Z | INFO | progress.update description='apertus/incorrect PC1' completed=16 total=32 percent=50
+2026-11-25T06:58:19Z | INFO | progress.update description='apertus/incorrect PC1' completed=20 total=32 percent=62
+2026-11-25T06:58:19Z | INFO | progress.update description='apertus/incorrect PC1' completed=23 total=32 percent=72
+2026-11-25T06:58:19Z | INFO | progress.update description='apertus/incorrect PC1' completed=26 total=32 percent=81
+2026-11-25T06:58:20Z | INFO | progress.update description='apertus/incorrect PC1' completed=29 total=32 percent=91
+2026-11-25T06:58:20Z | INFO | progress.complete description='apertus/incorrect PC1' completed=32 total=32
+2026-11-25T06:58:20Z | INFO | selected model=apertus cohort=incorrect layer=12 r=0.6204695075660598
+2026-11-25T11:49:57Z | INFO | command.start command=evaluate model=apertus
+2026-11-25T11:51:28Z | INFO | progress.start description='Directional patching' total=5 unit=batch
+2026-11-25T11:51:31Z | INFO | progress.update description='Directional patching' completed=1 total=5 percent=20
+2026-11-25T11:51:35Z | INFO | progress.update description='Directional patching' completed=2 total=5 percent=40
+2026-11-25T11:51:39Z | INFO | progress.update description='Directional patching' completed=3 total=5 percent=60
+2026-11-25T11:51:44Z | INFO | progress.update description='Directional patching' completed=4 total=5 percent=80
+2026-11-25T11:51:50Z | INFO | progress.complete description='Directional patching' completed=5 total=5
+2026-11-25T11:51:50Z | INFO | progress.start description='Directional patching' total=5 unit=batch
+2026-11-25T11:51:54Z | INFO | progress.update description='Directional patching' completed=1 total=5 percent=20
+2026-11-25T11:51:57Z | INFO | progress.update description='Directional patching' completed=2 total=5 percent=40
+2026-11-25T11:52:02Z | INFO | progress.update description='Directional patching' completed=3 total=5 percent=60
+2026-11-25T11:52:07Z | INFO | progress.update description='Directional patching' completed=4 total=5 percent=80
+2026-11-25T11:52:13Z | INFO | progress.complete description='Directional patching' completed=5 total=5
+2026-11-25T11:52:27Z | INFO | progress.start description='Directional patching' total=237 unit=batch
+2026-11-25T11:57:12Z | INFO | progress.update description='Directional patching' completed=24 total=237 percent=10
+2026-11-25T12:04:56Z | INFO | progress.update description='Directional patching' completed=48 total=237 percent=20
+2026-11-25T12:13:39Z | INFO | progress.update description='Directional patching' completed=72 total=237 percent=30
+2026-11-25T12:22:52Z | INFO | progress.update description='Directional patching' completed=95 total=237 percent=40
+2026-11-25T12:33:43Z | INFO | progress.update description='Directional patching' completed=119 total=237 percent=50
+2026-11-25T12:46:06Z | INFO | progress.update description='Directional patching' completed=143 total=237 percent=60
+2026-11-25T13:00:01Z | INFO | progress.update description='Directional patching' completed=166 total=237 percent=70
+2026-11-25T13:17:37Z | INFO | progress.update description='Directional patching' completed=190 total=237 percent=80
+2026-11-25T13:40:41Z | INFO | progress.update description='Directional patching' completed=214 total=237 percent=90
+2026-11-25T14:14:53Z | INFO | progress.complete description='Directional patching' completed=237 total=237
+2026-11-25T14:15:00Z | INFO | progress.start description='Directional patching' total=237 unit=batch
+2026-11-25T14:19:44Z | INFO | progress.update description='Directional patching' completed=24 total=237 percent=10
+2026-11-25T14:27:27Z | INFO | progress.update description='Directional patching' completed=48 total=237 percent=20
+2026-11-25T14:36:10Z | INFO | progress.update description='Directional patching' completed=72 total=237 percent=30
+2026-11-25T14:45:22Z | INFO | progress.update description='Directional patching' completed=95 total=237 percent=40
+2026-11-25T14:56:11Z | INFO | progress.update description='Directional patching' completed=119 total=237 percent=50
+2026-11-25T15:08:33Z | INFO | progress.update description='Directional patching' completed=143 total=237 percent=60
+2026-11-25T15:22:26Z | INFO | progress.update description='Directional patching' completed=166 total=237 percent=70
+2026-11-25T15:40:01Z | INFO | progress.update description='Directional patching' completed=190 total=237 percent=80
+2026-11-25T16:03:03Z | INFO | progress.update description='Directional patching' completed=214 total=237 percent=90
+2026-11-25T16:37:10Z | INFO | progress.complete description='Directional patching' completed=237 total=237
+2026-11-25T16:37:17Z | INFO | progress.start description='Directional patching' total=2 unit=batch
+2026-11-25T16:37:21Z | INFO | progress.update description='Directional patching' completed=1 total=2 percent=50
+2026-11-25T16:37:23Z | INFO | progress.complete description='Directional patching' completed=2 total=2
+2026-11-25T16:37:23Z | INFO | progress.start description='Directional patching' total=2 unit=batch
+2026-11-25T16:37:27Z | INFO | progress.update description='Directional patching' completed=1 total=2 percent=50
+2026-11-25T16:37:29Z | INFO | progress.complete description='Directional patching' completed=2 total=2
+2026-11-25T16:37:29Z | INFO | progress.start description='Directional patching' total=2 unit=batch
+2026-11-25T16:37:35Z | INFO | progress.update description='Directional patching' completed=1 total=2 percent=50
+2026-11-25T16:37:35Z | INFO | progress.complete description='Directional patching' completed=2 total=2
+2026-11-25T16:37:35Z | INFO | progress.start description='Directional patching' total=2 unit=batch
+2026-11-25T16:37:40Z | INFO | progress.update description='Directional patching' completed=1 total=2 percent=50
+2026-11-25T16:37:41Z | INFO | progress.complete description='Directional patching' completed=2 total=2

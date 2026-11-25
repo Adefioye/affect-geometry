@@ -1,6 +1,7 @@
 """Scientific contracts and CPU integration checks; no checkpoint downloads."""
 
 import json
+from io import BytesIO
 from types import SimpleNamespace
 
 import numpy as np
@@ -166,6 +167,7 @@ def test_end_to_end_selection_and_evaluation(tmp_path, monkeypatch):
     from affect_geometry.activations import valence_source
     from affect_geometry.activations.exp3_bundle import COHORT_NAMES as INPUT_COHORTS
     from affect_geometry.experiments import valence_transfer as experiment
+    from affect_geometry.persistence.valence_transfer import plan_uploads, publish_model
 
     labels = ["sadness", "neutral", "joy"]
     nrc = tmp_path / "nrc.csv"
@@ -277,6 +279,40 @@ def test_end_to_end_selection_and_evaluation(tmp_path, monkeypatch):
         cohort = path.stem.removesuffix("_metrics")
         assert set(pd.read_csv(path).layer) == {expected_layers[cohort]}
     assert len(list(result.glob("*/*/pairs.csv"))) == 12
+
+    run_dir = result.parent
+    plans = plan_uploads(run_dir, tuple(experiment.MODELS))
+    created = []
+    committed = []
+
+    def create_commit(**kwargs):
+        committed.append(kwargs)
+        return SimpleNamespace(oid="test-commit")
+
+    hub = SimpleNamespace(
+        create_repo=lambda **kwargs: created.append(kwargs),
+        create_commit=create_commit,
+    )
+    for name, files in plans.items():
+        assert set(pd.read_csv(BytesIO(files["directions/selection.csv"])).model) == {name}
+        assert len([path for path in files if path.endswith(".npz")]) == 4
+        assert len([path for path in files if path.endswith("_metrics.csv")]) == 8
+        assert json.loads(files["manifest.json"])["model"] == name
+        for path in set(files) - {"manifest.json", "directions/selection.csv"}:
+            assert path.split("/")[1] == name
+        assert publish_model(hub, name, "valence-transfer/test", files).oid == "test-commit"
+        assert created[-1]["repo_id"] == committed[-1]["repo_id"] == f"kokolamba/exp3-{name}"
+        assert {op.path_in_repo for op in committed[-1]["operations"]} == {
+            f"valence-transfer/test/{path}" for path in files
+        }
+
+    evaluation["status"] = "running"
+    experiment.write_json(result / "manifest.json", evaluation)
+    (result / "apertus/sst/incorrect_metrics.csv").unlink()
+    assert plan_uploads(run_dir, ("gemma2",)) == {"gemma2": plans["gemma2"]}
+    with pytest.raises(FileNotFoundError, match="apertus/sst/incorrect_metrics.csv"):
+        plan_uploads(run_dir, tuple(experiment.MODELS))
+
     with pytest.raises(FileExistsError):
         experiment.evaluate_frozen(cfg, model_loader=loader)
 

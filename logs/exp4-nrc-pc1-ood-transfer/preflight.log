@@ -1,0 +1,30 @@
+Hugging Face accepted the .env credential
+manifest.json:   0%|                               | 0.00/2.05M [00:00<?, ?B/s]manifest.json: 100%|██████████████████████| 2.05M/2.05M [00:00<00:00, 33.2MB/s]
+config.json:   0%|                                   | 0.00/856 [00:00<?, ?B/s]config.json: 100%|████████████████████████████| 856/856 [00:00<00:00, 1.61MB/s]
+tokenizer_config.json:   0%|                       | 0.00/46.4k [00:00<?, ?B/s]tokenizer_config.json: 100%|██████████████| 46.4k/46.4k [00:00<00:00, 34.5MB/s]
+
+tokenizer.json: reconstructing file:   0%|        |  0.00B / 17.5MB            [Atokenizer.json: downloading bytes:                         |  0.00B            tokenizer.json: downloading bytes: ▉                       |  683kB            
+tokenizer.json: reconstructing file: 100%|████████| 17.5MB / 17.5MB            [Atokenizer.json: downloading bytes: ████████████████████████| 7.50MB,  735kB/s  tokenizer.json: downloading bytes: ████████████████████████| 7.50MB,  735kB/s  
+tokenizer.json: reconstructing file: 100%|████████| 17.5MB / 17.5MB, 1.72MB/s  
+special_tokens_map.json:   0%|                       | 0.00/636 [00:00<?, ?B/s]special_tokens_map.json: 100%|████████████████| 636/636 [00:00<00:00, 1.06MB/s]
+gemma2 sentiment answer token lengths [1, 1]
+manifest.json:   0%|                               | 0.00/2.77M [00:00<?, ?B/s]manifest.json: 100%|██████████████████████| 2.77M/2.77M [00:00<00:00, 89.5MB/s]
+config.json:   0%|                                   | 0.00/901 [00:00<?, ?B/s]config.json: 100%|████████████████████████████| 901/901 [00:00<00:00, 1.77MB/s]
+tokenizer_config.json:   0%|                        | 0.00/177k [00:00<?, ?B/s]tokenizer_config.json: 100%|████████████████| 177k/177k [00:00<00:00, 52.3MB/s]
+
+tokenizer.json: reconstructing file:   0%|        |  0.00B / 17.1MB            [Atokenizer.json: downloading bytes:                         |  0.00B            tokenizer.json: downloading bytes: ▎                       |  182kB            tokenizer.json: downloading bytes: █████▌                  | 3.97MB,   ???B/s  
+tokenizer.json: reconstructing file: 100%|████████| 17.1MB / 17.1MB            [Atokenizer.json: downloading bytes: ████████████████████████| 4.48MB,  441kB/s  tokenizer.json: downloading bytes: ████████████████████████| 4.48MB,  441kB/s  
+tokenizer.json: reconstructing file: 100%|████████| 17.1MB / 17.1MB, 1.69MB/s  
+special_tokens_map.json:   0%|                       | 0.00/337 [00:00<?, ?B/s]special_tokens_map.json: 100%|█████████████████| 337/337 [00:00<00:00, 702kB/s]
+chat_template.jinja:   0%|                         | 0.00/14.6k [00:00<?, ?B/s]chat_template.jinja: 100%|████████████████| 14.6k/14.6k [00:00<00:00, 15.9MB/s]
+apertus sentiment answer token lengths [1, 1]
+manifest.json:   0%|                               | 0.00/2.68M [00:00<?, ?B/s]manifest.json: 100%|██████████████████████| 2.68M/2.68M [00:00<00:00, 32.8MB/s]
+config.json:   0%|                                   | 0.00/679 [00:00<?, ?B/s]config.json: 100%|████████████████████████████| 679/679 [00:00<00:00, 1.41MB/s]
+tokenizer_config.json:   0%|                       | 0.00/4.88k [00:00<?, ?B/s]tokenizer_config.json: 100%|██████████████| 4.88k/4.88k [00:00<00:00, 4.69MB/s]
+tokenizer.json:   0%|                              | 0.00/7.14M [00:00<?, ?B/s]tokenizer.json: 100%|█████████████████████| 7.14M/7.14M [00:00<00:00, 21.9MB/s]tokenizer.json: 100%|█████████████████████| 7.14M/7.14M [00:00<00:00, 21.2MB/s]
+special_tokens_map.json:   0%|                       | 0.00/581 [00:00<?, ?B/s]special_tokens_map.json: 100%|████████████████| 581/581 [00:00<00:00, 1.81MB/s]
+olmo2 sentiment answer token lengths [1, 1]
+sst pinned Parquet source accessible
+imdb pinned Parquet source accessible
+dynasent_r1 pinned Parquet source accessible
+dynasent_r2 pinned Parquet source accessible

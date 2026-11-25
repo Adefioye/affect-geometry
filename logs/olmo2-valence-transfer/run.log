@@ -1,0 +1,73 @@
+2026-11-25T06:53:27Z | INFO | command.start command=select model=olmo2
+2026-11-25T06:58:20Z | INFO | command.start command=select model=olmo2
+2026-11-25T07:00:50Z | INFO | progress.start description='olmo2/correct PC1' total=32 unit=layer
+2026-11-25T07:00:50Z | INFO | progress.update description='olmo2/correct PC1' completed=4 total=32 percent=12
+2026-11-25T07:00:51Z | INFO | progress.update description='olmo2/correct PC1' completed=7 total=32 percent=22
+2026-11-25T07:00:51Z | INFO | progress.update description='olmo2/correct PC1' completed=10 total=32 percent=31
+2026-11-25T07:00:52Z | INFO | progress.update description='olmo2/correct PC1' completed=13 total=32 percent=41
+2026-11-25T07:00:52Z | INFO | progress.update description='olmo2/correct PC1' completed=16 total=32 percent=50
+2026-11-25T07:00:53Z | INFO | progress.update description='olmo2/correct PC1' completed=20 total=32 percent=62
+2026-11-25T07:00:53Z | INFO | progress.update description='olmo2/correct PC1' completed=23 total=32 percent=72
+2026-11-25T07:00:54Z | INFO | progress.update description='olmo2/correct PC1' completed=26 total=32 percent=81
+2026-11-25T07:00:54Z | INFO | progress.update description='olmo2/correct PC1' completed=29 total=32 percent=91
+2026-11-25T07:00:55Z | INFO | progress.complete description='olmo2/correct PC1' completed=32 total=32
+2026-11-25T07:00:55Z | INFO | selected model=olmo2 cohort=correct layer=13 r=0.9035657638990003
+2026-11-25T07:00:55Z | INFO | progress.start description='olmo2/incorrect PC1' total=32 unit=layer
+2026-11-25T07:00:55Z | INFO | progress.update description='olmo2/incorrect PC1' completed=4 total=32 percent=12
+2026-11-25T07:00:56Z | INFO | progress.update description='olmo2/incorrect PC1' completed=7 total=32 percent=22
+2026-11-25T07:00:56Z | INFO | progress.update description='olmo2/incorrect PC1' completed=10 total=32 percent=31
+2026-11-25T07:00:56Z | INFO | progress.update description='olmo2/incorrect PC1' completed=13 total=32 percent=41
+2026-11-25T07:00:57Z | INFO | progress.update description='olmo2/incorrect PC1' completed=16 total=32 percent=50
+2026-11-25T07:00:57Z | INFO | progress.update description='olmo2/incorrect PC1' completed=20 total=32 percent=62
+2026-11-25T07:00:58Z | INFO | progress.update description='olmo2/incorrect PC1' completed=23 total=32 percent=72
+2026-11-25T07:00:58Z | INFO | progress.update description='olmo2/incorrect PC1' completed=26 total=32 percent=81
+2026-11-25T07:00:59Z | INFO | progress.update description='olmo2/incorrect PC1' completed=29 total=32 percent=91
+2026-11-25T07:00:59Z | INFO | progress.complete description='olmo2/incorrect PC1' completed=32 total=32
+2026-11-25T07:00:59Z | INFO | selected model=olmo2 cohort=incorrect layer=10 r=0.8531438163860534
+2026-11-25T16:37:41Z | INFO | command.start command=evaluate model=olmo2
+2026-11-25T17:06:16Z | INFO | progress.start description='Directional patching' total=5 unit=batch
+2026-11-25T17:06:18Z | INFO | progress.update description='Directional patching' completed=1 total=5 percent=20
+2026-11-25T17:06:21Z | INFO | progress.update description='Directional patching' completed=2 total=5 percent=40
+2026-11-25T17:06:25Z | INFO | progress.update description='Directional patching' completed=3 total=5 percent=60
+2026-11-25T17:06:29Z | INFO | progress.update description='Directional patching' completed=4 total=5 percent=80
+2026-11-25T17:06:33Z | INFO | progress.complete description='Directional patching' completed=5 total=5
+2026-11-25T17:06:33Z | INFO | progress.start description='Directional patching' total=5 unit=batch
+2026-11-25T17:06:36Z | INFO | progress.update description='Directional patching' completed=1 total=5 percent=20
+2026-11-25T17:06:39Z | INFO | progress.update description='Directional patching' completed=2 total=5 percent=40
+2026-11-25T17:06:42Z | INFO | progress.update description='Directional patching' completed=3 total=5 percent=60
+2026-11-25T17:06:47Z | INFO | progress.update description='Directional patching' completed=4 total=5 percent=80
+2026-11-25T17:06:51Z | INFO | progress.complete description='Directional patching' completed=5 total=5
+2026-11-25T17:07:06Z | INFO | progress.start description='Directional patching' total=236 unit=batch
+2026-11-25T17:10:44Z | INFO | progress.update description='Directional patching' completed=24 total=236 percent=10
+2026-11-25T17:16:34Z | INFO | progress.update description='Directional patching' completed=48 total=236 percent=20
+2026-11-25T17:22:54Z | INFO | progress.update description='Directional patching' completed=71 total=236 percent=30
+2026-11-25T17:30:11Z | INFO | progress.update description='Directional patching' completed=95 total=236 percent=40
+2026-11-25T17:38:02Z | INFO | progress.update description='Directional patching' completed=118 total=236 percent=50
+2026-11-25T17:47:21Z | INFO | progress.update description='Directional patching' completed=142 total=236 percent=60
+2026-11-25T17:58:23Z | INFO | progress.update description='Directional patching' completed=166 total=236 percent=70
+2026-11-25T18:11:15Z | INFO | progress.update description='Directional patching' completed=189 total=236 percent=80
+2026-11-25T18:28:52Z | INFO | progress.update description='Directional patching' completed=213 total=236 percent=90
+2026-11-25T18:54:54Z | INFO | progress.complete description='Directional patching' completed=236 total=236
+2026-11-25T18:55:00Z | INFO | progress.start description='Directional patching' total=236 unit=batch
+2026-11-25T18:58:39Z | INFO | progress.update description='Directional patching' completed=24 total=236 percent=10
+2026-11-25T19:04:29Z | INFO | progress.update description='Directional patching' completed=48 total=236 percent=20
+2026-11-25T19:10:49Z | INFO | progress.update description='Directional patching' completed=71 total=236 percent=30
+2026-11-25T19:18:06Z | INFO | progress.update description='Directional patching' completed=95 total=236 percent=40
+2026-11-25T19:25:57Z | INFO | progress.update description='Directional patching' completed=118 total=236 percent=50
+2026-11-25T19:35:15Z | INFO | progress.update description='Directional patching' completed=142 total=236 percent=60
+2026-11-25T19:46:15Z | INFO | progress.update description='Directional patching' completed=166 total=236 percent=70
+2026-11-25T19:59:06Z | INFO | progress.update description='Directional patching' completed=189 total=236 percent=80
+2026-11-25T20:16:43Z | INFO | progress.update description='Directional patching' completed=213 total=236 percent=90
+2026-11-25T20:42:44Z | INFO | progress.complete description='Directional patching' completed=236 total=236
+2026-11-25T20:42:50Z | INFO | progress.start description='Directional patching' total=2 unit=batch
+2026-11-25T20:42:53Z | INFO | progress.update description='Directional patching' completed=1 total=2 percent=50
+2026-11-25T20:42:54Z | INFO | progress.complete description='Directional patching' completed=2 total=2
+2026-11-25T20:42:54Z | INFO | progress.start description='Directional patching' total=2 unit=batch
+2026-11-25T20:42:58Z | INFO | progress.update description='Directional patching' completed=1 total=2 percent=50
+2026-11-25T20:42:59Z | INFO | progress.complete description='Directional patching' completed=2 total=2
+2026-11-25T20:42:59Z | INFO | progress.start description='Directional patching' total=2 unit=batch
+2026-11-25T20:43:03Z | INFO | progress.update description='Directional patching' completed=1 total=2 percent=50
+2026-11-25T20:43:04Z | INFO | progress.complete description='Directional patching' completed=2 total=2
+2026-11-25T20:43:04Z | INFO | progress.start description='Directional patching' total=2 unit=batch
+2026-11-25T20:43:08Z | INFO | progress.update description='Directional patching' completed=1 total=2 percent=50
+2026-11-25T20:43:08Z | INFO | progress.complete description='Directional patching' completed=2 total=2

@@ -1,8 +1,8 @@
 # Hugging Face upload scripts
 
-These scripts archive completed `outputs/<model-slug>/<run-id>/` artifacts in Hugging Face dataset
-repositories. The model is a required argument because it is part of the local path. The default
-remote directory mirrors the same model/run hierarchy:
+The general-purpose run and activation upload scripts archive completed
+`outputs/<model-slug>/<run-id>/` artifacts in Hugging Face dataset repositories. They require the
+model argument to locate the local run. The default remote directory mirrors the same hierarchy:
 
 ```text
 <model-slug>/<run-id>/
@@ -184,3 +184,21 @@ analysis, including plots and plot_data, without loading activations or rerunnin
 EXP3 analysis configs now select every layer and 2,000 permutations. `validate` only checks
 saved activation bundles and NRC inputs; it does not start analysis. Both Hub stages load
 `HF_TOKEN` from the project `.env` (an exported token takes precedence).
+
+## Upload valence-transfer results
+
+`upload_valence_transfer.py` sends each model's results to its own `kokolamba/exp3-<model>`
+Hugging Face dataset under `valence-transfer/<run-directory-name>/`. Each folder contains the
+model's selection table, layer and emotion scores for both cohorts, and all fitted per-layer PC1
+`.npz` checkpoints. It also contains OOD metrics and provenance for SST, IMDb, DynaSent R1, and
+DynaSent R2.
+
+```bash
+python script/upload_valence_transfer.py --model gemma2 --dry-run
+python script/upload_valence_transfer.py --model gemma2
+```
+
+The script defaults to `outputs/valence-transfer/pc1-v2`. Use `--run-dir` for another saved
+run or `--path-in-repo` for another remote folder. Omit `--model` to validate and upload all
+three models. A model can be uploaded as soon as its four OOD datasets have both cohort metrics.
+Use a write-enabled `HF_TOKEN` or a saved Hugging Face login for uploads.
