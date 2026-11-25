@@ -16,10 +16,13 @@ from affect_geometry.models.activation_patching import LastTokenPatcher
 
 
 class Tokenizer:
+    pad_token_id = 0
+
     def encode(self, text, add_special_tokens=True):
         if text in (" Negative", " Positive"):
             return [4 if text == " Negative" else 5]
-        return [1, 2, 3] if "good" in text else [1, 6, 3]
+        extra = [7, 8] if "long" in text else []
+        return [1, *extra, 2 if "good" in text else 6, 3]
 
     def __call__(self, text, **kwargs):
         ids = torch.tensor([self.encode(text)])
@@ -81,6 +84,7 @@ def test_pairing_is_bidirectional_deterministic_and_shared():
 def test_real_tiny_architectures_post_block_capture_and_full_replacement(architecture):
     import transformers
 
+    torch.manual_seed(4)
     classes = {
         "gemma2": ("Gemma2Config", "Gemma2ForCausalLM"),
         "apertus": ("ApertusConfig", "ApertusForCausalLM"),
@@ -111,13 +115,39 @@ def test_real_tiny_architectures_post_block_capture_and_full_replacement(archite
     assert noop == pytest.approx(recipient_delta, abs=1e-6)
     assert not model.model.layers[1]._forward_hooks
 
+    candidates = pd.concat(
+        [
+            candidate_frame(),
+            candidate_frame().assign(
+                example_id=lambda frame: "long-" + frame.example_id,
+                prompt=lambda frame: "long " + frame.prompt,
+            ),
+        ],
+        ignore_index=True,
+    )
+    pairs, _ = make_pairs(candidates, Tokenizer())
+    single = evaluate_pairs(patcher, pairs, d.numpy(), 1, random_count=1, batch_size=1)
+    forward_batch_sizes = []
+    handle = model.register_forward_hook(
+        lambda _model, _args, output: forward_batch_sizes.append(output.logits.shape[0])
+    )
+    try:
+        batched = evaluate_pairs(patcher, pairs, d.numpy(), 1, random_count=1, batch_size=3)
+    finally:
+        handle.remove()
+    assert forward_batch_sizes == [3] * 5 + [1] * 5
+    pd.testing.assert_frame_equal(single, batched, atol=1e-5, rtol=1e-4)
+    pd.testing.assert_frame_equal(summarize(single), summarize(batched), atol=1e-5, rtol=1e-4)
+
 
 class PerfectPatcher:
-    def run(self, prompt, layer, donor=None, direction=None, full=False):
-        value = 2.0 if "good" in prompt else -2.0
+    def encode_batch(self, prompts):
+        return torch.tensor([2.0 if "good" in prompt else -2.0 for prompt in prompts])
+
+    def run_batch(self, prompts, layer, donor=None, direction=None, full=False):
         if donor is not None:
-            value = float(donor[0])
-        return value, np.array([value, 0.0])
+            return donor[:, 0], donor
+        return prompts, prompts[:, None]
 
 
 def test_recovery_does_not_cancel_opposite_directions():
@@ -227,15 +257,18 @@ def test_end_to_end_selection_and_evaluation(tmp_path, monkeypatch):
     def check_patching_direction(patcher, pairs, vector, layer, **kwargs):
         expected_vector = np.eye(16)[2 * model_index + layer]
         np.testing.assert_allclose(vector, expected_vector)
+        assert kwargs["batch_size"] == 32
         patched.append((model_index, layer))
         return evaluate_pairs(patcher, pairs, vector, layer, **kwargs)
 
     monkeypatch.setattr(experiment, "evaluate_pairs", check_patching_direction)
+    eval_cfg = dict(cfg, batch_size=32)
     experiment.evaluate_frozen(
-        cfg, model_loader=loader, candidate_loader=lambda spec: candidate_frame()
+        eval_cfg, model_loader=loader, candidate_loader=lambda spec: candidate_frame()
     )
     result = tmp_path / "outputs/evaluation"
-    assert json.loads((result / "manifest.json").read_text())["status"] == "completed"
+    evaluation = json.loads((result / "manifest.json").read_text())
+    assert evaluation["status"] == "completed" and evaluation["batch_size"] == 32
     assert sorted(patched) == [
         (model, layer) for model in range(3) for layer in (0, 1) for _ in experiment.DATASETS
     ]

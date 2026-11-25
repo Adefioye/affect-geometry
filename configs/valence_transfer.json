@@ -4,6 +4,7 @@
   "seed": 42,
   "max_tokens": 1000,
   "max_pairs": null,
+  "batch_size": 64,
   "random_directions": 5,
   "models": {
     "gemma2": {

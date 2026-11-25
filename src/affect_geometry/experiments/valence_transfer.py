@@ -53,6 +53,9 @@ def load_config(path):
         raise ValueError("Expected SST, IMDb, DynaSent R1 and R2")
     if cfg.get("random_directions", 5) < 1 or cfg.get("max_tokens", 128) < 1:
         raise ValueError("Positive random control count and token budget required")
+    batch_size = cfg.get("batch_size", 1)
+    if type(batch_size) is not int or batch_size < 1:
+        raise ValueError("batch_size must be a positive integer")
     for model in cfg["models"].values():
         validate_source(model)
         if model.get("bundle"):
@@ -63,7 +66,10 @@ def load_config(path):
     return cfg
 
 
-def _settings_hash(cfg):
+def _settings_hash(cfg, *, phase):
+    if phase == "selection":
+        # Evaluation throughput can be adjusted after the directions are frozen.
+        cfg = {key: value for key, value in cfg.items() if key != "batch_size"}
     return hashlib.sha256(json.dumps(cfg, sort_keys=True).encode()).hexdigest()
 
 
@@ -78,7 +84,7 @@ def _manifest(cfg, phase):
         phase=phase,
         status="running",
         config=cfg,
-        config_sha256=_settings_hash(cfg),
+        config_sha256=_settings_hash(cfg, phase=phase),
         versions=versions,
     )
 
@@ -234,8 +240,10 @@ def evaluate_frozen(cfg, *, model_loader=load_causal_lm, candidate_loader=load_c
     """Evaluate the frozen correct and incorrect directions for each model."""
     source = Path(cfg["output_dir"]) / "directions"
     manifest = json.loads((source / "manifest.json").read_text())
-    if manifest["status"] != "completed" or manifest["config_sha256"] != _settings_hash(cfg):
-        raise ValueError("Require completed selection with identical frozen configuration")
+    if manifest["status"] != "completed" or manifest["config_sha256"] != _settings_hash(
+        cfg, phase="selection"
+    ):
+        raise ValueError("Require completed selection with matching frozen configuration")
     if checksum(source / "selection.csv") != manifest["selection_sha256"]:
         raise ValueError("Selection table changed after freezing")
     selection = pd.read_csv(source / "selection.csv")
@@ -246,6 +254,8 @@ def evaluate_frozen(cfg, *, model_loader=load_causal_lm, candidate_loader=load_c
     destination = Path(cfg["output_dir"]) / "evaluation"
     destination.mkdir(parents=True, exist_ok=False)
     run = _manifest(cfg, "evaluation")
+    batch_size = cfg.get("batch_size", 1)
+    run["batch_size"] = batch_size
     write_json(destination / "manifest.json", run)
     try:
         for model_name, settings in cfg["models"].items():
@@ -314,6 +324,7 @@ def evaluate_frozen(cfg, *, model_loader=load_causal_lm, candidate_loader=load_c
                         int(row["layer"]),
                         random_count=cfg["random_directions"],
                         seed=cfg["seed"],
+                        batch_size=batch_size,
                     )
                     results.insert(0, "cohort", row["cohort"])
                     results.insert(0, "dataset", spec["name"])
