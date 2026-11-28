@@ -21,9 +21,12 @@ def digest(value):
     return hashlib.sha256(value.encode()).hexdigest()
 
 
-def prompt(row, seed=42):
-    order = EMOTIONS.copy()
-    random.Random(digest(f"{seed}:{row['sample_id']}")).shuffle(order)
+def prompt(row, seed=42, *, label_order=None):
+    order = EMOTIONS.copy() if label_order is None else list(label_order)
+    if len(order) != len(EMOTIONS) or set(order) != set(EMOTIONS):
+        raise ValueError("Label order must contain every canonical emotion exactly once")
+    if label_order is None:
+        random.Random(digest(f"{seed}:{row['sample_id']}")).shuffle(order)
     text = (
         "Classify this text into exactly one emotion from this list:\n"
         + ", ".join(order)

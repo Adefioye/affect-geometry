@@ -106,3 +106,13 @@ See [EXP4](docs/exp4.md) for centroid-PC1 extraction from saved EXP3 last-token 
 activations for the correct and incorrect cohorts and frozen directional patching on SST, IMDb,
 DynaSent R1 and R2.
 The standalone configuration is `configs/valence_transfer.json`.
+
+## EXP5: neuron-community transfer
+
+The EXP5 pipeline discovers native MLP communities from strict-correct EXP2 training comments,
+selects at most 20 with training ablations, and evaluates fixed oracle-guided donor transfer on
+test comments with random-location, unclustered-attribution, and wrong-label controls.
+See [the execution guide](experiments/exp5-neuron-transfer.md),
+[scientific specification](docs/exp5.md), and [configuration](configs/neuron_transfer.json).
+Install `.[neurons]`, supply the pinned completed EXP2 snapshot, and begin with the training-only
+`prepare` and `smoke` stages before a full model experiment.

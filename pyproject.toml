@@ -27,9 +27,18 @@ dependencies = [
 dev = ["pytest>=8", "ruff>=0.6"]
 notebooks = ["ipykernel>=6", "nbformat>=5", "nbclient>=0.10", "jupyterlab>=4"]
 classification = ["accelerate>=0.26", "sentencepiece>=0.2"]
+neurons = [
+  "accelerate>=0.26",
+  "sentencepiece>=0.2",
+  "python-igraph==0.11.8",
+  "leidenalg==0.10.2",
+]
 
 [tool.setuptools.packages.find]
 where = ["src"]
+
+[tool.setuptools.package-data]
+"affect_geometry.neurons" = ["GOODFIRE_LICENSE.txt"]
 
 [tool.setuptools]
 py-modules = ["prepare", "extract", "rdm", "embed", "analyze", "plot", "run"]
