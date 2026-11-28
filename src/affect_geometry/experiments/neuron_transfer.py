@@ -11,7 +11,7 @@ import pandas as pd
 from affect_geometry.classification.protocol import EMOTIONS
 from affect_geometry.data.classification_source import read_classification
 from affect_geometry.data.neuron_transfer import DonorRetriever, build_cohorts
-from affect_geometry.evaluation.emotion_labels import fixed_rival, margin
+from affect_geometry.evaluation.emotion_labels import fixed_rival, margin, membership_top1
 from affect_geometry.evaluation.neuron_transfer import NativeNeuronRunner
 from affect_geometry.interventions.neuron_patching import zero_values
 from affect_geometry.logging import get_logger, progress
@@ -157,7 +157,7 @@ class NeuronTransferExperiment:
             for name, frame in (
                 ("discovery.parquet", discovery),
                 ("selection.parquet", selection),
-                ("test.parquet", test),
+                ("test_candidates.parquet", test),
                 ("smoke.parquet", smoke),
                 ("duplicate_audit.parquet", audit),
             )
@@ -168,7 +168,7 @@ class NeuronTransferExperiment:
                 for frame, role in (
                     (discovery, "discovery_donor"),
                     (selection, "training_selection"),
-                    (test, "test"),
+                    (test, "test_candidate"),
                     (smoke, "smoke"),
                 )
             ],
@@ -187,7 +187,7 @@ class NeuronTransferExperiment:
                     emotion=label,
                     discovery=int(discovery.emotion.eq(label).sum()),
                     selection=int(selection.emotion.eq(label).sum()),
-                    test=int(test.emotion.eq(label).sum()),
+                    test_candidates=int(test.emotion.eq(label).sum()),
                 )
             )
         paths.append(self.store.csv("cohort_support.csv", pd.DataFrame(support)))
@@ -240,6 +240,11 @@ class NeuronTransferExperiment:
                     "edited_two_path_scoring",
                     lambda: runner.scores(info, [row["emotion"], rival], patch),
                 )
+                if alpha == 1.0:
+                    edited_scores, _ = measured(
+                        "edited_28_path_scoring", lambda: runner.scores(info, patch=patch)
+                    )
+                    membership_top1(edited_scores)
                 drift = max(
                     drift,
                     *(
@@ -437,8 +442,66 @@ class NeuronTransferExperiment:
             ),
         ]
 
+    def _screen_heldout(self, candidates):
+        selected, audit = [], []
+        cap = self.config.test_per_outcome
+        ledger_path = "freeze/baselines.sqlite"
+        with self.ledger(ledger_path) as baselines:
+            for correct in (True, False):
+                accepted = 0
+                stratum = candidates[candidates.correct.eq(correct)]
+                description = f"Checking held-out baselines (EXP2 correct={correct})"
+                for row in progress(iter(_records(stratum)), description=description):
+                    sample_id = row["sample_id"]
+                    generation = baselines.get(sample_id)
+                    if generation is None:
+                        generation = self.runner.generate(self.runner.encode(row), row["emotion"])
+                        baselines.put(sample_id, generation)
+                    agrees = generation["correct"] == correct
+                    audit.append(
+                        dict(
+                            sample_id=sample_id,
+                            emotion=row["emotion"],
+                            source_correct=correct,
+                            native_correct=generation["correct"],
+                            source_response_matches=(
+                                generation["raw_response"] == row["raw_response"]
+                            ),
+                            source_tokens_match=(
+                                list(generation["generated_token_ids"])
+                                == list(row["generated_token_ids"])
+                            ),
+                            selected=agrees,
+                        )
+                    )
+                    if agrees:
+                        selected.append(sample_id)
+                        accepted += 1
+                        if accepted == cap:
+                            break
+                get_logger().info(
+                    "exp5.freeze.heldout source_correct=%s accepted=%s target=%s",
+                    correct,
+                    accepted,
+                    cap,
+                )
+                if accepted < cap and not self.config.allow_partial_source:
+                    raise ValueError(
+                        f"Held-out test needs {cap} matching baselines with correct={correct}; "
+                        f"found {accepted}"
+                    )
+        if not selected:
+            raise ValueError("No held-out baselines agree with saved EXP2 correctness")
+        return candidates[candidates.sample_id.isin(selected)].sort_values("sample_id"), [
+            self.store.root / ledger_path,
+            self.store.csv("heldout_screening.csv", pd.DataFrame(audit)),
+        ]
+
     def freeze(self):
         shortlist = self.store.read_json("shortlist.json")
+        candidates = self.frame("test_candidates.parquet")
+        groups = len(shortlist["communities"])
+        test, paths = self._screen_heldout(candidates) if groups else (candidates.iloc[:0], [])
         bank = self.frame("discovery.parquet")
         retriever = DonorRetriever(bank, self.config.duplicate_threshold)
         vocabulary = getattr(retriever.vectorizer, "vocabulary_", {})
@@ -448,25 +511,26 @@ class NeuronTransferExperiment:
             shortlist=shortlist,
             controls=self.store.read_json("controls.json"),
             donor_ids=bank.sample_id.tolist(),
-            test_ids=self.frame("test.parquet").sample_id.tolist(),
+            test_ids=test.sample_id.tolist(),
             alternative_labels=self.store.read_json("alternative_labels.json"),
             retriever=dict(settings=repr(retriever.vectorizer), vocabulary=vocabulary),
         )
         profile = self.store.read_json("smoke_profile.json")
         components = profile.get("component_seconds", {})
-        test = self.frame("test.parquet")
-        size, groups = len(test), len(shortlist["communities"])
-        correct = int(test.correct.sum())
+        size, correct = len(test), int(test.correct.sum())
+        transfer_conditions = 4 * size * groups
+        ablation_conditions = 2 * correct * groups
         workload = dict(
             test_rows=size,
+            correct_test_rows=correct,
+            incorrect_test_rows=size - correct,
             frozen_communities=groups,
-            baseline_generation_conditions=size if groups else 0,
-            maximum_edited_generation_conditions=4 * size * groups,
-            heldout_ablation_conditions=2 * correct * groups,
+            maximum_edited_generation_conditions=transfer_conditions,
+            heldout_ablation_conditions=ablation_conditions,
             maximum_donor_verification_attempts=2 * self.config.donor_attempts * size * groups,
-            baseline_path_scores=28 * size if groups else 0,
-            maximum_edited_path_scores=8 * size * groups,
-            heldout_ablation_path_scores=4 * correct * groups,
+            baseline_path_scores=len(EMOTIONS) * size if groups else 0,
+            maximum_edited_path_scores=len(EMOTIONS) * transfer_conditions,
+            heldout_ablation_path_scores=2 * ablation_conditions,
             caveat=(
                 "Bounds precede donor-cache/abstention reuse. "
                 "Smoke timing is not a GPU-hour guarantee."
@@ -475,13 +539,15 @@ class NeuronTransferExperiment:
         if groups and components:
             generation = float(np.mean(components["generation"]))
             scoring = float(np.mean(components["baseline_28_path_scoring"]))
-            edited = float(np.mean(components["edited_two_path_scoring"]))
+            edited = float(np.mean(components["edited_28_path_scoring"]))
+            ablated = float(np.mean(components["edited_two_path_scoring"]))
             workload["smoke_linear_test_hours_excluding_donor_work"] = (
-                size * (generation + scoring)
-                + 4 * size * groups * (generation + edited)
-                + 2 * correct * groups * edited
+                size * scoring
+                + transfer_conditions * (generation + edited)
+                + ablation_conditions * ablated
             ) / 3600
-        return [
+        return paths + [
+            self.store.parquet("test.parquet", test),
             self.store.json("frozen.json", dict(payload=payload, fingerprint=fingerprint(payload))),
             self.store.json("compute_budget.json", workload),
         ]
@@ -581,6 +647,7 @@ class NeuronTransferExperiment:
             }
         )
         with (
+            self.ledger("freeze/baselines.sqlite") as baselines,
             self.ledger("test/predictions.sqlite") as predictions,
             self.ledger("test/donors.sqlite") as donors,
             self.ledger("test/pairs.sqlite") as pairs,
@@ -594,8 +661,9 @@ class NeuronTransferExperiment:
                 baseline_key = "baseline:" + sample_id
                 baseline = predictions.get(baseline_key)
                 if baseline is None:
-                    generation = self.runner.generate(info, gold)
-                    self.runner.replay(row, generation)
+                    generation = baselines.get(sample_id)
+                    if generation is None or generation["correct"] != bool(row["correct"]):
+                        raise ValueError(f"Missing or inconsistent frozen baseline: {sample_id}")
                     scores, _ = self.runner.scores(info)
                     baseline = dict(
                         sample_id=sample_id,
@@ -606,6 +674,7 @@ class NeuronTransferExperiment:
                         alpha=0.0,
                         generation=generation,
                         scores=scores,
+                        membership_top1_prediction=membership_top1(scores),
                         rival=fixed_rival(scores, gold),
                         donor_id=None,
                         donor_prompt_hash=None,
@@ -653,15 +722,13 @@ class NeuronTransferExperiment:
                         if predictions.get(key) is not None:
                             continue
                         if values is None:
-                            generation, scores, edit_audit = (
-                                baseline["generation"],
-                                {c: baseline["scores"][c] for c in (gold, rival)},
-                                [],
-                            )
+                            generation, scores = baseline["generation"], baseline["scores"]
+                            top1, edit_audit = baseline["membership_top1_prediction"], []
                         else:
                             patch = self.runner.patch(members, values, self.config.alpha)
                             generation = self.runner.generate(info, gold, patch)
-                            scores, edit_audit = self.runner.scores(info, [gold, rival], patch)
+                            scores, edit_audit = self.runner.scores(info, patch=patch)
+                            top1 = membership_top1(scores)
                         predictions.put(
                             key,
                             dict(
@@ -673,6 +740,7 @@ class NeuronTransferExperiment:
                                 alpha=self.config.alpha,
                                 generation=generation,
                                 scores=scores,
+                                membership_top1_prediction=top1,
                                 score_edit_audit=edit_audit,
                                 rival=rival,
                                 prompt_hash=info["prompt_hash"],

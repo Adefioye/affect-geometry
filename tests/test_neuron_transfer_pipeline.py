@@ -8,7 +8,13 @@ import pandas as pd
 import pytest
 
 from affect_geometry.classification.protocol import EMOTIONS, PROTOCOL, digest, prompt, score
-from affect_geometry.data.neuron_transfer import DonorRetriever, build_cohorts, normalize_text
+from affect_geometry.data.neuron_transfer import (
+    DonorRetriever,
+    build_cohorts,
+    normalize_text,
+    order_heldout_candidates,
+)
+from affect_geometry.evaluation.emotion_labels import membership_top1
 from affect_geometry.experiments.neuron_transfer import NeuronTransferExperiment
 from affect_geometry.experiments.neuron_transfer_config import NeuronTransferConfig
 from affect_geometry.persistence.correctness_geometry import checksum
@@ -200,7 +206,20 @@ def source(tmp_path):
 def test_full_pipeline_with_actual_leiden_resume_and_tamper_detection(source):
     pytest.importorskip("leidenalg")
     config, _, _ = source
-    experiment = NeuronTransferExperiment(config, FakeRunner)
+
+    class ThirdLabelRunner(FakeRunner):
+        def scores(self, info, labels=None, patch=None):
+            scores, audit = super().scores(info, labels, patch)
+            if (
+                info["sample_id"] == "test-02"
+                and patch
+                and self.config.alpha == patch["alpha"]
+                and "admiration" in scores
+            ):
+                scores["admiration"].update(total=10.0, label_score=10.1)
+            return scores, audit
+
+    experiment = NeuronTransferExperiment(config, ThirdLabelRunner)
     root = experiment.run()
     shortlist = experiment.store.read_json("shortlist.json")
     assert 1 <= len(shortlist["communities"]) <= 2
@@ -208,15 +227,47 @@ def test_full_pipeline_with_actual_leiden_resume_and_tamper_detection(source):
     assert set(predictions.arm) == {"baseline", "community", "random", "unclustered", "wrong_label"}
     assert len(predictions) == 4 * (1 + 4 * len(shortlist["communities"]))
     assert set(predictions.sample_id) == {f"test-{i:02}" for i in range(4)}
-    assert (root / "path_scores.parquet").exists()
+    edited = predictions.loc[predictions.sample_id.eq("test-02") & predictions.donor_id.notna()]
+    assert not edited.empty
+    assert edited.correct.any()
+    assert edited.membership_top1_prediction.eq("admiration").all()
+    assert (~edited.membership_top1_correct).all()
+    assert edited.rival.ne("admiration").all()
+    paths = pd.read_parquet(root / "path_scores.parquet")
+    assert (
+        paths.groupby(["sample_id", "community_id", "arm"]).label.nunique().eq(len(EMOTIONS)).all()
+    )
+    abstained = predictions.loc[predictions.abstention.notna()]
+    assert not abstained.empty
+    baselines = predictions.loc[predictions.arm.eq("baseline")].set_index("sample_id")
+    assert abstained.membership_top1_prediction.eq(
+        abstained.sample_id.map(baselines.membership_top1_prediction)
+    ).all()
     assert (root / "edit_norms.parquet").exists()
     assert (root / "figures/accuracy_deltas.png").exists()
+    metrics = pd.read_csv(root / "metrics.csv")
+    heldout = metrics.loc[metrics.population.eq("heldout_sample")]
+    assert heldout.membership_top1_ci_low.notna().all()
+    assert heldout.baseline_membership_top1_accuracy.eq(0.5).all()
+    assert (heldout.accuracy != heldout.membership_top1_accuracy).any()
+    plot_data = pd.read_csv(root / "plot_data/accuracy_deltas.csv")
+    assert set(plot_data.metric) == {"Strict accuracy", "Membership top-1 accuracy"}
+    labels = pd.read_csv(root / "per_label_metrics.csv")
+    assert labels.loc[labels.n.gt(0), "membership_top1_recall"].notna().all()
+    assert "Secondary membership top-1 accuracy" in (root / "report.md").read_text()
     budget = experiment.store.read_json("compute_budget.json")
     assert budget["maximum_edited_generation_conditions"] == 16 * len(shortlist["communities"])
-    profile = experiment.store.read_json("smoke_profile.json")
-    assert {"generation", "attribution", "baseline_28_path_scoring"} <= set(
-        profile["component_seconds"]
+    assert budget["maximum_edited_path_scores"] == (
+        len(EMOTIONS) * budget["maximum_edited_generation_conditions"]
     )
+    profile = experiment.store.read_json("smoke_profile.json")
+    assert {
+        "generation",
+        "attribution",
+        "baseline_28_path_scoring",
+        "edited_28_path_scoring",
+        "edited_two_path_scoring",
+    } <= set(profile["component_seconds"])
     diagnostics = pd.read_csv(root / "score_diagnostics.csv")
     assert set(diagnostics.outcome_group) == {"all", "baseline_correct", "baseline_incorrect"}
     ablations = pd.read_csv(root / "heldout_ablation_summary.csv")
@@ -229,7 +280,7 @@ def test_full_pipeline_with_actual_leiden_resume_and_tamper_detection(source):
     assert len(means) == 8  # Includes non-top-k neurons for the unclustered comparator.
     assert means.loc[means.channel.eq(0), "importance"].item() == 0.5
     before = checksum(root / "predictions.parquet")
-    NeuronTransferExperiment(config, FakeRunner).run()
+    NeuronTransferExperiment(config, ThirdLabelRunner).run()
     assert checksum(root / "predictions.parquet") == before
     (root / "controls.json").write_text("{}")
     with pytest.raises(ValueError, match="stale"):
@@ -249,6 +300,42 @@ def test_test_outcomes_cannot_change_training_cohorts_or_wrong_label_mapping(sou
     assert first[1].sample_id.tolist() == second[1].sample_id.tolist()
     assert first[4] == second[4]
     assert all(v.startswith("train-") for v in first[0].sample_id)
+
+
+def test_freeze_replaces_correctness_drift_before_evaluating_balanced_sample(source):
+    config, rows, _ = source
+    config = replace(config, test_per_outcome=1)
+    candidates = order_heldout_candidates(rows, config)
+    pd.testing.assert_frame_equal(
+        candidates, order_heldout_candidates(rows.sample(frac=1, random_state=12), config)
+    )
+    assert candidates.source_split.eq("test").all()
+    changed_id = candidates.loc[candidates.correct, "sample_id"].iloc[0]
+
+    class DriftingRunner(FakeRunner):
+        def generate(self, info, gold, patch=None):
+            generated = super().generate(info, gold, patch)
+            if info["sample_id"] == changed_id:
+                assert patch is None
+                generated.update(
+                    score("neutral", gold),
+                    raw_response="neutral",
+                    generated_token_ids=[10 + EMOTIONS.index("neutral"), 2],
+                )
+            return generated
+
+    experiment = NeuronTransferExperiment(config, DriftingRunner)
+    root = experiment.run()
+    test = pd.read_parquet(root / "test.parquet")
+    assert test.correct.value_counts().to_dict() == {True: 1, False: 1}
+    frozen = experiment.store.read_json("frozen.json")["payload"]
+    assert test.sample_id.tolist() == frozen["test_ids"]
+    audit = pd.read_csv(root / "heldout_screening.csv")
+    assert len(audit) == 3
+    assert audit.loc[~audit.selected, "sample_id"].tolist() == [changed_id]
+    predictions = pd.read_parquet(root / "predictions.parquet")
+    assert set(predictions.sample_id) == set(test.sample_id)
+    assert predictions.loc[predictions.arm.eq("baseline"), "correct"].sum() == 1
 
 
 def test_donors_exclude_normalized_duplicates_and_derive_confusions_from_train_errors(source):
@@ -298,27 +385,42 @@ def test_atomic_attribution_resume_sums_and_provenance(tmp_path):
 def test_metrics_keep_abstentions_invalid_outputs_and_grouped_pairs():
     base = pd.DataFrame(
         dict(
-            sample_id=["a", "b", "c"], correct=[True, False, False], valid_label=[True, True, False]
+            sample_id=["a", "b", "c"],
+            correct=[True, False, False],
+            valid_label=[True, True, False],
+            membership_top1_correct=[True, False, True],
         )
     )
     after = pd.DataFrame(
         dict(
             sample_id=["c", "a", "b"],
             emotion=["joy"] * 3,
-            predicted_emotion=["joy", "anger", "anger"],
+            predicted_emotion=["joy", None, "anger"],
             correct=[True, False, False],
-            valid_label=[True] * 3,
+            valid_label=[True, False, True],
+            membership_top1_correct=[False, True, False],
             donor_id=["donor", "donor", None],
         )
     )
     metrics, _ = outcome_metrics(after, base)
     assert metrics["repaired"] == metrics["damaged"] == 1
     assert metrics["accuracy_delta"] == 0
+    assert metrics["membership_top1_accuracy"] == pytest.approx(1 / 3)
+    assert metrics["membership_top1_accuracy_delta"] == pytest.approx(-1 / 3)
     assert metrics["format_repairs"] == 1 and metrics["n"] == 3
     assert metrics["donor_coverage"] == pytest.approx(2 / 3)
     values = paired_bootstrap([[1, 1], [-1, -1], [0, 0]], ["duplicate", "duplicate", "other"], 50)
     assert np.array_equal(values[:, 0], values[:, 1])
     assert np.all(values == 0)  # The duplicate pair is always resampled together.
+
+
+def test_membership_top1_requires_all_paths_and_breaks_ties_in_canonical_order():
+    scores = {label: {"total": -4.0} for label in reversed(EMOTIONS)}
+    assert membership_top1(scores) == EMOTIONS[0]
+    scores["joy"] = {"total": -1.0}
+    assert membership_top1(scores) == "joy"
+    with pytest.raises(ValueError, match="all canonical emotion paths"):
+        membership_top1({"joy": scores["joy"], "anger": scores["anger"]})
 
 
 def test_config_rejects_hidden_protocol_changes(source):
@@ -327,6 +429,7 @@ def test_config_rejects_hidden_protocol_changes(source):
         {"community_budget": 21},
         {"alpha": 1},
         {"selection_per_emotion": 11},
+        {"test_per_outcome": 101},
         {"run_id": "../escape"},
     ):
         with pytest.raises(ValueError):
@@ -381,3 +484,4 @@ def test_interrupted_test_resumes_without_duplicating_conditions(source):
     rows = pd.read_parquet(config.root / "predictions.parquet")
     assert not rows.duplicated(["sample_id", "community_id", "arm"]).any()
     assert len(rows) == 4 * (1 + 4 * len(resumed.store.read_json("shortlist.json")["communities"]))
+    assert rows.membership_top1_prediction.isin(EMOTIONS).all()

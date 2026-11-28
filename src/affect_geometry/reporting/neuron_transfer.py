@@ -1,4 +1,4 @@
-"""Paired strict-accuracy reports; no edited membership inference from two scored paths."""
+"""Paired reports for strict generation and canonical-path membership top-1 accuracy."""
 
 import numpy as np
 import pandas as pd
@@ -40,6 +40,8 @@ def prediction_row(record):
             )
         }
     )
+    values["membership_top1_prediction"] = record["membership_top1_prediction"]
+    values["membership_top1_correct"] = values["membership_top1_prediction"] == gold
     for name, label in (("gold", gold), ("rival", rival)):
         for part in ("total", "label_score", "stop_score"):
             values[f"{name}_{part}"] = record["scores"][label][part]
@@ -63,6 +65,7 @@ def export_predictions(store, ledger):
         "rival",
         "raw_response",
         "predicted_emotion",
+        "membership_top1_prediction",
         "outcome",
         "generation_finish_reason",
     ]
@@ -73,6 +76,7 @@ def export_predictions(store, ledger):
             ("generated_token_ids", pa.list_(pa.int64())),
             ("correct", pa.bool_()),
             ("valid_label", pa.bool_()),
+            ("membership_top1_correct", pa.bool_()),
         ]
         + [
             (f"{n}_{p}", pa.float64())
@@ -152,18 +156,23 @@ def paired_bootstrap(differences, groups, replicates=2000, seed=42):
     return samples
 
 
-def outcome_metrics(frame, baseline, population="full_test"):
+def outcome_metrics(frame, baseline, population="heldout_sample"):
     if frame.sample_id.duplicated().any() or set(frame.sample_id) != set(baseline.sample_id):
         raise ValueError("Incomplete or duplicated paired prediction population")
     frame = frame.set_index("sample_id").loc[baseline.sample_id].reset_index()
     before, after = baseline.correct.to_numpy(bool), frame.correct.to_numpy(bool)
     repair, damage = ~before & after, before & ~after
+    membership_before = float(baseline.membership_top1_correct.mean())
+    membership_after = float(frame.membership_top1_correct.mean())
     return dict(
         population=population,
         n=len(frame),
         accuracy=float(after.mean()),
         baseline_accuracy=float(before.mean()),
         accuracy_delta=float(after.mean() - before.mean()),
+        membership_top1_accuracy=membership_after,
+        baseline_membership_top1_accuracy=membership_before,
+        membership_top1_accuracy_delta=membership_after - membership_before,
         repaired=int(repair.sum()),
         damaged=int(damage.sum()),
         unchanged_correct=int((before & after).sum()),
@@ -272,7 +281,14 @@ def write_report(store, config):
     expected = store.read_json("frozen.json")["payload"]["test_ids"]
     if baseline.sample_id.tolist() != sorted(expected):
         raise ValueError("Report population differs from the frozen test IDs")
+    screening = pd.read_csv(store.root / "heldout_screening.csv")
+    correct = int(baseline.correct.sum())
+    response_mismatches = int((~screening.source_response_matches).sum())
+    token_mismatches = int((~screening.source_tokens_match).sum())
+    correctness_mismatches = int((~screening.selected).sum())
     metrics, per_label, differences, identifiers = [], [], [], []
+    membership_differences = []
+    baseline_membership = baseline.membership_top1_correct.to_numpy(float)
     ordered = {}
     for community in communities:
         cid = community["community_id"]
@@ -282,6 +298,9 @@ def write_report(store, config):
             metrics.append(dict(community_id=cid, arm=arm, **summary))
             ordered[(cid, arm)] = aligned
             differences.append(aligned.correct.to_numpy(float) - baseline.correct.to_numpy(float))
+            membership_differences.append(
+                aligned.membership_top1_correct.to_numpy(float) - baseline_membership
+            )
             identifiers.append((cid, arm))
             for label in EMOTIONS:
                 mask = aligned.emotion.eq(label)
@@ -294,6 +313,14 @@ def write_report(store, config):
                         n=support,
                         correct=int(aligned.loc[mask, "correct"].sum()),
                         recall=float(aligned.loc[mask, "correct"].mean()) if support else None,
+                        membership_top1_correct=int(
+                            aligned.loc[mask, "membership_top1_correct"].sum()
+                        ),
+                        membership_top1_recall=float(
+                            aligned.loc[mask, "membership_top1_correct"].mean()
+                        )
+                        if support
+                        else None,
                         donor_coverage=float(aligned.loc[mask, "donor_id"].notna().mean())
                         if support
                         else None,
@@ -316,17 +343,20 @@ def write_report(store, config):
     for arm in ("random", "unclustered"):
         differences.append(primary_after - ordered[(primary, arm)].correct.to_numpy(float))
     samples = paired_bootstrap(
-        np.column_stack(differences),
+        np.column_stack(differences + membership_differences),
         baseline.duplicate_group,
         config.bootstrap_replicates,
         config.seed,
     )
-    intervals = {}
-    for i, identifier in enumerate(identifiers):
-        intervals[identifier] = np.quantile(samples[:, i], [0.025, 0.975])
+    intervals = np.quantile(samples, [0.025, 0.975], axis=0).T
+    interval_indices = {identifier: i for i, identifier in enumerate(identifiers)}
     for row in metrics:
-        if row["population"] == "full_test":
-            row["ci_low"], row["ci_high"] = intervals[(row["community_id"], row["arm"])]
+        if row["population"] == "heldout_sample":
+            index = interval_indices[(row["community_id"], row["arm"])]
+            row["ci_low"], row["ci_high"] = intervals[index]
+            row["membership_top1_ci_low"], row["membership_top1_ci_high"] = intervals[
+                len(differences) + index
+            ]
     primary_index = identifiers.index((primary, "community"))
     contrast_indices = (primary_index, len(identifiers), len(identifiers) + 1)
     contrasts = []
@@ -353,7 +383,27 @@ def write_report(store, config):
     paths.extend(diagnostic_summaries(store, ordered, baseline))
     usage = data[data.donor_id.notna()].groupby(["community_id", "arm", "donor_id"]).size()
     paths.append(store.csv("donor_usage.csv", usage.rename("n_recipients").reset_index()))
-    plot_path = store.csv("plot_data/accuracy_deltas.csv", metric_frame)
+    plot_rows = metric_frame[
+        metric_frame.population.eq("heldout_sample") & metric_frame.arm.eq("community")
+    ]
+    plot_data = pd.concat(
+        [
+            plot_rows[["community_id", "arm", "population", "n"]].assign(
+                model_id=config.model_id,
+                run_id=config.run_id,
+                metric=label,
+                accuracy_delta=plot_rows[f"{prefix}accuracy_delta"],
+                ci_low=plot_rows[f"{prefix}ci_low"],
+                ci_high=plot_rows[f"{prefix}ci_high"],
+            )
+            for label, prefix in (
+                ("Strict accuracy", ""),
+                ("Membership top-1 accuracy", "membership_top1_"),
+            )
+        ],
+        ignore_index=True,
+    )
+    plot_path = store.csv("plot_data/accuracy_deltas.csv", plot_data)
     paths.append(plot_path)
     import matplotlib
 
@@ -361,21 +411,28 @@ def write_report(store, config):
     import matplotlib.pyplot as plt
 
     plot = pd.read_csv(plot_path)
-    plot = plot[plot.population.eq("full_test") & plot.arm.eq("community")]
-    fig, ax = plt.subplots(figsize=(8, max(3, len(plot) * 0.32)))
-    y = np.arange(len(plot))
-    point = plot.accuracy_delta.to_numpy() * 100
-    errors = np.vstack(
-        (
-            np.maximum(0, point - plot.ci_low.to_numpy() * 100),
-            np.maximum(0, plot.ci_high.to_numpy() * 100 - point),
-        )
+    panels = list(plot.groupby("metric", sort=False))
+    fig, axes = plt.subplots(
+        1,
+        len(panels),
+        figsize=(10, max(3, len(panels[0][1]) * 0.32)),
+        sharex=True,
+        sharey=True,
+        squeeze=False,
     )
-    ax.errorbar(point, y, xerr=errors, fmt="o", capsize=3)
-    ax.set_yticks(y, [v[:10] for v in plot.community_id])
-    ax.axvline(0, color="gray", linewidth=1)
-    ax.set_xlabel("Strict accuracy change (percentage points); descriptive 95% intervals")
-    ax.set_title("Oracle-guided community transfer")
+    for ax, (label, panel) in zip(axes[0], panels, strict=True):
+        y = np.arange(len(panel))
+        point = panel.accuracy_delta.to_numpy() * 100
+        low = panel.ci_low.to_numpy() * 100
+        high = panel.ci_high.to_numpy() * 100
+        ax.errorbar((low + high) / 2, y, xerr=(high - low) / 2, fmt="none", capsize=3, ecolor="C0")
+        ax.plot(point, y, "o", color="C0")
+        ax.set_yticks(y, [v[:10] for v in panel.community_id])
+        ax.set_ylim(-0.5, len(panel) - 0.5)
+        ax.axvline(0, color="gray", linewidth=1)
+        ax.set_title(label)
+    fig.supxlabel("Change from baseline (percentage points), with descriptive 95% intervals")
+    fig.suptitle("Oracle-guided community transfer")
     fig.tight_layout()
     target = store.root / "figures/accuracy_deltas.png"
     target.parent.mkdir(parents=True, exist_ok=True)
@@ -383,25 +440,39 @@ def write_report(store, config):
     plt.close(fig)
     paths.append(target)
     primary_row = metric_frame[
-        (metric_frame.population.eq("full_test"))
+        (metric_frame.population.eq("heldout_sample"))
         & metric_frame.community_id.eq(primary)
         & metric_frame.arm.eq("community")
     ]
     result = primary_row.iloc[0]
     text = (
         "# EXP5: oracle-guided transfer\n\n"
-        f"Scope: {store.manifest['inference_scope']}. Test rows: {len(baseline)}. "
+        f"Scope is {store.manifest['inference_scope']}. Held-out sample size is {len(baseline)}. "
         f"Frozen communities: {len(communities)}. Primary: `{primary}`.\n\n"
-        f"Primary accuracy change: {100 * result.accuracy_delta:.3f} percentage points; "
-        f"repairs: {int(result.repaired)}; damage: {int(result.damaged)}; "
-        f"donor coverage: {100 * result.donor_coverage:.1f}%.\n\n"
-        "The three primary contrasts use Bonferroni-adjusted paired duplicate-group bootstrap "
-        "intervals in primary_contrasts.csv. Other community comparisons are exploratory. "
-        "All test rows, invalid outputs, and donor abstentions remain in the primary "
-        "denominator.\n\n"
-        "Gold-guided donors do not demonstrate autonomous classification improvement. Two edited "
-        "paths measure a fixed contrast, not 28-way membership accuracy. Held-out ablations are "
-        "score effects, not measured label flips or full necessity/sufficiency certification. "
+        f"The sample contains {correct} correct and {len(baseline) - correct} incorrect "
+        "baselines, with EXP2 and unedited EXP5 agreeing on correctness. "
+        f"Among {len(screening)} screened candidates, EXP2 and EXP5 differed on "
+        f"{response_mismatches} decoded responses and {token_mismatches} token sequences. "
+        f"{correctness_mismatches} candidates were skipped due to strict correctness changes. "
+        "Accuracy and repair estimates describe the sampled cohort with agreement.\n\n"
+        f"Primary strict accuracy changed by {100 * result.accuracy_delta:.3f} percentage points "
+        f"with {int(result.repaired)} repairs and {int(result.damaged)} damaged predictions. "
+        f"Donor coverage was {100 * result.donor_coverage:.1f}%.\n\n"
+        f"Secondary membership top-1 accuracy moved from "
+        f"{100 * result.baseline_membership_top1_accuracy:.2f}% to "
+        f"{100 * result.membership_top1_accuracy:.2f}% for the primary community arm "
+        f"({100 * result.membership_top1_accuracy_delta:+.3f} percentage points, "
+        f"descriptive 95% interval [{100 * result.membership_top1_ci_low:.3f}, "
+        f"{100 * result.membership_top1_ci_high:.3f}]). The top-ranked path is selected by "
+        "total log probability across all 28 canonical label-plus-stop continuations. "
+        "Abstentions reuse the unedited prediction. Both metrics include all sampled rows, "
+        "including rows with invalid generated responses.\n\n"
+        "The three primary strict contrasts use Bonferroni-adjusted paired duplicate-group "
+        "bootstrap intervals in primary_contrasts.csv. Membership top-1 intervals are descriptive "
+        "paired duplicate-group bootstrap intervals against the unedited baseline. "
+        "Other community comparisons are exploratory.\n\n"
+        "These results describe transfer with gold-guided donor selection. "
+        "Held-out ablations quantify changes in the fixed gold–rival contrast. "
         "One random group per community and reused donors limit generalization over donor/control "
         "populations. Location specificity additionally requires norm-matched controls.\n\n"
         "See metrics.csv, per_label_metrics.csv, primary_contrasts.csv, donor_usage.csv, "

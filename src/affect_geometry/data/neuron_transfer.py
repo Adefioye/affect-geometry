@@ -1,4 +1,4 @@
-"""Training-only EXP5 cohorts and deterministic text-only donor retrieval."""
+"""EXP5 cohort sampling and deterministic text-only donor retrieval."""
 
 import unicodedata
 
@@ -30,6 +30,21 @@ def capped_by_label(frame, cap, seed, purpose):
     )
 
 
+def order_heldout_candidates(rows, config):
+    heldout = rows[rows.source_split.eq("test")].sort_values("sample_id")
+    strata = []
+    for correct in (True, False):
+        stratum = heldout[heldout.correct.eq(correct)]
+        cap = config.test_per_outcome
+        if len(stratum) < cap and not config.allow_partial_source:
+            raise ValueError(
+                f"Held-out test needs {cap} rows with saved correct={correct}; found {len(stratum)}"
+            )
+        rng = np.random.default_rng(child_seed(config.seed, "test", correct))
+        strata.append(stratum.iloc[rng.permutation(len(stratum))])
+    return pd.concat(strata, ignore_index=True)
+
+
 def build_cohorts(rows, config):
     rows = rows.copy()
     if rows.sample_id.isna().any() or rows.sample_id.duplicated().any():
@@ -49,7 +64,7 @@ def build_cohorts(rows, config):
     bank = bank.sort_values("sample_id").drop_duplicates("duplicate_group")
     discovery = capped_by_label(bank, config.discovery_per_emotion, config.seed, "discovery")
     selection = capped_by_label(discovery, config.selection_per_emotion, config.seed, "selection")
-    test = rows[rows.source_split.eq("test")].sort_values("sample_id").reset_index(drop=True)
+    test = order_heldout_candidates(rows, config)
     audit = rows[["sample_id", "source_split", "emotion", "duplicate_group"]].copy()
     all_counts = rows.groupby("duplicate_group").emotion.nunique()
     audit["conflicting_labels"] = audit.duplicate_group.isin(

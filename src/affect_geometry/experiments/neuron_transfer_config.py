@@ -16,6 +16,7 @@ class NeuronTransferConfig:
     seed: int = 42
     discovery_per_emotion: int = 50
     selection_per_emotion: int = 10
+    test_per_outcome: int = 100
     smoke_size: int = 32
     top_k: int = 5
     minimum_count: int = 5
@@ -48,6 +49,7 @@ class NeuronTransferConfig:
             "seed",
             "discovery_per_emotion",
             "selection_per_emotion",
+            "test_per_outcome",
             "smoke_size",
             "top_k",
             "minimum_count",
@@ -69,6 +71,8 @@ class NeuronTransferConfig:
             raise ValueError("EXP5 budgets are at most 20 communities and 100 candidates")
         if self.discovery_per_emotion > 50 or self.selection_per_emotion > 10:
             raise ValueError("EXP5 caps are 50 discovery and 10 selection examples per label")
+        if self.test_per_outcome > 100:
+            raise ValueError("EXP5 caps the held-out sample at 100 per saved correctness outcome")
         if self.smoke_size > 32 or self.donor_attempts > 5:
             raise ValueError("EXP5 caps are 32 smoke comments and five donor attempts")
         if self.selection_per_emotion > self.discovery_per_emotion:

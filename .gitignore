@@ -14,3 +14,7 @@ docs/
 
 # Environment files
 .env
+
+# Local run logs
+/logs/
+*.log

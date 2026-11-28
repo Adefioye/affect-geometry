@@ -1,6 +1,7 @@
 """Native complete-label likelihoods without constrained or substituted generation."""
 
 from dataclasses import asdict, dataclass
+from math import isfinite
 
 import torch
 
@@ -120,6 +121,15 @@ class EmotionLabelScorer:
 
 def fixed_rival(scores, gold):
     return max((c for c in EMOTIONS if c != gold), key=lambda c: scores[c]["total"])
+
+
+def membership_top1(scores):
+    """Rank all complete label-plus-stop paths, breaking ties in canonical label order."""
+    if set(scores) != set(EMOTIONS) or any(
+        not isfinite(scores[label]["total"]) for label in EMOTIONS
+    ):
+        raise ValueError("Membership top-1 requires finite scores for all canonical emotion paths")
+    return max(EMOTIONS, key=lambda label: scores[label]["total"])
 
 
 def margin(scores, gold, rival):
