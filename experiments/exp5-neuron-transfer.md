@@ -5,11 +5,16 @@ The [scientific specification](../docs/exp5.md) is implemented by
 OLMo-2-1124-7B-Instruct, up to 50 strict-correct training comments per emotion, up to 20
 communities, strength 0.25, and the full single-label GoEmotions test population.
 
+**Run order:** start with `allenai/OLMo-2-1124-7B-Instruct` on the A40.
+**Git branch:** use `circuits` for EXP5 implementation and execution.
+
 ## Environment and inputs
 
-Install in an isolated environment with a suitable PyTorch build for the target GPU:
+From the repository root, switch to `circuits`, then install in an isolated environment
+with a suitable PyTorch build for the target GPU:
 
 ```bash
+git switch circuits
 pip install -e '.[neurons,dev]'
 ```
 
@@ -25,8 +30,10 @@ Edit [configs/neuron_transfer.json](../configs/neuron_transfer.json):
   file is read for source integrity only; it is not used for discovery, selection, or tuning.
 - Use an explicit new `run_id`. Model and dataset revisions are inherited from the saved manifest
   and must be immutable 40-character commit hashes. Match the EXP2 dtype.
-- Set `device` for the execution host and start with `score_batch_size=1`. Increase it only after
-  a training-only memory check, using a new configuration/run identity.
+- Set `device` for the execution host. The default `score_batch_size=32` targets the planned A40
+  run: all 28 baseline label continuations are scored together, while edited diagnostics use two.
+  Attribution and recipient generation each process one comment per pass. Run the smoke stage
+  on the target GPU before scaling; a changed setting requires a new configuration/run identity.
 - Set `test_previously_inspected=true` if the test examples/outcomes informed method choices.
   `allow_partial_source=true` is for development fixtures only and marks results exploratory.
 

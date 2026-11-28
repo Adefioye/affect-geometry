@@ -4,7 +4,7 @@
   "model_id": "allenai/OLMo-2-1124-7B-Instruct",
   "dtype": "bfloat16",
   "device": "auto",
-  "score_batch_size": 1,
+  "score_batch_size": 32,
   "discovery_per_emotion": 50,
   "selection_per_emotion": 10,
   "candidate_budget": 100,

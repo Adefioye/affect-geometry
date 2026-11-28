@@ -32,7 +32,7 @@ class NeuronTransferConfig:
     donor_attempts: int = 5
     duplicate_threshold: float = 0.90
     alpha: float = 0.25
-    score_batch_size: int = 1
+    score_batch_size: int = 32
     label_prefix: str = " "
     stop_token_id: int | None = None
     dtype: str = "bfloat16"
